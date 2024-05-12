@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b20d185db38bc4fb1b7477c15daae8, type: 3}
+  m_Name: Introduction to Programming
+  m_EditorClassIdentifier: 
+  questions:
+  - question: What does IDE stand for in programming?
+    answers:
+    - Integrated Development Environment
+    - Intelligent Design Enhancement
+    - ' Internet Development Extension'
+    - Internal Debugging Engine
+    correctAnswerIndex: 0
+  - question: What is the purpose of a programming language?
+    answers:
+    - To communicate with computers
+    - To write novels
+    - To design buildings
+    - To compose music
+    correctAnswerIndex: 0
+  - question: Which of the following is an example of a high-level programming language?
+    answers:
+    - ' Assembly language'
+    - C++
+    - Machine language
+    - 'Binary code '
+    correctAnswerIndex: 1

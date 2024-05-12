@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b20d185db38bc4fb1b7477c15daae8, type: 3}
+  m_Name: Number System
+  m_EditorClassIdentifier: 
+  questions:
+  - question: What is the binary representation of the decimal number 10?
+    answers:
+    - 1000
+    - 1010
+    - 1100
+    - 1110
+    correctAnswerIndex: 1
+  - question: 'How is the decimal number 27 represented in binary? '
+    answers:
+    - 11010
+    - 11011
+    - 11100
+    - 11101
+    correctAnswerIndex: 3
+  - question: 'What is the binary representation of the decimal number 15? '
+    answers:
+    - 1101
+    - 1110
+    - 1111
+    - 1000
+    correctAnswerIndex: 2
