@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multiplayer/Minigames/Runner.unity
     guid: f04701ab3b7b4df4db688df3b2252a19
+  - enabled: 1
+    path: Assets/Book-Page Curl/Example/scenes/History of Computer.unity
+    guid: d3f5912676a6d8b4fa852d1305cd3814
   m_configObjects: {}

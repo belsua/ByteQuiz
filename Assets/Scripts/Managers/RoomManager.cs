@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-using System.Collections;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    public GameObject startButton;
+    public Button startButton;
     public GameObject prefab;
     public GameObject playerPrefab;
     public Transform parent;
     public TextMeshProUGUI room;
-    public TextMeshProUGUI host;
+    //public TextMeshProUGUI host;
     public TMP_Dropdown topicDropdown;
 
     public float minX;
@@ -26,18 +26,15 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         SpawnPlayers();
 
-        startButton.SetActive(PhotonNetwork.IsMasterClient);
+        if (PhotonNetwork.IsMasterClient) startButton.interactable = true;
+        //startButton.SetActive(PhotonNetwork.IsMasterClient);
 
         UpdateRoomDetails();
         UpdatePlayerList();
 
         selectedTopic = topicDropdown.options[0].text;
 
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            // Disable the dropdown for clients
-            topicDropdown.interactable = false;
-        }
+        if (!PhotonNetwork.IsMasterClient) topicDropdown.interactable = false;
     }
 
     void SpawnPlayers()
@@ -59,7 +56,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void UpdateRoomDetails()
     {
         room.text = $"Room: {PhotonNetwork.CurrentRoom.Name}";
-        host.text = $"Master: {PhotonNetwork.IsMasterClient}";
+        //host.text = $"Master: {PhotonNetwork.IsMasterClient}";
     }
 
     private void UpdatePlayerList()
