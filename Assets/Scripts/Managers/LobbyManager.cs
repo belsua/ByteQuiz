@@ -1,12 +1,21 @@
 using UnityEngine;
 using Photon.Pun;
-using TMPro;
 using Photon.Realtime;
+using TMPro;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
+    public GameObject errorPanel;
+
+    public void ValidateAndCreate()
+    {
+        if (createInput.text.Length < 3) errorPanel.SetActive(true);
+        else CreateRoom();
+    }
+
+    #region Photon
 
     public void CreateRoom()
     {
@@ -29,4 +38,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         Debug.Log($"{returnCode} {message}");
     }
+
+    #endregion
 }

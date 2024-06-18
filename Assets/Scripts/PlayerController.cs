@@ -1,38 +1,32 @@
-using UnityEngine;
 using Photon.Pun;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private float MoveSpeed = 5f;
-    public Joystick Joystick;
+    public float MoveSpeed = 5f;
     private Vector2 Movement;
+    private Joystick Joystick;
     private Rigidbody2D Rigidbody;
     private Animator Animator;
-    public GameObject Camera;
 
-    PhotonView PhotonView;
-
-    private void Awake()
+    public virtual void Awake()
     {
         Joystick = FindObjectOfType<Joystick>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
-        PhotonView = GetComponent<PhotonView>();
-
-        if (PhotonView.IsMine) Camera.SetActive(true);
     }
 
-    private void Update()
+    public virtual void Update()
     {
-        if (PhotonView.IsMine) PlayerInput();
+        PlayerInput();
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
-        if (PhotonView.IsMine) Move();
+        Move();
     }
 
-    private void PlayerInput()
+    public void PlayerInput()
     {
         Movement = new Vector2(Joystick.Horizontal, Joystick.Vertical);
 
@@ -47,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void Move()
     {
         Rigidbody.MovePosition(Rigidbody.position + MoveSpeed * Time.fixedDeltaTime * Movement);
     }

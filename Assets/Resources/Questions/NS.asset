@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b20d185db38bc4fb1b7477c15daae8, type: 3}
+  m_Name: NS
+  m_EditorClassIdentifier: 
+  questions:
+  - question: What is the binary representation of the decimal number 10?
+    answers:
+    - A. 1000
+    - B. 1010
+    - C. 1100
+    - D. 1110
+    correctAnswerIndex: 1
+  - question: 'How is the decimal number 27 represented in binary? '
+    answers:
+    - A. 11010
+    - B. 11011
+    - C. 11100
+    - D. 11101
+    correctAnswerIndex: 3
+  - question: 'What is the binary representation of the decimal number 15? '
+    answers:
+    - A. 1101
+    - B. 1110
+    - C. 1111
+    - D. 1000
+    correctAnswerIndex: 2
+  - question: How is the decimal number 45 represented in binary?
+    answers:
+    - A. 101101
+    - B. 110101
+    - C. 101110
+    - D. 110110
+    correctAnswerIndex: 1
+  - question: What is the binary representation of the decimal number 25?
+    answers:
+    - A. 11001
+    - B. 11010
+    - C. 11011
+    - D. 11100
+    correctAnswerIndex: 1
+  - question: How is the decimal number 63 represented in binary?
+    answers:
+    - A. 111110
+    - B. 111111
+    - C. 1000000
+    - D. 1000001
+    correctAnswerIndex: 1
+  - question: What is the binary representation of the decimal number 128?
+    answers:
+    - A. 10000000
+    - B. 11111111
+    - C. 100000000
+    - D. 10000001
+    correctAnswerIndex: 0
+  - question: How is the decimal number 100 represented in binary?
+    answers:
+    - A. 1100100
+    - B. 1111100
+    - C. 110010
+    - D. 1010100
+    correctAnswerIndex: 2
+  - question: What is the binary representation of the decimal number 50?
+    answers:
+    - A. 110010
+    - B. 111110
+    - C. 101000
+    - D. 100100
+    correctAnswerIndex: 0
+  - question: How is the decimal number 200 represented in binary?
+    answers:
+    - A. 11001000
+    - B. 11111000
+    - C. 1100100
+    - D. 10101000
+    correctAnswerIndex: 0

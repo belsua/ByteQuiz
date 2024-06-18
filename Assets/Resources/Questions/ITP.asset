@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b20d185db38bc4fb1b7477c15daae8, type: 3}
+  m_Name: ITP
+  m_EditorClassIdentifier: 
+  questions:
+  - question: What does IDE stand for in programming?
+    answers:
+    - A. Integrated Development Environment
+    - B. Intelligent Design Enhancement
+    - C. Internet Development Extension
+    - D. Internal Debugging Engine
+    correctAnswerIndex: 0
+  - question: What is the purpose of a programming language?
+    answers:
+    - A. To communicate with computers
+    - B. To write novels
+    - C. To design buildings
+    - D. To compose music
+    correctAnswerIndex: 0
+  - question: Which of the following is an example of a high-level programming language?
+    answers:
+    - A. Assembly language
+    - B. C++
+    - C. Machine language
+    - 'D. Binary code '
+    correctAnswerIndex: 1
+  - question: 'What does the acronym "HTML" stand for? '
+    answers:
+    - 'A. Hyper Text Markup Language '
+    - B. High-level Text Modeling Language
+    - C. Hierarchical Text Management Language
+    - D. Hardware Text Manipulation Language
+    correctAnswerIndex: 0
+  - question: Which of the following is NOT a data type in programming?
+    answers:
+    - A. Integer
+    - B. String
+    - C. Float
+    - D. Loop
+    correctAnswerIndex: 3
+  - question: What does the "if" statement do in programming?
+    answers:
+    - A. Loops through a block of code until a condition is met
+    - B. Defines a function
+    - C. Executes a block of code only if a specified condition is true
+    - D. Prints output to the console
+    correctAnswerIndex: 2
+  - question: Which of the following is NOT a commonly used programming language?
+    answers:
+    - A. Python
+    - B. JavaScript
+    - C. Ruby
+    - D. HyperText Markup Language (HTML)
+    correctAnswerIndex: 3
+  - question: "What is the output of the following code in Python?  \u201CPython\u201D
+      print(3 + 5 * 2) "
+    answers:
+    - A. 16
+    - B. 13
+    - C. 11
+    - D. 10
+    correctAnswerIndex: 1
+  - question: What is the purpose of a loop in programming?
+    answers:
+    - A. To define a block of code
+    - B. To repeat a block of code multiple times
+    - C. To store data temporarily
+    - D. To perform mathematical operations
+    correctAnswerIndex: 1
+  - question: Which of the following is NOT a fundamental programming paradigm?
+    answers:
+    - A. Object-oriented programming
+    - B. Functional programming
+    - C. Procedural programming
+    - D. Structural programming
+    correctAnswerIndex: 3

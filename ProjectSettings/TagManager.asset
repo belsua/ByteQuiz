@@ -5,14 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - ReturnBox
+  - ReturnBoxTxt
+  - Backdrop
+  - Audio
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Finish
   - 
   - 
   - 
@@ -45,12 +48,12 @@ TagManager:
   - name: Walls
     uniqueID: 1451167911
     locked: 0
-  - name: Interactable
-    uniqueID: 357312921
-    locked: 0
   - name: Environment
     uniqueID: 1351260479
     locked: 0
-  - name: Character
+  - name: Interactable
+    uniqueID: 357312921
+    locked: 0
+  - name: Front
     uniqueID: 3274139867
     locked: 0

@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbd8376f311b1a4194a49667db8b55c, type: 3}
+  m_Name: NS
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: 'What is the binary representation of the decimal number 10? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1000 '
+    - B. 1010
+    - C. 1100
+    - 'D. 1110 '
+    correctAnswerIndex: 1
+  - questionText: 'How is the decimal number 27 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 11010  '
+    - 'B. 11011 '
+    - 'C. 11100 '
+    - 'D. 11101 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the binary representation of the decimal number 15? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1101 '
+    - B. 1110
+    - C. 1111
+    - 'D. 1000 '
+    correctAnswerIndex: 2
+  - questionText: 'How is the decimal number 45 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 101101 '
+    - B. 110101
+    - C. 101110
+    - 'D. 110110 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the binary representation of the decimal number 25? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 11001 '
+    - B. 11010
+    - C. 11011
+    - 'D. 11100 '
+    correctAnswerIndex: 1
+  - questionText: 'How is the decimal number 63 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 111110 '
+    - B. 111111
+    - C. 1000000
+    - 'D. 1000001 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the binary representation of the decimal number 128? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 10000000 '
+    - B. 11111111
+    - C. 100000000
+    - 'D. 10000001 '
+    correctAnswerIndex: 0
+  - questionText: 'How is the decimal number 100 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1100100 '
+    - B. 1111100
+    - C. 110010
+    - 'D. 1010100 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the binary representation of the decimal number 50? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 110010 '
+    - B. 111110
+    - C. 101000
+    - 'D. 100100 '
+    correctAnswerIndex: 0
+  - questionText: 'How is the decimal number 200 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 11001000 '
+    - B. 11111000
+    - C. 1100100
+    - 'D. 10101000 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the binary representation of the decimal number 75? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1001011 '
+    - B. 1011011
+    - C. 1101011
+    - 'D. 1111011 '
+    correctAnswerIndex: 2
+  - questionText: 'How is the decimal number 500 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 111110100 '
+    - B. 110000100
+    - C. 100111100
+    - 'D. 11111000 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the binary representation of the decimal number 255? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 11111110 '
+    - B. 11111111
+    - C. 11111000
+    - 'D. 11111110 '
+    correctAnswerIndex: 1
+  - questionText: 'How is the decimal number 1000 represented in binary? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1111101000 '
+    - B. 1101111000
+    - C. 1001110000
+    - 'D. 111110100 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the binary representation of the decimal number 1023? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1111100111 '
+    - B. 1111101000
+    - C. 1111101111
+    - 'D. 1111111111 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the decimal equivalent of the binary number 10101? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 21 '
+    - B. 22
+    - C. 23
+    - 'D. 24 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the binary number 1101? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 12 '
+    - B. 13
+    - C. 14
+    - 'D. 15 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the decimal equivalent of the binary number 111? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 5 '
+    - B. 6
+    - C. 7
+    - 'D. 8 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the decimal equivalent of the binary number 10010? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 16 '
+    - B. 17
+    - C. 18
+    - 'D. 19 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the decimal equivalent of the binary number 101001? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 37 '
+    - B. 38
+    - C. 39
+    - 'D. 40 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the binary number 111111? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 61 '
+    - B. 62
+    - C. 63
+    - 'D. 64 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the decimal equivalent of the binary number 1000001? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 65 '
+    - B. 66
+    - C. 67
+    - 'D. 68 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the binary number 110010? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 49 '
+    - B. 50
+    - C. 51
+    - 'D. 52 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the decimal equivalent of the binary number 111010? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 57 '
+    - B. 58
+    - C. 59
+    - 'D. 60 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the decimal equivalent of the binary number 1111111? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 127 '
+    - B. 128
+    - C. 129
+    - 'D. 130 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the binary number 101010? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 40 '
+    - B. 41
+    - C. 42
+    - 'D. 43 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the decimal equivalent of the binary number 110111? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 55 '
+    - B. 56
+    - C. 57
+    - 'D. 58 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the decimal equivalent of the binary number 100100? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 36 '
+    - B. 37
+    - C. 38
+    - 'D. 39 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the decimal equivalent of the binary number 1110100? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 116 '
+    - B. 117
+    - C. 118
+    - 'D. 119 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the decimal equivalent of the binary number 1111111? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 125 '
+    - B. 126
+    - C. 127
+    - 'D. 128 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the octal representation of the decimal number 10? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 10 '
+    - B. 12
+    - C. 20
+    - 'D. 30 '
+    correctAnswerIndex: 0
+  - questionText: 'How is the decimal number 27 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 17 '
+    - B. 20
+    - C. 33
+    - 'D. 37 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the octal representation of the decimal number 15? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 15 '
+    - B. 17
+    - C. 20
+    - 'D. 23 '
+    correctAnswerIndex: 3
+  - questionText: 'How is the decimal number 45 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 55 '
+    - B. 53
+    - C. 43
+    - D. 45
+    correctAnswerIndex: 0
+  - questionText: 'What is the octal representation of the decimal number 25? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 31 '
+    - B. 33
+    - C. 35
+    - 'D. 27 '
+    correctAnswerIndex: 2
+  - questionText: 'How is the decimal number 63 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 63 '
+    - B. 67
+    - C. 77
+    - 'D. 73 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the octal representation of the decimal number 128? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 200 '
+    - B. 300
+    - C. 400
+    - 'D. 500 '
+    correctAnswerIndex: 0
+  - questionText: 'How is the decimal number 100 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 140 '
+    - B. 150
+    - C. 110
+    - 'D. 120 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the octal representation of the decimal number 50? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 60 '
+    - B. 70
+    - C. 40
+    - 'D. 50 '
+    correctAnswerIndex: 2
+  - questionText: 'How is the decimal number 200 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 300 '
+    - B. 400
+    - C. 500
+    - 'D. 600 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the octal representation of the decimal number 75? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 113 '
+    - B. 116
+    - C. 117
+    - 'D. 123 '
+    correctAnswerIndex: 2
+  - questionText: 'How is the decimal number 500 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 660 '
+    - B. 764
+    - C. 750
+    - 'D. 1000 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the octal representation of the decimal number 255? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 377 '
+    - B. 367
+    - C. 357
+    - 'D. 347 '
+    correctAnswerIndex: 0
+  - questionText: 'How is the decimal number 1000 represented in octal? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1450 '
+    - B. 1460
+    - C. 1750
+    - 'D. 200 '
+    correctAnswerIndex: 2
+  - questionText: 'What is the octal representation of the decimal number 1023? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1777 '
+    - B. 1757
+    - C. 1767
+    - 'D. 1770 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the octal number 10? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 8 '
+    - B. 9
+    - C. 10
+    - 'D. 11 '
+    correctAnswerIndex: 0
+  - questionText: 'What is the decimal equivalent of the octal number 27? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 17 '
+    - B. 18
+    - C. 19
+    - 'D. 23 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the decimal equivalent of the octal number 37? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 28 '
+    - B. 29
+    - C. 30
+    - 'D. 31 '
+    correctAnswerIndex: 3
+  - questionText: 'What is the decimal equivalent of the octal number 53? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 42 '
+    - B. 43
+    - C. 44
+    - 'D. 45 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the decimal equivalent of the octal number 31? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 24 '
+    - B. 25
+    - C. 26
+    - 'D. 27 '
+    correctAnswerIndex: 1

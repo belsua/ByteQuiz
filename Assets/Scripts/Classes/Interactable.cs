@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Interactable : Collidable
+public class Interactable : MonoBehaviour
 {
-    QuizManager quizManager;
+    Runner runner;
     Button interactButton;
 
     protected virtual void Start()
     {
-        quizManager = FindAnyObjectByType<QuizManager>();
+        runner = FindAnyObjectByType<Runner>();
         interactButton = GameObject.Find("InteractButton").GetComponent<Button>();
-
-        interactButton.onClick.AddListener(() => quizManager.ToggleQuiz(true));
+        interactButton.onClick.AddListener(() => runner.ToggleQuiz(true));
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -20,7 +19,7 @@ public class Interactable : Collidable
             interactButton.interactable = true;
 
         // Save the collided object in the variable
-        quizManager.currentObject = gameObject;
+        runner.currentObject = gameObject;
         Debug.Log($"Collided with: {gameObject.name}");
     }
 

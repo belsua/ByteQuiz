@@ -1,0 +1,364 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbd8376f311b1a4194a49667db8b55c, type: 3}
+  m_Name: HOC
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: What is the first counting device?
+    questionImage: {fileID: 0}
+    answers:
+    - "A. Napier\u2019s Bones "
+    - B. Vacuum Tube
+    - 'C. Pascaline '
+    - 'D. Abacus '
+    correctAnswerIndex: 3
+  - questionText: 'A manually operated calculating device created by John Napier. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Pascaline '
+    - 'B. Abacus '
+    - "C. Napier\u2019s Bones "
+    - 'D. Difference Engine '
+    correctAnswerIndex: 2
+  - questionText: 'Who invented Pascaline? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Charles Babbage '
+    - 'B. Blaise Pascal '
+    - 'C. Ada Lovelace '
+    - 'D. Alan Turing '
+    correctAnswerIndex: 1
+  - questionText: 'Who is considered as the father of computer? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Alan Turing
+    - 'B. Blaise Pascal '
+    - 'C. George Boole '
+    - 'D. Charles Babbage '
+    correctAnswerIndex: 3
+  - questionText: "Known as the world\u2019s first computer programmer.  "
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ada Lovelace '
+    - 'B. John Napier '
+    - 'C. Alan Turing '
+    - 'D. Charles Babbage '
+    correctAnswerIndex: 0
+  - questionText: 'Who is credited with developing Boolean logic, which later became
+      foundational in the design of computer circuitry? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. George Boole '
+    - 'B. John Napier '
+    - 'C. Blaise Pascal '
+    - 'D. Charles Babbage '
+    correctAnswerIndex: 0
+  - questionText: 'What invention did Dr. Herman Hollerith introduce for processing
+      data, notably used for the 1890 U.S. census? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Vacuum Tube '
+    - 'B. Boolean Logic '
+    - "C. Hollerith\u2019s Tabulator "
+    - 'D. Difference Engine '
+    correctAnswerIndex: 2
+  - questionText: 'Who invented the Vacuum Tube? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ada Lovelace '
+    - 'B. Lee De Forest '
+    - 'C. Charles Babbage '
+    - 'D. Dr. Herman Hollerith '
+    correctAnswerIndex: 1
+  - questionText: 'A British Mathematician developed a hypothetical device that is
+      designed to perform logical operation and could read and write. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Dr. Herman Hollerith '
+    - 'B. Blaise Pascal '
+    - 'C. George Boole '
+    - 'D. Alan Turing '
+    correctAnswerIndex: 3
+  - questionText: 'This computer could handle all four arithmetic operations and
+      had special built-in programs for logarithms and trigonometric functions. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Modern Computers '
+    - 'B. Vacuum Tube '
+    - 'C. Harvard Mark I '
+    - 'D. Turing Machine '
+    correctAnswerIndex: 2
+  - questionText: 'Who developed the giant ENIAC (Electrical Numerical Integrator
+      and Calculator) machine, which utilized 18,000 vacuum tubes, punch-card input,
+      and occupied a space of thirty-by-fifty feet? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. John W. Muchly and J. Presper Eckert, Jr. '
+    - 'B. Blaise Pascal and John Napier '
+    - 'C. Dr. Herman Hollerith and George Boole '
+    - 'D. Lee De Forest and Charles Babbage '
+    correctAnswerIndex: 0
+  - questionText: 'In what year did Alan Turing publish his paper "On Computable
+      Numbers"? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1935 '
+    - 'B. 1936 '
+    - 'C. 1937 '
+    - 'D. 1938 '
+    correctAnswerIndex: 1
+  - questionText: 'Who proposed the principle of the modern computer in his seminal
+      1936 paper "On Computable Numbers"? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Charles Babbage '
+    - 'B. George Boole '
+    - C. Ada Lovelace
+    - 'D. Alan Turing '
+    correctAnswerIndex: 3
+  - questionText: 'How many vacuum tubes did the ENIAC primarily use for its operations? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 18,000 '
+    - 'B. 17,000 '
+    - 'C. 16,000 '
+    - 'D. 15,000 '
+    correctAnswerIndex: 0
+  - questionText: 'IBM stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. International Bridges Machines
+    - 'B. International Business Mainframes '
+    - 'C. International Business Machines '
+    - 'D. International Businesses Machines '
+    correctAnswerIndex: 2
+  - questionText: 'ENIAC stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Electrical Numerical Integration and Calculator '
+    - 'B. Electrical Numerical Integrator and Calculator '
+    - 'C. Electronic Numerical Integration and Calculator '
+    - 'D. Electronic Numeric Integrator and Calculator '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ace9ea1d8cbf4cb42b96827b2d8bf5a9, type: 3}
+    answers:
+    - 'A. Pascaline '
+    - "B. Napier\u2019s Bones "
+    - "C. Hollerith\u2019s Tabulator "
+    - 'D. Abacus '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: f5f3779c84f1fa84894164a101bbf4bd, type: 3}
+    answers:
+    - "A, Napier\u2019s Bones "
+    - 'B. Difference Engine '
+    - 'C. Vacuum Tube '
+    - 'D. Turing Machine '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: d92cc8b84bff2c249b0bd723d1b1239b, type: 3}
+    answers:
+    - "A. Hollerith\u2019s Tabulator "
+    - 'B. Pascaline '
+    - 'C. Abacus '
+    - 'D. Turing Machine '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 6855c3511b2bf94488a02fba1b22b7bb, type: 3}
+    answers:
+    - 'A. Pascaline '
+    - 'B. Abacus '
+    - 'C. Difference Engine '
+    - "D. Hollerith\u2019s Tabulator "
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 27152772b904299489ad939f3f51cd87, type: 3}
+    answers:
+    - 'A. Sophie Germain '
+    - 'B. Hypatia '
+    - 'C. Katherine Johnson '
+    - 'D. Ada Lovelace '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: d7b324d12da1d514693f6300fba8a834, type: 3}
+    answers:
+    - 'A. Charles Babbage '
+    - 'B. George Boole '
+    - 'C. Dr. Herman Hollerith '
+    - 'D. Lee De Forest '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: a9211a04cfd5c664996f43f893929a1e, type: 3}
+    answers:
+    - "A. Hollerith\u2019s Tabulator "
+    - 'B. Difference Engine '
+    - "C. Napier\u2019s Bones "
+    - 'D. Pascaline '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 68b80849373b87540a634a83b302c3ef, type: 3}
+    answers:
+    - 'A. Microprocessor '
+    - 'B. Integrated Circuit '
+    - 'C. Vacuum Tube '
+    - 'D. Transistor '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: f09555a47ae331340a7a45305ba8f059, type: 3}
+    answers:
+    - 'A. Harvard Mark I '
+    - 'B. Turing Machine '
+    - 'C. Difference Engine '
+    - 'D. Pascaline '
+    correctAnswerIndex: 1
+  - questionText: 'What were the basic components used for memory and circuitry in
+      first-generation computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Microprocessor '
+    - 'B. Transistors '
+    - 'C. Integrated Circuits '
+    - 'D. Vacuum tubes '
+    correctAnswerIndex: 3
+  - questionText: 'What technological advancement replaced vacuum tubes in second-generation
+      computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Bulb '
+    - 'B. Integrated Circuits '
+    - 'C. Transistors '
+    - 'D. Microprocessor '
+    correctAnswerIndex: 2
+  - questionText: 'Who is credited with the invention of the Integrated Circuit (IC)? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Jack Kilby '
+    - 'B. Alan Turing '
+    - 'C. Charles Babbage '
+    - 'D. George Boole '
+    correctAnswerIndex: 0
+  - questionText: 'What major technological advancement replaced transistors in third-generation
+      computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Vacuum Tubes '
+    - 'B. Integrated Circuits '
+    - 'C. Magnetic Tape '
+    - 'D. Microprocessor '
+    correctAnswerIndex: 1
+  - questionText: 'What major technological advancement replaced Integrated Circuits
+      (ICs) in fourth-generation computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ultra Large-Scale Integration (ULSI) technology '
+    - 'B. Transistor '
+    - 'C. Very Large Scale Integrated (VLSI) circuits '
+    - 'D. Vacuum Tubes '
+    correctAnswerIndex: 2
+  - questionText: 'Approximately how many transistors and circuit elements were integrated
+      into a single VLSI chip? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 4000 transistors and other circuit elements '
+    - 'B. 5000 transistors and other circuit elements '
+    - 'C. 6000 transistors and other circuit elements '
+    - 'D. 7000 transistors and other circuit elements '
+    correctAnswerIndex: 1
+  - questionText: 'What major technological advancement succeeded VLSI technology
+      in fifth-generation computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ultra Large-Scale Integration (ULSI) technology '
+    - 'B. Vacuum Tubes '
+    - 'C. Transistor '
+    - 'D. Integrated Circuits '
+    correctAnswerIndex: 0
+  - questionText: 'Approximately how many electronic components were integrated into
+      microprocessor chips using ULSI technology? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 7 million electronic components '
+    - 'B. 8 million electronic components '
+    - 'C. 9 million electronic components '
+    - 'D. 10 million electronic components '
+    correctAnswerIndex: 3
+  - questionText: 'How is AI defined in the context of fifth-generation computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. AI is an emerging branch of mathematics that aims to make computers think
+      like human beings. '
+    - 'B. AI is an emerging branch of computer science that aims to make computers
+      think like human beings. '
+    - 'C. AI is an emerging branch of physics that aims to make computers think like
+      human beings. '
+    - 'D. AI is an emerging branch of tree that aims to make computers think like
+      human beings. '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 2a4037ef3fcb3a4479a271e0a0ff7883, type: 3}
+    answers:
+    - 'A. Microprocessor '
+    - 'B. Integrated Circuit '
+    - 'C. Transistor '
+    - 'D. Vacuum Tube '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 15896c28dabc50c409e1e6e83e017b82, type: 3}
+    answers:
+    - 'A. Integrated Circuit '
+    - 'B. Vacuum Tube '
+    - 'C. Transistor '
+    - 'D. Microprocessor '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b770da30e9b4e604ab59f25edc1199fc, type: 3}
+    answers:
+    - 'A. Transistor '
+    - 'B. Integrated Circuit '
+    - 'C. Vacuum Tube '
+    - 'D. Microprocessor '
+    correctAnswerIndex: 3
+  - questionText: 'In what generation were all the high-level languages like C, C++,
+      and Java used? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Second Generation '
+    - 'B. Third Generation '
+    - 'C. Fourth Generation '
+    - 'D. Fifth Generation '
+    correctAnswerIndex: 3
+  - questionText: 'CPU stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Computer Process Unit '
+    - 'B. Central Process Unit '
+    - 'C. Central Processing Unit '
+    - 'D. Control Processing Unit '
+    correctAnswerIndex: 2
+  - questionText: 'In what generation was machine code used as the programming language? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. First Generation '
+    - 'B. Second Generation '
+    - 'C. Third Generation '
+    - 'D. Fourth Generation '
+    correctAnswerIndex: 0
+  - questionText: 'In this generation, assembly language and high-level programming
+      languages like FORTRAN and COBOL were used.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. First Generation '
+    - 'B. Second Generation '
+    - 'C. Third Generation '
+    - 'D. Fourth Generation '
+    correctAnswerIndex: 1

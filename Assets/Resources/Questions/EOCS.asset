@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b20d185db38bc4fb1b7477c15daae8, type: 3}
+  m_Name: EOCS
+  m_EditorClassIdentifier: 
+  questions:
+  - question: Any part of a computer that has a physical structure such as keyboard
+      or mouse, also includes all the computer's internal parts.
+    answers:
+    - A. Hardware
+    - B. Software
+    - C. Peopleware
+    - D. Procedures
+    correctAnswerIndex: 0
+  - question: Which of the following is not a hardware component?
+    answers:
+    - A. Input
+    - B. Output
+    - C. Storage
+    - D. System
+    correctAnswerIndex: 3
+  - question: 'This component helps user to enter data and commands into a computer
+      system. '
+    answers:
+    - A. Data
+    - B. Storage
+    - C. Input
+    - D. Output
+    correctAnswerIndex: 2
+  - question: 'After receiving data and commands from users, a computer system now
+      must process it according to the instructions provided. '
+    answers:
+    - A. Output
+    - B. Input
+    - C. Information
+    - D. Storage
+    correctAnswerIndex: 3
+  - question: After processing of data, it is converted into a format which humans
+      can understand.
+    answers:
+    - A. Storage
+    - B. Output
+    - C. Input
+    - D. Communications
+    correctAnswerIndex: 1
+  - question: 'A term for a physical piece of hardware that connects to a primary
+      device, such as a computer, to provide user input. '
+    answers:
+    - A. Input Device
+    - B. Electronic Device
+    - C. Output Device
+    - D. Storage Device
+    correctAnswerIndex: 0
+  - question: 'The most common and very popular input device which helps to input
+      data to the computer. It contains three types of keys - alphanumeric keys,
+      special keys, and function keys. '
+    answers:
+    - A. Mouse
+    - B. Joystick
+    - C. Keyboard
+    - D. Printer
+    correctAnswerIndex: 2
+  - question: 'A small device used to point to and select items on your computer
+      screen. Usually has two buttons: a primary button (usually the left button)
+      and a secondary button.'
+    answers:
+    - A. Track Ball
+    - B. Light Pen
+    - C. Touchpad
+    - D. Mouse
+    correctAnswerIndex: 3
+  - question: A pointing device, which is used to move the cursor position on a monitor
+      screen. It is a stick having a spherical ball at its both lower and upper ends.
+    answers:
+    - A. Touchpad
+    - B. Joystick
+    - C. Keyboard
+    - D. Track Ball
+    correctAnswerIndex: 1
+  - question: 'A pointing device like a pen. It is used to select a displayed menu
+      item or draw pictures on the monitor screen. '
+    answers:
+    - A. Light Pen
+    - B. Track Ball
+    - C. Joystick
+    - D. Touchpad
+    correctAnswerIndex: 0

@@ -1,18 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
-using Photon.Realtime;
 using TMPro;
+using Photon.Pun;
+using System.IO;
+using System.Collections.Generic;
+using System.Collections;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public Button startButton;
-    public GameObject prefab;
-    public GameObject playerPrefab;
-    public Transform parent;
-    public TextMeshProUGUI room;
-    //public TextMeshProUGUI host;
+    public GameObject playerPrefab, countdownPanel, settingsPanel;
+    public TMP_Text roomText, countdownText;
     public TMP_Dropdown topicDropdown;
+
+    public float startTime = 10.0f;
+    private float currentTime;
+    private bool timerStarted = false;
+    string selectedTopic;
+    string[] minigames = { "Runner" };
 
     public float minX;
     public float maxX;
@@ -20,114 +25,109 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public float maxY;
 
     private ExitGames.Client.Photon.Hashtable roomOptions = new();
-    [SerializeField] string selectedTopic;
 
     private void Start()
     {
         SpawnPlayers();
-
-        if (PhotonNetwork.IsMasterClient) startButton.interactable = true;
-        //startButton.SetActive(PhotonNetwork.IsMasterClient);
-
         UpdateRoomDetails();
-        UpdatePlayerList();
 
-        selectedTopic = topicDropdown.options[0].text;
-
-        if (!PhotonNetwork.IsMasterClient) topicDropdown.interactable = false;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            topicDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
+        }
+        else
+        {
+            topicDropdown.interactable = false;
+            startButton.interactable = false;
+        }
     }
+
+    private void Update()
+    {
+        if (timerStarted)
+        {
+            if (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+                countdownText.text = $"Game starts! Choosing a game in {Mathf.Ceil(currentTime)}";
+            }
+            else
+            {
+                timerStarted = false;
+                StartCoroutine(SelectMinigame());
+            }
+        }
+    }
+
+    #region Minigame Initiation Functions
+    
+    IEnumerator SelectMinigame()
+    {
+        int time = 5;
+        string selectedGame = minigames[Random.Range(0, minigames.Length)];
+
+        while (time > 0)
+        {
+            countdownText.text = $"Chosen game is {selectedGame}. Starting in {time}";
+            yield return new WaitForSeconds(1);
+            time--;
+        }
+
+        RequestStartGame(selectedGame);
+    }
+
+    public void RequestStartGame(string selectedGame)
+    {
+        photonView.RPC("StartGame", RpcTarget.All, selectedGame);
+    }
+
+    [PunRPC]
+    public void StartGame(string selectedGame)
+    {
+        SetSelectedTopic();
+        PhotonNetwork.LoadLevel(selectedGame);
+    }
+
+    #endregion
+
+    #region Room Synchronization Functions
 
     void SpawnPlayers()
     {
-        Vector2 position = new Vector2(Random.Range(minX, maxY), Random.Range(maxX, minY));
+        Vector2 position = new(Random.Range(minX, maxX), Random.Range(minY, maxY));
         PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
-    }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        UpdatePlayerList();
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        UpdatePlayerList();
     }
 
     private void UpdateRoomDetails()
     {
-        room.text = $"Room: {PhotonNetwork.CurrentRoom.Name}";
-        //host.text = $"Master: {PhotonNetwork.IsMasterClient}";
-    }
-
-    private void UpdatePlayerList()
-    {
-        if (PhotonNetwork.InRoom)
-        {
-            Player[] players = PhotonNetwork.PlayerList;
-
-            foreach (Transform child in parent)
-                Destroy(child.gameObject);
-
-            foreach (Player player in players)
-            {
-                GameObject item = Instantiate(prefab, parent);
-                TextMeshProUGUI name = item.GetComponentInChildren<TextMeshProUGUI>();
-                name.text = $"Player-{player.NickName}";
-            }
-        }
-    }
-
-    public void OnTopicSelected()
-    {
-        selectedTopic = topicDropdown.options[topicDropdown.value].text;
-        photonView.RPC("SyncSelectedTopic", RpcTarget.All, selectedTopic);
+        roomText.text = PhotonNetwork.CurrentRoom.Name;
+        PhotonNetwork.LocalPlayer.NickName = SaveManager.instance.player.name;
+        if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
     }
 
     [PunRPC]
-    void SyncSelectedTopic(string topic)
+    void RequestDropdownValue()
     {
-        selectedTopic = topic;
-        // Update the dropdown value for all clients
-        int dropdownValue = FindDropdownValue(topic);
-        if (dropdownValue != -1)
-        {
-            topicDropdown.value = dropdownValue;
-        }
+        photonView.RPC("UpdateDropdownValue", RpcTarget.Others, topicDropdown.value);
     }
 
-    int FindDropdownValue(string topic)
+    [PunRPC]
+    void UpdateDropdownValue(int value)
     {
-        // Find the index of the topic in the dropdown options
-        for (int i = 0; i < topicDropdown.options.Count; i++)
-        {
-            if (topicDropdown.options[i].text == topic)
-            {
-                return i;
-            }
-        }
-        return -1;
+        topicDropdown.value = value;
+    }
+
+    void OnDropdownValueChanged(int value)
+    {
+        photonView.RPC("UpdateDropdownValue", RpcTarget.All, value);
     }
 
     public void SetSelectedTopic()
     {
         if (PhotonNetwork.InRoom)
         {
-            // Create a new Hashtable to hold the custom properties
-            // ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
-            // customProperties.Add("SelectedTopic", selectedTopic);
-
-            // Set the custom properties for the current room
-            // PhotonNetwork.CurrentRoom.SetCustomProperties(customProperties);
-
-            //selectedTopic = (string)PhotonNetwork.CurrentRoom.CustomProperties["selectedTopic"];
-            //selectedTopic = topicDropdown.options[topicDropdown.value].text;
-            //Debug.Log($"Created. Topic: {selectedTopic}");
-            //ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
-            //hash.Add("selectedTopic", selectedTopic);
-            //PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
-            roomOptions["selectedTopic"] = selectedTopic;
+            roomOptions["selectedTopic"] = GetTopic();
             PhotonNetwork.LocalPlayer.CustomProperties = roomOptions;
-
         }
         else
         {
@@ -135,15 +135,33 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void RequestStartGame()
+    string GetTopic() => topicDropdown.value switch
     {
-        photonView.RPC("StartGame", RpcTarget.All);
+        0 => "HOC",
+        1 => "EOCS",
+        2 => "NS",
+        3 => "ITP",
+        _ => "HOC",
+    };
+
+    #endregion
+
+    #region Countdown Function
+
+    public void TriggerCountdown()
+    {
+        if (PhotonNetwork.IsMasterClient)
+            photonView.RPC("StartCountdown", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
-    private void StartGame()
+    private void StartCountdown()
     {
-        SetSelectedTopic();
-        PhotonNetwork.LoadLevel("Runner");
+        currentTime = startTime;
+        countdownPanel.SetActive(true);
+        settingsPanel.SetActive(false);
+        timerStarted = true;
     }
+
+    #endregion
 }

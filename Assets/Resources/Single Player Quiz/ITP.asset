@@ -1,0 +1,431 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbd8376f311b1a4194a49667db8b55c, type: 3}
+  m_Name: ITP
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: 'What does IDE stand for in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Integrated Development Environment '
+    - 'B. Intelligent Design Enhancement '
+    - 'C. Internet Development Extension '
+    - 'D. Internal Debugging Engine '
+    correctAnswerIndex: 0
+  - questionText: 'What is the purpose of a programming language? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To communicate with computers '
+    - 'B. To write novels '
+    - 'C. To design buildings '
+    - 'D. To compose music '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is an example of a high-level programming
+      language? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Assembly language '
+    - 'B. C++ '
+    - 'C. Machine language '
+    - 'D. Binary code '
+    correctAnswerIndex: 1
+  - questionText: 'What does the acronym "HTML" stand for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hyper Text Markup Language '
+    - B. High-level Text Modeling Language
+    - 'C. Hierarchical Text Management Language '
+    - 'D. Hardware Text Manipulation Language '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is NOT a data type in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Integer '
+    - 'B. String '
+    - 'C. Float '
+    - 'D. Loop '
+    correctAnswerIndex: 3
+  - questionText: 'What does the "if" statement do in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Loops through a block of code until a condition is met '
+    - 'B. Defines a function '
+    - 'C. Executes a block of code only if a specified condition is true '
+    - 'D. Prints output to the console '
+    correctAnswerIndex: 2
+  - questionText: 'Which of the following is NOT a commonly used programming language? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Python '
+    - 'B. JavaScript '
+    - 'C. Ruby '
+    - 'D. HyperText Markup Language (HTML) '
+    correctAnswerIndex: 3
+  - questionText: "What is the output of the following code in Python?  \u201CPython\u201D
+      print(3 + 5 * 2) "
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 16 '
+    - 'B. 13 '
+    - C. 11
+    - ' D. 10 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of a loop in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To define a block of code '
+    - 'B. To repeat a block of code multiple times '
+    - 'C. To store data temporarily '
+    - D. To perform mathematical operations
+    correctAnswerIndex: 1
+  - questionText: 'Which of the following is NOT a fundamental programming paradigm? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Object-oriented programming '
+    - 'B. Functional programming '
+    - 'C. Procedural programming '
+    - 'D. Structural programming '
+    correctAnswerIndex: 3
+  - questionText: 'What does the term "syntax error" refer to in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. An error in the logical flow of a program '
+    - 'B. An error in the spelling of variable names '
+    - 'C. An error in the structure of code that violates the rules of the programming
+      language '
+    - 'D. An error caused by a malfunctioning hardware component '
+    correctAnswerIndex: 2
+  - questionText: 'Which of the following is NOT a control structure in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Sequence '
+    - 'B. Selection '
+    - 'C. Repetition '
+    - 'D. Enumeration '
+    correctAnswerIndex: 3
+  - questionText: 'What does the acronym "API" stand for in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Application Programming Interface '
+    - B. Advanced Programming Instruction
+    - 'C. Application Process Integration '
+    - 'D. Advanced Protocol Interaction '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is NOT a logical operator in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. AND '
+    - 'B. OR '
+    - 'C. NOT '
+    - 'D. ADD '
+    correctAnswerIndex: 3
+  - questionText: 'Which flowchart symbol represents the start or end of a process? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Rectangle '
+    - 'B. Oval '
+    - 'C. Diamond '
+    - 'D. Parallelogram '
+    correctAnswerIndex: 1
+  - questionText: In a flowchart, what does a diamond-shaped symbol usually indicate?
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Input or output '
+    - 'B. Decision or condition '
+    - 'C. Process or action '
+    - 'D. Start or end of a program '
+    correctAnswerIndex: 1
+  - questionText: 'What flowchart symbol is commonly used to represent input or output
+      operations? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Rectangle '
+    - 'B. Oval '
+    - 'C. Diamond '
+    - 'D. Parallelogram '
+    correctAnswerIndex: 3
+  - questionText: 'Which symbol in a flowchart typically signifies a process or action
+      to be executed? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Rectangle '
+    - 'B. Oval '
+    - 'C. Diamond '
+    - 'D. Parallelogram '
+    correctAnswerIndex: 0
+  - questionText: 'What does the term "algorithm" refer to in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A sequence of instructions that solve a problem '
+    - 'B. A type of bug in the code '
+    - C. The physical structure of a computer
+    - 'D. The output of a program '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: c5272d81fba471d47be167997c9d797e, type: 3}
+    answers:
+    - 'A. Input/Output  Symbol '
+    - 'B. Process Symbol '
+    - 'C. Decision Symbol '
+    - 'D. Predefined Process Symbol '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b724f910b59a5634aae1488172bd9229, type: 3}
+    answers:
+    - 'A. Document Symbol '
+    - 'B. Preparation Symbol '
+    - 'C. Manual Input Symbol '
+    - 'D. Manual Operation Symbol '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ae30111bcbf64994690cf598f16536df, type: 3}
+    answers:
+    - 'A. Flowline Symbol '
+    - 'B. Terminal, Interrupt Symbol '
+    - 'C. Comment, Annotation Symbol '
+    - 'D. Connector Symbol '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 555b5b8dc8f6bbf47863848c74e53b08, type: 3}
+    answers:
+    - 'A. Flowline Symbol '
+    - 'B. Terminal, Interrupt Symbol '
+    - 'C. Comment, Annotation Symbol '
+    - 'D. Connector Symbol '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 89db9cfcdc31b844194b122dac11ae61, type: 3}
+    answers:
+    - 'A. Flowline Symbol '
+    - 'B. Terminal, Interrupt Symbol '
+    - 'C. Comment, Annotation Symbol '
+    - 'D. Connector Symbol '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 87e4757256957234f8679114d3fd1fba, type: 3}
+    answers:
+    - 'A. Flowline Symbol '
+    - 'B. Terminal, Interrupt Symbol '
+    - 'C. Comment, Annotation Symbol '
+    - 'D. Connector Symbol '
+    correctAnswerIndex: 1
+  - questionText: 'What does the term "bug" refer to in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. A small insect found in computers
+    - 'B. An error or flaw in a program that causes it to produce unexpected results '
+    - 'C. A feature enhancement request '
+    - 'D. A piece of hardware used for debugging code '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of a function in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To repeat a block of code '
+    - 'B. To store data temporarily '
+    - 'C. To define a reusable block of code '
+    - 'D. To perform mathematical operations '
+    correctAnswerIndex: 2
+  - questionText: 'What is the purpose of comments in programming? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To make the code run faster '
+    - 'B. To explain the functionality of the code '
+    - 'C. To create visual effects in the user interface '
+    - 'D. To execute a specific block of code '
+    correctAnswerIndex: 1
+  - questionText: 'Which statement in pseudocode typically represents a decision-making
+      process? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. DISPLAY "Hello, World!" '
+    - 'B. IF condition THEN '
+    - 'C. SET variable = 10 '
+    - 'D. REPEAT UNTIL condition '
+    correctAnswerIndex: 1
+  - questionText: 'What does the keyword "FOR" typically indicate in pseudocode? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A loop that repeats until a condition is met '
+    - 'B. A decision-making statement '
+    - 'C. Variable assignment '
+    - 'D. Iterating over a range of values '
+    correctAnswerIndex: 3
+  - questionText: 'In pseudocode, what does the "PRINT" command usually signify? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Pausing the program execution '
+    - B. Assigning a value to a variable
+    - 'C. Displaying output to the user '
+    - 'D. Checking a condition '
+    correctAnswerIndex: 2
+  - questionText: 'What does the pseudocode "WHILE" loop represent? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Repeating a block of code a specified number of times '
+    - 'B. Checking a condition before executing a block of code '
+    - 'C. Assigning a value to a variable '
+    - 'D. Displaying output to the user '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of pseudocode? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To compile and execute a program '
+    - 'B. To represent a program using actual programming language syntax '
+    - 'C. To outline the logic of a program in a language-independent manner '
+    - 'D. To simulate the execution of a program '
+    correctAnswerIndex: 2
+  - questionText: 'What is the primary function of the `main()` function in a C++
+      program? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Integrated Development Environment '
+    - 'B. It declares variables used throughout the program. '
+    - 'C. It performs mathematical calculations. '
+    - 'D. It displays output to the user. '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is a way to declare an integer variable
+      named `age` in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. integer age; '
+    - 'B. int age; '
+    - 'C. variable age; '
+    - 'D. age = int; '
+    correctAnswerIndex: 1
+  - questionText: 'What does the `cout` object do in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. It reads input from the user. '
+    - B. It performs mathematical operations.
+    - 'C. It writes output to the console. '
+    - 'D. It declares constants. '
+    correctAnswerIndex: 2
+  - questionText: 'In C++, what symbol is used for the assignment operator? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. = '
+    - B. ==
+    - C. :=
+    - D. -
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is used to denote a single-line comment
+      in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. // '
+    - /*
+    - C. #
+    - D. '
+    correctAnswerIndex: 0
+  - questionText: 'What is the purpose of the `cin` object in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To perform mathematical calculations. '
+    - 'B. To write output to the console. '
+    - 'C. To read input from the user. '
+    - 'D. To declare variables. '
+    correctAnswerIndex: 2
+  - questionText: 'Which keyword is used to indicate the end of a statement in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. end '
+    - 'B. break '
+    - 'C. continue '
+    - D. ;
+    correctAnswerIndex: 3
+  - questionText: 'What is the output of the following code?  #include <iostream> 
+      int main() {     int x = 5;     std::cout << "The value of x is: " << x <<
+      std::endl;     return 0; } '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. The value of x is: 5'
+    - 'B. The value of x is: 10 '
+    - C. 5
+    - 'D. x = 5 '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is NOT a valid C++ data type? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. float '
+    - 'B. string '
+    - 'C. char '
+    - 'D. boolean '
+    correctAnswerIndex: 1
+  - questionText: 'What does the `endl` manipulator do in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Inserts a new line and flushes the output buffer. '
+    - 'B. Ends the program execution. '
+    - 'C. Clears the console screen. '
+    - 'D. Pauses the program. '
+    correctAnswerIndex: 0
+  - questionText: 'What symbol is used to indicate a preprocessor directive in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. $
+    - B. &
+    - 'C. # '
+    - D. *
+    correctAnswerIndex: 2
+  - questionText: 'Which of the following is a correct way to declare a constant
+      in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. const PI = 3.14; '
+    - 'B. define PI = 3.14; '
+    - 'C. constant PI = 3.14; '
+    - 'D. PI = 3.14; '
+    correctAnswerIndex: 0
+  - questionText: 'What is the purpose of the `#include <iostream>` directive in
+      C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. To include mathematical functions.
+    - 'B. To include input and output operations. '
+    - 'C. To include string manipulation functions. '
+    - 'D. To include conditional statements. '
+    correctAnswerIndex: 1
+  - questionText: 'Which of the following operators is used for exponentiation in
+      C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. ^
+    - B. **
+    - C. #
+    - D. //
+    correctAnswerIndex: 0
+  - questionText: 'What does the modulus operator (%) do in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Returns the remainder of integer division. '
+    - 'B. Performs multiplication. '
+    - 'C. Checks for equality. '
+    - 'D. Calculates the square root. '
+    correctAnswerIndex: 0
+  - questionText: 'What is the output of the following code snippet?  #include <iostream> 
+      int main() {     int x = 10;     int y = 5;     std::cout << "The sum of x
+      and y is: " << (x + y) << std::endl;     return 0; } '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. The sum of x and y is: 10 '
+    - 'B. The sum of x and y is: 15 '
+    - 'C. 15 '
+    - 'D. x + y = 15 '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of the `if` statement in C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To declare variables. '
+    - B. To perform mathematical operations.
+    - 'C. To control the flow of execution based on a condition. '
+    - 'D. To print output to the console. '
+    correctAnswerIndex: 2

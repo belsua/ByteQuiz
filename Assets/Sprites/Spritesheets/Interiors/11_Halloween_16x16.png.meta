@@ -1,0 +1,4936 @@
+fileFormatVersion: 2
+guid: 55872f191418cf346897a52fcf4f4165
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 957
+        width: 48
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6d0a5b9eb350544ae5e58fd4483e34
+      internalID: -1519756306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 954
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daeb9f6fbfa1131409889f2abc4ce32d
+      internalID: -1901840871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 954
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a505bc80c65184d9da39d0229608de
+      internalID: -1901009070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 954
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfac2fe6708c43244a0ff503109ea772
+      internalID: 1700887629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 954
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaffb92df4c8ef47ba8d0fb47f53986
+      internalID: 1317307470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 952
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d34b768e3e3a1b47bce36ac7a46ce90
+      internalID: 1768069001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 948
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339d33b4cb1c91f41b490d37272d2a9e
+      internalID: -828147340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 949
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24aaa69ca38cc554c94b5484228e968f
+      internalID: 147638382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 920
+        width: 64
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1f1d19ace86ac4c89dc8c8b7896f10
+      internalID: -1467892262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 922
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede32f29985619943a05194ab74c4f25
+      internalID: 893283419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 922
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1a91ea6ad92f24892dc8209a770588
+      internalID: -115956482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 922
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63364e6f8103c440870f2e57aa9f187
+      internalID: -2101555887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 922
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf59d8c98ea788419e3d942bef0be09
+      internalID: 748629327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 920
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb82ae3e96ed02047837ce32db7043ec
+      internalID: -186680365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_14
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 922
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3923aa939ee086848bbf6912c97a747c
+      internalID: -447483462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_15
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 922
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d874d68d2c6eae04681e9052e8ebd644
+      internalID: 870532443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_16
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 922
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5d64d23d5c13e4bbf878709a0a6bfd
+      internalID: 1177821275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_17
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 922
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1482ca20719d61947a3c452c99c1cbb4
+      internalID: -1841773528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 920
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339b21846f7ae804799f497c2bcbcaed
+      internalID: -748625024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_19
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 892
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f9a4254092f7344be2fb3cbddccae2
+      internalID: -1974362883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_20
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 899
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bcebddd17549f4589d4d3e87d7031d
+      internalID: 1115815587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_21
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 896
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35513d078b31b8e45a052f7f4ce2c217
+      internalID: -1533804694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_24
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 880
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64be3550a9fa1164a8718df4c68de72b
+      internalID: 380844122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_25
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 870
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a80dde78c4c72449d952f598bbde48
+      internalID: 1877646080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_26
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 870
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8057e43d4ceae064da1d493712f938a6
+      internalID: -1417939588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_27
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 853
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141d807729b68184ab33b49813b815d7
+      internalID: 540048484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_28
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 848
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6349b3f06724d47ac5cd06597c9ed5
+      internalID: 1822918256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_29
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 851
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d165fd72a55fa5488d2ba0d5db2f419
+      internalID: -1353087281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_30
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 859
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f96801358c66642bda1c7c3887a8d7
+      internalID: 2059598877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_31
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 838
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01234087afb3322418c95dfe7cd8f088
+      internalID: 444384000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 852
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f329f0a04a63fd642bf2ae81ea2173a7
+      internalID: 573034347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_33
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 821
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bbb030c06f02e478c9ab41d692b0c0
+      internalID: -306119777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_34
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 821
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dcfd63037c5e4f42a8848f73c6d8761
+      internalID: -958630484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 785
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccae05433d1224459a0613471bc5c58
+      internalID: 1502975891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_36
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 821
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24080794283fcc47a1c5e1f4bcee1b5
+      internalID: 1156832952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_37
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 821
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71399067f57880a4ab7ee0a47bd90187
+      internalID: 220447217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_38
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 788
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2936ba2e6b52f247a2794643e70f9ec
+      internalID: 1832546383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_39
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 784
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbcb5cb12db83e746a869839f8ab8b3e
+      internalID: -1674639505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_40
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 784
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8618b72059bf150409d48f8531a67e62
+      internalID: -2132489338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_41
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 783
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17a5ad4c993888418f8bf353d3e9379
+      internalID: 1285858045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_42
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 783
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625803a221df06b429a789053eb451c4
+      internalID: -341857243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_43
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 771
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae115c23fd045ba4ba7b1959d952f9b6
+      internalID: -1396824553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_44
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 770
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4827c9960a05d4bbe1c3c4b6ae01cc
+      internalID: -78427955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_45
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 769
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd738ea1edcf9c74aa12bee3c04dd85c
+      internalID: 358195564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_46
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 776
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba65aa509265dc94ab87860f119c693e
+      internalID: -1676465803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_47
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 776
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82891e8eeada55346b24256c2121806f
+      internalID: 1446140650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_48
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 730
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775471337057bf849873e7d9a448137f
+      internalID: 1483572571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 730
+        width: 16
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc386f577f838a4180e87d2a251e894
+      internalID: -1153279363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_50
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 746
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f445c7a684fde324787407bc3969cb5e
+      internalID: 1436178747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_51
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 746
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af2de7584a5221d478fb9bd38a796dd5
+      internalID: 83331565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_52
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 742
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fb189ad3530ba428e76086cbad2466
+      internalID: -339180704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_53
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 758
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104d9dc6bbc409f43b2c88afec40d98b
+      internalID: 1405981415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_54
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 758
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef877c3ded9bb0744ae52bcb07a09622
+      internalID: -1269409220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_55
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 758
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1008a66796c246f409b2a871bb34d4a5
+      internalID: 1627541647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_56
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 758
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b3f4e5d999fdc4f8cbaa27c784764e
+      internalID: 439801857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_57
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 724
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aec2443a4bb1a948815404905c1bc5e
+      internalID: 256109030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_58
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 709
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe65cdeab75fb341b2bb10a751d4775
+      internalID: 1705188114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_59
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 709
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a5ccfd86267274e9f551be905812f3
+      internalID: 1379029895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_60
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 710
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325aa8e35d0036f43bc458c06bff7850
+      internalID: -642293197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_61
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 726
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446ef6a5c966b5a4d8fbe0f9b2925330
+      internalID: -414555350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_62
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 726
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20be208a1c09f5c4cb29cf5b6072d77b
+      internalID: -826888639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_63
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 726
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d93684c362dd2ec4d9f6d38d0837c224
+      internalID: -288858122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_64
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 726
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c63628ae546f2540a38098ec89823d3
+      internalID: 1916885834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_65
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 698
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14db265b722fc134fa0557a102bec94c
+      internalID: 486914889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_66
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 698
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67078e4915f71e64bb0f18e252d9de38
+      internalID: 43892701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_67
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 699
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cae13eddbd9634d9557a1f72b1e8e2
+      internalID: -145140907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_68
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 709
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdfa6fb88e34dc439378d7dec974daa
+      internalID: 425431311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_69
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 697
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f28b3c82aa6937f4998df459a108339c
+      internalID: -43805274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_70
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 705
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d22d598e6ca674fa2e058fa4ab79d6
+      internalID: 1460708641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_71
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 667
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdcaf1dfaa009794288c83e4b95fa568
+      internalID: 2043018311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_72
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 688
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac63d179ccec63b45a105fe9578b0223
+      internalID: -976381054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_73
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 697
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3d893ca691c4844488694846e64a511
+      internalID: 1807194363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_74
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 661
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55663f0fafe864b409eceea2653646e1
+      internalID: -241335323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_75
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 677
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6933b1c44c686241bd58ff5d6788d0a
+      internalID: -1693119083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_76
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 667
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70571cb0ad42686478a0d856d8e72ecd
+      internalID: 2083629839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_77
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 682
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64b702a68c41004aa44dba24da9a7da
+      internalID: -1464671743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_78
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 682
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bb2df65b0d8b2409f431269d2c080b
+      internalID: -317035755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_79
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 682
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716e2c6529ad00f4ba55bc3e71fd58f8
+      internalID: -727771551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_80
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 666
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163d50f640bc01b42aada182ba3f8b1d
+      internalID: 1691887904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_81
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 666
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affa3269915f5cd4494699496c81061f
+      internalID: 551529785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_82
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 667
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc3709371920514db61106527034327
+      internalID: 756325670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_83
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 666
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c03fca6dac5be04aba81bbe381d23cd
+      internalID: -1980887527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_84
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 629
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb11222dfac1f34f8a1923987681874
+      internalID: 296507013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_85
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 629
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbda0f57e60cec469ca366f24fa1c24
+      internalID: -683405420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_86
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 629
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85860fc1d6d5e2448a72c877ece488f5
+      internalID: 137765035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_87
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 629
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829043f1b7cd60f47811bf7710994473
+      internalID: -643682415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_88
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 624
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab47a01a3b59b042b0d7bc64acb7c82
+      internalID: 1970594181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_89
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 648
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0a6cc517821af418de5151e1c06c17
+      internalID: -1873923640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_90
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 645
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f7858432d902c4ab8e3afe70b9821b
+      internalID: -2065948649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_91
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 627
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08dfe0707c4237478381bcb5cf82225
+      internalID: 889368876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_92
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 635
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21b26f7ede48584bab0fccd6e0ea5ef
+      internalID: 427382877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_93
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 633
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8b90e7b2c1300478a459c9e4a7f5a1
+      internalID: 1876631962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_94
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 628
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fd23654acc6a54ca58a349db7c64b7
+      internalID: 208732551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_95
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 600
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71581de7f9de36a4aaff0b6f79ec95e4
+      internalID: -575682271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_96
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 600
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e40f8a3b188c6a45a85f41551e9c484
+      internalID: -2133084099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_97
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 598
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf954c518dd8754aae883cefa3ba25a
+      internalID: 1491787137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_98
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 598
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b986548038ddddf48a019d81ff39802a
+      internalID: 69036363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_99
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 598
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5de8cdee306d4e41b34070722cac772
+      internalID: 1560675773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_100
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 582
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d8c8f2e2b7aba4f967c2d7179267f3
+      internalID: 529877800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_101
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 584
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f891dd12343f3ac4db09d18f0b76ff14
+      internalID: -210873815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_102
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 600
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaee18dad99cdfc4c9af42550d8ad85f
+      internalID: -575362073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_103
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 569
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327e15f499e9089449d0246b256e4d3b
+      internalID: 715269624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_104
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 568
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0526d288ccd0c694a8c8d1ddbbf0b464
+      internalID: 589018837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_105
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 580
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24638899b8dd55c4dbd15f42dd71748f
+      internalID: -1866806275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_106
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 584
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f015e8f07c594544ea2d24f13277a4c4
+      internalID: 1513398385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_107
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 567
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4480ce2820b3b8499b8954f6eda5be9
+      internalID: -629447720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_108
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 576
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59a9f69cf1fb824abf6d497523ba235
+      internalID: -966787303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_109
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 560
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a374df4308c76f409fb7c40e05be827
+      internalID: 1626871397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_110
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 563
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e73f7c0f7992d4b82a63392c19702a
+      internalID: 1508309953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_111
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 566
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d7ec00c0781404782cf68a4a29b1e6
+      internalID: 78544374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_112
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 556
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631486dd11562bf4ebc0f972389fb1b6
+      internalID: 1654078266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_113
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 556
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57137d8bee298f408c741bb6268edd3
+      internalID: -1205574396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_114
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 551
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc7b8c97c4b85947a4a689c4b2ee89c
+      internalID: -141297260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_115
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 545
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 882a5e90221b35944b843040d0de5aa6
+      internalID: 1285104243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_116
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 545
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461b08c9d9ab2c34d94a7392e927b39d
+      internalID: -1327203498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_117
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 549
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b51a007865bc954c882f5e2d7c03963
+      internalID: 1165533454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_118
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 545
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3503787e9f9abe746928acbd0fe3952f
+      internalID: 420952336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_119
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 516
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40a5163bfbf0e446896ad98e4441f69
+      internalID: 77659314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_120
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 516
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4aa4f16d3d9f446870f9ff51a26557
+      internalID: 1690539191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_121
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 516
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c3896da322a604a8c7e2788188d7e8
+      internalID: 680924598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_122
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 513
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2b5b3028d4a9349b6ebf327cf6e588
+      internalID: 1946227858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_123
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 515
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7111e8d4b10cfaa42a0d20561c494ab1
+      internalID: 1639148523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_124
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 515
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c056034c34e8642b8922e1e56274e9
+      internalID: -2071641396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_125
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 515
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190ffed0fb05c6c4c985417b6e04beb0
+      internalID: -1535237688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_126
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 523
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f64ef08241a55d4388b2c0591b8c4e1
+      internalID: -260017190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_127
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 523
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838fb6a8d12e9eb4fb2007347e8a93c3
+      internalID: 1479003073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_128
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 523
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec522172234829747a45a6057fc9d88a
+      internalID: 1990033600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_129
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 489
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898294c445a23934a9dab90a58e9363d
+      internalID: -1730777173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_130
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 501
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a57eccd9c348645a630608e6695bfc
+      internalID: 460980253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_131
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 489
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a060a958bbd4d44a71d2b5e5ecfcbe
+      internalID: 1298184023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_132
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 489
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17399c29ca884a47af7610ea8980b7c
+      internalID: 1816740155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_133
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 501
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541c54c43570a0c4d9da2b7282ce8016
+      internalID: -2003975453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_134
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 489
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4422eaf2b0b7abb4c82f91d05c36b659
+      internalID: -1942464202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_135
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 489
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d72a8f880770c4685ca3eb8581086c
+      internalID: 1102525955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_136
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 501
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9283ddd64a398a645bef6634cafee0a2
+      internalID: -1017834748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_137
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 489
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a4971c102c4264ebb40e1d5cc72d97
+      internalID: -159376720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_138
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 482
+        width: 43
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17fbc4f5aa40ad49a53d6ee95a28e42
+      internalID: 237597283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_139
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 438
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468f5216a23d5b44ebe2cf7f02c7fa6e
+      internalID: -548700776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_140
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 438
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa2a4f39623a7c4484e365959f466cc
+      internalID: 1377043413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_141
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 437
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df00080138abc5e479f51be531481c13
+      internalID: 1237872978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_142
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 464
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e36ff9c6902b704db441213749e48c6
+      internalID: -1799140320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_143
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 455
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7426fa17a32fd54ca93d9d5f7fdfd3b
+      internalID: -172522094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_144
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 450
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d60d8cd9e353b41b005d8998ac71e1
+      internalID: -2141589019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_145
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 449
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fe9d0c408d8414ca5bde39ee0db9c3
+      internalID: 396810232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_146
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f74a8aabade2a49b604570116e0921
+      internalID: 935541007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_147
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 391
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dac159239461d4d8f225ece2a59b42
+      internalID: 544583273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_148
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 391
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9677b88e15c010a4bb89b9fa7ac0c924
+      internalID: 133269732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_149
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 422
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa68d3f576ce93043899d0fcd6275bf7
+      internalID: -274844553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_150
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 422
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b8db5daf3f06b4e9314a14914b1be6
+      internalID: -1982667804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_151
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 422
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ddcfc51e640714b8758e830c525820
+      internalID: 1110665107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_152
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 391
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5f1d1bd8177914b972f9d1f33d57b7
+      internalID: 1459803527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_153
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 391
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ee3c1eae486334bbbb8252d4c7c9c3
+      internalID: -1883876965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_154
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 376
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894f9e64c4ac456479439ad126cd191b
+      internalID: 1771104181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_155
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 376
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0645dcc4774b34480cffb3475f1e55
+      internalID: 1288012791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_156
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 342
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2181e31ee7beb76439a4128f2ac00cfe
+      internalID: -1512332791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_157
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 343
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707b03edd6cf324419fdc9ba06ea246e
+      internalID: -1901063933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_158
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 343
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679c994676eed4b449825002956c53e7
+      internalID: 130634820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_159
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 343
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559040c399c268041a017d033cfc8599
+      internalID: -974054602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_160
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 343
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415099805229b4a48a9380c17160a83f
+      internalID: 366855254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_161
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 364
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b7e988bbc231f46a387da8e0a66a0d
+      internalID: -93609229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_162
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 364
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6f8765349315d44870a0b1319010fd
+      internalID: -1546446655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_163
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 294
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e6dc25d75d3994c85aca060fc1ac2b
+      internalID: -836079679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_164
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 295
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c403d426cebbc441be28c1f887591aa
+      internalID: -1329600773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_165
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 295
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bec0f0b04634444598127c93d07ad1b
+      internalID: 540283614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_166
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 295
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efd6ffc60db38b488a6f6c0f421a84f
+      internalID: 681005710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_167
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 295
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c5050e3c3d5e24d9d2a9d1aa6e704e
+      internalID: 472533897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_168
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 320
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5623e4b4d9f644d40a3bd5877a978348
+      internalID: 759713307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_169
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 320
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7704b287739a0147a207582e178aec8
+      internalID: -1527505690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_170
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 297
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73efa544a7644744fb8d31c51d48c19a
+      internalID: 844150411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_171
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 294
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b15beed7968839419e2cc944e7c04ff
+      internalID: 2142015483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_172
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 294
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6073f38adcafb489d00e99d7fb73b0
+      internalID: 1687336772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_173
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 294
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade88e976151cd1449b5890812e6444c
+      internalID: -58940927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_174
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06513b2708feee94d9694599f116eaaa
+      internalID: -312123194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_175
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 230
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d3afb3690159724a9f48cdfcdc3b246
+      internalID: 366799634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_176
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 230
+        width: 71
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e6daeffd1e88d4295ecef0e152a62d
+      internalID: 210529532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_177
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 236
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d24988235991947882437027607dd7
+      internalID: -1630547742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_178
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 236
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8a194415e08d9419f9ec0074ad1786
+      internalID: 1953247786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_179
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1dc4c6d3133c54d83d401f6952ca4b
+      internalID: -893155540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_180
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 166
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f77331f4b2c2f418e34de39db7c1ab
+      internalID: -1724739577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_181
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 166
+        width: 71
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230d7ebb0580d254194aff4f9ae4146f
+      internalID: -1742804850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_182
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 181
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162ee0f67aee50a4d8330ae821913c77
+      internalID: -1907923951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_183
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 182
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490dd235f92e995408e864e60023956a
+      internalID: -1473079469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_184
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f296b7bbd59f543b2d34cc824d9e79
+      internalID: 1764762119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_185
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 102
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393ddda16e79741439040e0934113bb3
+      internalID: -1811450059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_186
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 102
+        width: 71
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82db308aa84f1db4b9df0dc83678c727
+      internalID: 1961594350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_187
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 147
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821ea3f9688e9ed448b42ea34365274b
+      internalID: 678570558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_188
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 134
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d9a28adf64a394998a2adea360b3c8
+      internalID: -1584280139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_189
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 114
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4715aa2e8e7d89749b1bbe7800c51619
+      internalID: -145868447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_190
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 96
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2dee20311ff91b43962e1e7d72f54c6
+      internalID: -1507763054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_191
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 79
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cbc449bb09a814581f10f413920412
+      internalID: 824252887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_192
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77c3c8f0b0327d49a2e9121b2348320
+      internalID: 1845920906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_193
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 71
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377a6a1d7273dd44c873f0a8e6a2e832
+      internalID: 1028271970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_194
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 72
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98926498943284e49a7511d1718f79b8
+      internalID: 1494704118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_195
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 81
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e288757a151252547a343ce8c1fbb3b8
+      internalID: 1454200912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_196
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 81
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631e5d9279932824ba66962511c47352
+      internalID: 351843895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_197
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 81
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f2331697ba6724990bca8271f8fc1f
+      internalID: -87551014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_198
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 38
+        width: 27
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05e46267a3ff494f89e8d93c6ec71c8
+      internalID: -866210633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_199
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 64
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8be990c2ffae8f4cbc9db8b1d81d7b6
+      internalID: 2132995862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_200
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec18f9498afe3654c9e2640b1ae96654
+      internalID: 306106803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_201
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 48
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e335d2781a5e8e499bd87138aa8502f
+      internalID: -2082276640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_202
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae88b5223a584b46b5c0e178473a09a
+      internalID: 158157070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_203
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6549e0e5c49433499afccf5d07e7e32
+      internalID: 1980108428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_204
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 13
+        width: 13
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bbf056b839055842989cd23a34c7524
+      internalID: -594110315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_205
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350a061e1fa49af4a8a8a868d17284d5
+      internalID: 362929449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_206
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 22
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5021142966f5fd146842f00e0f9c9632
+      internalID: -2004073431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_207
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 13
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2652f8d36f3d914a90bab252ed0fc81
+      internalID: -1453162291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_208
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 896
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752a470171f3c5a4f88da8f2f91443bc
+      internalID: -1431513736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_209
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 880
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98114cc84e24de24fa163e8aa43d36f9
+      internalID: -945824384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_22
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 896
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5ca9da013af984182e7b3a9f477c7d
+      internalID: 896228403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_23
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 880
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5edee67589928e4590fac237a6e9359
+      internalID: 111632994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_210
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 896
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65ffeb8b4eab1341b1867809400671c
+      internalID: -1175393635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_211
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 880
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bdc3d52293a8746ba8948527bf3066
+      internalID: -1631543235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_212
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a860c1fed87202345a452ac1709a4a8b
+      internalID: 238323497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_213
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 768
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086ad0e238bf59645bfc046a3be5c40b
+      internalID: -763552423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_214
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 816
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6728ff368fea8742ab2c42051169fb2
+      internalID: 2006355167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_215
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 784
+        width: 46
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d2a1e9c842c784ea4a5c756acaecad
+      internalID: 1171206311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_216
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 768
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c062bb37e99b74fb1168496a16f9ba
+      internalID: 1991785271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Halloween_16x16_217
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 768
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6219d08e49f7d4d4395a5392e5c3af31
+      internalID: -316987917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      11_Halloween_16x16_0: -1519756306
+      11_Halloween_16x16_1: -1901840871
+      11_Halloween_16x16_10: -115956482
+      11_Halloween_16x16_100: 529877800
+      11_Halloween_16x16_101: -210873815
+      11_Halloween_16x16_102: -575362073
+      11_Halloween_16x16_103: 715269624
+      11_Halloween_16x16_104: 589018837
+      11_Halloween_16x16_105: -1866806275
+      11_Halloween_16x16_106: 1513398385
+      11_Halloween_16x16_107: -629447720
+      11_Halloween_16x16_108: -966787303
+      11_Halloween_16x16_109: 1626871397
+      11_Halloween_16x16_11: -2101555887
+      11_Halloween_16x16_110: 1508309953
+      11_Halloween_16x16_111: 78544374
+      11_Halloween_16x16_112: 1654078266
+      11_Halloween_16x16_113: -1205574396
+      11_Halloween_16x16_114: -141297260
+      11_Halloween_16x16_115: 1285104243
+      11_Halloween_16x16_116: -1327203498
+      11_Halloween_16x16_117: 1165533454
+      11_Halloween_16x16_118: 420952336
+      11_Halloween_16x16_119: 77659314
+      11_Halloween_16x16_12: 748629327
+      11_Halloween_16x16_120: 1690539191
+      11_Halloween_16x16_121: 680924598
+      11_Halloween_16x16_122: 1946227858
+      11_Halloween_16x16_123: 1639148523
+      11_Halloween_16x16_124: -2071641396
+      11_Halloween_16x16_125: -1535237688
+      11_Halloween_16x16_126: -260017190
+      11_Halloween_16x16_127: 1479003073
+      11_Halloween_16x16_128: 1990033600
+      11_Halloween_16x16_129: -1730777173
+      11_Halloween_16x16_13: -186680365
+      11_Halloween_16x16_130: 460980253
+      11_Halloween_16x16_131: 1298184023
+      11_Halloween_16x16_132: 1816740155
+      11_Halloween_16x16_133: -2003975453
+      11_Halloween_16x16_134: -1942464202
+      11_Halloween_16x16_135: 1102525955
+      11_Halloween_16x16_136: -1017834748
+      11_Halloween_16x16_137: -159376720
+      11_Halloween_16x16_138: 237597283
+      11_Halloween_16x16_139: -548700776
+      11_Halloween_16x16_14: -447483462
+      11_Halloween_16x16_140: 1377043413
+      11_Halloween_16x16_141: 1237872978
+      11_Halloween_16x16_142: -1799140320
+      11_Halloween_16x16_143: -172522094
+      11_Halloween_16x16_144: -2141589019
+      11_Halloween_16x16_145: 396810232
+      11_Halloween_16x16_146: 935541007
+      11_Halloween_16x16_147: 544583273
+      11_Halloween_16x16_148: 133269732
+      11_Halloween_16x16_149: -274844553
+      11_Halloween_16x16_15: 870532443
+      11_Halloween_16x16_150: -1982667804
+      11_Halloween_16x16_151: 1110665107
+      11_Halloween_16x16_152: 1459803527
+      11_Halloween_16x16_153: -1883876965
+      11_Halloween_16x16_154: 1771104181
+      11_Halloween_16x16_155: 1288012791
+      11_Halloween_16x16_156: -1512332791
+      11_Halloween_16x16_157: -1901063933
+      11_Halloween_16x16_158: 130634820
+      11_Halloween_16x16_159: -974054602
+      11_Halloween_16x16_16: 1177821275
+      11_Halloween_16x16_160: 366855254
+      11_Halloween_16x16_161: -93609229
+      11_Halloween_16x16_162: -1546446655
+      11_Halloween_16x16_163: -836079679
+      11_Halloween_16x16_164: -1329600773
+      11_Halloween_16x16_165: 540283614
+      11_Halloween_16x16_166: 681005710
+      11_Halloween_16x16_167: 472533897
+      11_Halloween_16x16_168: 759713307
+      11_Halloween_16x16_169: -1527505690
+      11_Halloween_16x16_17: -1841773528
+      11_Halloween_16x16_170: 844150411
+      11_Halloween_16x16_171: 2142015483
+      11_Halloween_16x16_172: 1687336772
+      11_Halloween_16x16_173: -58940927
+      11_Halloween_16x16_174: -312123194
+      11_Halloween_16x16_175: 366799634
+      11_Halloween_16x16_176: 210529532
+      11_Halloween_16x16_177: -1630547742
+      11_Halloween_16x16_178: 1953247786
+      11_Halloween_16x16_179: -893155540
+      11_Halloween_16x16_18: -748625024
+      11_Halloween_16x16_180: -1724739577
+      11_Halloween_16x16_181: -1742804850
+      11_Halloween_16x16_182: -1907923951
+      11_Halloween_16x16_183: -1473079469
+      11_Halloween_16x16_184: 1764762119
+      11_Halloween_16x16_185: -1811450059
+      11_Halloween_16x16_186: 1961594350
+      11_Halloween_16x16_187: 678570558
+      11_Halloween_16x16_188: -1584280139
+      11_Halloween_16x16_189: -145868447
+      11_Halloween_16x16_19: -1974362883
+      11_Halloween_16x16_190: -1507763054
+      11_Halloween_16x16_191: 824252887
+      11_Halloween_16x16_192: 1845920906
+      11_Halloween_16x16_193: 1028271970
+      11_Halloween_16x16_194: 1494704118
+      11_Halloween_16x16_195: 1454200912
+      11_Halloween_16x16_196: 351843895
+      11_Halloween_16x16_197: -87551014
+      11_Halloween_16x16_198: -866210633
+      11_Halloween_16x16_199: 2132995862
+      11_Halloween_16x16_2: -1901009070
+      11_Halloween_16x16_20: 1115815587
+      11_Halloween_16x16_200: 306106803
+      11_Halloween_16x16_201: -2082276640
+      11_Halloween_16x16_202: 158157070
+      11_Halloween_16x16_203: 1980108428
+      11_Halloween_16x16_204: -594110315
+      11_Halloween_16x16_205: 362929449
+      11_Halloween_16x16_206: -2004073431
+      11_Halloween_16x16_207: -1453162291
+      11_Halloween_16x16_208: -1431513736
+      11_Halloween_16x16_209: -945824384
+      11_Halloween_16x16_21: -1533804694
+      11_Halloween_16x16_210: -1175393635
+      11_Halloween_16x16_211: -1631543235
+      11_Halloween_16x16_212: 238323497
+      11_Halloween_16x16_213: -763552423
+      11_Halloween_16x16_214: 2006355167
+      11_Halloween_16x16_215: 1171206311
+      11_Halloween_16x16_216: 1991785271
+      11_Halloween_16x16_217: -316987917
+      11_Halloween_16x16_22: 896228403
+      11_Halloween_16x16_23: 111632994
+      11_Halloween_16x16_24: 380844122
+      11_Halloween_16x16_25: 1877646080
+      11_Halloween_16x16_26: -1417939588
+      11_Halloween_16x16_27: 540048484
+      11_Halloween_16x16_28: 1822918256
+      11_Halloween_16x16_29: -1353087281
+      11_Halloween_16x16_3: 1700887629
+      11_Halloween_16x16_30: 2059598877
+      11_Halloween_16x16_31: 444384000
+      11_Halloween_16x16_32: 573034347
+      11_Halloween_16x16_33: -306119777
+      11_Halloween_16x16_34: -958630484
+      11_Halloween_16x16_35: 1502975891
+      11_Halloween_16x16_36: 1156832952
+      11_Halloween_16x16_37: 220447217
+      11_Halloween_16x16_38: 1832546383
+      11_Halloween_16x16_39: -1674639505
+      11_Halloween_16x16_4: 1317307470
+      11_Halloween_16x16_40: -2132489338
+      11_Halloween_16x16_41: 1285858045
+      11_Halloween_16x16_42: -341857243
+      11_Halloween_16x16_43: -1396824553
+      11_Halloween_16x16_44: -78427955
+      11_Halloween_16x16_45: 358195564
+      11_Halloween_16x16_46: -1676465803
+      11_Halloween_16x16_47: 1446140650
+      11_Halloween_16x16_48: 1483572571
+      11_Halloween_16x16_49: -1153279363
+      11_Halloween_16x16_5: 1768069001
+      11_Halloween_16x16_50: 1436178747
+      11_Halloween_16x16_51: 83331565
+      11_Halloween_16x16_52: -339180704
+      11_Halloween_16x16_53: 1405981415
+      11_Halloween_16x16_54: -1269409220
+      11_Halloween_16x16_55: 1627541647
+      11_Halloween_16x16_56: 439801857
+      11_Halloween_16x16_57: 256109030
+      11_Halloween_16x16_58: 1705188114
+      11_Halloween_16x16_59: 1379029895
+      11_Halloween_16x16_6: -828147340
+      11_Halloween_16x16_60: -642293197
+      11_Halloween_16x16_61: -414555350
+      11_Halloween_16x16_62: -826888639
+      11_Halloween_16x16_63: -288858122
+      11_Halloween_16x16_64: 1916885834
+      11_Halloween_16x16_65: 486914889
+      11_Halloween_16x16_66: 43892701
+      11_Halloween_16x16_67: -145140907
+      11_Halloween_16x16_68: 425431311
+      11_Halloween_16x16_69: -43805274
+      11_Halloween_16x16_7: 147638382
+      11_Halloween_16x16_70: 1460708641
+      11_Halloween_16x16_71: 2043018311
+      11_Halloween_16x16_72: -976381054
+      11_Halloween_16x16_73: 1807194363
+      11_Halloween_16x16_74: -241335323
+      11_Halloween_16x16_75: -1693119083
+      11_Halloween_16x16_76: 2083629839
+      11_Halloween_16x16_77: -1464671743
+      11_Halloween_16x16_78: -317035755
+      11_Halloween_16x16_79: -727771551
+      11_Halloween_16x16_8: -1467892262
+      11_Halloween_16x16_80: 1691887904
+      11_Halloween_16x16_81: 551529785
+      11_Halloween_16x16_82: 756325670
+      11_Halloween_16x16_83: -1980887527
+      11_Halloween_16x16_84: 296507013
+      11_Halloween_16x16_85: -683405420
+      11_Halloween_16x16_86: 137765035
+      11_Halloween_16x16_87: -643682415
+      11_Halloween_16x16_88: 1970594181
+      11_Halloween_16x16_89: -1873923640
+      11_Halloween_16x16_9: 893283419
+      11_Halloween_16x16_90: -2065948649
+      11_Halloween_16x16_91: 889368876
+      11_Halloween_16x16_92: 427382877
+      11_Halloween_16x16_93: 1876631962
+      11_Halloween_16x16_94: 208732551
+      11_Halloween_16x16_95: -575682271
+      11_Halloween_16x16_96: -2133084099
+      11_Halloween_16x16_97: 1491787137
+      11_Halloween_16x16_98: 69036363
+      11_Halloween_16x16_99: 1560675773
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

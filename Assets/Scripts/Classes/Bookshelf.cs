@@ -15,12 +15,16 @@ public class Bookshelf : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+            button.interactable = true;
+
         collided = true;
         pressed = false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        button.interactable = false;
         collided = false;
         CheckActivation();
     }

@@ -1,23 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine;
+using TMPro;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
-    private void Start()
+    public GameObject loadingCanvas, lobbyCanvas;
+    public TMP_Text regionText;
+
+    void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            SwitchPanel();
+            UpdateRegionText();
+        }
     }
 
     public override void OnConnectedToMaster()
     {
+        UpdateRegionText();
         PhotonNetwork.JoinLobby();
+        SwitchPanel();
     }
 
-    public override void OnJoinedLobby()
+    void SwitchPanel()
     {
-        SceneManager.LoadScene("Lobby");
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            loadingCanvas.SetActive(false);
+            lobbyCanvas.SetActive(true);
+        }
+    }
+
+    void UpdateRegionText()
+    {
+        string region = PhotonNetwork.CloudRegion;
+        regionText.text = $"Connected to: {region}";
     }
 }

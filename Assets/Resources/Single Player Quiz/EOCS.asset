@@ -1,0 +1,448 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbd8376f311b1a4194a49667db8b55c, type: 3}
+  m_Name: EOCS
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: 'Any part of a computer that has a physical structure such as keyboard
+      or mouse, also includes all the computer''s internal parts. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Hardware
+    - B. Software
+    - C. Peopleware
+    - D. Procedures
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is not a hardware component? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Input
+    - B. Output
+    - C. Storage
+    - D. System
+    correctAnswerIndex: 3
+  - questionText: 'This component helps user to enter data and commands into a computer
+      system.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Data
+    - B. Storage
+    - C. Input
+    - D. Output
+    correctAnswerIndex: 2
+  - questionText: 'After receiving data and commands from users, a computer system
+      now must process it according to the instructions provided.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Output
+    - B. Input
+    - C. Information
+    - D. Storage
+    correctAnswerIndex: 3
+  - questionText: 'After processing of data, it is converted into a format which
+      humans can understand. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Storage
+    - B. Output
+    - C. Input
+    - D. Communications
+    correctAnswerIndex: 1
+  - questionText: 'A term for a physical piece of hardware that connects to a primary
+      device, such as a computer, to provide user input. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Input Device '
+    - 'B. Electronic Device '
+    - 'C. Output device '
+    - 'D. Storage Device '
+    correctAnswerIndex: 0
+  - questionText: 'The most common and very popular input device which helps to input
+      data to the computer. It contains three types of keys - alphanumeric keys,
+      special keys, and function keys.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Mouse
+    - B. Joystick
+    - C. Keyboard
+    - D. Printer
+    correctAnswerIndex: 2
+  - questionText: 'A small device used to point to and select items on your computer
+      screen. Usually has two buttons: a primary button (usually the left button)
+      and a secondary button. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Track Ball '
+    - 'B. Light Pen '
+    - C. Touchpad
+    - D. Mouse
+    correctAnswerIndex: 3
+  - questionText: 'A pointing device, which is used to move the cursor position on
+      a monitor screen. It is a stick having a spherical ball at its both lower and
+      upper ends. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Touchpad
+    - B. Joystick
+    - C. Keyboard
+    - 'D. Track Ball '
+    correctAnswerIndex: 1
+  - questionText: 'A pointing device like a pen. It is used to select a displayed
+      menu item or draw pictures on the monitor screen. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Light Pen '
+    - 'B. Track Ball '
+    - C. Joystick
+    - D. Touchpad
+    correctAnswerIndex: 0
+  - questionText: 'An input device that is mostly used in a notebook or laptop computer,
+      instead of a mouse. This is a ball which is half inserted and by moving fingers
+      on the ball, the pointer can be moved.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Keyboard
+    - B. Digitizer
+    - 'C. Track Ball '
+    - D. Mouse
+    correctAnswerIndex: 2
+  - questionText: 'Input device, which works more like a photocopy machine. It is
+      used when some information is available on paper, and it is to be transferred
+      to the hard disk of the computer for further manipulation. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Optical Character Reader (OCR) '
+    - B. Scanner
+    - C. Digitizer
+    - D. Keyboard
+    correctAnswerIndex: 1
+  - questionText: 'Converts analog information into digital form, it is also known
+      as Tablet or Graphics Tablet that is used for fine works of drawing and image
+      manipulation applications. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Touch Screen '
+    - B. Magnetic Ink Card Reader (MICR)
+    - 'C. Optical Mark Reader (OMR) '
+    - D. Digitizer
+    correctAnswerIndex: 3
+  - questionText: 'A device used to input sound that is then stored in a digital
+      form. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Microphone
+    - B. Scanner
+    - C. Computer
+    - D. Speaker
+    correctAnswerIndex: 0
+  - questionText: 'An input device on laptops and some keyboards. It allows the user
+      to move a cursor with their finger. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Mouse
+    - B. Joystick
+    - C. Touchpad
+    - 'D. Touch Screen '
+    correctAnswerIndex: 2
+  - questionText: 'A display device that allows the user to interact with a computer
+      by using their finger or stylus. They are a useful alternative to a mouse or
+      keyboard for navigating a GUI '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Digitizer
+    - 'B. Touch Screen '
+    - 'C. Track Ball '
+    - 'D. Light Pen '
+    correctAnswerIndex: 1
+  - questionText: 'GUI stands for?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Graphical User Interaction '
+    - 'B. Graphical Use Interface '
+    - 'C. Graphical Use Interaction '
+    - 'D. Graphical User Interface '
+    correctAnswerIndex: 3
+  - questionText: 'Generally used in banks as there are large number of cheques to
+      be processed every day.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Magnetic Ink Card Reader (MICR)
+    - 'B. Optical Character Reader (OCR)  '
+    - 'C. Optical Mark Reader (OMR) '
+    - 'D. Barcode Reader '
+    correctAnswerIndex: 0
+  - questionText: 'An input device used to read a printed text. It scans the text
+      optically, character by character, converts them into a machine readable code,
+      and stores the text on the system memory.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Scanner
+    - 'B. Optical Mark Reader (OMR) '
+    - 'C. Optical Character Reader (OCR) '
+    - 'D. Magnetic Ink Card Reader (MICR) '
+    correctAnswerIndex: 2
+  - questionText: 'A device used for reading bar coded data (data in the form of
+      light and dark lines) '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Optical Mark Reader (OMR) '
+    - 'B. Barcode Reader '
+    - C. Digitizer
+    - 'D. Optical Character Reader (OCR)  '
+    correctAnswerIndex: 1
+  - questionText: 'It is specially used for checking the answer sheets of examinations
+      having multiple choice questions. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Magnetic Ink Card Reader (MICR) '
+    - 'B. Optical Character Reader (OCR)  '
+    - C. Scanner
+    - 'D. Optical Mark Reader (OMR) '
+    correctAnswerIndex: 3
+  - questionText: 'MICR stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Magnetic Ink Card Reader '
+    - 'B. Magnetic Ink Cord Reader '
+    - 'C. Magnet Ink Card Reader '
+    - 'D. Magnetic Ink Card Read '
+    correctAnswerIndex: 0
+  - questionText: 'OCR stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Optical Characters Reader '
+    - 'B. Optical Characterized Reader '
+    - 'C. Optical Character Reader '
+    - 'D. Optical Characters Read '
+    correctAnswerIndex: 2
+  - questionText: 'OMR stands for '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Optical Marker Reader '
+    - 'B. Optical Mark Reader '
+    - 'C. Optical Marker Read '
+    - 'D. Optical Marking Reader '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 59a820e92a6037242b027430990e78b5, type: 3}
+    answers:
+    - A. Digitizer
+    - B. Mouse
+    - C. Touchpad
+    - D. Keyboard
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b6db22cf90f23c54b8f092dfd0384da5, type: 3}
+    answers:
+    - A. Mouse
+    - 'B. Track Ball '
+    - C. Joystick
+    - 'D. Touch Screen '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: c4bbb6e06c65e3b468a9dd447a6786cd, type: 3}
+    answers:
+    - 'A. Light Pen '
+    - B. Mouse
+    - C. Joystick
+    - 'D. Track Ball '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 7429eb1bbd9d54f4586a4d89f153eb53, type: 3}
+    answers:
+    - A. Digitizer
+    - 'B. Light Pen '
+    - C. Microphone
+    - 'D. Optical Character Reader (OCR) '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: e4b3361efffcded40894b0ce5546d969, type: 3}
+    answers:
+    - 'A. Barcode Reader '
+    - B. Joystick
+    - 'C. Track Ball '
+    - D. Mouse
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: a4f94cd2267bded46af46faccd1dddc9, type: 3}
+    answers:
+    - 'A. Touch Screen '
+    - B. Printer
+    - C. Digitizer
+    - D. Scanner
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 24aec660c889e6f4e9c2bb0b656aa663, type: 3}
+    answers:
+    - A. Digitizer
+    - B. Scanner
+    - 'C. Barcode Reader '
+    - 'D. Touch Screen '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 3061ec900a6aaaa4d991ec2a8715d9a4, type: 3}
+    answers:
+    - 'A. Light Pen '
+    - B. Microphone
+    - C. Stylus
+    - D. Joystick
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 3b71445deaa83784abcc83211e3ad563, type: 3}
+    answers:
+    - 'A. Touch Screen '
+    - B. Mouse
+    - C. Touchpad
+    - D. Keyboard
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 26bc02a38ac1f584eae3877c0fac79c1, type: 3}
+    answers:
+    - A. Touchpad
+    - B. Scanner
+    - C. Digitizer
+    - 'D. Touch Screen '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 52fb642988a756d4b95d6e8a22e3e177, type: 3}
+    answers:
+    - 'A. Magnetic Ink Card Reader (MICR) '
+    - 'B. Optical Mark Reader (OMR) '
+    - 'C. Optical Character Reader (OCR) '
+    - 'D. Barcode Reader '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ba3dd0fbeaa56e340b31ad1fd9ff3999, type: 3}
+    answers:
+    - 'A. Barcode Reader '
+    - 'B. Optical Character Reader (OCR) '
+    - 'C. Optical Mark Reader (OMR) '
+    - 'D. Magnetic Ink Card Reader (MICR) '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: f6d20079d123ea646bd0c07fe0b8467b, type: 3}
+    answers:
+    - A. Magnetic Ink Card Reader (MICR)
+    - 'B. Optical Mark Reader (OMR) '
+    - 'C. Barcode Reader '
+    - 'D. Optical Character Reader (OCR) '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: cfa3f4bb62b35484b841e83bab2f7a10, type: 3}
+    answers:
+    - 'A. Optical Character Reader (OCR) '
+    - B. Scanner
+    - 'C. Magnetic Ink Card Reader (MICR) '
+    - 'D. Optical Mark Reader (OMR) '
+    correctAnswerIndex: 3
+  - questionText: 'A piece of computer hardware that receives data from a computer
+      and then translates that data into another form. That form may be audio, visual,
+      textual, or hard copy such as a printed document. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Input Device '
+    - 'B. Storage Device '
+    - 'C. Output Device '
+    - 'D. System Device '
+    correctAnswerIndex: 2
+  - questionText: 'An output device that displays information in pictorial form. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Monitor
+    - B. Television
+    - C. Computer
+    - D. Projector
+    correctAnswerIndex: 0
+  - questionText: 'Take electronic data sent from a computer and generate a hard
+      copy. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Projector
+    - B. Printer
+    - 'C. Braille Reader '
+    - 'D. Fax Machine '
+    correctAnswerIndex: 1
+  - questionText: 'An output audio from a computer for a single listener.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Microphone
+    - 'B. Computer Speakers '
+    - C. Headphones
+    - D. Monitor
+    correctAnswerIndex: 2
+  - questionText: 'Creates sound using internal amplifiers that vibrate at different
+      frequencies according to data from the computer. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Projector
+    - B. Headphones
+    - C. Monitor
+    - 'D. Computer Speakers '
+    correctAnswerIndex: 3
+  - questionText: "This outputs device \u201Cprojects\u201D computer images or video
+      onto a wall or screen. "
+    questionImage: {fileID: 0}
+    answers:
+    - A. Printer
+    - B. Monitor
+    - C. Projector
+    - 'D. Fax Machine '
+    correctAnswerIndex: 2
+  - questionText: 'A peripheral device that enables a blind person to read text displayed
+      on a computer monitor.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Braille Reader '
+    - 'B. Headphones '
+    - 'C. Computer Speakers '
+    - 'D. Monitor '
+    correctAnswerIndex: 0
+  - questionText: 'Sometimes called tele copying or telefax '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Monitor
+    - 'B. Fax Machine '
+    - 'C. Braille Reader '
+    - D. Printer
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 6560b94d2c025754aa1479016e9689fe, type: 3}
+    answers:
+    - A. Projector
+    - 'B. Braille Reader '
+    - 'C. Fax Machine '
+    - D. Monitor
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 188774c915399a4408a2c100a08df2c6, type: 3}
+    answers:
+    - A. Scanner
+    - 'B. Fax Machine '
+    - C. Printer
+    - 'D. Braille Reader '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 6bccd5d2210fa1e4680f51afc234c945, type: 3}
+    answers:
+    - A. Headphones
+    - 'B. Computer Speakers '
+    - C. Projector
+    - D. Monitor
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 878b38425b251d74b83b376a9ed2e059, type: 3}
+    answers:
+    - 'A. Fax Machine '
+    - B. Printer
+    - C. Headphones
+    - 'D. Computer Speakers '
+    correctAnswerIndex: 3
