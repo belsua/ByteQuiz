@@ -54,6 +54,10 @@ MonoBehaviour:
   - OnPlayerFinish
   - PlayerFinished
   - UpdateScoreList
+  - UpdateUI
+  - UpdateFinishPlayer
+  - RPCStopBackgroundMusic
+  - EndGame
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

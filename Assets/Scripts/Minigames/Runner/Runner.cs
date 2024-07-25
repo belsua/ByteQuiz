@@ -1,20 +1,27 @@
 using Photon.Pun;
 using Photon.Realtime;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class PlayerData {
+    public int score { get; set; }
+    public bool isFinished { get; set; }
+}
+
 public class Runner : Minigame {
     [SerializeField] AudioSource AudioSource;
-    [SerializeField] AudioClip correctClip, wrongClip;
+    [SerializeField] AudioClip correctClip, wrongClip, finishClip, roundClip;
     [SerializeField] TMP_Text questionText, scoreText, standingsText, scoreListText;
     [SerializeField] GameObject[] options;
-    [SerializeField] GameObject quizPanel, controls, standingsPanel;
+    [SerializeField] GameObject quizPanel, controls, standingsPanel, scorePanel;
 
-    Dictionary<string, int> scoreList = new();
-    bool[] isPlayerFinished = new bool[4];
+    string playerName;
+    Dictionary<string, PlayerData> playerData = new();
 
     public GameObject currentObject;
     QuizData quizData;
@@ -30,7 +37,7 @@ public class Runner : Minigame {
         GenerateQuestions();
         isGameActive = true;
         score = 0;
-        InitializeScoreList();
+        InitializePlayerData();
         ChangeUI();
     }
 
@@ -38,8 +45,8 @@ public class Runner : Minigame {
     private void UpdateUI() {
         scoreText.text = $"Score: {score}";
         scoreListText.text = string.Empty;
-        foreach (var entry in scoreList) {
-            scoreListText.text += $"{entry.Key}: {entry.Value}\n";
+        foreach (var entry in playerData) {
+            scoreListText.text += $"{entry.Key}: {entry.Value.score}, {entry.Value.isFinished}\n";
         }
     }
 
@@ -48,12 +55,8 @@ public class Runner : Minigame {
     }
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer) {
-        scoreList.Remove(otherPlayer.NickName);
+        playerData.Remove(otherPlayer.NickName);
         ChangeUI();
-    }
-
-    public override void EndGame() {
-        throw new NotImplementedException();
     }
 
     #region Question Initiation
@@ -103,9 +106,9 @@ public class Runner : Minigame {
 
     internal void AnswerCorrect() {
         AudioManager.PlaySound(correctClip);
-        int oldScore = scoreList[PhotonNetwork.LocalPlayer.NickName];
+        int oldScore = playerData[playerName].score;
         score = Mathf.Clamp(score + 100, 0, 1000);
-        ChangeScoreList(PhotonNetwork.LocalPlayer.NickName, score + oldScore);
+        ChangeScoreList(playerName, score + oldScore);
         ChangeUI();
         RemoveQuestion(currentQuestionIndex);
         Destroy(currentObject);
@@ -115,7 +118,8 @@ public class Runner : Minigame {
 
     internal void AnswerWrong() {
         AudioManager.PlaySound(wrongClip);
-        int oldScore = scoreList[PhotonNetwork.LocalPlayer.NickName];
+        int oldScore = playerData[playerName].score;
+        ChangeScoreList(playerName, score - oldScore);
         score = Mathf.Clamp(score - 20, 0, 1000);
         ChangeUI();
     }
@@ -139,7 +143,12 @@ public class Runner : Minigame {
     [SerializeField] Transform teleportLocation;
 
     private void OnTriggerEnter2D(Collider2D other) {
+        AudioManager.PlaySound(finishClip);
         other.transform.position = teleportLocation.position;
+        playerData[playerName].isFinished = true;
+        ChangeFinishPlayer(playerName);
+        ChangeUI();
+        CheckIfAllPlayersFinished();
     }
 
     public override void OnDisconnected(DisconnectCause cause) {
@@ -147,30 +156,96 @@ public class Runner : Minigame {
         SceneManager.LoadScene("Lobby");
     }
 
+    public void CheckIfAllPlayersFinished() {
+        if (playerData.Values.All(x => x.isFinished)) {
+            StartCoroutine(EndGameCoroutine());
+        }
+    }
+
+    IEnumerator EndGameCoroutine() {
+        yield return new WaitForSeconds(2);
+        RPCEndGame();
+    }
+
+    public void RPCEndGame() {
+        photonView.RPC("EndGame", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public override void EndGame() {
+        standingsText.text = string.Empty;
+        foreach (var entry in playerData) {
+            standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
+        }
+        //StopBackgroundMusic();
+        AudioSource.Stop();
+        quizPanel.SetActive(false);
+        scorePanel.SetActive(false);
+        AudioManager.PlaySound(roundClip);
+        StartCoroutine(DisplayScores(time: 5));
+
+        // TODO: Update players local data
+
+        // TODO: Bring back players to lobby
+    }
+
+    IEnumerator DisplayScores(int time) {
+        standingsPanel.SetActive(true);
+        yield return new WaitForSeconds(time);
+        standingsPanel.SetActive(false);
+        StartCoroutine(LoadLobby(time: 5));
+    }
+
+    IEnumerator LoadLobby(int time) {
+        int timeLeft = time;
+        countdownPanel.SetActive(true);
+        while (timeLeft > 0) {
+            countdownText.text = $"Going to lobby in {timeLeft}...";
+            yield return new WaitForSeconds(1);
+            timeLeft--;
+        }
+            PhotonNetwork.LoadLevel("Room");
+    }
+
+    //public void StopBackgroundMusic() {
+    //    photonView.RPC("RPCStopBackgroundMusic", RpcTarget.All);
+    //}
+
+    //[PunRPC]
+    //public void RPCStopBackgroundMusic() {
+    //    AudioSource.Stop();
+    //}
+
     #endregion
 
     #region Game Variables
 
-    public void InitializeScoreList() {
+    public void InitializePlayerData() {
+        playerName = PhotonNetwork.LocalPlayer.NickName;
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
 
         foreach (Photon.Realtime.Player player in players) {
-            scoreList.Add(player.NickName, 0);
+            playerData.Add(player.NickName, new PlayerData { score = 0, isFinished = false });
         }
     }
 
     [PunRPC]
     public void UpdateScoreList(string player, int score) {
-        scoreList[player] = score;
+        playerData[player].score = score;
     }
 
     public void ChangeScoreList(string player, int score) {
         photonView.RPC("UpdateScoreList", RpcTarget.All, player, score);
     }
 
-    #endregion
+    [PunRPC]
+    public void UpdateFinishPlayer(string player) {
+        playerData[player].isFinished = true;
+    }
 
-    // TODO: Show dialog when all players are reach the finish line
-    // TODO: Then update their player data
-    // TODO: Bring back player to p[layer lobby
+    public void ChangeFinishPlayer(string player) {
+        photonView.RPC("UpdateFinishPlayer", RpcTarget.All, player);
+    }
+
+    #endregion
 }

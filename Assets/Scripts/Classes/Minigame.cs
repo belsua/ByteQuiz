@@ -5,8 +5,8 @@ using TMPro;
 
 public abstract class Minigame : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject playerPrefab, countdownPanel;
-    [SerializeField] TMP_Text countdownText;
+    public GameObject playerPrefab, countdownPanel;
+    public TMP_Text countdownText;
     [SerializeField] float startTime = 10.0f;
     [SerializeField] Vector2 min, max;
 

@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     public TMP_Dropdown topicDropdown;
 
     public float startTime = 10.0f;
+    public float minigameTime = 5f;
     private float currentTime;
     private bool timerStarted = false;
     string selectedTopic;
@@ -75,7 +76,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     #region Minigame Initiation Functions
 
     IEnumerator SelectMinigame() {
-        int time = 5;
+        int time = (int)minigameTime;
         string selectedGame = minigames[Random.Range(0, minigames.Length)];
 
         while (time > 0) {

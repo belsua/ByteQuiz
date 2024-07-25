@@ -5827,7 +5827,8 @@ MonoBehaviour:
   roomText: {fileID: 796711777}
   countdownText: {fileID: 429878980}
   topicDropdown: {fileID: 1491326660}
-  startTime: 10
+  startTime: 1
+  minigameTime: 1
   minX: -5
   maxX: 2
   minY: -11
