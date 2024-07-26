@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
-using UnityEditor;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
@@ -29,16 +28,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
         StartCoroutine(DelaySceneChange(i));
     }
 
-    public void LeaveRoom(int i)
+    public void LeaveRoom()
     {
-        //if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
         PhotonNetwork.LeaveRoom(false);
-        //SceneManager.LoadScene(i);
     }
 
     public override void OnLeftRoom() {
-        // Clean up if we left the room
-        //PhotonNetwork.Destroy(gameObject);
         StopAllCoroutines();
         PhotonNetwork.RemoveCallbackTarget(this);
         PhotonNetwork.LoadLevel(2);

@@ -29,7 +29,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks
 
     public abstract void StartGame();
     public abstract void EndGame();
-    //public abstract void ScorePoints();
 
     #endregion
 
@@ -38,9 +37,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks
     void SpawnPlayers()
     {
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
-        //PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
 
-        // Debug
         if (!PhotonNetwork.IsConnected) Instantiate(playerPrefab, position, Quaternion.identity);
         else PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
     }
@@ -52,10 +49,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks
     void TriggerCountdown()
     {
         photonView.RPC("StartCountdown", RpcTarget.AllBuffered);
-
-        // Debug
-        //if (!PhotonNetwork.IsConnected) StartCountdown();
-        //else photonView.RPC("StartCountdown", RpcTarget.AllBuffered);
     }
 
 

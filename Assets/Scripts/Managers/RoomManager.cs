@@ -14,9 +14,6 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     public float startTime = 10.0f;
     public float minigameTime = 5f;
-    //private float currentTime;
-    //private bool timerStarted;
-    string selectedTopic;
     string[] minigames = { "Runner" };
 
     public float minX;
@@ -32,7 +29,6 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     private ExitGames.Client.Photon.Hashtable roomOptions = new();
 
     private void Start() {
-        //timerStarted = false;
         SpawnPlayers();
         UpdateRoomDetails();
 
@@ -70,10 +66,8 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     [PunRPC]
     private void StartCountdown() {
-        //currentTime = startTime;
         countdownPanel.SetActive(true);
         settingsPanel.SetActive(false);
-        //timerStarted = true;
         StartCoroutine(Countdown());
     }
 
@@ -86,16 +80,6 @@ public class RoomManager : MonoBehaviourPunCallbacks {
         }
 
         StartCoroutine(SelectMinigame());
-        //if (timerStarted) {
-        //    if (currentTime > 0) {
-        //        currentTime -= Time.deltaTime;
-        //        countdownText.text = $"Game starts! Choosing a game in {Mathf.Ceil(currentTime)}";
-        //    }
-        //    else {
-        //        timerStarted = false;
-        //        StartCoroutine(SelectMinigame());
-        //    }
-        //}
     }
 
     #endregion
@@ -122,7 +106,6 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     [PunRPC]
     public void StartGame(string selectedGame) {
         SetSelectedTopic();
-        //PhotonNetwork.Destroy(gameObject);
         PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
         PhotonNetwork.LoadLevel(selectedGame);
     }
@@ -132,8 +115,8 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     #region Room Synchronization Functions
 
     void SpawnPlayers() {
-        //Vector2 position = new(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector2(-2.5f, -13), Quaternion.identity);
+        Vector2 position = new(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
     }
 
     private void UpdateRoomDetails() {
@@ -186,7 +169,6 @@ public class RoomManager : MonoBehaviourPunCallbacks {
         #if UNITY_EDITOR
             debugText.text = $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
             hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}\n";
-            hostText.text += $"In Lobby: {PhotonNetwork.InLobby}\n";
             hostText.text += $"In Room: {PhotonNetwork.InRoom}";
         #endif
     }
