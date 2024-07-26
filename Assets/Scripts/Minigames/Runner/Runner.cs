@@ -204,7 +204,9 @@ public class Runner : Minigame {
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-            PhotonNetwork.LoadLevel("Room");
+        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        //if (PhotonNetwork.IsMasterClient) PhotonNetwork.Destroy(gameObject);
+        PhotonNetwork.LoadLevel("Room");
     }
 
     //public void StopBackgroundMusic() {

@@ -30,4 +30,8 @@ public class PlayerControllerMultiplayer : PlayerController
     {
         if (view.IsMine && !isFrozen) Move();
     }
+
+    public override void OnLeftRoom() {
+        if (view.IsMine) PhotonNetwork.Destroy(gameObject);
+    }
 }

@@ -19,9 +19,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        RoomOptions roomOptions = new();
-        roomOptions.MaxPlayers = 4;
-        PhotonNetwork.CreateRoom(createInput.text, roomOptions);
+        PhotonNetwork.JoinOrCreateRoom(createInput.text, new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
     }
 
     public void JoinRoom()
@@ -29,8 +27,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(joinInput.text);
     }
 
-    public override void OnJoinedRoom()
-    {
+    public override void OnJoinedRoom() {
         PhotonNetwork.LoadLevel("Room");
     }
 
