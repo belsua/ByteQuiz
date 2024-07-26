@@ -22,20 +22,22 @@ public class Runner : Minigame {
 
     string playerName;
     Dictionary<string, PlayerData> playerData = new();
-
     public GameObject currentObject;
     QuizData quizData;
     int currentQuestionIndex;
-
     int score;
-    bool isGameActive = false;
+
+    #if UNITY_EDITOR
+        int returnTime = 1;
+    #else
+        readonly int returnTime = 5;
+    #endif
 
     public override void StartGame() {
         scoreText.transform.parent.gameObject.SetActive(true);
         AudioSource.Play();
         ReceiveSelectedTopic();
         GenerateQuestions();
-        isGameActive = true;
         score = 0;
         InitializePlayerData();
         ChangeUI();
@@ -45,9 +47,16 @@ public class Runner : Minigame {
     private void UpdateUI() {
         scoreText.text = $"Score: {score}";
         scoreListText.text = string.Empty;
-        foreach (var entry in playerData) {
+        var sortedPlayerData = playerData.OrderByDescending(x => x.Value.score);
+        #if DEVELOPMENT_BUILD 
+        foreach (var entry in sortedPlayerData) {
             scoreListText.text += $"{entry.Key}: {entry.Value.score}, {entry.Value.isFinished}\n";
         }
+        #else
+        foreach (var entry in sortedPlayerData) {
+            scoreListText.text += $"{entry.Key}: {entry.Value.score}\n";
+        }
+        #endif
     }
 
     public void ChangeUI() {
@@ -106,9 +115,8 @@ public class Runner : Minigame {
 
     internal void AnswerCorrect() {
         AudioManager.PlaySound(correctClip);
-        int oldScore = playerData[playerName].score;
         score = Mathf.Clamp(score + 100, 0, 1000);
-        ChangeScoreList(playerName, score + oldScore);
+        ChangeScoreList(playerName, score);
         ChangeUI();
         RemoveQuestion(currentQuestionIndex);
         Destroy(currentObject);
@@ -118,9 +126,8 @@ public class Runner : Minigame {
 
     internal void AnswerWrong() {
         AudioManager.PlaySound(wrongClip);
-        int oldScore = playerData[playerName].score;
-        ChangeScoreList(playerName, score - oldScore);
         score = Mathf.Clamp(score - 20, 0, 1000);
+        ChangeScoreList(playerName, score);
         ChangeUI();
     }
 
@@ -177,7 +184,6 @@ public class Runner : Minigame {
         foreach (var entry in playerData) {
             standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
         }
-        //StopBackgroundMusic();
         AudioSource.Stop();
         quizPanel.SetActive(false);
         scorePanel.SetActive(false);
@@ -186,14 +192,13 @@ public class Runner : Minigame {
 
         // TODO: Update players local data
 
-        // TODO: Bring back players to lobby
     }
 
     IEnumerator DisplayScores(int time) {
         standingsPanel.SetActive(true);
         yield return new WaitForSeconds(time);
         standingsPanel.SetActive(false);
-        StartCoroutine(LoadLobby(time: 5));
+        StartCoroutine(LoadLobby(time: returnTime));
     }
 
     IEnumerator LoadLobby(int time) {
@@ -205,18 +210,8 @@ public class Runner : Minigame {
             timeLeft--;
         }
         PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
-        //if (PhotonNetwork.IsMasterClient) PhotonNetwork.Destroy(gameObject);
         PhotonNetwork.LoadLevel("Room");
     }
-
-    //public void StopBackgroundMusic() {
-    //    photonView.RPC("RPCStopBackgroundMusic", RpcTarget.All);
-    //}
-
-    //[PunRPC]
-    //public void RPCStopBackgroundMusic() {
-    //    AudioSource.Stop();
-    //}
 
     #endregion
 
