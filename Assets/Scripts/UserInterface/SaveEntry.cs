@@ -34,4 +34,14 @@ public class SaveEntry : MonoBehaviour
         if (SaveManager.instance.multiplayer) SceneManager.LoadScene(2);
         else fadeManager.FadeToScene("Crib");
     }
+
+    public void OnDeleteButtonClick() 
+    {
+        GameObject deletePanel = SaveManager.deletePanel;
+        SaveManager.selectedEntry = gameObject;
+        SaveManager.selectedPlayer = player;
+        deletePanel.transform.position = new Vector3 (0, 0, 0);
+        deletePanel.SetActive(true);
+        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.name + "?";
+    }
 }

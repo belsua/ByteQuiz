@@ -1,5 +1,6 @@
 public class Player
 {
+    public int slot;
     public string name;
     //public int coins;
     public float computerHistory;
@@ -7,9 +8,10 @@ public class Player
     public float numberSystem;
     public float introProgramming;
 
-    public Player(string name)
+    public Player(string name, int slot)
     {
         this.name = name;
+        this.slot = slot;
         //coins = 0;
     }
 

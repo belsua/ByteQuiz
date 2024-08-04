@@ -6,11 +6,10 @@ using TMPro;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
+    public static GameObject deletePanel, selectedEntry;
+    public static Player selectedPlayer;
     public TMP_InputField inputField;
-    public GameObject errorPanel;
-    public GameObject creationPanel;
-    public GameObject scrollContent;
-    public GameObject saveEntryPrefab;
+    public GameObject errorPanel, creationPanel, scrollContent, saveEntryPrefab;
     public Player player;
     public FadeManager fadeManager;
 
@@ -23,10 +22,14 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null) {
+            instance = this;
+            deletePanel = GameObject.Find("DeletePanel");
+        }
         else Destroy(gameObject);
 
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
+        deletePanel.SetActive(false);
     }
 
     private void Start()
@@ -40,7 +43,7 @@ public class SaveManager : MonoBehaviour
 
     void CreatePlayer(string name, int slot)
     {
-        player = new Player(name);
+        player = new Player(name, slot);
         SavePlayer(slot);
     }
 
@@ -68,6 +71,14 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(filePath, json);
 
         Debug.Log($"Player data saved to {filePath}");
+    }
+
+    public void DeleteSave()
+    {
+        filePath = Path.Combine(saveFolder, $"save-{selectedPlayer.slot}.json");
+        File.Delete(filePath);
+        Debug.Log($"Player {selectedPlayer.name} with slot {selectedPlayer.slot} deleted");
+        Destroy(selectedEntry);
     }
 
     int GetNextAvailableSlot()
