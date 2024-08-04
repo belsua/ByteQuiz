@@ -35273,7 +35273,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d4f0ef3e5e77273419c6bc8d83a31ec1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -35370,8 +35370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1065010399946058582, guid: 0b69fdd5c7f31b143bbf56afbd57a16c, type: 3}
-  countdownPanel: {fileID: 515997404}
-  countdownText: {fileID: 1097852038}
+  messagePanel: {fileID: 515997404}
+  messageText: {fileID: 1097852038}
   startTime: 1
   min: {x: -19, y: 1}
   max: {x: -14, y: 1}
@@ -35380,19 +35380,20 @@ MonoBehaviour:
   wrongClip: {fileID: 8300000, guid: aec2341265ea07842b752a7a9618e518, type: 3}
   finishClip: {fileID: 8300000, guid: 895921dabf5f99c44a46bbc12aa77f6a, type: 3}
   roundClip: {fileID: 8300000, guid: eb99ae37d07715f4984f5946857ab1fa, type: 3}
+  upClip: {fileID: 8300000, guid: ea06b42edf4b42441b02b020fac840c9, type: 3}
   questionText: {fileID: 669643859}
   scoreText: {fileID: 1958457728}
   standingsText: {fileID: 34858446}
   scoreListText: {fileID: 2065429518}
+  quizPanel: {fileID: 1343111164}
+  controls: {fileID: 1702817371}
+  standingsPanel: {fileID: 1609815521}
+  scorePanel: {fileID: 1764665476}
   options:
   - {fileID: 681005066}
   - {fileID: 553422958}
   - {fileID: 740159868}
   - {fileID: 760669121}
-  quizPanel: {fileID: 1343111164}
-  controls: {fileID: 1702817371}
-  standingsPanel: {fileID: 1609815521}
-  scorePanel: {fileID: 1764665476}
   currentObject: {fileID: 0}
   teleportLocation: {fileID: 491056129}
 --- !u!114 &1053010679

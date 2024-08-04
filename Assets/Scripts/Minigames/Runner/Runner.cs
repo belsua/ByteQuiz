@@ -15,12 +15,12 @@ public class PlayerData {
 
 public class Runner : Minigame {
     [SerializeField] AudioSource AudioSource;
-    [SerializeField] AudioClip correctClip, wrongClip, finishClip, roundClip;
+    [SerializeField] AudioClip correctClip, wrongClip, finishClip, roundClip, upClip;
     [SerializeField] TMP_Text questionText, scoreText, standingsText, scoreListText;
-    [SerializeField] GameObject[] options;
     [SerializeField] GameObject quizPanel, controls, standingsPanel, scorePanel;
+    [SerializeField] GameObject[] options;
 
-    string playerName;
+    string playerName, topic;
     Dictionary<string, PlayerData> playerData = new();
     public GameObject currentObject;
     QuizData quizData;
@@ -72,7 +72,8 @@ public class Runner : Minigame {
 
     void ReceiveSelectedTopic() {
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic")) {
-            string topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
+            Debug.Log($"Topic: {topic}");
+            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
             quizData = LoadQuizData(topic);
         }
         else {
@@ -180,32 +181,55 @@ public class Runner : Minigame {
 
     [PunRPC]
     public override void EndGame() {
+        SaveManager.selectedPlayer.IncreaseStat(topic, score / 200);
         standingsText.text = string.Empty;
-        foreach (var entry in playerData) {
-            standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
-        }
+        foreach (var entry in playerData) standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
         AudioSource.Stop();
         quizPanel.SetActive(false);
         scorePanel.SetActive(false);
         AudioManager.PlaySound(roundClip);
         StartCoroutine(DisplayScores(time: 5));
-
-        // TODO: Update players local data
-
     }
 
     IEnumerator DisplayScores(int time) {
         standingsPanel.SetActive(true);
         yield return new WaitForSeconds(time);
         standingsPanel.SetActive(false);
+        StartCoroutine(NotifyIncrease(time: 3));
+    }
+
+    IEnumerator NotifyIncrease(int time) {
+        messagePanel.SetActive(true);
+
+        string formattedTopic;
+        switch (topic) {
+            case "HOC":
+                formattedTopic = "computer history";
+                break;
+            case "EOCS":
+                formattedTopic = "computer elements";
+                break;
+            case "NS":
+                formattedTopic = "number system";
+                break;
+            case "ITP":
+                formattedTopic = "intro to programming";
+                break;
+            default:
+                formattedTopic = topic;
+                break;
+        }
+
+        messageText.text = $"Your {formattedTopic} stat is increased!";
+        AudioManager.PlaySound(upClip);
+        yield return new WaitForSeconds(time);
         StartCoroutine(LoadLobby(time: returnTime));
     }
 
     IEnumerator LoadLobby(int time) {
         int timeLeft = time;
-        countdownPanel.SetActive(true);
         while (timeLeft > 0) {
-            countdownText.text = $"Going to lobby in {timeLeft}...";
+            messageText.text = $"Going to lobby in {timeLeft}...";
             yield return new WaitForSeconds(1);
             timeLeft--;
         }

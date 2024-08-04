@@ -5,8 +5,8 @@ using TMPro;
 
 public abstract class Minigame : MonoBehaviourPunCallbacks
 {
-    public GameObject playerPrefab, countdownPanel;
-    public TMP_Text countdownText;
+    public GameObject playerPrefab, messagePanel;
+    public TMP_Text messageText;
     [SerializeField] float startTime = 10.0f;
     [SerializeField] Vector2 min, max;
 
@@ -61,18 +61,18 @@ public abstract class Minigame : MonoBehaviourPunCallbacks
     void TimerCheck()
     {
         if (timerStarted)
-            if (currentTime > 0) countdownText.text = $"Escape the maze by answering the questions! Starts in {Mathf.Ceil(currentTime -= Time.deltaTime)}....";
+            if (currentTime > 0) messageText.text = $"Escape the maze by answering the questions! Starts in {Mathf.Ceil(currentTime -= Time.deltaTime)}....";
             else StartCoroutine(OnCountdownEnd());
     }
 
     IEnumerator OnCountdownEnd()
     {
         timerStarted = false;
-        countdownText.text = "GO!";
+        messageText.text = "GO!";
         UnfreezeAllPlayers();
         StartGame();
         yield return new WaitForSeconds(3.0f);
-        countdownPanel.SetActive(false);
+        messagePanel.SetActive(false);
     }
 
     #endregion

@@ -24,6 +24,7 @@ public class SaveEntry : MonoBehaviour
 
     public virtual void OnButtonClick()
     {
+        SaveManager.selectedPlayer = player;
         StartCoroutine(TriggerButtonClick());
     }
 
