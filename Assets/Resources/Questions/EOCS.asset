@@ -94,3 +94,74 @@ MonoBehaviour:
     - C. Joystick
     - D. Touchpad
     correctAnswerIndex: 0
+  - question: 'Who developed the giant ENIAC machine, which utilized 18,000 vacuum tubes, punch-card input, and occupied a space of thirty-by-fifty feet?'
+    answers:
+    - A. John W. Muchly and J. Presper Eckert, Jr.
+    - B. Blaise Pascal and John Napier
+    - C. Dr. Herman Hollerith and George Boole
+    - D. Lee De Forest and Charles Babbage
+    correctAnswerIndex: 0
+  - question: 'In what year did Alan Turing publish his paper "On Computable Numbers"?'
+    answers:
+    - A. 1935
+    - B. 1936
+    - C. 1937
+    - D. 1938
+    correctAnswerIndex: 1
+  - question: 'Who proposed the principle of the modern computer in his seminal 1936 paper "On Computable Numbers"?'
+    answers:
+    - A. Charles Babbage
+    - B. George Boole
+    - C. Ada Lovelace
+    - D. Alan Turing
+    correctAnswerIndex: 3
+  - question: 'How many vacuum tubes did the ENIAC primarily use for its operations?'
+    answers:
+    - A. 18,000
+    - B. 17,000
+    - C. 16,000
+    - D. 15,000
+    correctAnswerIndex: 0
+  - question: 'IBM stands for?'
+    answers:
+    - A. International Bridges Machines
+    - B. International Business Mainframes
+    - C. International Business Machines
+    - D. International Businesses Machines
+    correctAnswerIndex: 2
+  - question: 'ENIAC stands for?'
+    answers:
+    - A. Electrical Numerical Integration and Calculator
+    - B. Electrical Numerical Integrator and Calculator
+    - C. Electronic Numerical Integration and Calculator
+    - D. Electronic Numeric Integrator and Calculator
+    correctAnswerIndex: 1
+  - question: 'What were the basic components used for memory and circuitry in first-generation computers?'
+    answers:
+    - A. Microprocessor
+    - B. Transistors
+    - C. Integrated Circuits
+    - D. Vacuum tubes
+    correctAnswerIndex: 3
+  - question: 'What technological advancement replaced vacuum tubes in second-generation computers?'
+    answers:
+    - A. Bulb
+    - B. Integrated Circuits
+    - C. Transistors
+    - D. Microprocessor
+    correctAnswerIndex: 2
+  - question: 'Who is credited with the invention of the Integrated Circuit (IC)?'
+    answers:
+    - A. Jack Kilby
+    - B. Alan Turing
+    - C. Charles Babbage
+    - D. George Boole
+    correctAnswerIndex: 0
+  - question: 'What major technological advancement replaced transistors in third-generation computers?'
+    answers:
+    - A. Vacuum Tubes
+    - B. Integrated Circuits
+    - C. Magnetic Tape
+    - D. Microprocessor
+    correctAnswerIndex: 1
+  

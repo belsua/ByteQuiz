@@ -1699,82 +1699,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &121437064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 121437065}
-  - component: {fileID: 121437067}
-  - component: {fileID: 121437066}
-  m_Layer: 5
-  m_Name: QuizPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &121437065
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121437064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1343111165}
-  m_Father: {fileID: 2018922492}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &121437066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121437064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.49019608}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &121437067
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121437064}
-  m_CullTransparentMesh: 1
 --- !u!1 &138176984
 GameObject:
   m_ObjectHideFlags: 0
@@ -10987,7 +10911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  runner: {fileID: 1053010678}
+  minigame: {fileID: 1053010678}
 --- !u!1 &554250215
 GameObject:
   m_ObjectHideFlags: 0
@@ -14181,7 +14105,7 @@ GameObject:
   - component: {fileID: 669643860}
   - component: {fileID: 669643859}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: QuestionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14580,7 +14504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  runner: {fileID: 1053010678}
+  minigame: {fileID: 1053010678}
 --- !u!1 &684372158
 GameObject:
   m_ObjectHideFlags: 0
@@ -28388,7 +28312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  runner: {fileID: 1053010678}
+  minigame: {fileID: 1053010678}
 --- !u!1 &758818977
 GameObject:
   m_ObjectHideFlags: 0
@@ -28666,7 +28590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  runner: {fileID: 1053010678}
+  minigame: {fileID: 1053010678}
 --- !u!1 &764309160
 GameObject:
   m_ObjectHideFlags: 0
@@ -34979,31 +34903,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67132dbb163d3af4eb81ca46ec200f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1065010399946058582, guid: 0b69fdd5c7f31b143bbf56afbd57a16c, type: 3}
-  messagePanel: {fileID: 515997404}
-  messageText: {fileID: 1097852038}
-  startTime: 1
-  min: {x: -19, y: 1}
-  max: {x: -14, y: 1}
+  questionData: {fileID: 0}
+  message: Escape the maze by answering the questions.
+  min: {x: -18, y: 1.5}
+  max: {x: -15, y: 1.5}
   AudioSource: {fileID: 1053010677}
-  correctClip: {fileID: 8300000, guid: 6dbd45588d2ac224b97415520e623cec, type: 3}
-  wrongClip: {fileID: 8300000, guid: aec2341265ea07842b752a7a9618e518, type: 3}
-  finishClip: {fileID: 8300000, guid: 895921dabf5f99c44a46bbc12aa77f6a, type: 3}
-  roundClip: {fileID: 8300000, guid: eb99ae37d07715f4984f5946857ab1fa, type: 3}
-  upClip: {fileID: 8300000, guid: ea06b42edf4b42441b02b020fac840c9, type: 3}
-  questionText: {fileID: 669643859}
-  scoreText: {fileID: 1958457728}
-  standingsText: {fileID: 34858446}
-  scoreListText: {fileID: 2065429518}
-  quizPanel: {fileID: 1343111164}
-  controls: {fileID: 1702817371}
-  standingsPanel: {fileID: 1609815521}
-  scorePanel: {fileID: 1764665476}
   options:
   - {fileID: 681005066}
   - {fileID: 553422958}
   - {fileID: 740159868}
   - {fileID: 760669121}
+  correctClip: {fileID: 8300000, guid: 6dbd45588d2ac224b97415520e623cec, type: 3}
+  wrongClip: {fileID: 8300000, guid: aec2341265ea07842b752a7a9618e518, type: 3}
+  finishClip: {fileID: 8300000, guid: 895921dabf5f99c44a46bbc12aa77f6a, type: 3}
+  roundClip: {fileID: 8300000, guid: eb99ae37d07715f4984f5946857ab1fa, type: 3}
+  upClip: {fileID: 8300000, guid: ea06b42edf4b42441b02b020fac840c9, type: 3}
+  scoreText: {fileID: 1958457728}
+  standingsText: {fileID: 34858446}
+  scoreListText: {fileID: 2065429518}
+  controls: {fileID: 1702817371}
+  standingsPanel: {fileID: 1609815521}
+  scorePanel: {fileID: 1764665476}
   currentObject: {fileID: 0}
   teleportLocation: {fileID: 491056129}
 --- !u!114 &1053010679
@@ -37948,6 +37868,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1178397316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178397317}
+  - component: {fileID: 1178397319}
+  - component: {fileID: 1178397318}
+  m_Layer: 5
+  m_Name: QuestionImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1178397317
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178397316}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518747778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1178397318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178397316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 005a2e4dab438c34db6465508997801d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1178397319
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178397316}
+  m_CullTransparentMesh: 1
 --- !u!1 &1178589241
 GameObject:
   m_ObjectHideFlags: 0
@@ -40745,7 +40740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1343111165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40760,7 +40755,7 @@ RectTransform:
   m_Children:
   - {fileID: 1518747778}
   - {fileID: 1674737574}
-  m_Father: {fileID: 121437065}
+  m_Father: {fileID: 2018922492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -43475,6 +43470,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 669643858}
+  - {fileID: 1178397317}
   m_Father: {fileID: 1343111165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -58591,7 +58587,7 @@ RectTransform:
   m_Children:
   - {fileID: 1702817372}
   - {fileID: 515997405}
-  - {fileID: 121437065}
+  - {fileID: 1343111165}
   - {fileID: 1764665477}
   - {fileID: 1609815522}
   - {fileID: 2065429517}

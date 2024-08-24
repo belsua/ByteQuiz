@@ -58,6 +58,8 @@ MonoBehaviour:
   - UpdateFinishPlayer
   - RPCStopBackgroundMusic
   - EndGame
+  - StartCountdownRPC
+  - SetQuestionRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

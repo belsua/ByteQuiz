@@ -12,9 +12,13 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     public TMP_Text roomText, countdownText;
     public TMP_Dropdown topicDropdown;
 
+    #if UNITY_EDITOR
+    public string debugGame;
+    #endif
+
     public float startTime = 10.0f;
     public float minigameTime = 5f;
-    string[] minigames = { "Runner" };
+    string[] minigames = { "Runner", "Trivia Showdown" };
 
     public float minX;
     public float maxX;
@@ -88,7 +92,12 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     IEnumerator SelectMinigame() {
         int time = (int)minigameTime;
+
+        #if UNITY_EDITOR
+        string selectedGame = debugGame;
+        #else
         string selectedGame = minigames[Random.Range(0, minigames.Length)];
+        #endif
 
         while (time > 0) {
             countdownText.text = $"Chosen game is {selectedGame}. Starting in {time}";
@@ -121,13 +130,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     private void UpdateRoomDetails() {
         roomText.text = PhotonNetwork.CurrentRoom.Name;
-
-        #if UNITY_EDITOR
-        if (PhotonNetwork.LocalPlayer.NickName == "") PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
-        #else
         PhotonNetwork.LocalPlayer.NickName = SaveManager.instance.player.name;
-        #endif
-
         if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
     }
 

@@ -14,17 +14,15 @@ public class PlayerData {
 }
 
 public class Runner : Minigame {
-    [SerializeField] AudioSource AudioSource;
     [SerializeField] AudioClip correctClip, wrongClip, finishClip, roundClip, upClip;
-    [SerializeField] TMP_Text questionText, scoreText, standingsText, scoreListText;
-    [SerializeField] GameObject quizPanel, controls, standingsPanel, scorePanel;
-    [SerializeField] GameObject[] options;
+    [SerializeField] TMP_Text scoreText, standingsText, scoreListText;
+    [SerializeField] GameObject controls, standingsPanel, scorePanel;
 
-    string playerName, topic;
+    string playerName;
     Dictionary<string, PlayerData> playerData = new();
     public GameObject currentObject;
-    QuizData quizData;
-    int currentQuestionIndex;
+    // QuizData quizData;
+    // int currentQuestionIndex;
     int score;
 
     #if UNITY_EDITOR
@@ -68,53 +66,9 @@ public class Runner : Minigame {
         ChangeUI();
     }
 
-    #region Question Initiation
-
-    void ReceiveSelectedTopic() {
-        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic")) {
-            Debug.Log($"Topic: {topic}");
-            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
-            quizData = LoadQuizData(topic);
-        }
-        else {
-            Debug.LogError("Selected topic not found in CustomProperties.");
-        }
-    }
-
-    QuizData LoadQuizData(string topic) {
-        QuizData originalData = Resources.Load<QuizData>($"Questions/{topic}");
-
-        if (originalData == null) {
-            Debug.LogError($"Failed to load QuizData for topic: {topic}");
-            return null;
-        }
-
-        return Instantiate(originalData);
-    }
-
-    #endregion
-
     #region Quiz Functions
 
-    void GenerateQuestions() {
-        for (int i = 0; i < quizData.questions.Length; i++) {
-            currentQuestionIndex = i;
-            questionText.text = quizData.questions[currentQuestionIndex].question;
-            SetAnswers();
-        }
-    }
-
-    void SetAnswers() {
-        for (int i = 0; i < options.Length; i++) {
-            options[i].GetComponent<Answers>().isCorrect = false;
-            options[i].GetComponentInChildren<TMP_Text>().text = quizData.questions[currentQuestionIndex].answers[i];
-
-            if (quizData.questions[currentQuestionIndex].correctAnswerIndex == i)
-                options[i].GetComponent<Answers>().isCorrect = true;
-        }
-    }
-
-    internal void AnswerCorrect() {
+    public override void AnswerCorrect() {
         AudioManager.PlaySound(correctClip);
         score = Mathf.Clamp(score + 100, 0, 1000);
         ChangeScoreList(playerName, score);
@@ -125,7 +79,7 @@ public class Runner : Minigame {
         ToggleQuiz(false);
     }
 
-    internal void AnswerWrong() {
+    public override void AnswerWrong() {
         AudioManager.PlaySound(wrongClip);
         score = Mathf.Clamp(score - 20, 0, 1000);
         ChangeScoreList(playerName, score);
@@ -138,10 +92,10 @@ public class Runner : Minigame {
     }
 
     void RemoveQuestion(int index) {
-        for (int i = index + 1; i < quizData.questions.Length; i++)
-            quizData.questions[i - 1] = quizData.questions[i];
+        for (int i = index + 1; i < questionData.questions.Length; i++)
+            questionData.questions[i - 1] = questionData.questions[i];
 
-        Array.Resize(ref quizData.questions, quizData.questions.Length - 1);
+        Array.Resize(ref questionData.questions, questionData.questions.Length - 1);
     }
 
     #endregion
@@ -201,24 +155,14 @@ public class Runner : Minigame {
     IEnumerator NotifyIncrease(int time) {
         messagePanel.SetActive(true);
 
-        string formattedTopic;
-        switch (topic) {
-            case "HOC":
-                formattedTopic = "computer history";
-                break;
-            case "EOCS":
-                formattedTopic = "computer elements";
-                break;
-            case "NS":
-                formattedTopic = "number system";
-                break;
-            case "ITP":
-                formattedTopic = "intro to programming";
-                break;
-            default:
-                formattedTopic = topic;
-                break;
-        }
+        string formattedTopic = topic switch
+        {
+            "HOC" => "computer history",
+            "EOCS" => "computer elements",
+            "NS" => "number system",
+            "ITP" => "intro to programming",
+            _ => topic,
+        };
 
         messageText.text = $"Your {formattedTopic} stat is increased!";
         AudioManager.PlaySound(upClip);
