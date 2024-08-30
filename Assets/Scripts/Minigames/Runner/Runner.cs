@@ -27,9 +27,15 @@ public class Runner : Minigame {
 
     #if UNITY_EDITOR
         int returnTime = 1;
-    #else
+#else
         readonly int returnTime = 5;
-    #endif
+#endif
+
+    protected override void Awake()
+    {
+        base.Awake();
+        scoreText.text  = string.Empty;
+    }
 
     public override void StartGame() {
         scoreText.transform.parent.gameObject.SetActive(true);

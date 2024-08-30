@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     public TMP_Text roomText, countdownText;
     public TMP_Dropdown topicDropdown;
 
-    #if UNITY_EDITOR
+    #if UNITY_EDITOR || DEVELOPMENT_BUILD
     public string debugGame;
     #endif
 
@@ -93,7 +93,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     IEnumerator SelectMinigame() {
         int time = (int)minigameTime;
 
-        #if UNITY_EDITOR
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
         string selectedGame = debugGame;
         #else
         string selectedGame = minigames[Random.Range(0, minigames.Length)];
@@ -170,6 +170,8 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     void ShowRoomDetails() {
         #if UNITY_EDITOR
+            debugText.gameObject.SetActive(true);
+            hostText.gameObject.SetActive(true);
             debugText.text = $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
             hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}\n";
             hostText.text += $"In Room: {PhotonNetwork.InRoom}";

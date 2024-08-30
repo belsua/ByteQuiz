@@ -3117,7 +3117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &195324381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3251,7 +3251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &200809138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5828,8 +5828,8 @@ MonoBehaviour:
   countdownText: {fileID: 429878980}
   topicDropdown: {fileID: 1491326660}
   debugGame: Runner
-  startTime: 1
-  minigameTime: 1
+  startTime: 5
+  minigameTime: 5
   minX: -5
   maxX: 2
   minY: -11
