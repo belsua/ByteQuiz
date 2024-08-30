@@ -28,6 +28,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     #if UNITY_EDITOR
     public TMP_Text debugText;
     public TMP_Text hostText;
+    public TMP_Text roomStatusText;
     #endif
 
     private ExitGames.Client.Photon.Hashtable roomOptions = new();
@@ -172,9 +173,11 @@ public class RoomManager : MonoBehaviourPunCallbacks {
         #if UNITY_EDITOR
             debugText.gameObject.SetActive(true);
             hostText.gameObject.SetActive(true);
+            roomStatusText.gameObject.SetActive(true);
             debugText.text = $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
             hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}\n";
             hostText.text += $"In Room: {PhotonNetwork.InRoom}";
+            roomStatusText.text = $"Room Status: {PhotonNetwork.CurrentRoom.IsOpen}";
         #endif
     }
 

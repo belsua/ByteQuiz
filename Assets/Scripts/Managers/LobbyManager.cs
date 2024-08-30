@@ -19,7 +19,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.JoinOrCreateRoom(createInput.text, new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
+        RoomOptions roomOptions = new()
+        {
+            MaxPlayers = 4,
+            IsOpen = true,
+        };
+
+        PhotonNetwork.JoinOrCreateRoom(createInput.text, roomOptions, TypedLobby.Default);
     }
 
     public void JoinRoom()
