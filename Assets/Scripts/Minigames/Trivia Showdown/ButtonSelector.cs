@@ -21,7 +21,9 @@ public class ButtonSelector : MonoBehaviour
         {
             // Debug.Log($"{other.name} clicked {targetButton.gameObject.name}");
             audioSource.PlayOneShot(clip);
+            //targetButton.Select();
             EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
+            Debug.Log($"Selected: {EventSystem.current.currentSelectedGameObject.name}, correct: {EventSystem.current.currentSelectedGameObject.GetComponent<Answers>().isCorrect}");
         }
     }
 

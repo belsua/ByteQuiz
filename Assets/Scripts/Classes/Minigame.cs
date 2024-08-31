@@ -17,7 +17,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     public QuestionDatabase questionData;
 
     protected AudioClip finishClip, correctClip, wrongClip;
-    protected GameObject playerPrefab, messagePanel, quizPanel;
+    protected GameObject playerPrefab, messagePanel, quizPanel, buttons;
     protected TMP_Text messageText, questionText;
     protected AudioSource AudioSource;
     protected Image questionImage;
@@ -25,6 +25,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected int currentQuestionIndex;
     protected string topic;
     protected int score;
+    //protected int seed;
 
     [Header("Values")]
     [TextArea] public string message;
@@ -41,17 +42,18 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
         questionText = GameObject.Find("QuestionText").GetComponent<TMP_Text>();
         questionImage = GameObject.Find("QuestionImage").GetComponent<Image>();
+        buttons = GameObject.Find("Buttons");
         AudioSource = GetComponent<AudioSource>();
 
         finishClip = Resources.Load<AudioClip>("Audio/finish-clip");
         correctClip = Resources.Load<AudioClip>("Audio/correct-clip");
         wrongClip = Resources.Load<AudioClip>("Audio/wrong-clip");
 
-        #if UNITY_EDITOR
-        Debug.Log(finishClip ? "finishClip found" : "finishClip not found");
-        Debug.Log(correctClip ? "correctClip found" : "correctClip not found");
-        Debug.Log(wrongClip ? "wrongClip found" : "wrongClip not found");
-        #endif
+        //#if UNITY_EDITOR
+        //Debug.Log(finishClip ? "finishClip found" : "finishClip not found");
+        //Debug.Log(correctClip ? "correctClip found" : "correctClip not found");
+        //Debug.Log(wrongClip ? "wrongClip found" : "wrongClip not found");
+        //#endif
     }
 
     protected virtual void Start()
@@ -66,6 +68,12 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         }
         #endif
 
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int temp = Random.Range(0, 10);
+            photonView.RPC("SetSeedRPC", RpcTarget.All, temp);
+        }
+
         quizPanel.SetActive(false);
 
         SpawnPlayers();
@@ -75,7 +83,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #region Question Functions
 
-    protected QuestionDatabase LoadQuestionData(string topic, int seed = 0, int limit = 10)
+    protected QuestionDatabase LoadQuestionData(string topic, int seed, int limit = 10)
     {
         QuestionDatabase originalData = Resources.Load<QuestionDatabase>($"Single Player Quiz/{topic}");
 
@@ -95,35 +103,43 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         return Instantiate(originalData);
     }
 
+    int seed;
     protected void ReceiveSelectedTopic()
     {
-        #if UNITY_EDITOR
+        //#if UNITY_EDITOR
         topic = "EOCS";
-        int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
         questionData = LoadQuestionData(topic, seed);
-        #else
-        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
-        {
-            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
-            if (PhotonNetwork.IsMasterClient)
-            {
-                 int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
-                //questionData = LoadQuestionData(topic);
-                // Sync the number of questions to all clients
-                photonView.RPC("SetQuestionRPC", RpcTarget.All, topic, seed);
-            }
-        }
-        else
-        {
-            Debug.LogError("Selected topic not found in CustomProperties.");
-        }
-        #endif
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    seed = Random.Range(0, 10);
+        //    Debug.Log($"Seed from ReceiveSelectedTopic: {seed}");
+        //    photonView.RPC("SetSeedRPC", RpcTarget.All, seed);
+        //}
+        //questionData = LoadQuestionData(topic, seed);
+//#else
+//        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
+//        {
+//            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
+//            if (PhotonNetwork.IsMasterClient)
+//            {
+//                 int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
+//                //questionData = LoadQuestionData(topic);
+//                // Sync the number of questions to all clients
+//                photonView.RPC("SetSeedRPC", RpcTarget.All, topic, seed);
+//            }
+//        }
+//        else
+//        {
+//            Debug.LogError("Selected topic not found in CustomProperties.");
+//        }
+//#endif
     }
 
     [PunRPC]
-    public void SetQuestionRPC(string topic, int seed)
+    public void SetSeedRPC(int temp)
     {
-        questionData = LoadQuestionData(topic, seed);
+        seed = temp;
+        Debug.Log($"Name: {PhotonNetwork.LocalPlayer.NickName}, Seed from SetSeedRPC: {seed}");
     }
 
     protected void GenerateQuestions()

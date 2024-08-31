@@ -131,8 +131,13 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     private void UpdateRoomDetails() {
         roomText.text = PhotonNetwork.CurrentRoom.Name;
+        #if UNITY_EDITOR
+        if (PhotonNetwork.LocalPlayer.NickName == "")
+            PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        #else
         PhotonNetwork.LocalPlayer.NickName = SaveManager.instance.player.name;
         if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
+        #endif
     }
 
     [PunRPC]
@@ -167,10 +172,10 @@ public class RoomManager : MonoBehaviourPunCallbacks {
         _ => "HOC",
     };
 
-    #endregion
+#endregion
 
     void ShowRoomDetails() {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             debugText.gameObject.SetActive(true);
             hostText.gameObject.SetActive(true);
             roomStatusText.gameObject.SetActive(true);
@@ -178,7 +183,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
             hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}\n";
             hostText.text += $"In Room: {PhotonNetwork.InRoom}";
             roomStatusText.text = $"Room Status: {PhotonNetwork.CurrentRoom.IsOpen}";
-        #endif
+#endif
     }
 
     void HostCheck() {

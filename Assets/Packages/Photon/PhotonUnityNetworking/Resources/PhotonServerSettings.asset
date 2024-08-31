@@ -60,6 +60,7 @@ MonoBehaviour:
   - EndGame
   - StartCountdownRPC
   - SetQuestionRPC
+  - ShowQuestion
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

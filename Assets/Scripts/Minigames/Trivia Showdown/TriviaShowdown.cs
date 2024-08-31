@@ -6,6 +6,8 @@ using Photon.Pun;
 
 public class TriviaShowdown : Minigame
 {
+    //internal static GameObject selectedObject;
+
     [Range(1, 10)]
     [SerializeField] int timer;
     TMP_Text timerText, placeText, markText;
@@ -26,7 +28,9 @@ public class TriviaShowdown : Minigame
     protected override void Start()
     {
         base.Start();
+
         quizPanel.SetActive(true);
+        buttons.SetActive(false);
         questionImage.gameObject.SetActive(false);
     }
 
@@ -37,58 +41,60 @@ public class TriviaShowdown : Minigame
 
     public override void StartGame()
     {
+        buttons.SetActive(true);
         questionImage.gameObject.SetActive(true);
 
         AudioSource.Play();
         ReceiveSelectedTopic();
         GenerateQuestions();
 
-        StartCoroutine(ShowQuestion());
+        //if (PhotonNetwork.IsMasterClient) photonView.RPC("ShowQuestion", RpcTarget.All);
+        StartCoroutine(ShowQuestionCoroutine());
 
         // Initialize player place
     }
 
     #region Game Loop
 
-    IEnumerator ShowQuestion()
+    //[PunRPC]
+    //public void ShowQuestion()
+    //{
+    //    StartCoroutine(ShowQuestionCoroutine());
+    //}
+
+    IEnumerator ShowQuestionCoroutine()
     {
-        float time = timer;
-        while (time >= 0)
-        {
-            quizPanel.SetActive(true);
-            timerText.text = $"Time: {time}";
-            yield return new WaitForSeconds(1.0f);
-            time--;
-        }
-
         // End the game if no questions left
-        if (questionData.questions.Length == 0) { EndGame(); yield break; }
-
-        // Check the answer
-        GameObject selectedObject = EventSystem.current.currentSelectedGameObject;
-
-        if (selectedObject == null)
+        if (questionData.questions.Length == 0)
         {
-            foreach (GameObject option in options)
-            {
-                if (!option.GetComponent<Answers>().isCorrect)
-                {
-                    selectedObject = option;
-                    break;
-                }
-            }
+            if (PhotonNetwork.IsMasterClient) StartCoroutine(EndGameCoroutine());
+            yield break;
         }
+        else
+        {
+            float time = timer;
+            while (time >= 0)
+            {
+                quizPanel.SetActive(true);
+                timerText.text = $"Time: {time}";
+                yield return new WaitForSeconds(1.0f);
+                time--;
+            }
 
-        // Handle the score
-        selectedObject.GetComponent<Answers>().Answer();
+            // Check the answer
+            //Answers selectedObject = EventSystem.current.currentSelectedGameObject.GetComponent<Answers>();
+            //selectedObject.Answer();
 
-        // Show the next question
-        RemoveQuestion(currentQuestionIndex);
-        Debug.Log($"Remaining questions: {questionData.questions.Length}");
-        GenerateQuestions();
+            // Handle the score
 
 
-        StartCoroutine(ShowQuestion());
+            // Show the next question
+            RemoveQuestion(currentQuestionIndex);
+            Debug.Log($"Remaining questions: {questionData.questions.Length}");
+            GenerateQuestions();
+
+            StartCoroutine(ShowQuestionCoroutine());
+        }
     }
 
     public override void AnswerCorrect()
@@ -121,6 +127,18 @@ public class TriviaShowdown : Minigame
         markText.text = string.Empty;
     }
 
+    IEnumerator EndGameCoroutine()
+    {
+        yield return new WaitForSeconds(3);
+        RPCEndGame();
+    }
+
+    public void RPCEndGame()
+    {
+        photonView.RPC("EndGame", RpcTarget.All);
+    }
+
+    [PunRPC]
     public override void EndGame()
     {
         // Debug.Log("EndGame()");
@@ -136,7 +154,7 @@ public class TriviaShowdown : Minigame
             questionText.gameObject.SetActive(true);
         }
 
-        GameObject.Find("Buttons").SetActive(false);
+        buttons.SetActive(false);
         questionText.text = "Finished!";
 
         AudioManager.PlaySound(finishClip);
