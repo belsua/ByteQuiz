@@ -15,19 +15,23 @@ public interface IMinigame
 public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 {
     public QuestionDatabase questionData;
-    protected Image questionImage;
+
+    protected AudioClip finishClip, correctClip, wrongClip;
     protected GameObject playerPrefab, messagePanel, quizPanel;
     protected TMP_Text messageText, questionText;
+    protected AudioSource AudioSource;
+    protected Image questionImage;
+
     protected int currentQuestionIndex;
     protected string topic;
-    float startTime = 10.0f;
+    protected int score;
 
     [Header("Values")]
     [TextArea] public string message;
     [SerializeField] Vector2 min, max;
+    [SerializeField] float startTime = 10.0f;
 
     [Header("Objects")]
-    [SerializeField] protected AudioSource AudioSource;
     [SerializeField] protected GameObject[] options;
 
     protected virtual void Awake()
@@ -37,9 +41,20 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
         questionText = GameObject.Find("QuestionText").GetComponent<TMP_Text>();
         questionImage = GameObject.Find("QuestionImage").GetComponent<Image>();
+        AudioSource = GetComponent<AudioSource>();
+
+        finishClip = Resources.Load<AudioClip>("Audio/finish-clip");
+        correctClip = Resources.Load<AudioClip>("Audio/correct-clip");
+        wrongClip = Resources.Load<AudioClip>("Audio/wrong-clip");
+
+        #if UNITY_EDITOR
+        Debug.Log(finishClip ? "finishClip found" : "finishClip not found");
+        Debug.Log(correctClip ? "correctClip found" : "correctClip not found");
+        Debug.Log(wrongClip ? "wrongClip found" : "wrongClip not found");
+        #endif
     }
 
-    void Start()
+    protected virtual void Start()
     {
         #if UNITY_EDITOR
         if (!PhotonNetwork.IsConnected)
@@ -71,7 +86,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         } 
         else
         {
-            System.Random rng = new System.Random(seed);
+            System.Random rng = new(seed);
 
             // Parameter to limit the number of questions
             originalData.questions = originalData.questions.OrderBy(x => rng.Next()).Take(limit).ToArray();
@@ -82,11 +97,11 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected void ReceiveSelectedTopic()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         topic = "EOCS";
         int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
         questionData = LoadQuestionData(topic, seed);
-#else
+        #else
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
         {
             topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
@@ -102,7 +117,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         {
             Debug.LogError("Selected topic not found in CustomProperties.");
         }
-#endif
+        #endif
     }
 
     [PunRPC]
@@ -153,8 +168,15 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
                 options[i].GetComponent<Answers>().isCorrect = true;
         }
     }
+    protected void RemoveQuestion(int index)
+    {
+        for (int i = index + 1; i < questionData.questions.Length; i++)
+            questionData.questions[i - 1] = questionData.questions[i];
 
-#endregion
+        System.Array.Resize(ref questionData.questions, questionData.questions.Length - 1);
+    }
+
+    #endregion
 
     #region Abstract Functions
 
@@ -167,9 +189,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #region Spawn Functions
 
-    void SpawnPlayers()
+    public virtual void SpawnPlayers(int order = 0)
     {
         playerPrefab = Resources.Load<GameObject>("Player");
+        playerPrefab.GetComponent<SpriteRenderer>().sortingOrder = order;
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
 
         if (!PhotonNetwork.IsConnected) Instantiate(playerPrefab, position, Quaternion.identity);
