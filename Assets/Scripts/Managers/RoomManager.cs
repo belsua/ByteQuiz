@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
-using System.IO;
-using System.Collections.Generic;
 using System.Collections;
 
-public class RoomManager : MonoBehaviourPunCallbacks {
+public class RoomManager : MonoBehaviourPunCallbacks 
+{
     public Button startButton;
     public GameObject playerPrefab, countdownPanel, settingsPanel;
     public TMP_Text roomText, countdownText;

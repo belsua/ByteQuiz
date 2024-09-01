@@ -36,7 +36,7 @@ public class Runner : Minigame
         scoreText.text  = string.Empty;
     }
 
-    public override void StartGame() 
+    public override void StartMinigame() 
     {
         scoreText.transform.parent.gameObject.SetActive(true);
         AudioSource.Play();

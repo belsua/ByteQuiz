@@ -15,6 +15,7 @@ public interface IMinigame
 public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 {
     public QuestionDatabase questionData;
+    public static GameObject player;
 
     protected AudioClip finishClip, correctClip, wrongClip;
     protected GameObject playerPrefab, messagePanel, quizPanel, buttons;
@@ -196,7 +197,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #region Abstract Functions
 
-    public abstract void StartGame();
+    public abstract void StartMinigame();
     public abstract void EndGame();
     public virtual void AnswerCorrect() { }
     public virtual void AnswerWrong() { }
@@ -211,8 +212,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         playerPrefab.GetComponent<SpriteRenderer>().sortingOrder = order;
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
 
-        if (!PhotonNetwork.IsConnected) Instantiate(playerPrefab, position, Quaternion.identity);
-        else PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+        if (!PhotonNetwork.IsConnected) player = Instantiate(playerPrefab, position, Quaternion.identity);
+        else player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
     }
 
     #endregion
@@ -270,7 +273,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         messageText.text = "GO!";
         UnfreezeAllPlayers();
-        StartGame();
+        StartMinigame();
         yield return new WaitForSeconds(3.0f);
         messagePanel.SetActive(false);
     }

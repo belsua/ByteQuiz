@@ -3117,7 +3117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &195324381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3134,8 +3134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 433.83, y: 73.521}
-  m_SizeDelta: {x: 867.6689, y: 167.0619}
+  m_AnchoredPosition: {x: 433.83, y: 116.83}
+  m_SizeDelta: {x: 867.6689, y: 115.0883}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195324382
 MonoBehaviour:
@@ -3161,8 +3161,8 @@ MonoBehaviour:
 
     In Room'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
+  m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3186,8 +3186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3253,7 +3253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &200809138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3270,8 +3270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 433.83, y: 200.65}
-  m_SizeDelta: {x: 867.6689, y: 87.1957}
+  m_AnchoredPosition: {x: 433.83, y: 209.31223}
+  m_SizeDelta: {x: 867.6689, y: 69.8712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200809139
 MonoBehaviour:
@@ -3295,8 +3295,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Players
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
+  m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3320,8 +3320,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3623,9 +3623,9 @@ RectTransform:
   - {fileID: 1426857806}
   m_Father: {fileID: 2068208397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -526.17004, y: 14.970703}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 490, y: -35}
   m_SizeDelta: {x: 867.6689, y: 488.4869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &265935069
@@ -5802,8 +5802,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625561054}
-  - component: {fileID: 625561055}
   - component: {fileID: 625561053}
+  - component: {fileID: 625561055}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -12065,7 +12065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1426857806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12082,8 +12082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 433.83, y: -53.608}
-  m_SizeDelta: {x: 867.6689, y: 87.1957}
+  m_AnchoredPosition: {x: 433.83, y: 26.516}
+  m_SizeDelta: {x: 867.6689, y: 65.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1426857807
 MonoBehaviour:
@@ -12107,8 +12107,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RoomStatus
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
+  m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12132,8 +12132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

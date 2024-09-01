@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415163514}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1689,7 +1689,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415163514}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1739,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3af2c49b61e0d4a964c679a24b8881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPhotonView: {fileID: 523751359}
 --- !u!1 &486829574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2023,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!82 &523751360
@@ -2342,7 +2343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956050989}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -2450,7 +2451,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956050989}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2500,6 +2501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3af2c49b61e0d4a964c679a24b8881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPhotonView: {fileID: 523751359}
 --- !u!1 &963397999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,7 +4635,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357841307}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -4729,7 +4731,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357841307}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -4779,6 +4781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3af2c49b61e0d4a964c679a24b8881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPhotonView: {fileID: 523751359}
 --- !u!1 &1363863748
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,7 +5010,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452470930}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -5103,7 +5106,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452470930}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5153,6 +5156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3af2c49b61e0d4a964c679a24b8881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPhotonView: {fileID: 523751359}
 --- !u!1 &1509530549
 GameObject:
   m_ObjectHideFlags: 0

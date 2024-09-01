@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Photon.Pun;
+using UnityEngine.EventSystems;
 
 public class ButtonSelector : MonoBehaviour
 {
@@ -11,37 +12,36 @@ public class ButtonSelector : MonoBehaviour
     private void Awake()
     {
         targetButton = GetComponent<Button>();
-        audioSource = FindAnyObjectByType<AudioSource>();
+        audioSource = FindObjectOfType<AudioSource>();
         clip = Resources.Load<AudioClip>("Audio/ui-button");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log(other.gameObject);
+        Debug.Log($"Name: {PhotonNetwork.LocalPlayer.NickName}, isMine: {Minigame.player.GetComponent<PhotonView>().IsMine}");
+        if (other.gameObject.GetComponent<PhotonView>().IsMine)
         {
-            // Debug.Log($"{other.name} clicked {targetButton.gameObject.name}");
             audioSource.PlayOneShot(clip);
-            //targetButton.Select();
-            EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
-            Debug.Log($"Selected: {EventSystem.current.currentSelectedGameObject.name}, correct: {EventSystem.current.currentSelectedGameObject.GetComponent<Answers>().isCorrect}");
+            targetButton.Select();
         }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.GetComponent<PhotonView>().IsMine)
         {
-            // Debug.Log($"{other.name} clicked {targetButton.gameObject.name}");
-            if (EventSystem.current.currentSelectedGameObject == false)
-                EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                targetButton.Select();
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.GetComponent<PhotonView>().IsMine)
         {
-            // Debug.Log($"{other.name} exited {targetButton.gameObject.name}");
             EventSystem.current.SetSelectedGameObject(null);
         }
     }

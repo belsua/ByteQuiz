@@ -39,7 +39,7 @@ public class TriviaShowdown : Minigame
         base.SpawnPlayers(1);
     }
 
-    public override void StartGame()
+    public override void StartMinigame()
     {
         buttons.SetActive(true);
         questionImage.gameObject.SetActive(true);
