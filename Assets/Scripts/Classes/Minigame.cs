@@ -17,7 +17,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     public QuestionDatabase questionData;
     public static GameObject player;
 
-    protected AudioClip finishClip, correctClip, wrongClip;
+    protected AudioClip finishClip, correctClip, wrongClip, roundClip, upClip;
     protected GameObject playerPrefab, messagePanel, quizPanel, buttons;
     protected TMP_Text messageText, questionText;
     protected AudioSource AudioSource;
@@ -25,6 +25,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected int currentQuestionIndex;
     protected string topic;
+    protected string playerName;
     protected int score;
     protected int seed;
 
@@ -36,6 +37,14 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     [Header("Objects")]
     [SerializeField] protected GameObject[] options;
 
+
+    #if UNITY_EDITOR
+    protected int returnTime = 1;
+    #else
+    protected int returnTime = 5;
+    #endif
+
+
     protected virtual void Awake()
     {
         quizPanel = GameObject.Find("Quiz");
@@ -46,23 +55,28 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         buttons = GameObject.Find("Buttons");
         AudioSource = GetComponent<AudioSource>();
 
-        finishClip = Resources.Load<AudioClip>("Audio/finish-clip");
-        correctClip = Resources.Load<AudioClip>("Audio/correct-clip");
-        wrongClip = Resources.Load<AudioClip>("Audio/wrong-clip");
+        finishClip = Resources.Load<AudioClip>("Audio/Sound/finish-clip");
+        correctClip = Resources.Load<AudioClip>("Audio/Sound/correct-clip");
+        wrongClip = Resources.Load<AudioClip>("Audio/Sound/wrong-clip");
+        roundClip = Resources.Load<AudioClip>("Audio/Sound/round-clip");
+        upClip = Resources.Load<AudioClip>("Audio/Sound/up-clip");
     }
 
     protected virtual void Start()
     {
+
         #if UNITY_EDITOR
+        SaveManager.selectedPlayer = new Player("Player", 0);
+
         if (!PhotonNetwork.IsConnected)
         {
-            SaveManager.selectedPlayer = new Player("Player", 0);
             PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
             PhotonNetwork.OfflineMode = true;
             PhotonNetwork.JoinRoom("test");
         }
         #endif
 
+        playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);
         SpawnPlayers();
         FreezeAllPlayers();
@@ -75,6 +89,16 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         }
 
     }
+
+    #region Abstract and Virtual Functions
+
+    public abstract void StartMinigame();
+    public abstract void EndGame();
+    public virtual void InitializePlayerData() { }
+    public virtual void AnswerCorrect() { }
+    public virtual void AnswerWrong() { }
+
+    #endregion
 
     #region Question Functions
 
@@ -170,15 +194,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         System.Array.Resize(ref questionData.questions, questionData.questions.Length - 1);
     }
-
-    #endregion
-
-    #region Abstract Functions
-
-    public abstract void StartMinigame();
-    public abstract void EndGame();
-    public virtual void AnswerCorrect() { }
-    public virtual void AnswerWrong() { }
 
     #endregion
 

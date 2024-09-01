@@ -13,13 +13,11 @@ public class ButtonSelector : MonoBehaviour
     {
         targetButton = GetComponent<Button>();
         audioSource = FindObjectOfType<AudioSource>();
-        clip = Resources.Load<AudioClip>("Audio/ui-button");
+        clip = Resources.Load<AudioClip>("Audio/Sound/ui-button");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject);
-        Debug.Log($"Name: {PhotonNetwork.LocalPlayer.NickName}, isMine: {Minigame.player.GetComponent<PhotonView>().IsMine}");
         if (other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             audioSource.PlayOneShot(clip);
@@ -29,20 +27,13 @@ public class ButtonSelector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<PhotonView>().IsMine)
-        {
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                targetButton.Select();
-            }
-        }
+        if (other.gameObject.GetComponent<PhotonView>().IsMine && !EventSystem.current.currentSelectedGameObject)
+            targetButton.Select();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PhotonView>().IsMine)
-        {
             EventSystem.current.SetSelectedGameObject(null);
-        }
     }
 }
