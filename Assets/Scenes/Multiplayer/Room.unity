@@ -5831,8 +5831,8 @@ MonoBehaviour:
   countdownText: {fileID: 429878980}
   topicDropdown: {fileID: 1491326660}
   debugGame: Trivia Showdown
-  startTime: 1
-  minigameTime: 1
+  startTime: 5
+  minigameTime: 5
   minX: -5
   maxX: 2
   minY: -11

@@ -15,20 +15,12 @@ public class PlayerData
 
 public class Runner : Minigame 
 {
-    [SerializeField] AudioClip roundClip, upClip;
     [SerializeField] TMP_Text scoreText, standingsText, scoreListText;
     [SerializeField] GameObject controls, standingsPanel, scorePanel;
     [SerializeField] Transform teleportLocation;
 
-    string playerName;
-    Dictionary<string, PlayerData> playerData = new();
+    Dictionary<string, PlayerData> playerData = new(); // <player name, player data>
     public GameObject currentObject;
-
-    #if UNITY_EDITOR
-    int returnTime = 1;
-    #else
-    readonly int returnTime = 5;
-    #endif
 
     protected override void Awake()
     {
@@ -44,7 +36,7 @@ public class Runner : Minigame
         GenerateQuestions();
         score = 0;
         InitializePlayerData();
-        ChangeUI();
+        ChangeUI_RPC();
     }
 
     [PunRPC]
@@ -54,7 +46,7 @@ public class Runner : Minigame
         scoreListText.text = string.Empty;
         var sortedPlayerData = playerData.OrderByDescending(x => x.Value.score);
 
-        #if DEVELOPMENT_BUILD 
+        #if UNITY_EDITOR 
         foreach (var entry in sortedPlayerData) 
         {
             scoreListText.text += $"{entry.Key}: {entry.Value.score}, {entry.Value.isFinished}\n";
@@ -67,7 +59,7 @@ public class Runner : Minigame
         #endif
     }
 
-    public void ChangeUI() 
+    public void ChangeUI_RPC() 
     {
         photonView.RPC("UpdateUI", RpcTarget.All);
     }
@@ -75,7 +67,7 @@ public class Runner : Minigame
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer) 
     {
         playerData.Remove(otherPlayer.NickName);
-        ChangeUI();
+        ChangeUI_RPC();
     }
 
     #region Quiz Functions
@@ -85,7 +77,7 @@ public class Runner : Minigame
         AudioManager.PlaySound(correctClip);
         score = Mathf.Clamp(score + 100, 0, 1000);
         ChangeScoreList(playerName, score);
-        ChangeUI();
+        ChangeUI_RPC();
         RemoveQuestion(currentQuestionIndex);
         Destroy(currentObject);
         GenerateQuestions();
@@ -97,7 +89,7 @@ public class Runner : Minigame
         AudioManager.PlaySound(wrongClip);
         score = Mathf.Clamp(score - 20, 0, 1000);
         ChangeScoreList(playerName, score);
-        ChangeUI();
+        ChangeUI_RPC();
     }
 
     public void ToggleQuiz(bool state) 
@@ -116,7 +108,7 @@ public class Runner : Minigame
         other.transform.position = teleportLocation.position;
         playerData[playerName].isFinished = true;
         ChangeFinishPlayer(playerName);
-        ChangeUI();
+        ChangeUI_RPC();
         CheckIfAllPlayersFinished();
     }
 
@@ -198,9 +190,8 @@ public class Runner : Minigame
 
     #region Game Variables
 
-    public void InitializePlayerData()
+    public override void InitializePlayerData()
     {
-        playerName = PhotonNetwork.LocalPlayer.NickName;
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
 
         foreach (Photon.Realtime.Player player in players)

@@ -132,7 +132,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         roomText.text = PhotonNetwork.CurrentRoom.Name;
         #if UNITY_EDITOR
         if (PhotonNetwork.LocalPlayer.NickName == "")
-            PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+            PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
         #else
         PhotonNetwork.LocalPlayer.NickName = SaveManager.instance.player.name;
         if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
