@@ -26,7 +26,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected int currentQuestionIndex;
     protected string topic;
     protected int score;
-    //protected int seed;
+    protected int seed;
 
     [Header("Values")]
     [TextArea] public string message;
@@ -49,12 +49,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         finishClip = Resources.Load<AudioClip>("Audio/finish-clip");
         correctClip = Resources.Load<AudioClip>("Audio/correct-clip");
         wrongClip = Resources.Load<AudioClip>("Audio/wrong-clip");
-
-        //#if UNITY_EDITOR
-        //Debug.Log(finishClip ? "finishClip found" : "finishClip not found");
-        //Debug.Log(correctClip ? "correctClip found" : "correctClip not found");
-        //Debug.Log(wrongClip ? "wrongClip found" : "wrongClip not found");
-        //#endif
     }
 
     protected virtual void Start()
@@ -69,17 +63,17 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         }
         #endif
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            int temp = Random.Range(0, 10);
-            photonView.RPC("SetSeedRPC", RpcTarget.All, temp);
-        }
-
         quizPanel.SetActive(false);
-
         SpawnPlayers();
         FreezeAllPlayers();
-        TriggerCountdown(message);
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int seed = Random.Range(0, 10);
+            photonView.RPC("SetSeedRPC", RpcTarget.All, seed);
+            TriggerCountdown(message);
+        }
+
     }
 
     #region Question Functions
@@ -96,51 +90,34 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         else
         {
             System.Random rng = new(seed);
-
-            // Parameter to limit the number of questions
             originalData.questions = originalData.questions.OrderBy(x => rng.Next()).Take(limit).ToArray();
         }
 
         return Instantiate(originalData);
     }
 
-    int seed;
     protected void ReceiveSelectedTopic()
     {
-        //#if UNITY_EDITOR
+        #if UNITY_EDITOR
         topic = "EOCS";
         questionData = LoadQuestionData(topic, seed);
-        //if (PhotonNetwork.IsMasterClient)
-        //{
-        //    seed = Random.Range(0, 10);
-        //    Debug.Log($"Seed from ReceiveSelectedTopic: {seed}");
-        //    photonView.RPC("SetSeedRPC", RpcTarget.All, seed);
-        //}
-        //questionData = LoadQuestionData(topic, seed);
-//#else
-//        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
-//        {
-//            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
-//            if (PhotonNetwork.IsMasterClient)
-//            {
-//                 int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
-//                //questionData = LoadQuestionData(topic);
-//                // Sync the number of questions to all clients
-//                photonView.RPC("SetSeedRPC", RpcTarget.All, topic, seed);
-//            }
-//        }
-//        else
-//        {
-//            Debug.LogError("Selected topic not found in CustomProperties.");
-//        }
-//#endif
+        #else
+        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
+        {
+            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
+            questionData = LoadQuestionData(topic, seed);
+        }
+        else
+        {
+            Debug.LogError("Selected topic not found in CustomProperties.");
+        }
+        #endif
     }
 
     [PunRPC]
-    public void SetSeedRPC(int temp)
+    public void SetSeedRPC(int seed)
     {
-        seed = temp;
-        Debug.Log($"Name: {PhotonNetwork.LocalPlayer.NickName}, Seed from SetSeedRPC: {seed}");
+        this.seed = seed;
     }
 
     protected void GenerateQuestions()
@@ -185,6 +162,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
                 options[i].GetComponent<Answers>().isCorrect = true;
         }
     }
+
     protected void RemoveQuestion(int index)
     {
         for (int i = index + 1; i < questionData.questions.Length; i++)
@@ -214,8 +192,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         if (!PhotonNetwork.IsConnected) player = Instantiate(playerPrefab, position, Quaternion.identity);
         else player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
-
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
     }
 
     #endregion
@@ -254,9 +230,9 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     [PunRPC] public void StartCountdownRPC(string message)
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         startTime = 2.0f;
-#endif
+        #endif
 
         StartCoroutine(StartCountdown(message));
     }
