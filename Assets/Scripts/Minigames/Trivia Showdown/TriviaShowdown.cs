@@ -118,6 +118,7 @@ public class TriviaShowdown : Minigame
     public override void AnswerCorrect()
     {
         // Save the score
+        correct++;
         score = Mathf.Clamp(score + 1, 0, int.MaxValue);
         ChangeScoreList(playerName, score);
 
@@ -180,6 +181,8 @@ public class TriviaShowdown : Minigame
 
     IEnumerator NotifyIncrease()
     {
+        questionText.transform.parent.gameObject.SetActive(false);
+        GameObject.Find("Barrier").SetActive(false);
         messagePanel.SetActive(true);
 
         string formattedTopic = topic switch
@@ -243,44 +246,26 @@ public class TriviaShowdown : Minigame
     [PunRPC]
     private void UpdateUI()
     {
-        // Sort players by their scores in descending order
         var sorted = playerData.OrderByDescending(x => x.Value).ToList();
-
-        // Find the index of the current player
         int currentIndex = sorted.FindIndex(entry => entry.Key == playerName);
-
-        // If the player is found in the sorted list
         if (currentIndex != -1)
         {
-            // Determine the rank position (1-based index)
             int rank = currentIndex + 1;
-
-            // Choose the correct suffix for the rank (e.g., "1st", "2nd", "3rd", "4th", etc.)
             string suffix = GetRankSuffix(rank);
-
-            // Update the place text with the correct rank and suffix
             placeText.text = $"Place: {rank}{suffix}";
         }
     }
 
-    // Method to determine the correct suffix for a rank
     private string GetRankSuffix(int rank)
     {
-        if (rank % 100 >= 11 && rank % 100 <= 13)
-        {
-            return "th";
-        }
+        if (rank % 100 >= 11 && rank % 100 <= 13) return "th";
 
         switch (rank % 10)
         {
-            case 1:
-                return "st";
-            case 2:
-                return "nd";
-            case 3:
-                return "rd";
-            default:
-                return "th";
+            case 1: return "st";
+            case 2: return "nd";
+            case 3: return "rd";
+            default: return "th";
         }
     }
 

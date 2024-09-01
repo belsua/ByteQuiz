@@ -26,24 +26,24 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected int currentQuestionIndex;
     protected string topic;
     protected string playerName;
-    protected int score;
+    protected int score = 0;
+    protected int correct = 0;
     protected int seed;
 
     [Header("Values")]
     [TextArea] public string message;
     [SerializeField] Vector2 min, max;
     [SerializeField] float startTime = 10.0f;
+    [SerializeField] protected int total = 10;
 
     [Header("Objects")]
     [SerializeField] protected GameObject[] options;
 
-
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     protected int returnTime = 1;
-    #else
+#else
     protected int returnTime = 5;
-    #endif
-
+#endif
 
     protected virtual void Awake()
     {
@@ -65,7 +65,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected virtual void Start()
     {
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         SaveManager.selectedPlayer = new Player("Player", 0);
 
         if (!PhotonNetwork.IsConnected)
@@ -74,7 +74,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
             PhotonNetwork.OfflineMode = true;
             PhotonNetwork.JoinRoom("test");
         }
-        #endif
+#endif
 
         playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);
@@ -90,10 +90,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     }
 
-    #region Abstract and Virtual Functions
+    #region Virtual Functions
 
-    public abstract void StartMinigame();
-    public abstract void EndGame();
+    public virtual void StartMinigame() { }
+    public virtual void EndGame() { }
     public virtual void InitializePlayerData() { }
     public virtual void AnswerCorrect() { }
     public virtual void AnswerWrong() { }
@@ -102,7 +102,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #region Question Functions
 
-    protected QuestionDatabase LoadQuestionData(string topic, int seed, int limit = 10)
+    protected QuestionDatabase LoadQuestionData(string topic, int seed, int limit)
     {
         QuestionDatabase originalData = Resources.Load<QuestionDatabase>($"Single Player Quiz/{topic}");
 
@@ -110,7 +110,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         {
             Debug.LogError($"Failed to load QuizData for topic: {topic}");
             return null;
-        } 
+        }
         else
         {
             System.Random rng = new(seed);
@@ -122,20 +122,20 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected void ReceiveSelectedTopic()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         topic = "EOCS";
-        questionData = LoadQuestionData(topic, seed);
-        #else
+        questionData = LoadQuestionData(topic, seed, total);
+#else
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
         {
             topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
-            questionData = LoadQuestionData(topic, seed);
+            questionData = LoadQuestionData(topic, seed, total);
         }
         else
         {
             Debug.LogError("Selected topic not found in CustomProperties.");
         }
-        #endif
+#endif
     }
 
     [PunRPC]
