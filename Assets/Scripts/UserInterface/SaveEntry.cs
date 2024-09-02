@@ -24,13 +24,13 @@ public class SaveEntry : MonoBehaviour
 
     public virtual void OnButtonClick()
     {
-        SaveManager.selectedPlayer = player;
+        SaveManager.player = player;
         StartCoroutine(TriggerButtonClick());
     }
 
     private IEnumerator TriggerButtonClick()
     {
-        SaveManager.instance.player = player;
+        SaveManager.player = player;
         yield return new WaitForSeconds(1);
         if (SaveManager.instance.multiplayer) SceneManager.LoadScene(2);
         else fadeManager.FadeToScene("Crib");
@@ -40,7 +40,7 @@ public class SaveEntry : MonoBehaviour
     {
         GameObject deletePanel = SaveManager.deletePanel;
         SaveManager.selectedEntry = gameObject;
-        SaveManager.selectedPlayer = player;
+        SaveManager.player = player;
         deletePanel.transform.position = new Vector3 (0, 0, 0);
         deletePanel.SetActive(true);
         deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.name + "?";

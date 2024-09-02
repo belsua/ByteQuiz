@@ -2,21 +2,23 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Newtonsoft.Json;
 
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
     public static GameObject deletePanel, selectedEntry;
-    public static Player selectedPlayer;
+    //public static Player selectedPlayer;
+    public static Player player;
+    public static string filePath;
+    public static string saveFolder;
+
+    [Header("UI")]
     public TMP_InputField inputField;
-    public GameObject errorPanel, creationPanel, scrollContent, saveEntryPrefab;
-    public Player player;
+    public GameObject canvas, errorPanel, creationPanel, scrollContent, saveEntryPrefab;
     public FadeManager fadeManager;
 
-    public bool multiplayer = false;
-
-    private string filePath;
-    private string saveFolder;
+    internal bool multiplayer = false;
 
     #region Unity Methods
 
@@ -29,11 +31,11 @@ public class SaveManager : MonoBehaviour
         else Destroy(gameObject);
 
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
-        deletePanel.SetActive(false);
     }
 
     private void Start()
     {
+        ResetObjectPositions();
         PopulateSaveList(saveEntryPrefab, scrollContent);
     }
 
@@ -45,6 +47,13 @@ public class SaveManager : MonoBehaviour
     {
         player = new Player(name, slot);
         SavePlayer(slot);
+    }
+
+    public static Player LoadPlayer(int slot) 
+    { 
+        string path = GetSaveFiles()[slot];
+        string json = File.ReadAllText(path);
+        return JsonUtility.FromJson<Player>(json);
     }
 
     List<Player> LoadPlayers()
@@ -62,12 +71,23 @@ public class SaveManager : MonoBehaviour
         return players;
     }
 
-    void SavePlayer(int slot)
+    public static void SavePlayer(int slot)
     {
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
 
         filePath = Path.Combine(saveFolder, $"save-{slot}.json");
-        string json = JsonUtility.ToJson(player, true);
+
+        // Create JsonSerializerSettings with desired formatting options
+        var settings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.Indented,
+            FloatFormatHandling = FloatFormatHandling.DefaultValue,
+            NullValueHandling = NullValueHandling.Ignore
+        };
+
+        // Serialize the player data with the specified settings
+        string json = JsonConvert.SerializeObject(player, settings);
+
         File.WriteAllText(filePath, json);
 
         Debug.Log($"Player data saved to {filePath}");
@@ -75,9 +95,9 @@ public class SaveManager : MonoBehaviour
 
     public void DeleteSave()
     {
-        filePath = Path.Combine(saveFolder, $"save-{selectedPlayer.slot}.json");
+        filePath = Path.Combine(saveFolder, $"save-{player.slot}.json");
         File.Delete(filePath);
-        Debug.Log($"Player {selectedPlayer.name} with slot {selectedPlayer.slot} deleted");
+        Debug.Log($"Player {player.name} with slot {player.slot} deleted");
         Destroy(selectedEntry);
     }
 
@@ -128,10 +148,23 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    string[] GetSaveFiles()
+    public static string[] GetSaveFiles()
     {
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
         return Directory.GetFiles(saveFolder, "*.json");
+    }
+
+    void ResetObjectPositions()
+    {
+        foreach (Transform child in canvas.transform)
+        {
+            if (child.gameObject.name != "MenuPanel")
+            {
+                child.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                child.localScale = Vector3.one;
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     #endregion
