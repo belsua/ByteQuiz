@@ -41,7 +41,11 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void Quit()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         StartCoroutine(DelayQuit());
+        #endif
     }
 
     IEnumerator DelayQuit()
