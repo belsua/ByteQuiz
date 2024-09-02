@@ -8,6 +8,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
     public GameObject errorPanel;
+    public static RoomOptions roomOptions = new()
+    {
+        MaxPlayers = 4,
+        IsOpen = true,
+    };
 
     public void ValidateAndCreate()
     {
@@ -19,12 +24,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        RoomOptions roomOptions = new()
-        {
-            MaxPlayers = 4,
-            IsOpen = true,
-        };
-
         PhotonNetwork.JoinOrCreateRoom(createInput.text, roomOptions, TypedLobby.Default);
     }
 
