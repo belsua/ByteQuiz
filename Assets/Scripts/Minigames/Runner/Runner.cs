@@ -137,7 +137,7 @@ public class Runner : Minigame
     [PunRPC]
     public override void EndGame()
     {
-        SaveManager.selectedPlayer.IncreaseStat(topic, score / 200);
+        SaveManager.player.IncreaseStat(topic, score / 200);
         standingsText.text = string.Empty;
         foreach (var entry in playerData) standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
         AudioSource.Stop();
