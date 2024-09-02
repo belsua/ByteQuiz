@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer/Minigames/Runner.unity
     guid: f04701ab3b7b4df4db688df3b2252a19
   - enabled: 1
-    path: Assets/Scenes/Multiplayer/Minigames/Trivia Showdown.unity
+    path: Assets/Scenes/Multiplayer/Minigames/TriviaShowdown.unity
     guid: 6be68a41ad971e248b83ba019f8d7692
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/Minigames/MemoryMatch.unity
+    guid: 84ad0409f9419f1439c019f006d016c5
   m_configObjects: {}

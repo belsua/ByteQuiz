@@ -2,8 +2,13 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Realtime;
 using Photon.Pun;
 using TMPro;
+using System.IO;
+//using System.Runtime.CompilerServices;
+//using System.IO;
+//using Newtonsoft.Json;
 
 public interface IMinigame
 {
@@ -23,27 +28,22 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected AudioSource AudioSource;
     protected Image questionImage;
 
-    protected int currentQuestionIndex;
     protected string topic;
     protected string playerName;
+    protected int seed;
+    protected int currentQuestionIndex;
     protected int score = 0;
     protected int correct = 0;
-    protected int seed;
 
     [Header("Values")]
     [TextArea] public string message;
     [SerializeField] Vector2 min, max;
     [SerializeField] float startTime = 10.0f;
+    [SerializeField] [Range(1, 10)] protected int returnTime = 5;
     [SerializeField] protected int total = 10;
-
+    
     [Header("Objects")]
     [SerializeField] protected GameObject[] options;
-
-#if UNITY_EDITOR
-    protected int returnTime = 1;
-#else
-    protected int returnTime = 5;
-#endif
 
     protected virtual void Awake()
     {
@@ -64,17 +64,25 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected virtual void Start()
     {
-
-#if UNITY_EDITOR
-        SaveManager.selectedPlayer = new Player("Player", 0);
+        #if UNITY_EDITOR
+        SaveManager.saveFolder ??= Path.Combine(Application.persistentDataPath, "Saves");
+        SaveManager.player ??= SaveManager.LoadPlayer(0);
 
         if (!PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
+            PhotonNetwork.LocalPlayer.NickName = $"Player {SaveManager.player.name}";
             PhotonNetwork.OfflineMode = true;
-            PhotonNetwork.JoinRoom("test");
+            PhotonNetwork.JoinOrCreateRoom("test", LobbyManager.roomOptions, TypedLobby.Default);
         }
-#endif
+        #endif
+
+        //string playerFilePath = Path.Combine(SaveManager.saveFolder, $"save-{SaveManager.player.slot}.json");
+        //string jsonString = File.ReadAllText(playerFilePath);
+        //SaveManager.player = JsonConvert.DeserializeObject<Player>(jsonString);
+        //SaveManager.player.IncreaseStat(topic, 100);
+        //jsonString = JsonConvert.SerializeObject(SaveManager.player, Formatting.Indented);
+        //File.WriteAllText(playerFilePath, jsonString);
+        //Debug.Log("JSON data overwritten successfully.");
 
         playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);

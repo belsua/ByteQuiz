@@ -1997,13 +1997,14 @@ MonoBehaviour:
   min: {x: -0.5, y: -2.5}
   max: {x: 0.5, y: -2.5}
   startTime: 10
+  returnTime: 3
   total: 10
   options:
   - {fileID: 415163514}
   - {fileID: 1357841307}
   - {fileID: 1452470930}
   - {fileID: 956050989}
-  timer: 1
+  timer: 3
 --- !u!114 &523751359
 MonoBehaviour:
   m_ObjectHideFlags: 0

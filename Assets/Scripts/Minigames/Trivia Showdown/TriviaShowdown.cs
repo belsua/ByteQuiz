@@ -6,6 +6,8 @@ using Photon.Pun;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using Newtonsoft.Json;
+using System.IO;
 
 public class TriviaShowdown : Minigame
 {
@@ -141,6 +143,7 @@ public class TriviaShowdown : Minigame
     IEnumerator EndGameCoroutine()
     {
         yield return new WaitForSeconds(3);
+        questionImage.gameObject.SetActive(false);
         questionText.text = "Finished!";
         AudioManager.PlaySound(finishClip);
         yield return new WaitForSeconds(5);
@@ -156,12 +159,11 @@ public class TriviaShowdown : Minigame
     public override void EndGame()
     {
         // Increase stats
-        SaveManager.selectedPlayer.IncreaseStat(topic, score / 200);
+        SaveManager.player.IncreaseStat(topic, (float)score / 100f);
+        SaveManager.SavePlayer(SaveManager.player.slot);
 
         // Handle UI
         AudioSource.Stop();
-        questionImage.gameObject.SetActive(false);
-        questionText.gameObject.SetActive(true);
 
         StartCoroutine(DisplayScores());
     }
