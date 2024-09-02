@@ -14,7 +14,7 @@ public class CribManager : MonoBehaviour
 
     private void Start()
     {
-        player = SaveManager.instance.player;
+        player = SaveManager.player;
         LoadCharacterDetails();
     }
 
