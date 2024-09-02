@@ -34809,7 +34809,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -34907,15 +34907,12 @@ MonoBehaviour:
   message: Escape the maze by answering the questions.
   min: {x: -18, y: 1.5}
   max: {x: -15, y: 1.5}
-  AudioSource: {fileID: 1053010677}
+  startTime: 10
   options:
   - {fileID: 681005066}
   - {fileID: 553422958}
   - {fileID: 740159868}
   - {fileID: 760669121}
-  correctClip: {fileID: 8300000, guid: 6dbd45588d2ac224b97415520e623cec, type: 3}
-  wrongClip: {fileID: 8300000, guid: aec2341265ea07842b752a7a9618e518, type: 3}
-  finishClip: {fileID: 8300000, guid: 895921dabf5f99c44a46bbc12aa77f6a, type: 3}
   roundClip: {fileID: 8300000, guid: eb99ae37d07715f4984f5946857ab1fa, type: 3}
   upClip: {fileID: 8300000, guid: ea06b42edf4b42441b02b020fac840c9, type: 3}
   scoreText: {fileID: 1958457728}
@@ -34924,8 +34921,8 @@ MonoBehaviour:
   controls: {fileID: 1702817371}
   standingsPanel: {fileID: 1609815521}
   scorePanel: {fileID: 1764665476}
-  currentObject: {fileID: 0}
   teleportLocation: {fileID: 491056129}
+  currentObject: {fileID: 0}
 --- !u!114 &1053010679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34945,7 +34942,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &1054621312
@@ -58587,10 +58584,10 @@ RectTransform:
   m_Children:
   - {fileID: 1702817372}
   - {fileID: 515997405}
+  - {fileID: 2065429517}
   - {fileID: 1343111165}
   - {fileID: 1764665477}
   - {fileID: 1609815522}
-  - {fileID: 2065429517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

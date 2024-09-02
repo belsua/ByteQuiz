@@ -1,14 +1,15 @@
 using Photon.Pun;
 using UnityEngine;
-using TMPro;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
     public GameObject loadingCanvas, lobbyCanvas;
-    public TMP_Text regionText;
 
     void Start()
     {
+        lobbyCanvas.SetActive(false);
+        loadingCanvas.transform.position = Vector3.zero;
+
         if (!PhotonNetwork.IsConnected)
         {
             PhotonNetwork.ConnectUsingSettings();
@@ -16,13 +17,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
         else
         {
             SwitchPanel();
-            UpdateRegionText();
         }
     }
 
     public override void OnConnectedToMaster()
     {
-        UpdateRegionText();
         PhotonNetwork.JoinLobby();
         SwitchPanel();
     }
@@ -34,11 +33,5 @@ public class ServerManager : MonoBehaviourPunCallbacks
             loadingCanvas.SetActive(false);
             lobbyCanvas.SetActive(true);
         }
-    }
-
-    void UpdateRegionText()
-    {
-        string region = PhotonNetwork.CloudRegion;
-        regionText.text = $"Connected to: {region}";
     }
 }

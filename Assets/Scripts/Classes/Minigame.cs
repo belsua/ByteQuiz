@@ -15,20 +15,35 @@ public interface IMinigame
 public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 {
     public QuestionDatabase questionData;
-    protected Image questionImage;
-    protected GameObject playerPrefab, messagePanel, quizPanel;
+    public static GameObject player;
+
+    protected AudioClip finishClip, correctClip, wrongClip, roundClip, upClip;
+    protected GameObject playerPrefab, messagePanel, quizPanel, buttons;
     protected TMP_Text messageText, questionText;
+    protected AudioSource AudioSource;
+    protected Image questionImage;
+
     protected int currentQuestionIndex;
     protected string topic;
-    float startTime = 10.0f;
+    protected string playerName;
+    protected int score;
+    protected int seed;
 
     [Header("Values")]
     [TextArea] public string message;
     [SerializeField] Vector2 min, max;
+    [SerializeField] float startTime = 10.0f;
 
     [Header("Objects")]
-    [SerializeField] protected AudioSource AudioSource;
     [SerializeField] protected GameObject[] options;
+
+
+    #if UNITY_EDITOR
+    protected int returnTime = 1;
+    #else
+    protected int returnTime = 5;
+    #endif
+
 
     protected virtual void Awake()
     {
@@ -37,30 +52,57 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
         questionText = GameObject.Find("QuestionText").GetComponent<TMP_Text>();
         questionImage = GameObject.Find("QuestionImage").GetComponent<Image>();
+        buttons = GameObject.Find("Buttons");
+        AudioSource = GetComponent<AudioSource>();
+
+        finishClip = Resources.Load<AudioClip>("Audio/Sound/finish-clip");
+        correctClip = Resources.Load<AudioClip>("Audio/Sound/correct-clip");
+        wrongClip = Resources.Load<AudioClip>("Audio/Sound/wrong-clip");
+        roundClip = Resources.Load<AudioClip>("Audio/Sound/round-clip");
+        upClip = Resources.Load<AudioClip>("Audio/Sound/up-clip");
     }
 
-    void Start()
+    protected virtual void Start()
     {
+
         #if UNITY_EDITOR
+        SaveManager.selectedPlayer = new Player("Player", 0);
+
         if (!PhotonNetwork.IsConnected)
         {
-            SaveManager.selectedPlayer = new Player("Player", 0);
             PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
             PhotonNetwork.OfflineMode = true;
             PhotonNetwork.JoinRoom("test");
         }
         #endif
 
+        playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);
-
         SpawnPlayers();
         FreezeAllPlayers();
-        TriggerCountdown(message);
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int seed = Random.Range(0, 10);
+            photonView.RPC("SetSeedRPC", RpcTarget.All, seed);
+            TriggerCountdown(message);
+        }
+
     }
+
+    #region Abstract and Virtual Functions
+
+    public abstract void StartMinigame();
+    public abstract void EndGame();
+    public virtual void InitializePlayerData() { }
+    public virtual void AnswerCorrect() { }
+    public virtual void AnswerWrong() { }
+
+    #endregion
 
     #region Question Functions
 
-    protected QuestionDatabase LoadQuestionData(string topic, int seed = 0, int limit = 10)
+    protected QuestionDatabase LoadQuestionData(string topic, int seed, int limit = 10)
     {
         QuestionDatabase originalData = Resources.Load<QuestionDatabase>($"Single Player Quiz/{topic}");
 
@@ -71,9 +113,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         } 
         else
         {
-            System.Random rng = new System.Random(seed);
-
-            // Parameter to limit the number of questions
+            System.Random rng = new(seed);
             originalData.questions = originalData.questions.OrderBy(x => rng.Next()).Take(limit).ToArray();
         }
 
@@ -82,33 +122,26 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected void ReceiveSelectedTopic()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         topic = "EOCS";
-        int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
         questionData = LoadQuestionData(topic, seed);
-#else
+        #else
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
         {
             topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
-            if (PhotonNetwork.IsMasterClient)
-            {
-                 int seed = Random.Range(0, LoadQuestionData(topic).questions.Length);
-                //questionData = LoadQuestionData(topic);
-                // Sync the number of questions to all clients
-                photonView.RPC("SetQuestionRPC", RpcTarget.All, topic, seed);
-            }
+            questionData = LoadQuestionData(topic, seed);
         }
         else
         {
             Debug.LogError("Selected topic not found in CustomProperties.");
         }
-#endif
+        #endif
     }
 
     [PunRPC]
-    public void SetQuestionRPC(string topic, int seed)
+    public void SetSeedRPC(int seed)
     {
-        questionData = LoadQuestionData(topic, seed);
+        this.seed = seed;
     }
 
     protected void GenerateQuestions()
@@ -154,26 +187,26 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         }
     }
 
-#endregion
+    protected void RemoveQuestion(int index)
+    {
+        for (int i = index + 1; i < questionData.questions.Length; i++)
+            questionData.questions[i - 1] = questionData.questions[i];
 
-    #region Abstract Functions
-
-    public abstract void StartGame();
-    public abstract void EndGame();
-    public virtual void AnswerCorrect() { }
-    public virtual void AnswerWrong() { }
+        System.Array.Resize(ref questionData.questions, questionData.questions.Length - 1);
+    }
 
     #endregion
 
     #region Spawn Functions
 
-    void SpawnPlayers()
+    public virtual void SpawnPlayers(int order = 0)
     {
         playerPrefab = Resources.Load<GameObject>("Player");
+        playerPrefab.GetComponent<SpriteRenderer>().sortingOrder = order;
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
 
-        if (!PhotonNetwork.IsConnected) Instantiate(playerPrefab, position, Quaternion.identity);
-        else PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+        if (!PhotonNetwork.IsConnected) player = Instantiate(playerPrefab, position, Quaternion.identity);
+        else player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
     }
 
     #endregion
@@ -212,9 +245,9 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     [PunRPC] public void StartCountdownRPC(string message)
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         startTime = 2.0f;
-#endif
+        #endif
 
         StartCoroutine(StartCountdown(message));
     }
@@ -231,7 +264,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         messageText.text = "GO!";
         UnfreezeAllPlayers();
-        StartGame();
+        StartMinigame();
         yield return new WaitForSeconds(3.0f);
         messagePanel.SetActive(false);
     }

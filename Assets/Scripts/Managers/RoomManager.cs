@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
-using System.IO;
-using System.Collections.Generic;
 using System.Collections;
 
-public class RoomManager : MonoBehaviourPunCallbacks {
+public class RoomManager : MonoBehaviourPunCallbacks 
+{
     public Button startButton;
     public GameObject playerPrefab, countdownPanel, settingsPanel;
     public TMP_Text roomText, countdownText;
@@ -28,6 +27,7 @@ public class RoomManager : MonoBehaviourPunCallbacks {
     #if UNITY_EDITOR
     public TMP_Text debugText;
     public TMP_Text hostText;
+    public TMP_Text roomStatusText;
     #endif
 
     private ExitGames.Client.Photon.Hashtable roomOptions = new();
@@ -130,8 +130,13 @@ public class RoomManager : MonoBehaviourPunCallbacks {
 
     private void UpdateRoomDetails() {
         roomText.text = PhotonNetwork.CurrentRoom.Name;
+        #if UNITY_EDITOR
+        if (PhotonNetwork.LocalPlayer.NickName == "")
+            PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
+        #else
         PhotonNetwork.LocalPlayer.NickName = SaveManager.instance.player.name;
         if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
+        #endif
     }
 
     [PunRPC]
@@ -166,16 +171,18 @@ public class RoomManager : MonoBehaviourPunCallbacks {
         _ => "HOC",
     };
 
-    #endregion
+#endregion
 
     void ShowRoomDetails() {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             debugText.gameObject.SetActive(true);
             hostText.gameObject.SetActive(true);
+            roomStatusText.gameObject.SetActive(true);
             debugText.text = $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
             hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}\n";
             hostText.text += $"In Room: {PhotonNetwork.InRoom}";
-        #endif
+            roomStatusText.text = $"Room Status: {PhotonNetwork.CurrentRoom.IsOpen}";
+#endif
     }
 
     void HostCheck() {
