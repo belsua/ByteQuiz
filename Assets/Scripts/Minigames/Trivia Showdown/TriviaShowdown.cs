@@ -40,11 +40,6 @@ public class TriviaShowdown : Minigame
 
     #region Game Loop
 
-    public override void SpawnPlayers(int order = 0)
-    {
-        base.SpawnPlayers(1);
-    }
-
     public override void InitializePlayerData()
     {
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
@@ -152,11 +147,11 @@ public class TriviaShowdown : Minigame
 
     public void RPCEndGame()
     {
-        photonView.RPC("EndGame", RpcTarget.All);
+        photonView.RPC("EndMinigame", RpcTarget.All);
     }
 
     [PunRPC]
-    public override void EndGame()
+    public override void EndMinigame()
     {
         // Increase stats
         SaveManager.player.IncreaseStat(topic, (float)score / 100f);

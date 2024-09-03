@@ -34908,13 +34908,14 @@ MonoBehaviour:
   min: {x: -18, y: 1.5}
   max: {x: -15, y: 1.5}
   startTime: 10
+  returnTime: 5
+  total: 10
+  playerSpriteOrder: 0
   options:
   - {fileID: 681005066}
   - {fileID: 553422958}
   - {fileID: 740159868}
   - {fileID: 760669121}
-  roundClip: {fileID: 8300000, guid: eb99ae37d07715f4984f5946857ab1fa, type: 3}
-  upClip: {fileID: 8300000, guid: ea06b42edf4b42441b02b020fac840c9, type: 3}
   scoreText: {fileID: 1958457728}
   standingsText: {fileID: 34858446}
   scoreListText: {fileID: 2065429518}

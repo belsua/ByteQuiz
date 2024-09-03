@@ -16,7 +16,7 @@ public class PlayerData
 public class Runner : Minigame 
 {
     [SerializeField] TMP_Text scoreText, standingsText, scoreListText;
-    [SerializeField] GameObject controls, standingsPanel, scorePanel;
+    [SerializeField] GameObject standingsPanel, scorePanel;
     [SerializeField] Transform teleportLocation;
 
     Dictionary<string, PlayerData> playerData = new(); // <player name, player data>
@@ -131,11 +131,11 @@ public class Runner : Minigame
 
     public void RPCEndGame()
     {
-        photonView.RPC("EndGame", RpcTarget.All);
+        photonView.RPC("EndMinigame", RpcTarget.All);
     }
 
     [PunRPC]
-    public override void EndGame()
+    public override void EndMinigame()
     {
         SaveManager.player.IncreaseStat(topic, score / 200);
         standingsText.text = string.Empty;

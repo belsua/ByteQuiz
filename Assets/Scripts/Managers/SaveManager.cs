@@ -13,6 +13,9 @@ public class SaveManager : MonoBehaviour
     public static string filePath;
     public static string saveFolder;
 
+    //For welcome UI
+    public bool needWelcome = false;
+
     [Header("UI")]
     public TMP_InputField inputField;
     public GameObject canvas, errorPanel, creationPanel, scrollContent, saveEntryPrefab;
@@ -46,6 +49,7 @@ public class SaveManager : MonoBehaviour
     void CreatePlayer(string name, int slot)
     {
         player = new Player(name, slot);
+        needWelcome = true;
         SavePlayer(slot);
     }
 
@@ -67,6 +71,7 @@ public class SaveManager : MonoBehaviour
             Player player = JsonUtility.FromJson<Player>(json);
             players.Add(player);
         }
+        needWelcome = false;
 
         return players;
     }
