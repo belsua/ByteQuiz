@@ -66,6 +66,7 @@ MonoBehaviour:
   - ClaimTile
   - EndMinigame
   - ClaimTileRPC
+  - EndGameRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

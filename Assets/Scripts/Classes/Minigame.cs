@@ -32,7 +32,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected string playerName;
     protected int seed;
     protected int currentQuestionIndex;
-    protected int score = 0;
+    internal int score = 0;
     protected int correct = 0;
 
     [Header("General Variables")]

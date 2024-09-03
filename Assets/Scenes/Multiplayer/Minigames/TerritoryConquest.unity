@@ -2424,7 +2424,8 @@ MonoBehaviour:
   - {x: 6.5, y: -1.5}
   timeText: {fileID: 895079740}
   markText: {fileID: 1636723530}
-  timer: 60
+  scoreText: {fileID: 1516545124}
+  timer: 20
 --- !u!4 &1452049445
 Transform:
   m_ObjectHideFlags: 0
@@ -2450,7 +2451,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c5bf8e1d796d8d347a50294806648dcc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2674,7 +2675,7 @@ GameObject:
   - component: {fileID: 1516545125}
   - component: {fileID: 1516545124}
   m_Layer: 5
-  m_Name: PlaceText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,5 @@
 using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -28,8 +29,8 @@ public class TileClaim : MonoBehaviourPun
     public void ClaimTile()
     {
         tileMap.SetTile(tilePosition, claimedTile[territoryConquest.playerIndex]);
-        photonView.RPC("ClaimTileRPC", RpcTarget.All, tilePosition.x, tilePosition.y, tilePosition.z, territoryConquest.playerIndex);
 
+        photonView.RPC("ClaimTileRPC", RpcTarget.All, tilePosition.x, tilePosition.y, tilePosition.z, territoryConquest.playerIndex);
     }
 
     [PunRPC]
@@ -37,6 +38,15 @@ public class TileClaim : MonoBehaviourPun
     {
         Vector3Int tilePosition = new(x, y, z);
         tileMap.SetTile(tilePosition, claimedTile[playerIndex]);
-        // Update current player tiles
+
+        int count = 0;
+        foreach (Vector3Int cellPosition in tileMap.cellBounds.allPositionsWithin)
+        {
+            TileBase tile = tileMap.GetTile(cellPosition);
+            if (tile == claimedTile[territoryConquest.playerIndex]) count++;
+        }
+
+        territoryConquest.score = count;
+        territoryConquest.scoreText.text = $"Score: {count}";
     }
 }
