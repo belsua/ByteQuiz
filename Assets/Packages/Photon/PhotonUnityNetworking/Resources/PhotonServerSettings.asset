@@ -62,6 +62,10 @@ MonoBehaviour:
   - SetQuestionRPC
   - ShowQuestion
   - SetSeedRPC
+  - StartTurnRPC
+  - ClaimTile
+  - EndMinigame
+  - ClaimTileRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

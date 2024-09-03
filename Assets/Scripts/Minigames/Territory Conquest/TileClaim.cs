@@ -7,32 +7,36 @@ public class TileClaim : MonoBehaviourPun
     public TerritoryConquest territoryConquest;
     public Tilemap tileMap;
     public Tile[] claimedTile;
-    public Tile unclaimedTile;
+    Vector3 hitPosition;
+    Vector3Int tilePosition;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!photonView.IsMine) return;
+        if (!collision.GetComponent<PhotonView>().IsMine) return;
 
-        Vector3 hitPosition = Vector3.zero;
+        hitPosition = collision.transform.position;
+        tilePosition = tileMap.WorldToCell(hitPosition);
+        TileBase currentTile = tileMap.GetTile(tilePosition);
 
-        foreach (ContactPoint2D contact in collision.contacts)
+        if (currentTile != claimedTile[territoryConquest.playerIndex])
         {
-            hitPosition.x = contact.point.x - 0.01f * contact.normal.x;
-            hitPosition.y = contact.point.y - 0.01f * contact.normal.y;
-            Vector3Int tilePosition = tileMap.WorldToCell(hitPosition);
-
-            TileBase currentTile = tileMap.GetTile(tilePosition);
-            if (currentTile == unclaimedTile)
-            {
-                tileMap.SetTile(tilePosition, claimedTile[territoryConquest.playerIndex]);
-                photonView.RPC("ClaimTile", RpcTarget.All, tilePosition);
-            }
+            territoryConquest.FreezePlayer();
+            territoryConquest.quizPanel.SetActive(true);
         }
     }
 
-    [PunRPC]
-    public void ClaimTile(Vector3Int tilePosition)
+    public void ClaimTile()
     {
         tileMap.SetTile(tilePosition, claimedTile[territoryConquest.playerIndex]);
+        photonView.RPC("ClaimTileRPC", RpcTarget.All, tilePosition.x, tilePosition.y, tilePosition.z, territoryConquest.playerIndex);
+
+    }
+
+    [PunRPC]
+    public void ClaimTileRPC(int x, int y, int z, int playerIndex)
+    {
+        Vector3Int tilePosition = new(x, y, z);
+        tileMap.SetTile(tilePosition, claimedTile[playerIndex]);
+        // Update current player tiles
     }
 }

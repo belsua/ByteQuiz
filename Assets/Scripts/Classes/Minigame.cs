@@ -22,11 +22,11 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     public QuestionDatabase questionData;
     public static GameObject player;
 
-    protected AudioClip finishClip, correctClip, wrongClip, roundClip, upClip;
-    protected GameObject playerPrefab, messagePanel, quizPanel, buttons;
-    protected TMP_Text messageText, questionText;
-    protected AudioSource AudioSource;
-    protected Image questionImage;
+    internal AudioClip finishClip, correctClip, wrongClip, roundClip, upClip;
+    internal GameObject playerPrefab, messagePanel, quizPanel, questionPanel, controls, buttons, interfacePanel;
+    internal TMP_Text messageText, questionText;
+    internal AudioSource AudioSource;
+    internal Image questionImage;
 
     protected string topic;
     protected string playerName;
@@ -35,12 +35,13 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected int score = 0;
     protected int correct = 0;
 
-    [Header("Values")]
-    [TextArea] public string message;
+    [Header("General Variables")]
+    [TextArea(2, 10)] public string message;
     [SerializeField] Vector2 min, max;
     [SerializeField] float startTime = 10.0f;
     [SerializeField] [Range(1, 10)] protected int returnTime = 5;
     [SerializeField] protected int total = 10;
+    [SerializeField] protected int playerSpriteOrder = 1;
     
     [Header("Objects")]
     [SerializeField] protected GameObject[] options;
@@ -50,16 +51,22 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         quizPanel = GameObject.Find("Quiz");
         messagePanel = GameObject.Find("MessagePanel");
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
+        questionPanel = GameObject.Find("Question");
         questionText = GameObject.Find("QuestionText").GetComponent<TMP_Text>();
         questionImage = GameObject.Find("QuestionImage").GetComponent<Image>();
+        controls = GameObject.Find("Controls");
         buttons = GameObject.Find("Buttons");
         AudioSource = GetComponent<AudioSource>();
 
+        playerPrefab = Resources.Load<GameObject>("Player");
         finishClip = Resources.Load<AudioClip>("Audio/Sound/finish-clip");
         correctClip = Resources.Load<AudioClip>("Audio/Sound/correct-clip");
         wrongClip = Resources.Load<AudioClip>("Audio/Sound/wrong-clip");
         roundClip = Resources.Load<AudioClip>("Audio/Sound/round-clip");
         upClip = Resources.Load<AudioClip>("Audio/Sound/up-clip");
+
+        TMP_Text[] texts = FindObjectsOfType<TMP_Text>();
+        foreach (TMP_Text text in texts) text.SetText(string.Empty);
     }
 
     protected virtual void Start()
@@ -75,14 +82,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
             PhotonNetwork.JoinOrCreateRoom("test", LobbyManager.roomOptions, TypedLobby.Default);
         }
         #endif
-
-        //string playerFilePath = Path.Combine(SaveManager.saveFolder, $"save-{SaveManager.player.slot}.json");
-        //string jsonString = File.ReadAllText(playerFilePath);
-        //SaveManager.player = JsonConvert.DeserializeObject<Player>(jsonString);
-        //SaveManager.player.IncreaseStat(topic, 100);
-        //jsonString = JsonConvert.SerializeObject(SaveManager.player, Formatting.Indented);
-        //File.WriteAllText(playerFilePath, jsonString);
-        //Debug.Log("JSON data overwritten successfully.");
 
         playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);
@@ -101,8 +100,8 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     #region Virtual Functions
 
     public virtual void StartMinigame() { }
-    public virtual void EndGame() { }
     public virtual void InitializePlayerData() { }
+    public virtual void EndMinigame() { }
     public virtual void AnswerCorrect() { }
     public virtual void AnswerWrong() { }
 
@@ -207,14 +206,12 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #region Spawn Functions
 
-    public virtual void SpawnPlayers(int order = 0)
+    public virtual void SpawnPlayers()
     {
-        playerPrefab = Resources.Load<GameObject>("Player");
-        playerPrefab.GetComponent<SpriteRenderer>().sortingOrder = order;
+        SpriteRenderer[] spriteRenderers = playerPrefab.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers) spriteRenderer.sortingOrder = playerSpriteOrder;
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
-
-        if (!PhotonNetwork.IsConnected) player = Instantiate(playerPrefab, position, Quaternion.identity);
-        else player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+        player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
     }
 
     #endregion
@@ -231,6 +228,12 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         }
     }
 
+    public void FreezePlayer()
+    {
+        player.GetComponent<PlayerControllerMultiplayer>().isFrozen = true;
+        player.GetComponent<Animator>().Play("Idle");
+    }
+
     void UnfreezeAllPlayers()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -239,6 +242,11 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
             PlayerControllerMultiplayer movement = player.GetComponent<PlayerControllerMultiplayer>();
             if (movement != null) movement.isFrozen = false;
         }
+    }
+
+    public void UnfreezePlayer()
+    {
+        player.GetComponent<PlayerControllerMultiplayer>().isFrozen = false;
     }
 
     #endregion
