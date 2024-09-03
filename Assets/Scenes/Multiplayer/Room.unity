@@ -5869,7 +5869,7 @@ MonoBehaviour:
   maxX: 2
   minY: -11
   maxY: -12
-  debugGame: 1
+  debugGame: 2
   debugText: {fileID: 200809139}
   hostText: {fileID: 195324382}
   roomStatusText: {fileID: 1426857807}
