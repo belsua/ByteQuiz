@@ -261,10 +261,6 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     [PunRPC] public void StartCountdownRPC(string message)
     {
-        #if UNITY_EDITOR
-        startTime = 2.0f;
-        #endif
-
         StartCoroutine(StartCountdown(message));
     }
 

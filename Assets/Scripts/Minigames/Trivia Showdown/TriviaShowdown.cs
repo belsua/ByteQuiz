@@ -14,7 +14,7 @@ public class TriviaShowdown : Minigame
     Dictionary<string, int> playerData = new(); // <player, score>
 
     [Range(1, 10)]
-    [SerializeField] int timer;
+    [SerializeField] int timer = 20;
     TMP_Text timerText, placeText, markText;
 
     protected override void Awake()
