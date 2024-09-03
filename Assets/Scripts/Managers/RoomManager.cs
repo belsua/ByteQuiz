@@ -11,6 +11,7 @@ public enum MinigameScenes
 {
     Runner,
     TriviaShowdown,
+    TerritoryConquest,
     Random
 }
 
@@ -148,7 +149,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void UpdateRoomDetails() {
         roomText.text = PhotonNetwork.CurrentRoom.Name;
         #if UNITY_EDITOR
-        if (SaveManager.player.name == "") PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
+        if (SaveManager.player == null) PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
         else PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.name}";
         #else
         PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.name}";

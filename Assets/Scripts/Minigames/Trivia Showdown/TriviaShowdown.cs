@@ -14,7 +14,7 @@ public class TriviaShowdown : Minigame
     Dictionary<string, int> playerData = new(); // <player, score>
 
     [Range(1, 10)]
-    [SerializeField] int timer;
+    [SerializeField] int timer = 20;
     TMP_Text timerText, placeText, markText;
 
     protected override void Awake()
@@ -39,11 +39,6 @@ public class TriviaShowdown : Minigame
     }
 
     #region Game Loop
-
-    public override void SpawnPlayers(int order = 0)
-    {
-        base.SpawnPlayers(1);
-    }
 
     public override void InitializePlayerData()
     {
@@ -152,11 +147,11 @@ public class TriviaShowdown : Minigame
 
     public void RPCEndGame()
     {
-        photonView.RPC("EndGame", RpcTarget.All);
+        photonView.RPC("EndMinigame", RpcTarget.All);
     }
 
     [PunRPC]
-    public override void EndGame()
+    public override void EndMinigame()
     {
         // Increase stats
         SaveManager.player.IncreaseStat(topic, (float)score / 100f);

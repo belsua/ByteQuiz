@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer/Minigames/TriviaShowdown.unity
     guid: 6be68a41ad971e248b83ba019f8d7692
   - enabled: 1
-    path: Assets/Scenes/Multiplayer/Minigames/Memory Match.unity
-    guid: 84ad0409f9419f1439c019f006d016c5
+    path: Assets/Scenes/Multiplayer/Minigames/TerritoryConquest.unity
+    guid: efe4cef2a6494dc4494306f6e072d8e9
   m_configObjects: {}

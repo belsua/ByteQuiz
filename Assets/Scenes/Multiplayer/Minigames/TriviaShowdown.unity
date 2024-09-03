@@ -1997,8 +1997,9 @@ MonoBehaviour:
   min: {x: -0.5, y: -2.5}
   max: {x: 0.5, y: -2.5}
   startTime: 10
-  returnTime: 3
+  returnTime: 5
   total: 10
+  playerSpriteOrder: 1
   options:
   - {fileID: 415163514}
   - {fileID: 1357841307}
