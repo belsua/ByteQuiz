@@ -13,7 +13,7 @@ public class TriviaShowdown : Minigame
 {
     Dictionary<string, int> playerData = new(); // <player, score>
 
-    [Range(1, 10)]
+    [Range(1, 30)]
     [SerializeField] int timer = 20;
     TMP_Text timerText, placeText, markText;
 

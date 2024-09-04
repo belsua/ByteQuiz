@@ -1998,14 +1998,14 @@ MonoBehaviour:
   max: {x: 0.5, y: -2.5}
   startTime: 10
   returnTime: 5
-  total: 10
+  total: 20
   playerSpriteOrder: 1
   options:
   - {fileID: 415163514}
   - {fileID: 1357841307}
   - {fileID: 1452470930}
   - {fileID: 956050989}
-  timer: 3
+  timer: 10
 --- !u!114 &523751359
 MonoBehaviour:
   m_ObjectHideFlags: 0
