@@ -1,3 +1,4 @@
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class WelcomeManager : MonoBehaviour
     private void Start()
     {
         //ADDED
-        if (SaveManager.instance.needWelcome)
+        if (SaveManager.player.needWelcome)
         {
             // Execute code if needWelcome is true
             ShowWelcomeMessage();
@@ -37,6 +38,9 @@ public class WelcomeManager : MonoBehaviour
             WelcomeE.SetActive(false);
             WelcomeF.SetActive(false);
             WelcomeG.SetActive(false);
+
+            SaveManager.player.needWelcome = false;
+            if (Directory.Exists(SaveManager.saveFolder)) SaveManager.SavePlayer(SaveManager.player.slot);
         }
         else
         {

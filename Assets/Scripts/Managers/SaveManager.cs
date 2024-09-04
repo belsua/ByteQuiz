@@ -13,9 +13,6 @@ public class SaveManager : MonoBehaviour
     public static string filePath;
     public static string saveFolder;
 
-    //For welcome UI
-    public bool needWelcome = false;
-
     [Header("UI")]
     public TMP_InputField inputField;
     public GameObject canvas, errorPanel, creationPanel, scrollContent, saveEntryPrefab;
@@ -49,7 +46,6 @@ public class SaveManager : MonoBehaviour
     void CreatePlayer(string name, int slot)
     {
         player = new Player(name, slot);
-        needWelcome = true;
         SavePlayer(slot);
     }
 
@@ -71,7 +67,6 @@ public class SaveManager : MonoBehaviour
             Player player = JsonUtility.FromJson<Player>(json);
             players.Add(player);
         }
-        needWelcome = false;
 
         return players;
     }
@@ -82,19 +77,14 @@ public class SaveManager : MonoBehaviour
 
         filePath = Path.Combine(saveFolder, $"save-{slot}.json");
 
-        // Create JsonSerializerSettings with desired formatting options
         var settings = new JsonSerializerSettings
         {
-            Formatting = Formatting.Indented,
             FloatFormatHandling = FloatFormatHandling.DefaultValue,
             NullValueHandling = NullValueHandling.Ignore
         };
 
-        // Serialize the player data with the specified settings
         string json = JsonConvert.SerializeObject(player, settings);
-
         File.WriteAllText(filePath, json);
-
         Debug.Log($"Player data saved to {filePath}");
     }
 
