@@ -129,10 +129,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected void ReceiveSelectedTopic()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         topic = "EOCS";
         questionData = LoadQuestionData(topic, seed, total);
-#else
+        #else
         if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
         {
             topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
@@ -142,7 +142,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         {
             Debug.LogError("Selected topic not found in CustomProperties.");
         }
-#endif
+        #endif
     }
 
     [PunRPC]

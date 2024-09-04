@@ -111,7 +111,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     IEnumerator SelectMinigame() {
         int time = (int)minigameTime;
 
-        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        #if UNITY_EDITOR
         string selectedGame = debugGame.ToString();
         #else
         string selectedGame = minigames[Random.Range(0, minigames.Length)];

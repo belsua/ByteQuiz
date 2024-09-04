@@ -155,7 +155,6 @@ public class TriviaShowdown : Minigame
     {
         // Increase stats
         SaveManager.player.IncreaseStat(topic, (float)score / 100f);
-        SaveManager.SavePlayer(SaveManager.player.slot);
 
         // Handle UI
         AudioSource.Stop();

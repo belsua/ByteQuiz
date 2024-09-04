@@ -122,7 +122,6 @@ public class TerritoryConquest : Minigame
     {
         // Increase stats
         SaveManager.player.IncreaseStat(topic, score / 100f);
-        SaveManager.SavePlayer(SaveManager.player.slot);
 
         // Handle UI
         AudioSource.Stop();
