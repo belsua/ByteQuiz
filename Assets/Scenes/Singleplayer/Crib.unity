@@ -5073,6 +5073,7 @@ MonoBehaviour:
   - {fileID: 1921254558}
   debugButton: {fileID: 984221965}
   debugPanel: {fileID: 119769216}
+  showWelcome: 1
 --- !u!1 &477762784
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,13 +16,13 @@ public class CribManager : MonoBehaviour
     [Header("Debug")]
     public Button debugButton;
     public GameObject debugPanel;
+    [Tooltip("Show welcome panel on start? Only works when opening Crib scene directly not coming from main menu.")]
     public bool showWelcome = false;
 
     private void Awake()
     {
         #if UNITY_EDITOR
-        SaveManager.player ??= new Player("Debug guy", 0);
-        SaveManager.player.needWelcome = showWelcome;
+        SaveManager.player ??= new("Debug guy", 0) { needWelcome = showWelcome };
         #endif
     }
 
