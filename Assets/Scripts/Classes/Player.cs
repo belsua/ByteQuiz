@@ -18,10 +18,10 @@ public class Player
     public string name;
     public bool needWelcome = true;
 
-    public float computerHistory = 0;
-    public float computerElements = 0;
-    public float numberSystem = 0;
-    public float introProgramming = 0;
+    public float computerHistory = 0.01f;
+    public float computerElements = 0.01f;
+    public float numberSystem = 0.01f;
+    public float introProgramming = 0.01f;
 
     public const float toUnlockNumberSystem = 0.20f;
     public const float toUnlockIntroProgramming = 0.30f;
