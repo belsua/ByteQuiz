@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviourPunCallbacks
 {
     public float MoveSpeed = 5f;
-    private Vector2 Movement;
+    public Vector2 Movement;
     private Joystick Joystick;
     private Rigidbody2D Rigidbody;
     private Animator Animator;
