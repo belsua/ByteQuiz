@@ -5,17 +5,20 @@ using TMPro;
 
 public class PlayManager : MonoBehaviour
 {
+    [Header("Question Database")]
     public QuestionDatabase[] questionDatabases; // Array of question databases for each topic
     public List<PlayQuestion> currentQuestions;
-
     public TextMeshProUGUI questionText;
     public Image questionImage; //ADDED Add a reference to an Image component
-    private int currentQuestionIndex;
+    [Header("Game Loop")]
     public int score;
-
+    [Header("Components")]
+    public CribManager cribManager;
     public Button[] answerButtons;
     public TextMeshProUGUI feedbackText;
 
+    private int currentQuestionIndex;
+    private int topicIndex;
     private const int MaxQuestionsPerQuiz = 29; //LIMIT QUIZ 0-29 = 30 questions
 
     private void Start()
@@ -28,6 +31,8 @@ public class PlayManager : MonoBehaviour
 
     public void SelectTopic(int topicIndex)
     {
+        this.topicIndex = topicIndex;
+
         currentQuestions = new List<PlayQuestion>(questionDatabases[topicIndex].questions);
         if (currentQuestions == null || currentQuestions.Count == 0)
         {
@@ -122,9 +127,25 @@ public class PlayManager : MonoBehaviour
         LoadQuestion();
     }
 
+    private string GetTopic(int index)
+    {
+        return index switch
+        {
+            0 => "HOC",
+            1 => "EOCS",
+            2 => "NS",
+            3 => "ITP",
+            _ => "HOC",
+        };
+    }
+
     private void EndQuiz()
     {
+        SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
         questionText.text = "Quiz Over! Your score: " + score;
+        cribManager.UpdatePlayerInterface();
+        cribManager.ShowMessage($"Your {GetTopic(topicIndex)} stat increased!");
+
         foreach (var button in answerButtons)
         {
             button.gameObject.SetActive(false);

@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +14,9 @@ public class CribManager : MonoBehaviour
     public Image numberSystem;
     public Image introProgramming;
     [Space]
+    public GameObject messagePanel;
+    public AudioClip messageSound;
+    [Space]
     public Button[] numberSystemButtons;
     public Button[] introProgrammingButtons;
     [Header("Debug")]
@@ -18,11 +24,16 @@ public class CribManager : MonoBehaviour
     public GameObject debugPanel;
     [Tooltip("Show welcome panel on start? Only works when opening Crib scene directly not coming from main menu.")]
     public bool showWelcome = false;
+    [Range(1, 5)]
+    public int messageDelay = 3;
+
+    private Queue<string> messageQueue = new();
+    private bool isCoroutineRunning = false;
 
     private void Awake()
     {
         #if UNITY_EDITOR
-        SaveManager.player ??= new("Debug guy", 0) { needWelcome = showWelcome };
+        if (SaveManager.player == null) SaveManager.CreatePlayer("Debug guy", 999, showWelcome);
         #endif
     }
 
@@ -33,6 +44,9 @@ public class CribManager : MonoBehaviour
         debugPanel.transform.position = debugPanel.transform.parent.position;
         debugPanel.SetActive(false);
         #endif
+
+        SaveManager.player.OnStatUnlocked += ShowMessage;
+        messagePanel.SetActive(false);
 
         UpdatePlayerInterface();
     }
@@ -50,5 +64,26 @@ public class CribManager : MonoBehaviour
         computerElements.fillAmount = SaveManager.player.computerElements;
         numberSystem.fillAmount = SaveManager.player.numberSystem;
         introProgramming.fillAmount = SaveManager.player.introProgramming;
+    }
+
+    public void ShowMessage(string message)
+    {
+        messageQueue.Enqueue(message);
+        if (!isCoroutineRunning)  StartCoroutine(ShowMessageCoroutine());
+    }
+
+    IEnumerator ShowMessageCoroutine()
+    {
+        while (messageQueue.Count > 0)
+        {
+            isCoroutineRunning = true;
+            string message = messageQueue.Dequeue();
+            messagePanel.GetComponentInChildren<TMP_Text>().text = message;
+            AudioManager.PlaySound(messageSound);
+            messagePanel.SetActive(true);
+            yield return new WaitForSeconds(messageDelay);
+            messagePanel.SetActive(false);
+            isCoroutineRunning = false;
+        }
     }
 }
