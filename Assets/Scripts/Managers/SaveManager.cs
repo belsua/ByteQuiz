@@ -4,11 +4,21 @@ using UnityEngine;
 using TMPro;
 using Newtonsoft.Json;
 
+/// <summary>
+/// Stores the player data at `public static Player player`
+/// To access it anywhere, use `SaveManager.player`
+/// To write the save file, use `SaveManager.SavePlayer()`
+/// To read the save file, use `SaveManager.LoadPlayer()`
+/// To delete the save file, use `SaveManager.DeleteSave()`
+/// To access the save files, use `SaveManager.GetSaveFiles()`
+/// To check if a save file exists, use `SaveManager.SaveExists()`
+/// To access the save folder, use `SaveManager.saveFolder`
+/// </summary>
+
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
     public static GameObject deletePanel, selectedEntry;
-    //public static Player selectedPlayer;
     public static Player player;
     public static string filePath;
     public static string saveFolder;
@@ -43,9 +53,9 @@ public class SaveManager : MonoBehaviour
 
     #region Save System
 
-    void CreatePlayer(string name, int slot)
+    public static void CreatePlayer(string name, int slot, bool needWelcome = true)
     {
-        player = new Player(name, slot);
+        player = new Player(name, slot) { needWelcome = needWelcome };
         SavePlayer(slot);
     }
 
@@ -73,6 +83,7 @@ public class SaveManager : MonoBehaviour
 
     public static void SavePlayer(int slot)
     {
+        saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
 
         filePath = Path.Combine(saveFolder, $"save-{slot}.json");
