@@ -9,10 +9,8 @@ public class CribManager : MonoBehaviour
 {
     [Header("User Interface")]
     public TextMeshProUGUI nameText;
-    public Image computerHistory;
-    public Image computerElements;
-    public Image numberSystem;
-    public Image introProgramming;
+    public Image[] statBars;
+    public TMP_Text[] statTexts, statusTexts;
     [Space]
     public GameObject messagePanel;
     public AudioClip messageSound;
@@ -53,17 +51,42 @@ public class CribManager : MonoBehaviour
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.isNumberSystemUnlocked) foreach (Button button in numberSystemButtons) button.interactable = true;
-        else foreach (Button button in numberSystemButtons) button.interactable = false;
+        if (SaveManager.player.isNumberSystemUnlocked)
+        {
+            foreach (Button button in numberSystemButtons) button.interactable = true;
+            statusTexts[0].transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            foreach (Button button in numberSystemButtons) button.interactable = false;
+            statusTexts[0].text = "Locked";
+        }
         
-        if (SaveManager.player.isIntroProgrammingUnlocked) foreach (Button button in introProgrammingButtons) button.interactable = true;
-
-        else foreach (Button button in introProgrammingButtons) button.interactable = false;
+        if (SaveManager.player.isIntroProgrammingUnlocked)
+        {
+            foreach (Button button in introProgrammingButtons) button.interactable = true;
+            statusTexts[1].transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            foreach (Button button in introProgrammingButtons) button.interactable = false;
+            statusTexts[1].text = "Locked";
+        }
+        
         nameText.text = SaveManager.player.name;
-        computerHistory.fillAmount = SaveManager.player.computerHistory;
-        computerElements.fillAmount = SaveManager.player.computerElements;
-        numberSystem.fillAmount = SaveManager.player.numberSystem;
-        introProgramming.fillAmount = SaveManager.player.introProgramming;
+
+        float[] playerStats = {
+            SaveManager.player.computerHistory,
+            SaveManager.player.computerElements,
+            SaveManager.player.numberSystem,
+            SaveManager.player.introProgramming
+        };
+
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            statBars[i].fillAmount = playerStats[i];
+            statTexts[i].text = ((int)(playerStats[i] * 10000)).ToString();
+        }
     }
 
     public void ShowMessage(string message)
