@@ -1998,7 +1998,8 @@ MonoBehaviour:
   max: {x: 0.5, y: -2.5}
   startTime: 10
   returnTime: 5
-  total: 20
+  messageDelay: 3
+  total: 15
   playerSpriteOrder: 1
   options:
   - {fileID: 415163514}

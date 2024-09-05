@@ -137,53 +137,22 @@ public class Runner : Minigame
     [PunRPC]
     public override void EndMinigame()
     {
-        SaveManager.player.IncreaseStat(topic, score / 200);
         standingsText.text = string.Empty;
         foreach (var entry in playerData) standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
         AudioSource.Stop();
         quizPanel.SetActive(false);
         scorePanel.SetActive(false);
         AudioManager.PlaySound(roundClip);
-        StartCoroutine(DisplayScores(time: 5));
+        StartCoroutine(UpdateScores(time: 5));
     }
 
-    IEnumerator DisplayScores(int time)
+    IEnumerator UpdateScores(int time)
     {
         standingsPanel.SetActive(true);
         yield return new WaitForSeconds(time);
         standingsPanel.SetActive(false);
-        StartCoroutine(NotifyIncrease(time: 3));
-    }
-
-    IEnumerator NotifyIncrease(int time)
-    {
-        messagePanel.SetActive(true);
-
-        string formattedTopic = topic switch
-        {
-            "HOC" => "computer history",
-            "EOCS" => "computer elements",
-            "NS" => "number system",
-            "ITP" => "intro to programming",
-            _ => topic,
-        };
-
-        messageText.text = $"Your {formattedTopic} stat is increased!";
-        AudioManager.PlaySound(upClip);
-        yield return new WaitForSeconds(time);
-        StartCoroutine(LoadLobby(time: returnTime));
-    }
-
-    IEnumerator LoadLobby(int time)
-    {
-        int timeLeft = time;
-        while (timeLeft > 0) {
-            messageText.text = $"Going to lobby in {timeLeft}...";
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
-        // PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
-        PhotonNetwork.LoadLevel("Room");
+        SaveManager.player.IncreaseStat(topic, score / 5000);
+        NotifyIncrease();
     }
 
     #endregion

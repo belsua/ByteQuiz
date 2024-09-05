@@ -34909,6 +34909,7 @@ MonoBehaviour:
   max: {x: -15, y: 1.5}
   startTime: 10
   returnTime: 5
+  messageDelay: 3
   total: 10
   playerSpriteOrder: 0
   options:
@@ -34919,7 +34920,6 @@ MonoBehaviour:
   scoreText: {fileID: 1958457728}
   standingsText: {fileID: 34858446}
   scoreListText: {fileID: 2065429518}
-  controls: {fileID: 1702817371}
   standingsPanel: {fileID: 1609815521}
   scorePanel: {fileID: 1764665476}
   teleportLocation: {fileID: 491056129}
@@ -47208,7 +47208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702817372}
   m_Layer: 5
-  m_Name: ControlsPanel
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

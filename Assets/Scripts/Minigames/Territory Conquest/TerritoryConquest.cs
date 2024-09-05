@@ -120,60 +120,59 @@ public class TerritoryConquest : Minigame
 
     public override void EndMinigame()
     {
-        // Increase stats
-        SaveManager.player.IncreaseStat(topic, score / 100f);
-
         // Handle UI
         AudioSource.Stop();
 
-        StartCoroutine(DisplayScores());
+        StartCoroutine(UpdateScores());
     }
 
     // Handle player place
-    IEnumerator DisplayScores()
+    IEnumerator UpdateScores()
     {
         // Show the ranking in the text
         AudioManager.PlaySound(roundClip);
         questionText.text = string.Empty;
         foreach (var entry in playerData) questionText.text += $"{entry.Key}: {entry.Value}\n";
         yield return new WaitForSeconds(5.0f);
+        quizPanel.SetActive(false);
 
-        // Increase stats
-        StartCoroutine(NotifyIncrease());
+        // Notify increase
+        SaveManager.player.IncreaseStat(topic, score / 100f);
+        NotifyIncrease();
     }
 
-    IEnumerator NotifyIncrease()
-    {
-        questionText.transform.parent.gameObject.SetActive(false);
-        messagePanel.SetActive(true);
+    //IEnumerator NotifyIncrease()
+    //{
+    //    questionText.transform.parent.gameObject.SetActive(false);
+    //    messagePanel.SetActive(true);
 
-        string formattedTopic = topic switch
-        {
-            "HOC" => "computer history",
-            "EOCS" => "computer elements",
-            "NS" => "number system",
-            "ITP" => "intro to programming",
-            _ => topic,
-        };
+    //    string formattedTopic = topic switch
+    //    {
+    //        "HOC" => "computer history",
+    //        "EOCS" => "computer elements",
+    //        "NS" => "number system",
+    //        "ITP" => "intro to programming",
+    //        _ => topic,
+    //    };
 
-        messageText.text = $"Your {formattedTopic} stat is increased!";
-        AudioManager.PlaySound(upClip);
-        yield return new WaitForSeconds(5.0f);
-        StartCoroutine(LoadLobby());
-    }
+    //    messageText.text = $"Your {formattedTopic} stat is increased!";
+    //    AudioManager.PlaySound(upClip);
+    //    yield return new WaitForSeconds(5.0f);
+    //    StartCoroutine(LoadLobby());
+    //}
 
-    IEnumerator LoadLobby()
-    {
-        int timeLeft = returnTime;
-        while (timeLeft > 0)
-        {
-            messageText.text = $"Going to lobby in {timeLeft}...";
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+    //IEnumerator LoadLobby()
+    //{
+    //    int timeLeft = returnTime;
+    //    while (timeLeft > 0)
+    //    {
+    //        messageText.text = $"Going to lobby in {timeLeft}...";
+    //        yield return new WaitForSeconds(1);
+    //        timeLeft--;
+    //    }
 
-        PhotonNetwork.LoadLevel("Room");
-    }
+    //    PhotonNetwork.LoadLevel("Room");
+    //}
 
     #endregion
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 public enum MinigameScenes
 {
@@ -30,8 +31,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public float maxX;
     public float minY;
     public float maxY;
+    public Toggle[] dropChild;
+    public List<TMP_Dropdown.OptionData> test;
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [Header("Debug")]
     public MinigameScenes debugGame;
     public TMP_Text debugText;
@@ -46,7 +49,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Start() 
     {
         GetMinigames();
-
         SpawnPlayers();
         UpdateRoomDetails();
 

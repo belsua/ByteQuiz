@@ -1,14 +1,12 @@
+using System.IO;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Realtime;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
-using System.IO;
-//using System.Runtime.CompilerServices;
-//using System.IO;
-//using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public interface IMinigame
 {
@@ -22,7 +20,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     public QuestionDatabase questionData;
     public static GameObject player;
 
-    internal AudioClip finishClip, correctClip, wrongClip, roundClip, upClip;
+    internal AudioClip finishClip, correctClip, wrongClip, roundClip, upClip, messageClip;
     internal GameObject playerPrefab, messagePanel, quizPanel, questionPanel, controls, buttons, interfacePanel;
     internal TMP_Text messageText, questionText;
     internal AudioSource AudioSource;
@@ -35,11 +33,15 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     internal int score = 0;
     protected int correct = 0;
 
+    private Queue<string> messageQueue = new();
+    private bool isCoroutineRunning = false;
+
     [Header("General Variables")]
     [TextArea(2, 10)] public string message;
     [SerializeField] Vector2 min, max;
     [SerializeField] float startTime = 10.0f;
-    [SerializeField] [Range(1, 10)] protected int returnTime = 5;
+    [SerializeField] [Range(1, 10)] protected int returnTime = 10;
+    [SerializeField] [Range(1, 10)] int messageDelay = 3;
     [SerializeField] protected int total = 10;
     [SerializeField] protected int playerSpriteOrder = 1;
     
@@ -64,6 +66,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         wrongClip = Resources.Load<AudioClip>("Audio/Sound/wrong-clip");
         roundClip = Resources.Load<AudioClip>("Audio/Sound/round-clip");
         upClip = Resources.Load<AudioClip>("Audio/Sound/up-clip");
+        messageClip = Resources.Load<AudioClip>("Audio/Sound/message-clip");
 
         TMP_Text[] texts = FindObjectsOfType<TMP_Text>();
         foreach (TMP_Text text in texts) text.SetText(string.Empty);
@@ -82,6 +85,8 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
             PhotonNetwork.JoinOrCreateRoom("test", LobbyManager.roomOptions, TypedLobby.Default);
         }
         #endif
+
+        SaveManager.player.OnStatUnlocked += ShowMessage;
 
         playerName = PhotonNetwork.LocalPlayer.NickName;
         quizPanel.SetActive(false);
@@ -282,4 +287,57 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     }
 
     #endregion
+
+    protected void NotifyIncrease()
+    {
+        string formattedTopic = topic switch
+        {
+            "HOC" => "computer history",
+            "EOCS" => "computer elements",
+            "NS" => "number system",
+            "ITP" => "intro to programming",
+            _ => topic,
+        };
+
+        ShowMessage($"Your {formattedTopic} stat is increased!");
+    }
+
+    public void ShowMessage(string message)
+    {
+        messageQueue.Enqueue(message);
+        if (!isCoroutineRunning) StartCoroutine(ShowMessageCoroutine());
+        StartCoroutine(LoadLobby(time: returnTime));
+    }
+
+    IEnumerator ShowMessageCoroutine()
+    {
+        isCoroutineRunning = true;
+
+        while (messageQueue.Count > 0)
+        {
+            string message = messageQueue.Dequeue();
+            messagePanel.GetComponentInChildren<TMP_Text>().text = message;
+            AudioManager.PlaySound(messageClip);
+            messagePanel.SetActive(true);
+            yield return new WaitForSeconds(messageDelay);
+            messagePanel.SetActive(false);
+        }
+
+        isCoroutineRunning = false;
+    }
+
+    protected IEnumerator LoadLobby(int time)
+    {
+        yield return new WaitForSeconds(7.5f);
+        int timeLeft = time;
+        while (timeLeft > 0)
+        {
+            messagePanel.SetActive(true);
+            messageText.text = $"Going to lobby in {timeLeft}...";
+            yield return new WaitForSeconds(1);
+            timeLeft--;
+        }
+        // PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        PhotonNetwork.LoadLevel("Room");
+    }
 }

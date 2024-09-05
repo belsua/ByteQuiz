@@ -687,7 +687,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!1 &653871043
 GameObject:
@@ -2409,6 +2409,7 @@ MonoBehaviour:
   max: {x: 0, y: 0}
   startTime: 10
   returnTime: 5
+  messageDelay: 3
   total: 60
   playerSpriteOrder: 2
   options:
