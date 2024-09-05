@@ -8,13 +8,25 @@ public class WelcomeAnimation : MonoBehaviour
     [SerializeField] RectTransform targetTransform;
     [SerializeField] float duration;
     [SerializeField] LeanTweenType easeType;
-    
-    //ADDED
+
+    // New fields to control the behavior
+    public bool checkActiveState; // true to check for active, false to check for inactive
+    public bool moveAlongY; // true for MoveY, false for MoveX
+
     void Update()
     {
-        if (Welcome.activeSelf) 
+        // Check the selected active state
+        if (checkActiveState ? Welcome.activeSelf : !Welcome.activeSelf)
         {
-            MoveY();
+            // Move either along Y or X based on the user selection
+            if (moveAlongY)
+            {
+                MoveY();
+            }
+            else
+            {
+                MoveX();
+            }
         }
     }
 
