@@ -6,11 +6,24 @@ public class MoveAnimation : MonoBehaviour
 {
     public GameObject Object;
     [SerializeField] RectTransform targetTransform;
+    [SerializeField] RectTransform targetOriginalTransform;
     [SerializeField] float duration;
     [SerializeField] LeanTweenType easeType;
 
     public PlayerController playerController; // Reference to the PlayerController script
     private bool isButtonOffScreen = false; // To track the button state
+
+    private float screenWidth; // Variable to store the screen width
+    private float movementOffset; // The calculated offset for moving buttons
+
+    void Start()
+    {
+        // Get screen width at the start
+        screenWidth = Screen.width;
+
+        // Set movementOffset to be relative to the screen width (e.g., 30% of screen width)
+        movementOffset = screenWidth * 0.1f;
+    }
 
     void Update()
     {
@@ -35,13 +48,13 @@ public class MoveAnimation : MonoBehaviour
 
     void MoveOut()
     {
-        // Move button out of the screen (modify the targetTransform as needed for off-screen position)
-        LeanTween.moveX(gameObject, targetTransform.position.x, duration).setEase(easeType); // Example: Move 500 units to the right
+        // Move button off-screen using relative offset
+        LeanTween.moveX(gameObject, targetTransform.position.x, duration).setEase(easeType); 
     }
 
     void MoveIn()
     {
         // Move button back to its original position
-        LeanTween.moveX(gameObject, targetTransform.position.x + 300, duration).setEase(easeType);
+        LeanTween.moveX(gameObject, targetOriginalTransform.position.x, duration).setEase(easeType);
     }
 }
