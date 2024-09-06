@@ -37,7 +37,7 @@ public class CribManager : MonoBehaviour
 
     private void Start()
     {
-        #if UNITY_EDITOR
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
         debugButton.gameObject.SetActive(true);
         debugPanel.transform.position = debugPanel.transform.parent.position;
         debugPanel.SetActive(false);
