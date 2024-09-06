@@ -1,6 +1,4 @@
-using System.IO;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -12,7 +10,6 @@ public enum MinigameScenes
     Runner,
     TriviaShowdown,
     TerritoryConquest,
-    Random
 }
 
 public class RoomManager : MonoBehaviourPunCallbacks 
@@ -27,17 +24,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_Text[] statTexts, statusTexts;
 
     [Header("Settings")]
+    public string[] minigames;
     public float startTime = 10.0f;
     public float minigameTime = 5f;
     public Vector2[] positionBounds = new Vector2[2];
 
     #if UNITY_EDITOR
     [Header("Debug")]
-    public MinigameScenes debugGame = MinigameScenes.Random;
+    public MinigameScenes debugGame = MinigameScenes.TerritoryConquest;
     #endif
 
-    string[] minigames = new string[0];
-    string scenePath = "Assets/Scenes/Multiplayer/Minigames";
     ExitGames.Client.Photon.Hashtable roomOptions = new();
 
     private void Start() 
@@ -55,7 +51,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             startButton.interactable = false;
         }
 
-        GetMinigames();
         SpawnPlayers();
         UpdatePlayerInterface();
         UpdateRoomDetails();
@@ -249,18 +244,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             startButton.interactable = false;
             topicDropdown.interactable = false;
-        }
-    }
-
-    private void GetMinigames()
-    {
-        string[] sceneGUIDs = AssetDatabase.FindAssets("t:Scene", new[] { scenePath });
-        minigames = new string[sceneGUIDs.Length];
-
-        for (int i = 0; i < sceneGUIDs.Length; i++)
-        {
-            string scenePath = AssetDatabase.GUIDToAssetPath(sceneGUIDs[i]);
-            minigames[i] = Path.GetFileNameWithoutExtension(scenePath);
         }
     }
 

@@ -6296,12 +6296,16 @@ MonoBehaviour:
   statusTexts:
   - {fileID: 1069924297}
   - {fileID: 199554027}
+  minigames:
+  - Runner
+  - TriviaShowdown
+  - MemoryConquest
   startTime: 5
   minigameTime: 5
   positionBounds:
   - {x: -5, y: -12}
   - {x: 2, y: -12}
-  debugGame: 3
+  debugGame: 2
 --- !u!4 &625561054
 Transform:
   m_ObjectHideFlags: 0
