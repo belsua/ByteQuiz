@@ -6299,7 +6299,7 @@ MonoBehaviour:
   minigames:
   - Runner
   - TriviaShowdown
-  - MemoryConquest
+  - TerritoryConquest
   startTime: 5
   minigameTime: 5
   positionBounds:

@@ -34,11 +34,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public MinigameScenes debugGame = MinigameScenes.TerritoryConquest;
     #endif
 
+    int seed;
     ExitGames.Client.Photon.Hashtable roomOptions = new();
+
+    private void Awake()
+    {
+        #if UNITY_EDITOR
+        if (SaveManager.player == null) SaveManager.CreatePlayer("Debug guy", 999, false);
+        #endif
+    }
 
     private void Start() 
     {
-        roomDetails.SetActive(false);
 
         if (PhotonNetwork.IsMasterClient) 
         {
@@ -54,6 +61,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         SpawnPlayers();
         UpdatePlayerInterface();
         UpdateRoomDetails();
+        roomDetails.SetActive(false);
     }
 
     #region Photon Callbacks
@@ -68,14 +76,22 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void TriggerCountdown() 
     {
-        if (PhotonNetwork.IsMasterClient) photonView.RPC("StartCountdown", RpcTarget.All);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            int num = Random.Range(0, minigames.Length - 1);
+            photonView.RPC("SetSeedRPC", RpcTarget.All, num);
+            photonView.RPC("StartCountdown", RpcTarget.All);
+        }
     }
+
+    [PunRPC] public void SetSeedRPC(int seed) { this.seed = seed; }
 
     [PunRPC]
     private void StartCountdown() 
     {
+        UpdateRoomDetails();
         countdownPanel.SetActive(true);
-        settingsPanel.SetActive(false);
         StartCoroutine(Countdown());
     }
 
@@ -103,7 +119,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         #if UNITY_EDITOR
         string selectedGame = debugGame.ToString();
         #else
-        string selectedGame = minigames[Random.Range(0, minigames.Length)];
+        string selectedGame = minigames[seed];
         #endif
 
         while (time > 0) 
@@ -113,7 +129,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             time--;
         }
 
-        RequestStartGame(selectedGame);
+        if (PhotonNetwork.IsMasterClient) RequestStartGame(selectedGame);
     }
 
     public void RequestStartGame(string selectedGame) 
@@ -181,9 +197,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void SetSelectedTopic() 
     {
+
+        string topic = topicDropdown.value switch
+        {
+            0 => "HOC",
+            1 => "EOCS",
+            2 => "NS",
+            3 => "ITP",
+            _ => "HOC",
+        };
+
         if (PhotonNetwork.InRoom) 
         {
-            roomOptions["selectedTopic"] = GetTopic();
+            roomOptions["selectedTopic"] = topic;
             PhotonNetwork.LocalPlayer.CustomProperties = roomOptions;
         }
         else 
@@ -191,14 +217,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Debug.LogWarning("Not in a room. Cannot set custom property.");
         }
     }
-    string GetTopic() => topicDropdown.value switch 
-    {
-        0 => "HOC",
-        1 => "EOCS",
-        2 => "NS",
-        3 => "ITP",
-        _ => "HOC",
-    };
 
     #endregion
 
