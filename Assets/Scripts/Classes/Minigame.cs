@@ -337,7 +337,8 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-        // PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.LoadLevel("Room");
     }
 }
