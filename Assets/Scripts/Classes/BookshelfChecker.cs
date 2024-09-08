@@ -22,11 +22,10 @@ public class BookshelfChecker : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             UpdateButtonInteractable();
-            collided = true;
-            pressed = false;
-        }
+
+        collided = true;
+        pressed = false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -48,7 +47,8 @@ public class BookshelfChecker : MonoBehaviour
     private void CheckActivation()
     {
         if (pressed && collided) target.SetActive(true);
-        else target.SetActive(false);
+        // else target.SetActive(false);
+        Debug.Log("Activated");
     }
 
     private void UpdateButtonInteractable()
