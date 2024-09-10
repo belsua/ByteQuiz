@@ -153,9 +153,8 @@ public class TriviaShowdown : Minigame
     [PunRPC]
     public override void EndMinigame()
     {
-        // Handle UI
+        base.EndMinigame();
         AudioSource.Stop();
-
         StartCoroutine(UpdateScores());
     }
 

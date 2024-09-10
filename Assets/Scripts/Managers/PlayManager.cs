@@ -141,6 +141,7 @@ public class PlayManager : MonoBehaviour
 
     private void EndQuiz()
     {
+        SaveManager.player.SaveActivity(false, GetTopic(topicIndex), $"{score}/{MaxQuestionsPerQuiz + 1}"); 
         SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
         questionText.text = "Quiz Over! Your score: " + score;
         cribManager.UpdatePlayerInterface();

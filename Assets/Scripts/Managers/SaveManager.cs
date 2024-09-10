@@ -63,7 +63,7 @@ public class SaveManager : MonoBehaviour
     { 
         string path = GetSaveFiles()[slot];
         string json = File.ReadAllText(path);
-        return JsonUtility.FromJson<Player>(json);
+        return JsonConvert.DeserializeObject<Player>(json);
     }
 
     List<Player> LoadPlayers()
@@ -74,7 +74,7 @@ public class SaveManager : MonoBehaviour
         foreach (string file in files)
         {
             string json = File.ReadAllText(file);
-            Player player = JsonUtility.FromJson<Player>(json);
+            Player player = JsonConvert.DeserializeObject<Player>(json);
             players.Add(player);
         }
 
