@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
+  Movement: {x: 0, y: 0}
   isFrozen: 0
   cameraObject: {fileID: 6353887117200328619}
   nameText: {fileID: 6913438287065583548}
@@ -355,7 +356,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &4434810813265176824
 MonoBehaviour:

@@ -78,8 +78,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            startButton.interactable = false;
+            topicDropdown.interactable = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
-            int num = Random.Range(0, minigames.Length - 1);
+            int num = Random.Range(0, minigames.Length);
             photonView.RPC("SetSeedRPC", RpcTarget.All, num);
             photonView.RPC("StartCountdown", RpcTarget.All);
         }

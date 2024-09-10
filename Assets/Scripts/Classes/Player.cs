@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -28,12 +29,42 @@ public class Player
     public bool isNumberSystemUnlocked = false;
     public bool isIntroProgrammingUnlocked = false;
 
+    public Dictionary<string, Dictionary<string, object>> activities = new();
     public event System.Action<string> OnStatUnlocked;
 
     public Player(string name, int slot)
     {
         this.name = name;
         this.slot = slot;
+        activities = new();
+    }
+
+    public void SaveActivity(bool isMultiplayer, string topic, string score, string minigame = null, string[] players = null)
+    {
+        string formattedTopic = topic switch
+        {
+            "HOC" => "History of Computer",
+            "EOCS" => "Elements of Computer System",
+            "NS" => "Number System",
+            "ITP" => "Intro to Programming",
+            _ => topic,
+        };
+
+        Dictionary<string, object> activity = new()
+        {
+            { "date-time", System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
+            { "mode", isMultiplayer ? "Multiplayer" : "Singleplayer" },
+            { "topic", formattedTopic },
+            { "score", score }
+        };
+
+        if (isMultiplayer)
+        {
+            activity["players"] = players;
+            activity["minigame"] = minigame;
+        }
+
+        activities.Add(System.Guid.NewGuid().ToString(), activity);
     }
 
     public void IncreaseStat(string statName, float amount)
@@ -97,4 +128,6 @@ public class Player
             }
         }
     }
+
+
 }

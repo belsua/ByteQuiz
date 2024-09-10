@@ -7,6 +7,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public interface IMinigame
 {
@@ -39,7 +41,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     [Header("General Variables")]
     [TextArea(2, 10)] public string message;
     [SerializeField] Vector2 min, max;
-    [SerializeField] float startTime = 10.0f;
+    [SerializeField] [Range(1, 10)] float startTime = 10.0f;
     [SerializeField] [Range(1, 10)] protected int returnTime = 10;
     [SerializeField] [Range(1, 10)] int messageDelay = 3;
     [SerializeField] protected int total = 10;
@@ -106,7 +108,15 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     public virtual void StartMinigame() { }
     public virtual void InitializePlayerData() { }
-    public virtual void EndMinigame() { }
+    public virtual void EndMinigame() 
+    { 
+        SaveManager.player.SaveActivity(
+            true, 
+            topic,
+            $"{correct}/{total}",
+            Regex.Replace(SceneManager.GetActiveScene().name, "(?<=\\p{Ll})(?=\\p{Lu})", " "), 
+            PhotonNetwork.PlayerList.Select(x => x.NickName).ToArray());
+    }
     public virtual void AnswerCorrect() { }
     public virtual void AnswerWrong() { }
 

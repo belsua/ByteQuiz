@@ -120,9 +120,8 @@ public class TerritoryConquest : Minigame
 
     public override void EndMinigame()
     {
-        // Handle UI
+        base.EndMinigame();
         AudioSource.Stop();
-
         StartCoroutine(UpdateScores());
     }
 
@@ -140,39 +139,6 @@ public class TerritoryConquest : Minigame
         SaveManager.player.IncreaseStat(topic, score / 100f);
         NotifyIncrease();
     }
-
-    //IEnumerator NotifyIncrease()
-    //{
-    //    questionText.transform.parent.gameObject.SetActive(false);
-    //    messagePanel.SetActive(true);
-
-    //    string formattedTopic = topic switch
-    //    {
-    //        "HOC" => "computer history",
-    //        "EOCS" => "computer elements",
-    //        "NS" => "number system",
-    //        "ITP" => "intro to programming",
-    //        _ => topic,
-    //    };
-
-    //    messageText.text = $"Your {formattedTopic} stat is increased!";
-    //    AudioManager.PlaySound(upClip);
-    //    yield return new WaitForSeconds(5.0f);
-    //    StartCoroutine(LoadLobby());
-    //}
-
-    //IEnumerator LoadLobby()
-    //{
-    //    int timeLeft = returnTime;
-    //    while (timeLeft > 0)
-    //    {
-    //        messageText.text = $"Going to lobby in {timeLeft}...";
-    //        yield return new WaitForSeconds(1);
-    //        timeLeft--;
-    //    }
-
-    //    PhotonNetwork.LoadLevel("Room");
-    //}
 
     #endregion
 
