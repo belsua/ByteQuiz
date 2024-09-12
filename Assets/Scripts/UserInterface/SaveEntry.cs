@@ -18,8 +18,7 @@ public class SaveEntry : MonoBehaviour
     public virtual void SetCharacterData(Player player)
     {
         this.player = player;
-        nameText.text = player.name;
-        //coinsText.text = player.coins.ToString();
+        nameText.text = player.profile.name;
     }
 
     public virtual void OnButtonClick()
@@ -30,7 +29,6 @@ public class SaveEntry : MonoBehaviour
 
     private IEnumerator TriggerButtonClick()
     {
-        SaveManager.player = player;
         yield return new WaitForSeconds(1);
         if (SaveManager.instance.multiplayer) SceneManager.LoadScene(2);
         else fadeManager.FadeToScene("Crib");
@@ -43,6 +41,6 @@ public class SaveEntry : MonoBehaviour
         SaveManager.player = player;
         deletePanel.transform.position = new Vector3 (0, 0, 0);
         deletePanel.SetActive(true);
-        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.name + "?";
+        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.profile.name + "?";
     }
 }

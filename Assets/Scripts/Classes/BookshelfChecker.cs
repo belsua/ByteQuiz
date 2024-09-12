@@ -56,10 +56,10 @@ public class BookshelfChecker : MonoBehaviour
         switch (bookshelfSubject)
         {
             case Subject.NumberSystem:
-                button.interactable = SaveManager.player.isNumberSystemUnlocked;
+                button.interactable = SaveManager.player.stats.isNumberSystemUnlocked;
                 break;
             case Subject.IntroProgramming:
-                button.interactable = SaveManager.player.isIntroProgrammingUnlocked;
+                button.interactable = SaveManager.player.stats.isIntroProgrammingUnlocked;
                 break;
             case Subject.HistoryOfComputer:
                 button.interactable = true;  // Always interactable for History of Computer

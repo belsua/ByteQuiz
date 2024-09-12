@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "638824992602",
+    "firebase_url": "https://bytequiz-ec3b9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bytequiz-ec3b9",
+    "storage_bucket": "bytequiz-ec3b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638824992602:android:947966329d577bec09ed63",
+        "android_client_info": {
+          "package_name": "com.belsua.bytequiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbDI22IM13YVWeej9c67tQhBJ8gFV1x7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

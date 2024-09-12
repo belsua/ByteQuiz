@@ -40,7 +40,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         #if UNITY_EDITOR
-        if (SaveManager.player == null) SaveManager.CreatePlayer("Debug guy", 999, false);
+        GameObject saveManager = new("NewObject");
+        saveManager.AddComponent<SaveManager>();
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer("Debug guy");
         #endif
     }
 
@@ -50,7 +52,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient) 
         {
             topicDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
-            PhotonNetwork.MasterClient.NickName = SaveManager.player.name;
+            PhotonNetwork.MasterClient.NickName = SaveManager.player.profile.name;
         }
         else 
         {
@@ -173,9 +175,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         #if UNITY_EDITOR
         if (SaveManager.player == null) PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
-        else PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.name}";
+        else PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.profile.name}";
         #else
-        PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.name}";
+        PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.profile.name}";
         if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
         #endif
     }
@@ -226,19 +228,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
+        if (SaveManager.player.stats.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
         else statusTexts[0].text = "Locked";
 
-        if (SaveManager.player.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
         else statusTexts[1].text = "Locked";
 
-        nameText.text = SaveManager.player.name;
+        nameText.text = SaveManager.player.profile.name;
 
         float[] playerStats = {
-            SaveManager.player.computerHistory,
-            SaveManager.player.computerElements,
-            SaveManager.player.numberSystem,
-            SaveManager.player.introProgramming
+            SaveManager.player.stats.computerHistory,
+            SaveManager.player.stats.computerElements,
+            SaveManager.player.stats.numberSystem,
+            SaveManager.player.stats.introProgramming
         };
 
         for (int i = 0; i < playerStats.Length; i++)

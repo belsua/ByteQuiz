@@ -1,8 +1,11 @@
+using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Newtonsoft.Json;
+using Firebase.Database;
+using System.Collections;
 
 /// <summary>
 /// Stores the player data at `public static Player player`
@@ -23,9 +26,11 @@ public class SaveManager : MonoBehaviour
     public static string filePath;
     public static string saveFolder;
 
+    DatabaseReference database;
+
     [Header("UI")]
     public TMP_InputField inputField;
-    public GameObject canvas, errorPanel, creationPanel, scrollContent, saveEntryPrefab;
+    public GameObject errorPanel, creationPanel;
     public FadeManager fadeManager;
 
     internal bool multiplayer = false;
@@ -40,23 +45,22 @@ public class SaveManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
+        database = FirebaseDatabase.DefaultInstance.RootReference;
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
-    }
 
-    private void Start()
-    {
-        ResetObjectPositions();
-        PopulateSaveList(saveEntryPrefab, scrollContent);
+        transform.SetParent(null, false);
+        DontDestroyOnLoad(gameObject);
     }
 
     #endregion
 
     #region Save System
 
-    public static void CreatePlayer(string name, int slot, bool needWelcome = true)
+    public void CreatePlayer(string name)
     {
-        player = new Player(name, slot) { needWelcome = needWelcome };
-        SavePlayer(slot);
+        player = new Player(name);
+        SavePlayer(player.profile.playerId);
+        Debug.Log("Player created: " + player.profile.playerId);
     }
 
     public static Player LoadPlayer(int slot) 
@@ -66,7 +70,7 @@ public class SaveManager : MonoBehaviour
         return JsonConvert.DeserializeObject<Player>(json);
     }
 
-    List<Player> LoadPlayers()
+    public static List<Player> LoadPlayers()
     {
         List<Player> players = new();
         string[] files = GetSaveFiles();
@@ -81,12 +85,12 @@ public class SaveManager : MonoBehaviour
         return players;
     }
 
-    public static void SavePlayer(int slot)
+    public static void SavePlayer(string playerId)
     {
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
 
-        filePath = Path.Combine(saveFolder, $"save-{slot}.json");
+        filePath = Path.Combine(saveFolder, $"{playerId}.json");
 
         var settings = new JsonSerializerSettings
         {
@@ -101,23 +105,39 @@ public class SaveManager : MonoBehaviour
 
     public void DeleteSave()
     {
-        filePath = Path.Combine(saveFolder, $"save-{player.slot}.json");
+        filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
         File.Delete(filePath);
-        Debug.Log($"Player {player.name} with slot {player.slot} deleted");
+        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted");
         Destroy(selectedEntry);
     }
 
-    int GetNextAvailableSlot()
+    // Firebase
+
+    [ContextMenu("Save Player Data")]
+    public void SavePlayerToFirebase()
     {
-        int slot = 0;
-        while (SaveExists(slot)) slot++;
-        return slot;
+        string json = JsonConvert.SerializeObject(player);
+        database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
     }
 
-    bool SaveExists(int slot)
+    [ContextMenu("Load Player Data")]
+    public void LoadPlayerFromFirebase()
     {
-        string filePath = Path.Combine(saveFolder, $"save-{slot}.json");
-        return File.Exists(filePath);
+        StartCoroutine(LoadPlayerFromFirebaseCoroutine());
+    }
+
+    IEnumerator LoadPlayerFromFirebaseCoroutine()
+    {
+
+        var data = database.Child("users").Child(player.profile.playerId).GetValueAsync();
+        yield return new WaitUntil(predicate: () => data.IsCompleted);
+        Debug.Log(data.Result.GetRawJsonValue());
+
+        DataSnapshot snapshot = data.Result;
+        string json = snapshot.GetRawJsonValue();
+
+        if (json != null) player = JsonConvert.DeserializeObject<Player>(json);
+        else Debug.Log("No data available");
     }
 
     #endregion
@@ -137,20 +157,8 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            CreatePlayer(inputField.text, GetNextAvailableSlot());
+            CreatePlayer(inputField.text);
             fadeManager.FadeToScene("Crib");
-        }
-    }
-
-    public void PopulateSaveList(GameObject prefab, GameObject content)
-    {
-        List<Player> players = LoadPlayers();
-
-        foreach (Player player in players)
-        {
-            GameObject entry = Instantiate(prefab, content.transform);
-            SaveEntry saveEntry = entry.GetComponent<SaveEntry>();
-            saveEntry.SetCharacterData(player);
         }
     }
 
@@ -158,19 +166,6 @@ public class SaveManager : MonoBehaviour
     {
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
         return Directory.GetFiles(saveFolder, "*.json");
-    }
-
-    void ResetObjectPositions()
-    {
-        foreach (Transform child in canvas.transform)
-        {
-            if (child.gameObject.name != "MenuPanel")
-            {
-                child.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-                child.localScale = Vector3.one;
-                child.gameObject.SetActive(false);
-            }
-        }
     }
 
     #endregion

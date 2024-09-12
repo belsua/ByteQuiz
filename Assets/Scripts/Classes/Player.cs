@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,29 +14,19 @@ using UnityEngine;
 /// - Intro to Programming (Need to reach 30% of computer history)
 /// </summary>
 
+[Serializable]
 public class Player 
-{ 
-    public int slot;
-    public string name;
-    public bool needWelcome = true;
-
-    public float computerHistory = 0.01f;
-    public float computerElements = 0.01f;
-    public float numberSystem = 0.01f;
-    public float introProgramming = 0.01f;
-
-    public const float toUnlockNumberSystem = 0.20f;
-    public const float toUnlockIntroProgramming = 0.30f;
-    public bool isNumberSystemUnlocked = false;
-    public bool isIntroProgrammingUnlocked = false;
-
+{
+    public Profile profile;
+    public Stats stats;
     public Dictionary<string, Dictionary<string, object>> activities = new();
-    public event System.Action<string> OnStatUnlocked;
 
-    public Player(string name, int slot)
+    public event Action<string> OnStatUnlocked;
+
+    public Player(string name)
     {
-        this.name = name;
-        this.slot = slot;
+        profile = new(name);
+        stats = new Stats();
         activities = new();
     }
 
@@ -52,7 +43,7 @@ public class Player
 
         Dictionary<string, object> activity = new()
         {
-            { "date-time", System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
+            { "date-time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
             { "mode", isMultiplayer ? "Multiplayer" : "Singleplayer" },
             { "topic", formattedTopic },
             { "score", score }
@@ -64,20 +55,20 @@ public class Player
             activity["minigame"] = minigame;
         }
 
-        activities.Add(System.Guid.NewGuid().ToString(), activity);
+        activities.Add(Guid.NewGuid().ToString(), activity);
     }
 
     public void IncreaseStat(string statName, float amount)
     {
         Debug.Log($"IncreaseStat called with {statName} and {amount}");
 
-        if (statName == "NS" && isNumberSystemUnlocked == false)
+        if (statName == "NS" && stats.isNumberSystemUnlocked == false)
         {
             Debug.LogWarning("Number System stat is not unlocked.");
             return;
         }
 
-        if (statName == "ITP" && isIntroProgrammingUnlocked == false)
+        if (statName == "ITP" && stats.isIntroProgrammingUnlocked == false)
         {
             Debug.LogWarning("Intro to Programming stat is not unlocked.");
             return;
@@ -86,16 +77,16 @@ public class Player
         switch (statName)
         {
             case "HOC":
-                computerHistory += amount;
+                stats.computerHistory += amount;
                 break;
             case "EOCS":
-                computerElements += amount;
+                stats.computerElements += amount;
                 break;
             case "NS":
-                numberSystem += amount;
+                stats.numberSystem += amount;
                 break;
             case "ITP":
-                introProgramming += amount;
+                stats.introProgramming += amount;
                 break;
             default:
                 Debug.LogWarning($"Stat name {statName} not recognized.");
@@ -103,26 +94,26 @@ public class Player
         }
 
         CheckAndUnlockStats();
-        SaveManager.SavePlayer(SaveManager.player.slot);
+        SaveManager.SavePlayer(SaveManager.player.profile.playerId);
     }
 
     public void CheckAndUnlockStats()
     {
-        if (computerHistory >= toUnlockNumberSystem)
+        if (stats.computerHistory >= 0.2f)
         {
-            if (!isNumberSystemUnlocked)
+            if (!stats.isNumberSystemUnlocked)
             {
-                isNumberSystemUnlocked = true;
+                stats.isNumberSystemUnlocked = true;
                 OnStatUnlocked?.Invoke("Number System stat is now unlocked.");
                 Debug.Log("Number System stat is now unlocked.");
             }
         }
 
-        if (computerElements >= toUnlockIntroProgramming)
+        if (stats.computerElements >= 0.3f)
         {
-            if (!isIntroProgrammingUnlocked)
+            if (!stats.isIntroProgrammingUnlocked)
             {
-                isIntroProgrammingUnlocked = true;
+                stats.isIntroProgrammingUnlocked = true;
                 OnStatUnlocked?.Invoke("Intro to Programming stat is now unlocked.");
                 Debug.Log("Intro to Programming stat is now unlocked.");
             }
@@ -130,4 +121,29 @@ public class Player
     }
 
 
+}
+
+[Serializable]
+public class Profile
+{
+    public string playerId;
+    public string name;
+
+    public Profile(string name)
+    {
+        playerId = Guid.NewGuid().ToString();
+        this.name = name;
+    }
+}
+
+[Serializable]
+public class Stats
+{
+    public bool needWelcome = true;
+    public bool isNumberSystemUnlocked = false;
+    public bool isIntroProgrammingUnlocked = false;
+    public float computerHistory;
+    public float computerElements;
+    public float numberSystem;
+    public float introProgramming;
 }

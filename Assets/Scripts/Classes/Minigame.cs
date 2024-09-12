@@ -82,7 +82,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         if (!PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.LocalPlayer.NickName = $"Player {SaveManager.player.name}";
+            PhotonNetwork.LocalPlayer.NickName = SaveManager.player.profile.name;
             PhotonNetwork.OfflineMode = true;
             PhotonNetwork.JoinOrCreateRoom("test", LobbyManager.roomOptions, TypedLobby.Default);
         }

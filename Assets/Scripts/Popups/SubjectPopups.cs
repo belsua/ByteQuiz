@@ -59,9 +59,9 @@ public class SubjectPopups : MonoBehaviour
         switch (subjectType)
         {
             case Subject.NumberSystem:
-                return !SaveManager.player.isNumberSystemUnlocked;
+                return !SaveManager.player.stats.isNumberSystemUnlocked;
             case Subject.IntroProgramming:
-                return !SaveManager.player.isIntroProgrammingUnlocked;
+                return !SaveManager.player.stats.isIntroProgrammingUnlocked;
             default:
                 return true; // Default case: animate if there's no specific subject
         }

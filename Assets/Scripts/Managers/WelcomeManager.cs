@@ -16,7 +16,7 @@ public class WelcomeManager : MonoBehaviour
     private void Start()
     {
         //ADDED
-        if (SaveManager.player.needWelcome)
+        if (SaveManager.player.stats.needWelcome)
         {
             // Execute code if needWelcome is true
             Debug.Log("Welcome to the game! Let's get started.");
@@ -26,8 +26,8 @@ public class WelcomeManager : MonoBehaviour
             audioSource.PlayOneShot(WelcomeA);
 
 
-            SaveManager.player.needWelcome = false;
-            if (Directory.Exists(SaveManager.saveFolder)) SaveManager.SavePlayer(SaveManager.player.slot);
+            SaveManager.player.stats.needWelcome = false;
+            if (Directory.Exists(SaveManager.saveFolder)) SaveManager.SavePlayer(SaveManager.player.profile.playerId);
         }
         else
         {

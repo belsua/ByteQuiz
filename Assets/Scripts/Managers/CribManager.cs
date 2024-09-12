@@ -20,8 +20,6 @@ public class CribManager : MonoBehaviour
     [Header("Debug")]
     public Button debugButton;
     public GameObject debugPanel;
-    [Tooltip("Show welcome panel on start? Only works when opening Crib scene directly not coming from main menu.")]
-    public bool showWelcome = false;
     [Range(1, 5)]
     public int messageDelay = 3;
 
@@ -31,7 +29,9 @@ public class CribManager : MonoBehaviour
     private void Awake()
     {
         #if UNITY_EDITOR
-        if (SaveManager.player == null) SaveManager.CreatePlayer("Debug guy", 999, showWelcome);
+        GameObject saveManager = new("NewObject");
+        saveManager.AddComponent<SaveManager>();
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer("Debug guy");
         #endif
     }
 
@@ -51,7 +51,7 @@ public class CribManager : MonoBehaviour
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.isNumberSystemUnlocked)
+        if (SaveManager.player.stats.isNumberSystemUnlocked)
         {
             foreach (Button button in numberSystemButtons) button.interactable = true;
             statusTexts[0].transform.parent.gameObject.SetActive(false);
@@ -62,7 +62,7 @@ public class CribManager : MonoBehaviour
             statusTexts[0].text = "Locked";
         }
         
-        if (SaveManager.player.isIntroProgrammingUnlocked)
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked)
         {
             foreach (Button button in introProgrammingButtons) button.interactable = true;
             statusTexts[1].transform.parent.gameObject.SetActive(false);
@@ -73,13 +73,13 @@ public class CribManager : MonoBehaviour
             statusTexts[1].text = "Locked";
         }
         
-        nameText.text = SaveManager.player.name;
+        nameText.text = SaveManager.player.profile.name;
 
         float[] playerStats = {
-            SaveManager.player.computerHistory,
-            SaveManager.player.computerElements,
-            SaveManager.player.numberSystem,
-            SaveManager.player.introProgramming
+            SaveManager.player.stats.computerHistory,
+            SaveManager.player.stats.computerElements,
+            SaveManager.player.stats.numberSystem,
+            SaveManager.player.stats.introProgramming
         };
 
         for (int i = 0; i < playerStats.Length; i++)

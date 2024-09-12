@@ -76,10 +76,10 @@ public class QuizChecker : MonoBehaviour
         switch (topicIndex)
         {
             case 2: // Number System
-                button.interactable = SaveManager.player.isNumberSystemUnlocked;
+                button.interactable = SaveManager.player.stats.isNumberSystemUnlocked;
                 break;
             case 3: // Intro to Programming
-                button.interactable = SaveManager.player.isIntroProgrammingUnlocked;
+                button.interactable = SaveManager.player.stats.isIntroProgrammingUnlocked;
                 break;
             default:
                 button.interactable = true;

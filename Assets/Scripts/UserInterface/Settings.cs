@@ -15,19 +15,19 @@ public class Settings : MonoBehaviour
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
+        if (SaveManager.player.stats.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
         else statusTexts[0].text = "Locked";
 
-        if (SaveManager.player.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
         else statusTexts[1].text = "Locked";
 
-        nameText.text = SaveManager.player.name;
+        nameText.text = SaveManager.player.profile.name;
 
         float[] playerStats = {
-            SaveManager.player.computerHistory,
-            SaveManager.player.computerElements,
-            SaveManager.player.numberSystem,
-            SaveManager.player.introProgramming
+            SaveManager.player.stats.computerHistory,
+            SaveManager.player.stats.computerElements,
+            SaveManager.player.stats.numberSystem,
+            SaveManager.player.stats.introProgramming
         };
 
         for (int i = 0; i < playerStats.Length; i++)
