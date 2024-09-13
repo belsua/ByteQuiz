@@ -27,7 +27,7 @@ public class WelcomeManager : MonoBehaviour
 
 
             SaveManager.player.stats.needWelcome = false;
-            if (Directory.Exists(SaveManager.saveFolder)) SaveManager.SavePlayer(SaveManager.player.profile.playerId);
+            if (Directory.Exists(SaveManager.saveFolder)) SaveManager.instance.SavePlayer(SaveManager.player.profile.playerId);
         }
         else
         {

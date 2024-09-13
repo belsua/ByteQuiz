@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SaveEntry : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
-    //public TextMeshProUGUI coinsText;
     public Player player;
     FadeManager fadeManager;
 
@@ -36,11 +35,10 @@ public class SaveEntry : MonoBehaviour
 
     public void OnDeleteButtonClick() 
     {
-        GameObject deletePanel = SaveManager.deletePanel;
         SaveManager.selectedEntry = gameObject;
         SaveManager.player = player;
-        deletePanel.transform.position = new Vector3 (0, 0, 0);
-        deletePanel.SetActive(true);
-        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.profile.name + "?";
+        MenuManager.deletePanel.transform.position = new Vector3 (0, 0, 0);
+        MenuManager.deletePanel.SetActive(true);
+        MenuManager.deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.profile.name + "?";
     }
 }

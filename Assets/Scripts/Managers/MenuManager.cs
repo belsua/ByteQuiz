@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class MenuManager : MonoBehaviourPunCallbacks
 {
     GameObject canvas, saveEntryPrefab, scrollContent;
+    public static GameObject deletePanel;
 
     public void Awake()
     {
@@ -17,6 +18,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
             canvas = GameObject.Find("Canvas");
             saveEntryPrefab = Resources.Load<GameObject>("UI/SaveEntry");
             scrollContent = GameObject.Find("Content");
+            deletePanel = GameObject.Find("DeletePanel");
         }
     }
 

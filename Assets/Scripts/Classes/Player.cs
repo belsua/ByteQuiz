@@ -94,7 +94,7 @@ public class Player
         }
 
         CheckAndUnlockStats();
-        SaveManager.SavePlayer(SaveManager.player.profile.playerId);
+        SaveManager.instance.SavePlayer(SaveManager.player.profile.playerId);
     }
 
     public void CheckAndUnlockStats()

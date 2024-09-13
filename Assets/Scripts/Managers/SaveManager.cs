@@ -39,10 +39,7 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) {
-            instance = this;
-            deletePanel = GameObject.Find("DeletePanel");
-        }
+        if (instance == null) instance = this;
         else Destroy(gameObject);
 
         database = FirebaseDatabase.DefaultInstance.RootReference;
@@ -85,7 +82,7 @@ public class SaveManager : MonoBehaviour
         return players;
     }
 
-    public static void SavePlayer(string playerId)
+    public void SavePlayer(string playerId)
     {
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
@@ -101,14 +98,16 @@ public class SaveManager : MonoBehaviour
         string json = JsonConvert.SerializeObject(player, settings);
         File.WriteAllText(filePath, json);
         Debug.Log($"Player data saved to {filePath}");
+        SavePlayerToFirebase();
     }
 
     public void DeleteSave()
     {
         filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
         File.Delete(filePath);
-        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted");
+        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from local storage");
         Destroy(selectedEntry);
+        DeletePlayerFromFirebase();
     }
 
     // Firebase
@@ -138,6 +137,12 @@ public class SaveManager : MonoBehaviour
 
         if (json != null) player = JsonConvert.DeserializeObject<Player>(json);
         else Debug.Log("No data available");
+    }
+
+    public void DeletePlayerFromFirebase()
+    {
+        database.Child("users").Child(player.profile.playerId).RemoveValueAsync();
+        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from Firebase");
     }
 
     #endregion
