@@ -8,6 +8,7 @@ TagManager:
   - ReturnBoxTxt
   - Backdrop
   - Audio
+  - Wall
   layers:
   - Default
   - TransparentFX
