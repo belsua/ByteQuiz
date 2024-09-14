@@ -226,7 +226,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         SpriteRenderer[] spriteRenderers = playerPrefab.GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer spriteRenderer in spriteRenderers) spriteRenderer.sortingOrder = playerSpriteOrder;
         Vector2 position = new(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
-        player = PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+
+        string[] avatarAnimatorNames = { "Adam", "Alex", "Bob", "Amelia" };
+        object[] instantiationData = new object[] { avatarAnimatorNames[SaveManager.player.profile.avatar] };
+        PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity, 0, instantiationData);
     }
 
     #endregion

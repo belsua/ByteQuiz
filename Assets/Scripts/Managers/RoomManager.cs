@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_Text roomText, countdownText, playerCountText, hostText, roomStatusText, nameText;
     public TMP_Dropdown topicDropdown;
     [Space]
+    public RuntimeAnimatorController[] avatarAnimators;
     public Image[] statBars;
     public TMP_Text[] statTexts, statusTexts;
 
@@ -42,7 +43,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         #if UNITY_EDITOR
         GameObject saveManager = new("NewObject");
         saveManager.AddComponent<SaveManager>();
-        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer("Debug guy");
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male", "Debug Section");
         #endif
     }
 
@@ -160,7 +161,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Random.Range(positionBounds[0].y, positionBounds[1].y)
         );
 
-        PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity);
+        string[] avatarAnimatorNames = { "Adam", "Alex", "Bob", "Amelia" };
+        object[] instantiationData = new object[] { avatarAnimatorNames[SaveManager.player.profile.avatar] };
+        PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity, 0, instantiationData);
     }
 
     private void UpdateRoomDetails() 

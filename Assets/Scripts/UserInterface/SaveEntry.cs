@@ -37,6 +37,7 @@ public class SaveEntry : MonoBehaviour
 
     public void OnDeleteButtonClick() 
     {
+        Debug.Log($"Delete Button Clicked with {player.profile.playerId}");
         SaveManager.selectedEntry = gameObject;
         SaveManager.player = player;
         deletePanel.transform.position = new Vector3 (0, 0, 0);

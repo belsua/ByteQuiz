@@ -25,14 +25,17 @@ public class CribManager : MonoBehaviour
 
     private Queue<string> messageQueue = new();
     private bool isCoroutineRunning = false;
+    readonly string[] avatarAnimatorNames = { "Adam", "Alex", "Bob", "Amelia" };
 
     private void Awake()
     {
         #if UNITY_EDITOR
         GameObject saveManager = new("NewObject");
         saveManager.AddComponent<SaveManager>();
-        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer("Debug guy");
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male", "Debug Section");
         #endif
+         
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Controllers/{avatarAnimatorNames[SaveManager.player.profile.avatar]}");
     }
 
     private void Start()
