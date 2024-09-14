@@ -8,12 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:638824992602:android:947966329d577bec09ed63",
+        "mobilesdk_app_id": "1:638824992602:android:9934d2452db3b49209ed63",
         "android_client_info": {
           "package_name": "com.belsua.bytequiz"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "638824992602-gu8m5g682antanoh4g98qhn5f1f8au0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAbDI22IM13YVWeej9c67tQhBJ8gFV1x7c"
@@ -21,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638824992602-gu8m5g682antanoh4g98qhn5f1f8au0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
