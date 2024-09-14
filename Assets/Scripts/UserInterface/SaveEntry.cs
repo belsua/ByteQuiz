@@ -7,10 +7,12 @@ public class SaveEntry : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public Player player;
+    GameObject deletePanel;
     FadeManager fadeManager;
 
     private void Awake()
     {
+        deletePanel = GameObject.Find("DeletePanel");
         fadeManager = GetComponent<FadeManager>();
     }
 
@@ -37,8 +39,8 @@ public class SaveEntry : MonoBehaviour
     {
         SaveManager.selectedEntry = gameObject;
         SaveManager.player = player;
-        MenuManager.deletePanel.transform.position = new Vector3 (0, 0, 0);
-        MenuManager.deletePanel.SetActive(true);
-        MenuManager.deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Are you sure you want to delete " + player.profile.name + "?";
+        deletePanel.transform.position = new Vector3 (0, 0, 0);
+        deletePanel.SetActive(true);
+        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Are you sure you want to delete {player.profile.name}?";
     }
 }

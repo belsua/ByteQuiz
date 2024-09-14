@@ -7,20 +7,7 @@ using System.Collections.Generic;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
-    GameObject canvas, saveEntryPrefab, scrollContent;
-    public static GameObject deletePanel;
-
-    public void Awake()
-    {
-
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            canvas = GameObject.Find("Canvas");
-            saveEntryPrefab = Resources.Load<GameObject>("UI/SaveEntry");
-            scrollContent = GameObject.Find("Content");
-            deletePanel = GameObject.Find("DeletePanel");
-        }
-    }
+    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel;
 
     private void Start()
     {
@@ -33,14 +20,14 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape)) Quit();
+        if (Input.GetKeyUp(KeyCode.Escape)) exitPanel.SetActive(true);
     }
 
     void ResetObjectPositions()
     {
         foreach (Transform child in canvas.transform)
         {
-            if (child.gameObject.name != "MenuPanel")
+            if (child.gameObject.name != "MenuPanel" && child.gameObject.name != "DeletePanel")
             {
                 child.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
                 child.localScale = Vector3.one;

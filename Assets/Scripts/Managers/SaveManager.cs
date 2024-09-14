@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +24,7 @@ public class SaveManager : MonoBehaviour
     public static Player player;
     public static string filePath;
     public static string saveFolder;
-
-    DatabaseReference database;
+    public DatabaseReference database;
 
     [Header("UI")]
     public TMP_InputField inputField;
