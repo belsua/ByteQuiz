@@ -130,8 +130,8 @@ TextureImporter:
         y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,8 +151,8 @@ TextureImporter:
         y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,15 +165,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_2
+      name: New_Characters 48x48_10
       rect:
         serializedVersion: 2
-        x: 96
+        x: 480
         y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,15 +186,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_3
+      name: New_Characters 48x48_11
       rect:
         serializedVersion: 2
-        x: 144
+        x: 528
         y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,15 +207,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_4
+      name: New_Characters 48x48_12
       rect:
         serializedVersion: 2
-        x: 192
-        y: 672
+        x: 0
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,15 +228,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_5
+      name: New_Characters 48x48_13
       rect:
         serializedVersion: 2
-        x: 240
-        y: 672
+        x: 48
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,15 +249,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_6
+      name: New_Characters 48x48_14
       rect:
         serializedVersion: 2
-        x: 288
-        y: 672
+        x: 96
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,15 +270,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_7
+      name: New_Characters 48x48_15
       rect:
         serializedVersion: 2
-        x: 336
-        y: 672
+        x: 144
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,15 +291,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_8
+      name: New_Characters 48x48_16
       rect:
         serializedVersion: 2
-        x: 384
-        y: 672
+        x: 192
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,15 +312,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_9
+      name: New_Characters 48x48_17
       rect:
         serializedVersion: 2
-        x: 432
-        y: 672
+        x: 240
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,15 +333,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_10
+      name: New_Characters 48x48_18
       rect:
         serializedVersion: 2
-        x: 480
-        y: 672
+        x: 288
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,15 +354,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_11
+      name: New_Characters 48x48_19
       rect:
         serializedVersion: 2
-        x: 528
-        y: 672
+        x: 336
+        y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,15 +375,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_12
+      name: New_Characters 48x48_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 576
+        x: 96
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,15 +396,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_13
+      name: New_Characters 48x48_20
       rect:
         serializedVersion: 2
-        x: 48
+        x: 384
         y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,15 +417,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_14
+      name: New_Characters 48x48_21
       rect:
         serializedVersion: 2
-        x: 96
+        x: 432
         y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,15 +438,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_15
+      name: New_Characters 48x48_22
       rect:
         serializedVersion: 2
-        x: 144
+        x: 480
         y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -459,15 +459,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_16
+      name: New_Characters 48x48_23
       rect:
         serializedVersion: 2
-        x: 192
+        x: 528
         y: 576
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -480,15 +480,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_17
+      name: New_Characters 48x48_24
       rect:
         serializedVersion: 2
-        x: 240
-        y: 576
+        x: 0
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -501,15 +501,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_18
+      name: New_Characters 48x48_25
       rect:
         serializedVersion: 2
-        x: 288
-        y: 576
+        x: 48
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -522,15 +522,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_19
+      name: New_Characters 48x48_26
       rect:
         serializedVersion: 2
-        x: 336
-        y: 576
+        x: 96
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -543,15 +543,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_20
+      name: New_Characters 48x48_27
       rect:
         serializedVersion: 2
-        x: 384
-        y: 576
+        x: 144
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -564,15 +564,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_21
+      name: New_Characters 48x48_28
       rect:
         serializedVersion: 2
-        x: 432
-        y: 576
+        x: 192
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -585,15 +585,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_22
+      name: New_Characters 48x48_29
       rect:
         serializedVersion: 2
-        x: 480
-        y: 576
+        x: 240
+        y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -606,15 +606,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_23
+      name: New_Characters 48x48_3
       rect:
         serializedVersion: 2
-        x: 528
-        y: 576
+        x: 144
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -627,15 +627,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_24
+      name: New_Characters 48x48_30
       rect:
         serializedVersion: 2
-        x: 0
+        x: 288
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -648,15 +648,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_25
+      name: New_Characters 48x48_31
       rect:
         serializedVersion: 2
-        x: 48
+        x: 336
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -669,15 +669,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_26
+      name: New_Characters 48x48_32
       rect:
         serializedVersion: 2
-        x: 96
+        x: 384
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -690,15 +690,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_27
+      name: New_Characters 48x48_33
       rect:
         serializedVersion: 2
-        x: 144
+        x: 432
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -711,15 +711,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_28
+      name: New_Characters 48x48_34
       rect:
         serializedVersion: 2
-        x: 192
+        x: 480
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -732,15 +732,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_29
+      name: New_Characters 48x48_35
       rect:
         serializedVersion: 2
-        x: 240
+        x: 528
         y: 480
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -753,15 +753,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_30
+      name: New_Characters 48x48_36
       rect:
         serializedVersion: 2
-        x: 288
-        y: 480
+        x: 0
+        y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -774,15 +774,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_31
+      name: New_Characters 48x48_37
       rect:
         serializedVersion: 2
-        x: 336
-        y: 480
+        x: 48
+        y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -795,15 +795,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_32
+      name: New_Characters 48x48_38
       rect:
         serializedVersion: 2
-        x: 384
-        y: 480
+        x: 96
+        y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -816,15 +816,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_33
+      name: New_Characters 48x48_39
       rect:
         serializedVersion: 2
-        x: 432
-        y: 480
+        x: 144
+        y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -837,15 +837,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_34
+      name: New_Characters 48x48_4
       rect:
         serializedVersion: 2
-        x: 480
-        y: 480
+        x: 192
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -858,15 +858,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_35
+      name: New_Characters 48x48_40
       rect:
         serializedVersion: 2
-        x: 528
-        y: 480
+        x: 192
+        y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -879,15 +879,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_36
+      name: New_Characters 48x48_41
       rect:
         serializedVersion: 2
-        x: 0
+        x: 240
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -900,15 +900,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_37
+      name: New_Characters 48x48_42
       rect:
         serializedVersion: 2
-        x: 48
+        x: 288
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -921,15 +921,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_38
+      name: New_Characters 48x48_43
       rect:
         serializedVersion: 2
-        x: 96
+        x: 336
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -942,15 +942,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_39
+      name: New_Characters 48x48_44
       rect:
         serializedVersion: 2
-        x: 144
+        x: 384
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -963,15 +963,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_40
+      name: New_Characters 48x48_45
       rect:
         serializedVersion: 2
-        x: 192
+        x: 432
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -984,15 +984,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_41
+      name: New_Characters 48x48_46
       rect:
         serializedVersion: 2
-        x: 240
+        x: 480
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1005,15 +1005,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_42
+      name: New_Characters 48x48_47
       rect:
         serializedVersion: 2
-        x: 288
+        x: 528
         y: 384
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1026,15 +1026,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_43
+      name: New_Characters 48x48_48
       rect:
         serializedVersion: 2
-        x: 336
-        y: 384
+        x: 0
+        y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1047,15 +1047,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_44
+      name: New_Characters 48x48_49
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 48
+        y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1068,15 +1068,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_45
+      name: New_Characters 48x48_5
       rect:
         serializedVersion: 2
-        x: 432
-        y: 384
+        x: 240
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1089,15 +1089,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_46
+      name: New_Characters 48x48_50
       rect:
         serializedVersion: 2
-        x: 480
-        y: 384
+        x: 96
+        y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1110,15 +1110,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_47
+      name: New_Characters 48x48_51
       rect:
         serializedVersion: 2
-        x: 528
-        y: 384
+        x: 144
+        y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1131,15 +1131,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_48
+      name: New_Characters 48x48_52
       rect:
         serializedVersion: 2
-        x: 0
+        x: 192
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1152,15 +1152,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_49
+      name: New_Characters 48x48_53
       rect:
         serializedVersion: 2
-        x: 48
+        x: 240
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1173,15 +1173,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_50
+      name: New_Characters 48x48_54
       rect:
         serializedVersion: 2
-        x: 96
+        x: 288
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1194,15 +1194,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_51
+      name: New_Characters 48x48_55
       rect:
         serializedVersion: 2
-        x: 144
+        x: 336
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1215,15 +1215,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_52
+      name: New_Characters 48x48_56
       rect:
         serializedVersion: 2
-        x: 192
+        x: 384
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1236,15 +1236,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_53
+      name: New_Characters 48x48_57
       rect:
         serializedVersion: 2
-        x: 240
+        x: 432
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1257,15 +1257,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_54
+      name: New_Characters 48x48_58
       rect:
         serializedVersion: 2
-        x: 288
+        x: 480
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1278,15 +1278,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_55
+      name: New_Characters 48x48_59
       rect:
         serializedVersion: 2
-        x: 336
+        x: 528
         y: 288
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1299,15 +1299,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_56
+      name: New_Characters 48x48_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 288
+        x: 288
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1320,15 +1320,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_57
+      name: New_Characters 48x48_60
       rect:
         serializedVersion: 2
-        x: 432
-        y: 288
+        x: 0
+        y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1341,15 +1341,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_58
+      name: New_Characters 48x48_61
       rect:
         serializedVersion: 2
-        x: 480
-        y: 288
+        x: 48
+        y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1362,15 +1362,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_59
+      name: New_Characters 48x48_62
       rect:
         serializedVersion: 2
-        x: 528
-        y: 288
+        x: 96
+        y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1383,15 +1383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_60
+      name: New_Characters 48x48_63
       rect:
         serializedVersion: 2
-        x: 0
+        x: 144
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1404,15 +1404,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_61
+      name: New_Characters 48x48_64
       rect:
         serializedVersion: 2
-        x: 48
+        x: 192
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1425,15 +1425,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_62
+      name: New_Characters 48x48_65
       rect:
         serializedVersion: 2
-        x: 96
+        x: 240
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1446,15 +1446,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_63
+      name: New_Characters 48x48_66
       rect:
         serializedVersion: 2
-        x: 144
+        x: 288
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1467,15 +1467,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_64
+      name: New_Characters 48x48_67
       rect:
         serializedVersion: 2
-        x: 192
+        x: 336
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1488,15 +1488,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_65
+      name: New_Characters 48x48_68
       rect:
         serializedVersion: 2
-        x: 240
+        x: 384
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1509,15 +1509,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_66
+      name: New_Characters 48x48_69
       rect:
         serializedVersion: 2
-        x: 288
+        x: 432
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1530,15 +1530,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_67
+      name: New_Characters 48x48_7
       rect:
         serializedVersion: 2
         x: 336
-        y: 192
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1551,15 +1551,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_68
+      name: New_Characters 48x48_70
       rect:
         serializedVersion: 2
-        x: 384
+        x: 480
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1572,15 +1572,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_69
+      name: New_Characters 48x48_71
       rect:
         serializedVersion: 2
-        x: 432
+        x: 528
         y: 192
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1593,15 +1593,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_70
+      name: New_Characters 48x48_72
       rect:
         serializedVersion: 2
-        x: 480
-        y: 192
+        x: 0
+        y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1614,15 +1614,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_71
+      name: New_Characters 48x48_73
       rect:
         serializedVersion: 2
-        x: 528
-        y: 192
+        x: 48
+        y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1635,15 +1635,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_72
+      name: New_Characters 48x48_74
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1656,15 +1656,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_73
+      name: New_Characters 48x48_75
       rect:
         serializedVersion: 2
-        x: 48
+        x: 144
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1677,15 +1677,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_74
+      name: New_Characters 48x48_76
       rect:
         serializedVersion: 2
-        x: 96
+        x: 192
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1698,15 +1698,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_75
+      name: New_Characters 48x48_77
       rect:
         serializedVersion: 2
-        x: 144
+        x: 240
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1719,15 +1719,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_76
+      name: New_Characters 48x48_78
       rect:
         serializedVersion: 2
-        x: 192
+        x: 288
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1740,15 +1740,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_77
+      name: New_Characters 48x48_79
       rect:
         serializedVersion: 2
-        x: 240
+        x: 336
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1761,15 +1761,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_78
+      name: New_Characters 48x48_8
       rect:
         serializedVersion: 2
-        x: 288
-        y: 96
+        x: 384
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1782,15 +1782,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_79
+      name: New_Characters 48x48_80
       rect:
         serializedVersion: 2
-        x: 336
+        x: 384
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1803,15 +1803,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_80
+      name: New_Characters 48x48_81
       rect:
         serializedVersion: 2
-        x: 384
+        x: 432
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1824,15 +1824,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_81
+      name: New_Characters 48x48_82
       rect:
         serializedVersion: 2
-        x: 432
+        x: 480
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1845,15 +1845,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_82
+      name: New_Characters 48x48_83
       rect:
         serializedVersion: 2
-        x: 480
+        x: 528
         y: 96
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1866,15 +1866,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_83
+      name: New_Characters 48x48_84
       rect:
         serializedVersion: 2
-        x: 528
-        y: 96
+        x: 0
+        y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1887,15 +1887,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_84
+      name: New_Characters 48x48_85
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1908,15 +1908,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_85
+      name: New_Characters 48x48_86
       rect:
         serializedVersion: 2
-        x: 48
+        x: 96
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1929,15 +1929,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_86
+      name: New_Characters 48x48_87
       rect:
         serializedVersion: 2
-        x: 96
+        x: 144
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1950,15 +1950,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_87
+      name: New_Characters 48x48_88
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1971,15 +1971,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_88
+      name: New_Characters 48x48_89
       rect:
         serializedVersion: 2
-        x: 192
+        x: 240
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1992,15 +1992,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New_Characters 48x48_89
+      name: New_Characters 48x48_9
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
+        x: 432
+        y: 672
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2020,8 +2020,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2041,8 +2041,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2062,8 +2062,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2083,8 +2083,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2104,8 +2104,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2125,8 +2125,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2151,94 +2151,94 @@ TextureImporter:
     nameFileIdTable:
       New_Characters 48x48_0: 191368455
       New_Characters 48x48_1: -161770448
-      New_Characters 48x48_10: 1238365539
-      New_Characters 48x48_11: 161892710
-      New_Characters 48x48_12: 1700993986
-      New_Characters 48x48_13: -803832138
-      New_Characters 48x48_14: 414345859
-      New_Characters 48x48_15: 912142534
-      New_Characters 48x48_16: 623656216
-      New_Characters 48x48_17: 861814186
-      New_Characters 48x48_18: -1425143193
-      New_Characters 48x48_19: 503553416
-      New_Characters 48x48_2: 1694372059
-      New_Characters 48x48_20: 1249103938
-      New_Characters 48x48_21: -1911513341
-      New_Characters 48x48_22: 1608501162
-      New_Characters 48x48_23: -381987014
-      New_Characters 48x48_24: -2056749755
-      New_Characters 48x48_25: 2028466554
-      New_Characters 48x48_26: 345752875
-      New_Characters 48x48_27: -1133938992
-      New_Characters 48x48_28: 699184644
-      New_Characters 48x48_29: 204052773
-      New_Characters 48x48_3: -920478093
-      New_Characters 48x48_30: -691158125
-      New_Characters 48x48_31: 297036654
-      New_Characters 48x48_32: -1700171812
-      New_Characters 48x48_33: 764934465
-      New_Characters 48x48_34: -357505052
-      New_Characters 48x48_35: -596477646
-      New_Characters 48x48_36: -1640076129
-      New_Characters 48x48_37: 1246650974
-      New_Characters 48x48_38: 1569686868
-      New_Characters 48x48_39: -1463174723
-      New_Characters 48x48_4: -418185620
-      New_Characters 48x48_40: 755165682
-      New_Characters 48x48_41: 13006558
-      New_Characters 48x48_42: 1982783625
-      New_Characters 48x48_43: 93662438
-      New_Characters 48x48_44: -811301050
-      New_Characters 48x48_45: -289862729
-      New_Characters 48x48_46: 1227265033
-      New_Characters 48x48_47: 663927623
-      New_Characters 48x48_48: 1250667691
-      New_Characters 48x48_49: -2052296866
-      New_Characters 48x48_5: -131065639
-      New_Characters 48x48_50: -795284199
-      New_Characters 48x48_51: 1559073506
-      New_Characters 48x48_52: 827611399
-      New_Characters 48x48_53: 64541735
-      New_Characters 48x48_54: -195925306
-      New_Characters 48x48_55: 660333578
-      New_Characters 48x48_56: -986433745
-      New_Characters 48x48_57: -529838259
-      New_Characters 48x48_58: -1315307626
-      New_Characters 48x48_59: 1085639092
-      New_Characters 48x48_6: -1518593905
-      New_Characters 48x48_60: -917645490
-      New_Characters 48x48_61: -1559915619
-      New_Characters 48x48_62: -263598723
-      New_Characters 48x48_63: 1464366761
-      New_Characters 48x48_64: -1341125682
-      New_Characters 48x48_65: -1320700405
-      New_Characters 48x48_66: -1021016610
-      New_Characters 48x48_67: -2035680658
-      New_Characters 48x48_68: -1746809180
-      New_Characters 48x48_69: -1814176051
-      New_Characters 48x48_7: -1717309499
-      New_Characters 48x48_70: 427440549
-      New_Characters 48x48_71: 1075323447
-      New_Characters 48x48_72: -660459613
-      New_Characters 48x48_73: -2111039753
-      New_Characters 48x48_74: 1999891022
-      New_Characters 48x48_75: 1160481617
-      New_Characters 48x48_76: 2001249929
-      New_Characters 48x48_77: 1695856190
-      New_Characters 48x48_78: -1657973353
-      New_Characters 48x48_79: -1123780996
-      New_Characters 48x48_8: 618048924
-      New_Characters 48x48_80: 1767114874
-      New_Characters 48x48_81: 625930608
-      New_Characters 48x48_82: 178921049
-      New_Characters 48x48_83: -1096955217
-      New_Characters 48x48_84: -2127893571
-      New_Characters 48x48_85: 2082117083
-      New_Characters 48x48_86: -345097709
-      New_Characters 48x48_87: -1589916616
-      New_Characters 48x48_88: -573524367
-      New_Characters 48x48_89: 811949
-      New_Characters 48x48_9: 114808871
+      New_Characters 48x48_10: 1694372059
+      New_Characters 48x48_11: -920478093
+      New_Characters 48x48_12: -418185620
+      New_Characters 48x48_13: -131065639
+      New_Characters 48x48_14: -1518593905
+      New_Characters 48x48_15: -1717309499
+      New_Characters 48x48_16: 618048924
+      New_Characters 48x48_17: 114808871
+      New_Characters 48x48_18: 1238365539
+      New_Characters 48x48_19: 161892710
+      New_Characters 48x48_2: 1700993986
+      New_Characters 48x48_20: -803832138
+      New_Characters 48x48_21: 414345859
+      New_Characters 48x48_22: 912142534
+      New_Characters 48x48_23: 623656216
+      New_Characters 48x48_24: 861814186
+      New_Characters 48x48_25: -1425143193
+      New_Characters 48x48_26: 503553416
+      New_Characters 48x48_27: 1249103938
+      New_Characters 48x48_28: -1911513341
+      New_Characters 48x48_29: 1608501162
+      New_Characters 48x48_3: -381987014
+      New_Characters 48x48_30: -2056749755
+      New_Characters 48x48_31: 2028466554
+      New_Characters 48x48_32: 345752875
+      New_Characters 48x48_33: -1133938992
+      New_Characters 48x48_34: 699184644
+      New_Characters 48x48_35: 204052773
+      New_Characters 48x48_36: -691158125
+      New_Characters 48x48_37: 297036654
+      New_Characters 48x48_38: -1700171812
+      New_Characters 48x48_39: 764934465
+      New_Characters 48x48_4: -357505052
+      New_Characters 48x48_40: -596477646
+      New_Characters 48x48_41: -1640076129
+      New_Characters 48x48_42: 1246650974
+      New_Characters 48x48_43: 1569686868
+      New_Characters 48x48_44: -1463174723
+      New_Characters 48x48_45: 755165682
+      New_Characters 48x48_46: 13006558
+      New_Characters 48x48_47: 1982783625
+      New_Characters 48x48_48: 93662438
+      New_Characters 48x48_49: -811301050
+      New_Characters 48x48_5: -289862729
+      New_Characters 48x48_50: 1227265033
+      New_Characters 48x48_51: 663927623
+      New_Characters 48x48_52: 1250667691
+      New_Characters 48x48_53: -2052296866
+      New_Characters 48x48_54: -795284199
+      New_Characters 48x48_55: 1559073506
+      New_Characters 48x48_56: 827611399
+      New_Characters 48x48_57: 64541735
+      New_Characters 48x48_58: -195925306
+      New_Characters 48x48_59: 660333578
+      New_Characters 48x48_6: -986433745
+      New_Characters 48x48_60: -529838259
+      New_Characters 48x48_61: -1315307626
+      New_Characters 48x48_62: 1085639092
+      New_Characters 48x48_63: -917645490
+      New_Characters 48x48_64: -1559915619
+      New_Characters 48x48_65: -263598723
+      New_Characters 48x48_66: 1464366761
+      New_Characters 48x48_67: -1341125682
+      New_Characters 48x48_68: -1320700405
+      New_Characters 48x48_69: -1021016610
+      New_Characters 48x48_7: -2035680658
+      New_Characters 48x48_70: -1746809180
+      New_Characters 48x48_71: -1814176051
+      New_Characters 48x48_72: 427440549
+      New_Characters 48x48_73: 1075323447
+      New_Characters 48x48_74: -660459613
+      New_Characters 48x48_75: -2111039753
+      New_Characters 48x48_76: 1999891022
+      New_Characters 48x48_77: 1160481617
+      New_Characters 48x48_78: 2001249929
+      New_Characters 48x48_79: 1695856190
+      New_Characters 48x48_8: -1657973353
+      New_Characters 48x48_80: -1123780996
+      New_Characters 48x48_81: 1767114874
+      New_Characters 48x48_82: 625930608
+      New_Characters 48x48_83: 178921049
+      New_Characters 48x48_84: -1096955217
+      New_Characters 48x48_85: -2127893571
+      New_Characters 48x48_86: 2082117083
+      New_Characters 48x48_87: -345097709
+      New_Characters 48x48_88: -1589916616
+      New_Characters 48x48_89: -573524367
+      New_Characters 48x48_9: 811949
       New_Characters 48x48_90: 1649635662
       New_Characters 48x48_91: -801120856
       New_Characters 48x48_92: 261389773

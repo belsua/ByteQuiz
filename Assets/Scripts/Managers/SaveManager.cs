@@ -1,10 +1,10 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using Newtonsoft.Json;
 using Firebase.Database;
 using System.Collections;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Stores the player data at `public static Player player`
@@ -26,11 +26,6 @@ public class SaveManager : MonoBehaviour
     public static string saveFolder;
     public DatabaseReference database;
 
-    [Header("UI")]
-    public TMP_InputField inputField;
-    public GameObject errorPanel, creationPanel;
-    public FadeManager fadeManager;
-
     internal bool multiplayer = false;
 
     #region Unity Methods
@@ -51,9 +46,9 @@ public class SaveManager : MonoBehaviour
 
     #region Save System
 
-    public void CreatePlayer(string name)
+    public void CreatePlayer(int avatar, string name, string username, int age, string gender, string section)
     {
-        player = new Player(name);
+        player = new Player(avatar, name, username, age, gender, section);
         SavePlayer(player.profile.playerId);
         Debug.Log("Player created: " + player.profile.playerId);
     }
@@ -99,13 +94,54 @@ public class SaveManager : MonoBehaviour
         SavePlayerToFirebase();
     }
 
-    public void DeleteSave()
+    public async void OnDeleteButtonPressed()
     {
-        filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
-        File.Delete(filePath);
-        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from local storage");
-        Destroy(selectedEntry);
-        DeletePlayerFromFirebase();
+        await DeleteSave();
+    }
+
+    public async Task DeleteSave()
+    {
+        string filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
+
+        // Attempt to delete the local file with proper error handling
+        try
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from local storage.");
+            }
+            else
+            {
+                Debug.LogWarning($"Player file at {filePath} not found, nothing to delete locally.");
+            }
+        }
+        catch (IOException ex)
+        {
+            Debug.LogError($"Error deleting local player file: {ex.Message}");
+        }
+
+        // Destroy the UI element or game object associated with the entry
+        if (selectedEntry != null)
+        {
+            Destroy(selectedEntry);
+            Debug.Log("Selected entry destroyed.");
+        }
+        else
+        {
+            Debug.LogWarning("No selected entry found to destroy.");
+        }
+
+        // Delete the player from Firebase
+        try
+        {
+            await DeletePlayerFromFirebase();  // Await to ensure it completes
+            Debug.Log("Player successfully deleted from Firebase.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to delete player from Firebase: {ex.Message}");
+        }
     }
 
     // Firebase
@@ -137,10 +173,28 @@ public class SaveManager : MonoBehaviour
         else Debug.Log("No data available");
     }
 
-    public void DeletePlayerFromFirebase()
+    public async Task DeletePlayerFromFirebase()
     {
-        database.Child("users").Child(player.profile.playerId).RemoveValueAsync();
-        Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from Firebase");
+        // Ensure player and playerId are not null
+        if (player == null || string.IsNullOrEmpty(player.profile.playerId))
+        {
+            Debug.LogError("Player or playerId is null, cannot delete from Firebase");
+            return;
+        }
+
+        try
+        {
+            // Try to delete the player data
+            await database.Child("users").Child(player.profile.playerId).RemoveValueAsync();
+
+            // Log success
+            Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from Firebase successfully.");
+        }
+        catch (System.Exception ex)
+        {
+            // Handle errors
+            Debug.LogError($"Failed to delete player {player.profile.name} with id {player.profile.playerId} from Firebase. Error: {ex.Message}");
+        }
     }
 
     #endregion
@@ -150,19 +204,6 @@ public class SaveManager : MonoBehaviour
     public void SetMode(bool state)
     {
         multiplayer = state;
-    }
-
-    public void ValidateAndCreate()
-    {
-        if (inputField.text.Length < 3)
-        {
-            errorPanel.SetActive(true);
-        }
-        else
-        {
-            CreatePlayer(inputField.text);
-            fadeManager.FadeToScene("Crib");
-        }
     }
 
     public static string[] GetSaveFiles()

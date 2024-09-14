@@ -3,7 +3,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
 public class TerritoryConquest : Minigame
@@ -25,7 +24,10 @@ public class TerritoryConquest : Minigame
     {
         playerPrefab.GetComponent<SpriteRenderer>().sortingOrder = playerSpriteOrder;
         playerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoints[playerIndex], Quaternion.identity);
+
+        string[] avatarAnimatorNames = { "Adam", "Alex", "Bob", "Amelia" };
+        object[] instantiationData = new object[] { avatarAnimatorNames[SaveManager.player.profile.avatar] };
+        player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoints[playerIndex], Quaternion.identity, 0, instantiationData);
     }
 
     public override void StartMinigame()
@@ -106,7 +108,7 @@ public class TerritoryConquest : Minigame
     IEnumerator EndGameCoroutine()
     {
         tileClaim.GetComponent<TilemapCollider2D>().enabled = false;
-        quizPanel.GetComponent<Image>().enabled = false;
+        quizPanel.GetComponent<UnityEngine.UI.Image>().enabled = false;
         quizPanel.SetActive(true);
         questionImage.gameObject.SetActive(false);
         buttons.SetActive(false);
