@@ -31,7 +31,7 @@ public class SaveEntry : MonoBehaviour
     private IEnumerator TriggerButtonClick()
     {
         yield return new WaitForSeconds(1);
-        if (SaveManager.instance.multiplayer) SceneManager.LoadScene(2);
+        if (SaveManager.multiplayer) SceneManager.LoadScene(2);
         else fadeManager.FadeToScene("Crib");
     }
 

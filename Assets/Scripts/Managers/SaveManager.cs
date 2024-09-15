@@ -26,7 +26,7 @@ public class SaveManager : MonoBehaviour
     public static string saveFolder;
     public DatabaseReference database;
 
-    internal bool multiplayer = false;
+    public static bool multiplayer = false;
 
     #region Unity Methods
 
@@ -201,7 +201,7 @@ public class SaveManager : MonoBehaviour
 
     #region User Interface
 
-    public void SetMode(bool state)
+    public static void SetMode(bool state)
     {
         multiplayer = state;
     }
