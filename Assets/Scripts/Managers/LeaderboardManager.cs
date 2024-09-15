@@ -21,6 +21,7 @@ public class LeaderboardManager : MonoBehaviour
     public Button btnNumberSystem;
 
     [Header("Sprites")]
+    public Sprite[] avatarSprites;
     public Sprite inactiveSprite;
     public Sprite activeSprite;
 
@@ -108,10 +109,26 @@ public class LeaderboardManager : MonoBehaviour
                         string playerName = userSnapshot.Child("profile").Child("name").Value.ToString();
                         float value = float.Parse(userSnapshot.Child("stats").Child(key).Value.ToString());
 
+                        // Set default avatarIndex to handle missing or null values
+                        int avatarIndex = 0;  // Default avatar index if parsing fails or is null
+
+                        DataSnapshot avatarSnapshot = userSnapshot.Child("profile").Child("avatar");
+                        if (avatarSnapshot.Exists && avatarSnapshot.Value != null)
+                        {
+                            if (!int.TryParse(avatarSnapshot.Value.ToString(), out avatarIndex))
+                            {
+                                Debug.LogWarning($"Failed to parse avatar index for user {playerName}, using default avatar.");
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Avatar field is missing or null for user {playerName}, using default avatar.");
+                        }
+
                         // Only add players with value > 0
                         if (value > 0)
                         {
-                            userDataList.Add(new UserData(playerName, value));
+                            userDataList.Add(new UserData(playerName, value, avatarIndex));
                         }
                     }
 
@@ -131,7 +148,37 @@ public class LeaderboardManager : MonoBehaviour
                         foreach (UserData data in userDataList)
                         {
                             GameObject newItem = Instantiate(itemPrefab, contentParent.transform);
-                            newItem.GetComponentInChildren<TextMeshProUGUI>().text = $"{data.playerName} - {data.value:F2}";
+
+                            // Check if "Avatar" object and Image component exists
+                            Image avatarImage = newItem.transform.Find("AvatarBackground/Mask/Avatar")?.GetComponent<Image>();
+                            if (avatarImage == null)
+                            {
+                                Debug.LogError("Avatar object or Image component not found in prefab.");
+                            }
+                            else
+                            {
+                                // Set avatar sprite: use default avatar if avatarIndex is invalid
+                                if (avatarSprites != null && data.avatarIndex >= 0 && data.avatarIndex < avatarSprites.Length)
+                                {
+                                    avatarImage.sprite = avatarSprites[data.avatarIndex];
+                                }
+                                else
+                                {
+                                    Debug.LogError("Avatar sprite array is null or index out of range.");
+                                    avatarImage.sprite = avatarSprites[0];  // Make sure defaultAvatarSprite is also assigned
+                                }
+                            }
+
+                            // Check if TextMeshProUGUI component exists
+                            var textComponent = newItem.GetComponentInChildren<TextMeshProUGUI>();
+                            if (textComponent == null)
+                            {
+                                Debug.LogError("TextMeshProUGUI component not found in prefab.");
+                            }
+                            else
+                            {
+                                textComponent.text = $"{data.playerName} - {data.value:F2}";
+                            }
                         }
                     }
                 }
@@ -157,11 +204,13 @@ public class LeaderboardManager : MonoBehaviour
     {
         public string playerName;
         public float value;
+        public int avatarIndex;
 
-        public UserData(string playerName, float value)
+        public UserData(string playerName, float value, int avatarIndex)
         {
             this.playerName = playerName;
             this.value = value;
+            this.avatarIndex = avatarIndex;
         }
     }
 }
