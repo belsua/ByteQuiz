@@ -1840,6 +1840,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2451723070914909060, guid: 47c5005d36957824f8d2bd8c5e5bb40d, type: 3}
   m_PrefabInstance: {fileID: 343296012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343296014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3442262278539858645, guid: 47c5005d36957824f8d2bd8c5e5bb40d, type: 3}
+  m_PrefabInstance: {fileID: 343296012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &373862167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,7 +3490,7 @@ MonoBehaviour:
   nameField: {fileID: 337949634}
   usernameField: {fileID: 2047738066}
   ageField: {fileID: 319112875}
-  genderDropdown: {fileID: 0}
+  genderDropdown: {fileID: 343296014}
   sectionDropdown: {fileID: 2096270439}
   errorPanel: {fileID: 63781338}
   fadeManager: {fileID: 1965024229}
@@ -4979,7 +4990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8935191573876059114, guid: 545abf062acaa2045829afc516ad99cd, type: 3}
       propertyPath: m_CharacterLimit
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8935191573876059114, guid: 545abf062acaa2045829afc516ad99cd, type: 3}
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.size
@@ -6013,6 +6024,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 353
       objectReference: {fileID: 0}
+    - target: {fileID: 560153185206298257, guid: 545abf062acaa2045829afc516ad99cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe0f50d81c4cf064da5a4e5ac2907401, type: 3}
     - target: {fileID: 560153185206298257, guid: 545abf062acaa2045829afc516ad99cd, type: 3}
       propertyPath: m_PreserveAspect
       value: 0

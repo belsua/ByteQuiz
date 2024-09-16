@@ -69,8 +69,8 @@ public class CreationManager : MonoBehaviour
         if (genderDropdown == null)
         {
             errorPanel.SetActive(true);
-            errorPanel.GetComponentInChildren<TMP_Text>().text = "Section dropdown is not initialized.";
-            Debug.Log("Error: Section dropdown is not initialized.");
+            errorPanel.GetComponentInChildren<TMP_Text>().text = "Gender dropdown is not initialized.";
+            Debug.Log("Error: Gender dropdown is not initialized.");
             return;
         }
 
