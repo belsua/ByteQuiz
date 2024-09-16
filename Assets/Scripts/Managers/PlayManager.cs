@@ -15,7 +15,8 @@ public class PlayManager : MonoBehaviour
     [Header("Components")]
     public CribManager cribManager;
     public Button[] answerButtons;
-    public TextMeshProUGUI feedbackText;
+    public AudioClip correctClip;
+    public AudioClip wrongClip;
 
     private int currentQuestionIndex;
     private int topicIndex;
@@ -115,12 +116,14 @@ public class PlayManager : MonoBehaviour
 
         if (selectedAnswerIndex == question.correctAnswerIndex)
         {
-            feedbackText.text = "Correct!";
+            cribManager.QuickShowMessage("Correct!");
+            AudioManager.PlaySound(correctClip);
             score++;
         }
         else
         {
-            feedbackText.text = "Wrong!";
+            cribManager.QuickShowMessage("Wrong!");
+            AudioManager.PlaySound(wrongClip);
         }
 
         currentQuestionIndex++;
@@ -146,12 +149,12 @@ public class PlayManager : MonoBehaviour
         questionText.text = "Quiz Over! Your score: " + score;
         cribManager.UpdatePlayerInterface();
         cribManager.ShowMessage($"Your {GetTopic(topicIndex)} stat increased!");
+        cribManager.MessageCloseCountdown();
 
         foreach (var button in answerButtons)
         {
             button.gameObject.SetActive(false);
         }
-        feedbackText.text = "";
 
         //ADDED
         questionImage.gameObject.SetActive(false); // Hide the image at the end
