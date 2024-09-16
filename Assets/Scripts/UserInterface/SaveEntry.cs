@@ -41,7 +41,7 @@ public class SaveEntry : MonoBehaviour
         SaveManager.selectedEntry = gameObject;
         SaveManager.player = player;
         deletePanel.transform.position = new Vector3 (0, 0, 0);
-        deletePanel.SetActive(true);
+        deletePanel.GetComponent<Canvas>().sortingOrder = 6;
         deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Are you sure you want to delete {player.profile.name}?";
     }
 }

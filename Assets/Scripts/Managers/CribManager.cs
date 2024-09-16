@@ -36,10 +36,11 @@ public class CribManager : MonoBehaviour
         #if UNITY_EDITOR
         GameObject saveManager = new("NewObject");
         saveManager.AddComponent<SaveManager>();
-        SaveManager.player = SaveManager.LoadPlayer(0);
+        SaveManager.player ??= SaveManager.LoadPlayer(0);
         if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male", "Debug Section");
-        #endif
-         
+
+#endif
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Controllers/{avatarAnimatorNames[SaveManager.player.profile.avatar]}");
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
     }
