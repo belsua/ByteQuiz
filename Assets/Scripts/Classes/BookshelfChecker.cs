@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,6 @@ public class BookshelfChecker : MonoBehaviour
     public GameObject target;
     public Button button;
     private bool collided = false;
-    private bool pressed = false;
 
     public enum Subject { NumberSystem, IntroProgramming, HistoryOfComputer, ElementsOfComputer };
     public Subject bookshelfSubject;
@@ -25,7 +22,6 @@ public class BookshelfChecker : MonoBehaviour
             UpdateButtonInteractable();
 
         collided = true;
-        pressed = false;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -37,16 +33,12 @@ public class BookshelfChecker : MonoBehaviour
 
     private void OnButtonClick()
     {
-        if (button.interactable)
-        {
-            pressed = !pressed;
-            CheckActivation();
-        }
+        if (button.interactable) CheckActivation();
     }
 
     private void CheckActivation()
     {
-        if (pressed && collided) target.SetActive(true);
+        if (collided) target.SetActive(true);
         // else target.SetActive(false);
         Debug.Log("Activated");
     }

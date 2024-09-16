@@ -1,6 +1,3 @@
-using Photon.Pun.Demo.PunBasics;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +9,6 @@ public class QuizChecker : MonoBehaviour
 
     public Button button;
     private bool collided = false;
-    private bool pressed = false;
 
     public int topicIndex = 0;
 
@@ -43,19 +39,12 @@ public class QuizChecker : MonoBehaviour
 
     private void OnButtonClick()
     {
-        if (button.interactable)
-        {
-            pressed = !pressed;
-            CheckActivation();
-        }
+        if (button.interactable) CheckActivation();
     }
 
     private void CheckActivation()
     {
-        if (pressed && collided)
-        {
-            OpenQuizUI(topicIndex);
-        }
+        if (collided) OpenQuizUI(topicIndex);
     }
 
     private void OpenQuizUI(int topicIndex)
