@@ -58,20 +58,34 @@ public class RoomManager : MonoBehaviourPunCallbacks
         else 
         {
             topicDropdown.interactable = false;
-            startButton.interactable = false;
         }
 
         SpawnPlayers();
         UpdatePlayerInterface();
         UpdateRoomDetails();
         roomDetails.SetActive(false);
+        startButton.interactable = false;
     }
 
     #region Photon Callbacks
 
-    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer) { UpdateRoomDetails(); }
-    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer) { UpdateRoomDetails(); }
-    public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient) { HostCheck(); }
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer) 
+    { 
+        UpdateRoomDetails();
+        PlayerCountCheck();
+
+    }
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        UpdateRoomDetails();
+        PlayerCountCheck();
+    }
+
+    public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient) 
+    { 
+        HostCheck(); 
+        PlayerCountCheck();
+    }
 
     #endregion
 
@@ -270,6 +284,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
             startButton.interactable = false;
             topicDropdown.interactable = false;
         }
+    }
+
+    void PlayerCountCheck()
+    {
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+            startButton.interactable = true;
+        else startButton.interactable = false;
     }
 
     #endregion
