@@ -5,6 +5,12 @@ using TMPro;
 
 public class PlayManager : MonoBehaviour
 {
+    public class QuestionData
+    {
+        public string question { get; set; }
+        public bool correct { get; set; }
+    }
+
     [Header("Question Database")]
     public QuestionDatabase[] questionDatabases; // Array of question databases for each topic
     public List<PlayQuestion> currentQuestions;
@@ -21,6 +27,7 @@ public class PlayManager : MonoBehaviour
     private int currentQuestionIndex;
     private int topicIndex;
     private const int MaxQuestionsPerQuiz = 29; //LIMIT QUIZ 0-29 = 30 questions
+    Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
     private void Start()
     {
@@ -119,11 +126,49 @@ public class PlayManager : MonoBehaviour
             cribManager.QuickShowMessage("Correct!");
             AudioManager.PlaySound(correctClip);
             score++;
+
+            if (currentQuestions[currentQuestionIndex].questionText == "")
+                answeredQuestions.Add(
+                    $"Question {currentQuestionIndex + 1}",
+                    new QuestionData
+                    {
+                        question = $"An image of {currentQuestions[currentQuestionIndex].questionImage.name}",
+                        correct = true
+                    }
+                );
+            else
+                answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                    new QuestionData
+                    {
+                        question = currentQuestions[currentQuestionIndex].questionText,
+                        correct = true
+                    }
+                );
         }
         else
         {
             cribManager.QuickShowMessage("Wrong!");
             AudioManager.PlaySound(wrongClip);
+
+            if (currentQuestions[currentQuestionIndex].questionText == "")
+                answeredQuestions.Add(
+                    $"Question {currentQuestionIndex + 1}",
+                    new QuestionData
+                    {
+                        question = $"An image of {currentQuestions[currentQuestionIndex].questionImage.name}",
+                        correct = false
+                    }
+                );
+            else
+                answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                    new QuestionData
+                    {
+                        question = currentQuestions[currentQuestionIndex].questionText,
+                        correct = false
+                    }
+                );
         }
 
         currentQuestionIndex++;
@@ -144,7 +189,13 @@ public class PlayManager : MonoBehaviour
 
     private void EndQuiz()
     {
-        SaveManager.player.SaveActivity(false, GetTopic(topicIndex), $"{score}/{MaxQuestionsPerQuiz + 1}"); 
+        SaveManager.player.SaveActivity(
+            false, 
+            GetTopic(topicIndex), 
+            $"{score}/{MaxQuestionsPerQuiz + 1}",
+            answeredQuestions
+        ); 
+
         SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
         questionText.text = "Quiz Over! Your score: " + score;
         cribManager.UpdatePlayerInterface();

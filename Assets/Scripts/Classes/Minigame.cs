@@ -9,6 +9,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 
 public interface IMinigame
 {
@@ -77,6 +78,8 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     protected virtual void Start()
     {
         #if UNITY_EDITOR
+        GameObject newObject = new("SaveManager");
+        newObject.AddComponent<SaveManager>();
         SaveManager.saveFolder ??= Path.Combine(Application.persistentDataPath, "Saves");
         SaveManager.player ??= SaveManager.LoadPlayer(0);
 
@@ -108,15 +111,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     public virtual void StartMinigame() { }
     public virtual void InitializePlayerData() { }
-    public virtual void EndMinigame() 
-    { 
-        SaveManager.player.SaveActivity(
-            true, 
-            topic,
-            $"{correct}/{total}",
-            Regex.Replace(SceneManager.GetActiveScene().name, "(?<=\\p{Ll})(?=\\p{Lu})", " "), 
-            PhotonNetwork.PlayerList.Select(x => x.NickName).ToArray());
-    }
+    public virtual void EndMinigame() { }
     public virtual void AnswerCorrect() { }
     public virtual void AnswerWrong() { }
 

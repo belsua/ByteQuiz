@@ -30,7 +30,7 @@ public class Player
         activities = new();
     }
 
-    public void SaveActivity(bool isMultiplayer, string topic, string score, string minigame = null, string[] players = null)
+    public void SaveActivity(bool isMultiplayer, string topic, string score, object questions, string minigame = null, string[] players = null)
     {
         string formattedTopic = topic switch
         {
@@ -46,7 +46,8 @@ public class Player
             { "date-time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
             { "mode", isMultiplayer ? "Multiplayer" : "Singleplayer" },
             { "topic", formattedTopic },
-            { "score", score }
+            { "score", score },
+            { "questions", questions }
         };
 
         if (isMultiplayer)

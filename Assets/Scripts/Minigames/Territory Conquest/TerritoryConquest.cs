@@ -4,15 +4,25 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using System.Linq;
+using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 public class TerritoryConquest : Minigame
 {
+    public class QuestionData
+    {
+        public string question { get; set; }
+        public bool correct { get; set; }
+    }
+
     [Header("Minigame Variables")]
     public TileClaim tileClaim;
     public Vector2[] spawnPoints = new Vector2[4];
     public TMP_Text timeText, markText, scoreText;
     public int timer = 60;
 
+    Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
     Dictionary<string, int> playerData = new(); // <player, score>
     internal int playerIndex;
 
@@ -44,6 +54,7 @@ public class TerritoryConquest : Minigame
 
     IEnumerator StartTimerCoroutine()
     {
+        int timer = this.timer;
         while (timer >= 0)
         {
             timeText.text = $"Time left: {timer}";
@@ -68,6 +79,28 @@ public class TerritoryConquest : Minigame
     {
         correct++;
         tileClaim.ClaimTile();
+
+        // check if question is an image
+        if (questionData.questions[currentQuestionIndex].questionText == "")
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
+                    correct = true
+                }
+            );
+        else
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = questionData.questions[currentQuestionIndex].questionText,
+                    correct = true
+                }
+            );
+
+
         ChangeScoreList(playerName, score);
 
         AudioManager.PlaySound(correctClip);
@@ -82,6 +115,27 @@ public class TerritoryConquest : Minigame
 
     public override void AnswerWrong()
     {
+        // check if question is an image
+        if (questionData.questions[currentQuestionIndex].questionText == "")
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
+                    correct = false
+                }
+            );
+        else
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = questionData.questions[currentQuestionIndex].questionText,
+                    correct = false
+                }
+            );
+
+
         AudioManager.PlaySound(wrongClip);
         markText.text = "Wrong!";
         StartCoroutine(ClearMarkText());
@@ -122,7 +176,15 @@ public class TerritoryConquest : Minigame
 
     public override void EndMinigame()
     {
-        base.EndMinigame();
+        SaveManager.player.SaveActivity(
+            true,
+            topic,
+            $"{correct}/{answeredQuestions.Count}",
+            answeredQuestions,
+            Regex.Replace(SceneManager.GetActiveScene().name, "(?<=\\p{Ll})(?=\\p{Lu})", " "),
+            PhotonNetwork.PlayerList.Select(x => x.NickName).ToArray()
+        );
+
         AudioSource.Stop();
         StartCoroutine(UpdateScores());
     }

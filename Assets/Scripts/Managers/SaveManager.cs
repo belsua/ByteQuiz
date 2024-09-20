@@ -147,10 +147,22 @@ public class SaveManager : MonoBehaviour
     // Firebase
 
     [ContextMenu("Save Player Data")]
-    public void SavePlayerToFirebase()
+    public async void SavePlayerToFirebase()
     {
-        string json = JsonConvert.SerializeObject(player);
-        database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
+        try
+        {
+            // Serialize player data to JSON
+            string json = JsonConvert.SerializeObject(player);
+
+            // Save to Firebase
+            await database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
+
+            Debug.Log("Player data saved successfully.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to save player data: {ex.Message}");
+        }
     }
 
     [ContextMenu("Load Player Data")]

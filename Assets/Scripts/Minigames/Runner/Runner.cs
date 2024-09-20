@@ -3,6 +3,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,14 +14,24 @@ public class PlayerData
     public bool isFinished { get; set; }
 }
 
+
 public class Runner : Minigame 
 {
+    public class QuestionData
+    {
+        public string question { get; set; }
+        public int attempts { get; set; }
+    }
+
     [SerializeField] TMP_Text scoreText, standingsText, scoreListText;
     [SerializeField] GameObject standingsPanel, scorePanel;
     [SerializeField] Transform teleportLocation;
 
     Dictionary<string, PlayerData> playerData = new(); // <player name, player data>
+    Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
+
     public GameObject currentObject;
+    int attempts = 0;
 
     protected override void Awake()
     {
@@ -76,6 +87,27 @@ public class Runner : Minigame
     {
         AudioManager.PlaySound(correctClip);
         score = Mathf.Clamp(score + 100, 0, 1000);
+
+        if (questionData.questions[currentQuestionIndex].questionText == "") 
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
+                    attempts = attempts
+                }
+            );
+        else 
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = questionData.questions[currentQuestionIndex].questionText,
+                    attempts = attempts
+                }
+            );
+
+        attempts = 0;
         ChangeScoreList(playerName, score);
         ChangeUI_RPC();
         RemoveQuestion(currentQuestionIndex);
@@ -89,6 +121,7 @@ public class Runner : Minigame
         AudioManager.PlaySound(wrongClip);
         score = Mathf.Clamp(score - 20, 0, 1000);
         ChangeScoreList(playerName, score);
+        attempts += 1;
         ChangeUI_RPC();
     }
 
@@ -137,7 +170,15 @@ public class Runner : Minigame
     [PunRPC]
     public override void EndMinigame()
     {
-        base.EndMinigame();
+        SaveManager.player.SaveActivity(
+            true, // This is multiplayer mode
+            topic, // The topic chosen by the host from the dropdown in the room
+            $"{CalculateTotalScore(answeredQuestions)}/{total}", // The score of the player
+            answeredQuestions, // The player's answers
+            Regex.Replace(SceneManager.GetActiveScene().name, "(?<=\\p{Ll})(?=\\p{Lu})", " "), // The scene name
+            PhotonNetwork.PlayerList.Select(x => x.NickName).ToArray() // The player names
+        );
+
         standingsText.text = string.Empty;
         foreach (var entry in playerData) standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
         AudioSource.Stop();
@@ -188,6 +229,31 @@ public class Runner : Minigame
     public void ChangeFinishPlayer(string player)
     {
         photonView.RPC("UpdateFinishPlayer", RpcTarget.All, player);
+    }
+
+    [ContextMenu("Teleport Player")]
+    public void TeleportPlayer()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector2(GameObject.FindGameObjectWithTag("Player").transform.position.x, 155f);
+    }
+
+    public float CalculateTotalScore(Dictionary<string, QuestionData> scores)
+    {
+        float totalScore = 0;
+        foreach (var score in scores.Values) totalScore += CalculateScore(score.attempts);
+        return totalScore;
+    }
+
+    private float CalculateScore(int attempts)
+    {
+        return attempts switch
+        {
+            0 => 1.0f,// 0 attempts
+            1 => 0.57f,// 1 attempt
+            2 => 0.50f,// 2 attempts
+            3 => 0.25f,// 3 attempts
+            _ => 0.0f,// More than 3 attempts
+        };
     }
 
     #endregion

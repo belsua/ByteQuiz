@@ -8,10 +8,20 @@ using System.Linq;
 using System.Xml;
 using Newtonsoft.Json;
 using System.IO;
+using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
+
 
 public class TriviaShowdown : Minigame
 {
+    public class QuestionData
+    {
+        public string question { get; set; }
+        public bool correct { get; set; }
+    }
+
     Dictionary<string, int> playerData = new(); // <player, score>
+    Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
     [Range(1, 30)]
     [SerializeField] int timer = 20;
@@ -117,6 +127,24 @@ public class TriviaShowdown : Minigame
         // Save the score
         correct++;
         score = Mathf.Clamp(score + 1, 0, int.MaxValue);
+
+        if (questionData.questions[currentQuestionIndex].questionText == "") 
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}", 
+                new QuestionData { 
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}", 
+                    correct = true 
+                }
+            );
+        else 
+            answeredQuestions.Add(
+            $"Question {currentQuestionIndex + 1}", 
+                new QuestionData { 
+                    question = questionData.questions[currentQuestionIndex].questionText, 
+                    correct = true 
+                }
+            );
+
         ChangeScoreList(playerName, score);
 
         // Handle UI update
@@ -128,6 +156,26 @@ public class TriviaShowdown : Minigame
 
     public override void AnswerWrong()
     {
+        if (questionData.questions[currentQuestionIndex].questionText == "")
+            answeredQuestions.Add(
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
+                    correct = false
+                }
+            );
+        else
+            answeredQuestions.Add(
+            $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = questionData.questions[currentQuestionIndex].questionText,
+                    correct = false
+                }
+            );
+
+
         // Handle UI update
         AudioManager.PlaySound(wrongClip);
         ChangeUI_RPC();
@@ -153,7 +201,15 @@ public class TriviaShowdown : Minigame
     [PunRPC]
     public override void EndMinigame()
     {
-        base.EndMinigame();
+        SaveManager.player.SaveActivity(
+            true,
+            topic,
+            $"{correct}/{total}",
+            answeredQuestions,
+            Regex.Replace(SceneManager.GetActiveScene().name, "(?<=\\p{Ll})(?=\\p{Lu})", " "),
+            PhotonNetwork.PlayerList.Select(x => x.NickName).ToArray()
+        );
+
         AudioSource.Stop();
         StartCoroutine(UpdateScores());
     }
