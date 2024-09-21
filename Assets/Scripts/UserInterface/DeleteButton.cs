@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class DeleteButton : MonoBehaviour
 {
+    public MenuManager menuManager;
     Button deleteButton;
 
     private void Awake()
@@ -12,6 +13,12 @@ public class DeleteButton : MonoBehaviour
 
     private void Start()
     {
-        deleteButton.onClick.AddListener(SaveManager.instance.OnDeleteButtonPressed);
+        deleteButton.onClick.AddListener(OnDeleteButtonClick);
+    }
+
+    private void OnDeleteButtonClick()
+    {
+        SaveManager.instance.OnDeleteButtonPressed();
+        menuManager.PopulateSaveList();
     }
 }

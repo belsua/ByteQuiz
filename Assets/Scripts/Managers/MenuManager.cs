@@ -4,6 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
@@ -36,8 +37,10 @@ public class MenuManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [ContextMenu("Populate Save List")]
     public void PopulateSaveList()
     {
+        foreach (Transform child in scrollContent.transform) { Destroy(child.gameObject); }
         List<Player> players = SaveManager.LoadPlayers();
 
         foreach (Player player in players)
@@ -45,9 +48,36 @@ public class MenuManager : MonoBehaviourPunCallbacks
             GameObject entry = Instantiate(saveEntryPrefab, scrollContent.transform);
             SaveEntry saveEntry = entry.GetComponent<SaveEntry>();
             saveEntry.SetCharacterData(player);
+
+            Button cloudButton = entry.transform.Find("Right/CloudButton").GetComponent<Button>();
+
+            if (!PlayerPrefs.HasKey("CloudPlayerId"))
+            {
+                cloudButton.interactable = true;
+            }
+            else
+            {
+                if (player.profile.playerId == PlayerPrefs.GetString("CloudPlayerId")) // adds checkmark
+                {
+                    SpriteState spriteState = new()
+                    {
+                        highlightedSprite = null,
+                        pressedSprite = saveEntry.checkSprites[3],
+                        selectedSprite = null,
+                        disabledSprite = saveEntry.checkSprites[4]
+                    };
+
+                    cloudButton.GetComponent<Image>().sprite = saveEntry.checkSprites[2];
+                    cloudButton.spriteState = spriteState;
+                    cloudButton.interactable = true;
+                }
+                else 
+                {
+                    cloudButton.interactable = false;
+                }
+            }
         }
     }
-
 
     #region Scene Management
 

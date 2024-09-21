@@ -2,11 +2,15 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class SaveEntry : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public Player player;
+    public Sprite[] checkSprites;
+    public Button cloudButton;
     GameObject deletePanel;
     FadeManager fadeManager;
 
@@ -43,5 +47,53 @@ public class SaveEntry : MonoBehaviour
         deletePanel.transform.position = new Vector3 (0, 0, 0);
         deletePanel.GetComponent<Canvas>().sortingOrder = 6;
         deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Are you sure you want to delete {player.profile.name}?";
+    }
+
+    public async void OnCloudButtonClick()
+    {
+        await CloudSave();
+    }
+
+    public async Task CloudSave()
+    {
+        Button[] allButtons = FindObjectsOfType<Button>();
+
+        if (cloudButton.spriteState.pressedSprite == checkSprites[1]) // unchecked
+        {
+            PlayerPrefs.SetString("CloudPlayerId", player.profile.playerId);
+            await SaveManager.instance.SavePlayerToFirebase(player);
+
+            SpriteState spriteState = new()
+            {
+                highlightedSprite = null,
+                pressedSprite = checkSprites[3],
+                selectedSprite = null,
+                disabledSprite = checkSprites[4]
+            };
+
+            cloudButton.GetComponent<Image>().sprite = checkSprites[2];
+            cloudButton.spriteState = spriteState;
+
+            foreach (Button btn in allButtons)
+                if (btn.gameObject.name == "CloudButton" && btn.gameObject != cloudButton.gameObject) btn.interactable = false;
+        } 
+        else // checked
+        {
+            await SaveManager.instance.DeletePlayerFromFirebase(player);
+            PlayerPrefs.DeleteKey("CloudPlayerId");
+
+            SpriteState spriteState = new()
+            {
+                highlightedSprite = null,
+                pressedSprite = checkSprites[1],
+                selectedSprite = null,
+                disabledSprite = checkSprites[4]
+            };
+
+            cloudButton.GetComponent<Image>().sprite = checkSprites[0];
+            cloudButton.spriteState = spriteState;
+
+            foreach (Button btn in allButtons) btn.interactable = true;
+        }
     }
 }

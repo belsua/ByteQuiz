@@ -75,7 +75,7 @@ public class SaveManager : MonoBehaviour
         return players;
     }
 
-    public void SavePlayer(string playerId)
+    public async void SavePlayer(string playerId)
     {
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
         if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
@@ -91,7 +91,8 @@ public class SaveManager : MonoBehaviour
         string json = JsonConvert.SerializeObject(player, settings);
         File.WriteAllText(filePath, json);
         Debug.Log($"Player data saved to {filePath}");
-        SavePlayerToFirebase();
+        if (PlayerPrefs.GetString("CloudPlayerId") == playerId) await SavePlayerToFirebase(player);
+        else Debug.Log("Player is not selected to save to cloud.");
     }
 
     public async void OnDeleteButtonPressed()
@@ -101,6 +102,8 @@ public class SaveManager : MonoBehaviour
 
     public async Task DeleteSave()
     {
+        if (PlayerPrefs.GetString("CloudPlayerId") == player.profile.playerId) DeleteAllPrefs();
+
         string filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
 
         // Attempt to delete the local file with proper error handling
@@ -135,7 +138,7 @@ public class SaveManager : MonoBehaviour
         // Delete the player from Firebase
         try
         {
-            await DeletePlayerFromFirebase();  // Await to ensure it completes
+            await DeletePlayerFromFirebase(player);  // Await to ensure it completes
             Debug.Log("Player successfully deleted from Firebase.");
         }
         catch (System.Exception ex)
@@ -147,7 +150,7 @@ public class SaveManager : MonoBehaviour
     // Firebase
 
     [ContextMenu("Save Player Data")]
-    public async void SavePlayerToFirebase()
+    public async Task SavePlayerToFirebase(Player player)
     {
         try
         {
@@ -185,7 +188,7 @@ public class SaveManager : MonoBehaviour
         else Debug.Log("No data available");
     }
 
-    public async Task DeletePlayerFromFirebase()
+    public async Task DeletePlayerFromFirebase(Player player)
     {
         // Ensure player and playerId are not null
         if (player == null || string.IsNullOrEmpty(player.profile.playerId))
@@ -208,6 +211,13 @@ public class SaveManager : MonoBehaviour
             Debug.LogError($"Failed to delete player {player.profile.name} with id {player.profile.playerId} from Firebase. Error: {ex.Message}");
         }
     }
+
+    [ContextMenu("Delete All Player Prefs")]
+    public void DeleteAllPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 
     #endregion
 
