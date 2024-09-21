@@ -53,7 +53,7 @@ public class CribManager : MonoBehaviour
         debugPanel.SetActive(false);
         #endif
 
-        SaveManager.player.OnStatUnlocked += ShowMessage;
+        SaveManager.player.OnStatUnlocked += QuickShowMessage;
         messagePanel.SetActive(false);
 
         UpdatePlayerInterface();
