@@ -166,11 +166,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5724444243251535658}
+  m_Father: {fileID: 3800436352440926757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -106, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -170, y: -100}
   m_SizeDelta: {x: 244, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4418429214741215467
@@ -303,6 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca6dbddbef42854793d1f615297d5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  saveEntryPrefab: {fileID: 0}
+  scrollContent: {fileID: 0}
+  exitPanel: {fileID: 0}
 --- !u!1 &1435856065427575523
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +413,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6241397131846493430}
+  - {fileID: 952562613286518030}
   - {fileID: 1033986924612769752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -554,7 +560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 1356.4194, y: 734.4119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &846286174136698022
@@ -1024,11 +1030,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5724444243251535658}
+  m_Father: {fileID: 3800436352440926757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -365, y: -58.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -100}
   m_SizeDelta: {x: 244, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2881737554422697049
@@ -1262,8 +1268,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3511543555528651022}
-  - {fileID: 952562613286518030}
-  - {fileID: 6241397131846493430}
   m_Father: {fileID: 6836113056376059737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
