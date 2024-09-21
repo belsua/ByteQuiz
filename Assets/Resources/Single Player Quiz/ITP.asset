@@ -429,3 +429,434 @@ MonoBehaviour:
     - 'C. To control the flow of execution based on a condition. '
     - 'D. To print output to the console. '
     correctAnswerIndex: 2
+  - questionText: 'It involves creating instructions for a computer to perform a
+      task with the use of various computer languages.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Programming '
+    - 'B. Debugging '
+    - 'C. Documenting '
+    - 'D. Maintenance '
+    correctAnswerIndex: 0
+  - questionText: 'It occurs when there''s a mistake in the source code that leads
+      to incorrect or unexpected behavior during runtime.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Runtime Error '
+    - 'B. Syntax Error '
+    - 'C. Bug '
+    - 'D. Logic Error '
+    correctAnswerIndex: 3
+  - questionText: 'It is the process of creating application programs, following
+      the Program Development Life Cycle. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Debugging '
+    - 'B. Coding '
+    - 'C. Program Development '
+    - 'D. Programming '
+    correctAnswerIndex: 2
+  - questionText: 'PDLC stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Programming Development Life Cycle '
+    - 'B. Program Development Life Cycle  '
+    - C. Pseudocode Development Life Cycle
+    - D. Post-Mortem Development Life Cycle
+    correctAnswerIndex: 1
+  - questionText: 'Program Development Life Cycle (PDLC) consists of _ phases. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 5
+    - B. 6
+    - C. 7
+    - D. 8
+    correctAnswerIndex: 0
+  - questionText: 'It provides a visual representation of the program''s logic to
+      understand how the program will flow before actual coding begins.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Programming Language '
+    - 'B. Documentation '
+    - 'C. Diagram '
+    - 'D. Flowcharts '
+    correctAnswerIndex: 3
+  - questionText: 'A non-syntactic language that resembles programming language but
+      uses plain language to describe the program''s process.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Machine Language '
+    - 'B. High Level Language '
+    - 'C. Pseudocode '
+    - 'D. Assembly Language '
+    correctAnswerIndex: 2
+  - questionText: 'These are sets of rules that specify how to instruct computers
+      to perform operations. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Source Code '
+    - 'B. Programming Languages '
+    - 'C. Computer Code '
+    - 'D. Pseudocode '
+    correctAnswerIndex: 1
+  - questionText: 'Also known as source code, consists of statements and converted
+      into machine language using a compiler.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Computer Code '
+    - 'B. Source Code '
+    - 'C. Pseudocode '
+    - 'D. Programming Languages '
+    correctAnswerIndex: 0
+  - questionText: 'Software applications designed for coding, provide tools for error
+      detection and code formatting, reducing the likelihood of mistakes and saving
+      time.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Compiler '
+    - 'B. Debugger '
+    - 'C. Integrated Development Environment (IDE) '
+    - 'D. Programmer '
+    correctAnswerIndex: 2
+  - questionText: 'It is the process of detecting, locating, and correcting bugs
+      or mistakes in the program.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Programming '
+    - 'B. Maintenance '
+    - 'C. Documenting '
+    - 'D. Debugging '
+    correctAnswerIndex: 3
+  - questionText: 'This can include syntax errors, runtime errors, or logic errors.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Debug '
+    - 'B. Bug '
+    - 'C. Code '
+    - 'D. Programming Language '
+    correctAnswerIndex: 1
+  - questionText: 'It occurs when the programmer does not follow the correct rules
+      of the programming language.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Syntax Errors '
+    - 'B. Logic Errors '
+    - 'C. Runtime Errors '
+    - 'D. Bugs '
+    correctAnswerIndex: 0
+  - questionText: 'A type of bug that occurs during program execution.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Logic Errors '
+    - 'B. Computer Code '
+    - 'C. Runtime Errors '
+    - 'D. Syntax Errors '
+    correctAnswerIndex: 2
+  - questionText: 'It involves mistakes in the program''s logic, such as incorrect
+      formulas or variable names.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Runtime Errors '
+    - 'B. Syntax Errors '
+    - 'C. Bugs '
+    - 'D. Logic Errors '
+    correctAnswerIndex: 3
+  - questionText: 'A debugging technique that involves watching print or trace statements
+      to observe the program''s execution flow.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Remote Debugging '
+    - 'B. Print Debugging '
+    - 'C. Post-Mortem Debugging '
+    - 'D. Wolf-Fence Debugging '
+    correctAnswerIndex: 1
+  - questionText: 'A debugging technique that utilizes a different system or network
+      to run the program and collect information about errors.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Remote Debugging '
+    - 'B. Saff Squeeze Technique '
+    - 'C. Print Debugging '
+    - 'D. Post-Mortem Debugging '
+    correctAnswerIndex: 0
+  - questionText: 'A debugging technique that analyzes memory dumps after a program
+      has crashed. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Wolf-Fence Debugging '
+    - 'B. Print Debugging '
+    - 'C. Post-Mortem Debugging '
+    - 'D. Remote Debugging '
+    correctAnswerIndex: 2
+  - questionText: 'Debugging techniques involve narrowing down the problem area by
+      continuous divisions or sectioning.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Wolf-fence Debugging & Saff Squeeze Technique '
+    - 'B. Remote & Print Debugging '
+    - C. Post-Mortem & Remote Debugging
+    - 'D. Print & Wolf-fence Debugging '
+    correctAnswerIndex: 0
+  - questionText: 'It involves providing a detailed description of the programming
+      cycle and specific information about the program.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Flowchart '
+    - 'B. Maintenance '
+    - 'C. Debugging '
+    - 'D. Documentation '
+    correctAnswerIndex: 3
+  - questionText: 'This phase can be costly for organizations as programmers need
+      to continually enhance and fix issues within the program.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Documentation '
+    - 'B. Debugging '
+    - 'C. Maintenance '
+    - 'D. Planning '
+    correctAnswerIndex: 2
+  - questionText: 'A detailed description of what a computer program or algorithm
+      should accomplish, written in a formal yet readable style to make it easily
+      understood by programmers and others involved in the development process. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Planning '
+    - 'B. Pseudocode '
+    - 'C. Documentation '
+    - 'D. Flowchart '
+    correctAnswerIndex: 1
+  - questionText: 'A visual representation that uses symbols to depict the sequence
+      of operations, data flow, and paperwork flow in information processing.  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Flowchart '
+    - 'B. Diagrams '
+    - 'C. Pseudocode '
+    - 'D. Documentation '
+    correctAnswerIndex: 0
+  - questionText: 'Who developed C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. James Gosling '
+    - 'B. Alan Turing '
+    - 'C. Linus Torvalds '
+    - 'D. Bjarne Stroustrup '
+    correctAnswerIndex: 3
+  - questionText: 'What language did Bjarne Stroustrup develop? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. PHP '
+    - 'B. C '
+    - 'C. C++ '
+    - 'D. Java '
+    correctAnswerIndex: 2
+  - questionText: 'Where did Stroustrup develop C++? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Netherlands '
+    - 'B. Bell Telephone Laboratories '
+    - 'C. Sun Microsystems '
+    - 'D. Netscape Communications '
+    correctAnswerIndex: 1
+  - questionText: 'C++ was initially known as _______________. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. C with Classes '
+    - 'B. C++ with Class '
+    - 'C. C without Classes '
+    - 'D. C++ without Class '
+    correctAnswerIndex: 0
+  - questionText: 'C with Classes was renamed to C++ during the year ________. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 1980 '
+    - 'B. 1981 '
+    - 'C. 1982 '
+    - 'D. 1983 '
+    correctAnswerIndex: 3
+  - questionText: 'What was the first C with Classes compiler called?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Cclass '
+    - 'B. Cback '
+    - 'C. Cfront '
+    - 'D. C++ '
+    correctAnswerIndex: 2
+  - questionText: 'What does the "++" symbol represent?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Arithmetic Operator '
+    - 'B. Increment Operator '
+    - 'C. Modulus '
+    - 'D. Decrement Operator '
+    correctAnswerIndex: 1
+  - questionText: 'STL stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Standard Template Library '
+    - 'B. Standard Templates Library '
+    - 'C. Standard Template Libraries '
+    - 'D. Standards Template Library '
+    correctAnswerIndex: 0
+  - questionText: 'A software suite that combines essential tools for software development,
+      such as a code editor, debugger, and build automation tools, into one user-friendly
+      interface. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Integrated Develop Environment '
+    - 'B. Integrates Development Environment '
+    - C. Integrated Development Environment
+    - D. Integrate Development Environment
+    correctAnswerIndex: 2
+  - questionText: 'TDD stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Transaction-Driven Development '
+    - 'B. Time-Driven Development '
+    - 'C. Technology-Driven Development '
+    - 'D. Test-Driven Development '
+    correctAnswerIndex: 3
+  - questionText: 'Known as the best open-source IDE for C++ developed by Microsoft. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. NetBeans '
+    - 'B. Atom '
+    - 'C. Visual Studio Code '
+    - 'D. Eclipse '
+    correctAnswerIndex: 2
+  - questionText: 'What are operators in C++ that are used to carry out mathematical
+      operations on operands?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Arithmetic Operators '
+    - 'B. Relational Operators '
+    - 'C. Logical Operators '
+    - 'D. Assignment Operators '
+    correctAnswerIndex: 0
+  - questionText: 'C++ Arithmetic Operators can be categorized into _ types. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 4
+    - B. 3
+    - C. 2
+    - D. 5
+    correctAnswerIndex: 2
+  - questionText: 'What operator does "+" represent?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Division '
+    - 'B. Increment '
+    - 'C. Subtraction '
+    - 'D. Addition '
+    correctAnswerIndex: 3
+  - questionText: 'What operator does "-" represent? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Multiplication '
+    - 'B. Subtraction '
+    - 'C. Decrement '
+    - 'D. Modulus '
+    correctAnswerIndex: 1
+  - questionText: 'What operator does "*" represent?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Multiplication '
+    - 'B. Modulus '
+    - 'C. Addition '
+    - 'D. Subtraction '
+    correctAnswerIndex: 0
+  - questionText: 'What operator does "/" represent? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Modulus '
+    - 'B. Subtraction '
+    - 'C. Division '
+    - 'D. Multiplication '
+    correctAnswerIndex: 2
+  - questionText: 'What operator does "%" represent? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Addition '
+    - 'B. Division '
+    - 'C. Subtraction '
+    - 'D. Modulus '
+    correctAnswerIndex: 3
+  - questionText: 'Binary arithmetic operator used in calculating the addition of
+      two operands.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. -
+    - B. +
+    - C. *
+    - D. /
+    correctAnswerIndex: 1
+  - questionText: 'Binary arithmetic operator used in calculating subtraction of
+      two operands. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. +
+    - B. *
+    - C. %
+    - D. -
+    correctAnswerIndex: 3
+  - questionText: 'Binary arithmetic operator used in calculating multiplication
+      of two operands.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. *
+    - B. /
+    - C. -
+    - D. +
+    correctAnswerIndex: 0
+  - questionText: 'Binary arithmetic operator used in calculating division of two
+      operands. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. -
+    - B. +
+    - C. /
+    - D. %
+    correctAnswerIndex: 2
+  - questionText: 'Binary arithmetic operator used in calculating remainder after
+      calculation of two operands.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. *
+    - B. %
+    - C. -
+    - D. +
+    correctAnswerIndex: 1
+  - questionText: 'What operator does "++" represent?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Addition '
+    - 'B. Decrement '
+    - 'C. Subtraction '
+    - 'D. Increment '
+    correctAnswerIndex: 3
+  - questionText: 'What operator does "--" represent? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Decrement '
+    - 'B. Subtraction '
+    - 'C. Multiplication '
+    - 'D. Division '
+    correctAnswerIndex: 0
+  - questionText: 'Unary Arithmetic operator that decreases the integer value of
+      the variable by one.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. ++
+    - B. %
+    - C. - -
+    - //
+    correctAnswerIndex: 2
+  - questionText: 'Unary Arithmetic operator that increases the integer value of
+      the variable by one.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. /
+    - B. ++
+    - C. *
+    - D. - -
+    correctAnswerIndex: 1

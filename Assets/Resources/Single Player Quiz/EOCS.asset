@@ -446,3 +446,1172 @@ MonoBehaviour:
     - C. Headphones
     - 'D. Computer Speakers '
     correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 712d936d29e78bb4793da768477ee9e1, type: 3}
+    answers:
+    - A. Monitor
+    - B. Projector
+    - C. Printer
+    - D. Headphones
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: d56aacf9b09db6e4fb0585186e8b2f2c, type: 3}
+    answers:
+    - A. Printer
+    - 'B. Fax Machine '
+    - C. Braille Reader
+    - D. Projector
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: e892dc23f232d7544843773d4d3b8b9d, type: 3}
+    answers:
+    - A. Fax Machine
+    - B. Projector
+    - 'C. Scanner '
+    - D. Printer
+    correctAnswerIndex: 0
+  - questionText: 'A device that is capable of holding information either temporarily
+      or permanently. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Computer
+    - B. Input Device
+    - 'C. Output Device '
+    - D. Storage Device
+    correctAnswerIndex: 3
+  - questionText: What is another name for primary memory?
+    questionImage: {fileID: 0}
+    answers:
+    - A. Secondary Memory
+    - 'B. Main Memory '
+    - 'C. RAM '
+    - 'D. CPU '
+    correctAnswerIndex: 1
+  - questionText: RAM stands for?
+    questionImage: {fileID: 0}
+    answers:
+    - A. Random Access Memories
+    - B. Random Auxiliary Memory
+    - C. Random Access Memory
+    - D. Random Accessible Memory
+    correctAnswerIndex: 2
+  - questionText: "A type of primary memory known as read/write memory. The information
+      stored in this memory is lost as the power supply to the computer is switched
+      off. Also called \u201CVolatile Memory.\u201D"
+    questionImage: {fileID: 0}
+    answers:
+    - A. Random Access Memory (RAM)
+    - B. Read Only Memory (ROM)
+    - C. CPU
+    - D. Microprocessor
+    correctAnswerIndex: 0
+  - questionText: ROM stands for?
+    questionImage: {fileID: 0}
+    answers:
+    - A. Random Only Memories
+    - B. Random Only Memory
+    - 'C. Read Only Memories '
+    - D. Read Only Memory
+    correctAnswerIndex: 3
+  - questionText: "A type of primary memory that its content is not lost when the
+      power supply is switched off. Also called \u201CNon-Volatile Memory\u201D. "
+    questionImage: {fileID: 0}
+    answers:
+    - A. Floppy Diskette
+    - B. Flash Drive
+    - C. Random Access Memory (RAM)
+    - D. Read Only Memory (ROM)
+    correctAnswerIndex: 3
+  - questionText: 'What is another name for secondary memory? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Primary Memory '
+    - B. Auxiliary Memory
+    - 'C. Main Memory '
+    - 'D. CPU '
+    correctAnswerIndex: 1
+  - questionText: A removable data storage medium that can be used with personal
+      computers. The term usually refers to the magnetic medium housed in a rigid
+      plastic cartridge measuring 3.5 inches square and about 2 millimeters thick.
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Memory Card '
+    - B. LS-120
+    - C. Floppy Diskette
+    - D. Zip Drive
+    correctAnswerIndex: 2
+  - questionText: 'Also called optical disc is a nonmagnetic, polished metal disk
+      used to store digital information. The disc is read by the CD-ROM. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Compact Disc (CD)
+    - 'B. Digital Versatile Disc (DVD) '
+    - C. Memory Card
+    - D. Hard Drive
+    correctAnswerIndex: 0
+  - questionText: 'An optical disc technology with a 4.7 gigabyte storage capacity
+      on a single-sided, one-layered disk, which is enough for a 133-minute movie. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Jump Drive
+    - 'B. Compact Disc (CD) '
+    - C. Floppy Diskette
+    - D. Digital Versatile Disc (DVD)
+    correctAnswerIndex: 3
+  - questionText: 'A plug-and-play portable storage device that uses flash memory
+      and is lightweight enough to attach to a key chain. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Memory Card
+    - B. Jump Drive and USB Flash Drive
+    - C. Hard Drive
+    - D. Zip Drive
+    correctAnswerIndex: 1
+  - questionText: The main, and usually largest, data storage device in a computer.
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hard Drive '
+    - B. Zip Drive
+    - C. Compact Disc (CD)
+    - D. Memory Card
+    correctAnswerIndex: 0
+  - questionText: 'A drive which supports a special floppy diskette which can store
+      up to 120MB of information as well as being backwards compatible and still
+      supporting the standard 1.44MB floppy diskettes '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Zip Drive
+    - B. Floppy Diskette
+    - C. LS-120
+    - D. Jump Drive and USB Flash Drive
+    correctAnswerIndex: 2
+  - questionText: 'A small, portable disk drive used primarily for backing up and
+      archiving personal computer files. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Compact Disc (CD)
+    - B. Digital Versatile Disc (DVD)
+    - C. Hard Drive
+    - D. Zip Drive
+    correctAnswerIndex: 3
+  - questionText: 'This storage device is commonly used in portable electronic devices,
+      such as digital cameras, mobile phones, and computers. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. RAM
+    - 'B. Memory Card '
+    - C. Floppy Diskette
+    - D. Jump Drive and USB Flash Drive
+    correctAnswerIndex: 1
+  - questionText: 'CD stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Compact Disc
+    - B. Compact Disk
+    - C. Card Disk
+    - D. Control Disc
+    correctAnswerIndex: 0
+  - questionText: 'DVD stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Digital Versatile Disk '
+    - 'B. Digital Volatile Disk '
+    - 'C. Digital Versatile Disc '
+    - 'D. Digital Volatile Disc '
+    correctAnswerIndex: 2
+  - questionText: 'USB stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Universal Socket Bus
+    - 'B. Universal Storage Bus '
+    - 'C. Universal Series Bus '
+    - D. Universal Serial Bus
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ed33e3fa73a1ccf45b1e8486d5b1b067, type: 3}
+    answers:
+    - A. CPU
+    - B. Random Access Memory (RAM)
+    - C. Microprocessor
+    - 'D. Read Only Memory (ROM) '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 2085d71454363eb4f862a668768500a6, type: 3}
+    answers:
+    - 'A. Read Only Memory (ROM) '
+    - 'B. Random Access Memory (RAM) '
+    - 'C. Hard Drive '
+    - 'D. Memory Card '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 2fdca43cc66f96845b84dfd57487da2c, type: 3}
+    answers:
+    - A. LS-120
+    - 'B. Zip Drive '
+    - 'C. Floppy Diskette '
+    - 'D. Compact Disc (CD) '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 5c075b3f89fdcd347994f07a04062413, type: 3}
+    answers:
+    - 'A. Memory Card '
+    - 'B. Digital Versatile Disc (DVD) '
+    - 'C. Zip Drive '
+    - 'D. Compact Disc (CD) '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: a9169799d5dbf494b86df0242eaa9eb8, type: 3}
+    answers:
+    - 'A. Compact Disc (CD) '
+    - 'B. Digital Versatile Disc (DVD) '
+    - 'C. Floppy Diskette '
+    - 'D. LS-120 '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ae2ffa3efa705ce4791bc3664c29429d, type: 3}
+    answers:
+    - 'A. USB Flash Drive '
+    - 'B. Memory Card '
+    - 'C. Hard Drive '
+    - 'D. Zip Drive '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 36c440c5786086343bd8b04e3e2dc675, type: 3}
+    answers:
+    - 'A. Digital Versatile Disc (DVD) '
+    - 'B. Zip Drive '
+    - 'C. Hard Drive '
+    - 'D. Compact Disc (CD) '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 4529c1cc1c7756740926e2831ea0af33, type: 3}
+    answers:
+    - 'A. RAM '
+    - 'B. Floppy Diskette '
+    - 'C. ROM '
+    - 'D. LS-120 '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 85440196b9fd47a4dab90555af6fe1eb, type: 3}
+    answers:
+    - 'A. Compact Disc (CD) '
+    - 'B. Zip Drive '
+    - 'C. Floppy Diskette '
+    - 'D. Memory Card '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 0b192a87d6d604243a05def605efb4a8, type: 3}
+    answers:
+    - 'A. Memory Card '
+    - 'B. LS-120 '
+    - C. ROM
+    - 'D. RAM '
+    correctAnswerIndex: 0
+  - questionText: 'What is peopleware in the context of computer technology? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Software used for managing people
+    - 'B. Hardware components designed for human interaction '
+    - 'C. The human element in utilizing or developing computer hardware and software '
+    - D. A type of computer network architecture
+    correctAnswerIndex: 2
+  - questionText: 'Who are computer professionals? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Individuals with extensive experience in computer gaming '
+    - 'B. People who own multiple computers at home '
+    - 'C. Individuals who have received formal education or training in the use of
+      computers '
+    - 'D. Those who frequently browse the internet '
+    correctAnswerIndex: 2
+  - questionText: 'Which of the following is not an example of a computer professional? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Database Administrator '
+    - 'B. Software Engineer '
+    - 'C. System Analyst '
+    - 'D. Hacker '
+    correctAnswerIndex: 3
+  - questionText: 'Which of the following is an example of a computer professional? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Researcher '
+    - 'B. Computer Engineer '
+    - 'C. Administrator '
+    - 'D. Guest '
+    correctAnswerIndex: 1
+  - questionText: 'Who are computer users? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Individuals who have received formal education or training in computer
+      science '
+    - 'B. People who own multiple computers at home  '
+    - 'C. Those who make use of the computer system in their day-to-day activities,
+      regardless of formal training  '
+    - 'D. System Analysts and Database Administrators  '
+    correctAnswerIndex: 2
+  - questionText: 'Which of the following is not an example of a computer user? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Computer Manager '
+    - 'B. Gamer '
+    - 'C. Artist '
+    - 'D. Programmer '
+    correctAnswerIndex: 0
+  - questionText: 'Which of the following is an example of a computer user? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Computer Operator '
+    - 'B. Computer Programmer '
+    - 'C. System Analyst '
+    - 'D. Teacher '
+    correctAnswerIndex: 3
+  - questionText: 'What is software in the context of computers? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. The physical components of a computer system '
+    - 'B. The set of instructions and associated data that direct the computer to
+      perform tasks '
+    - 'C. The hardware components that process data '
+    - 'D. The external peripherals connected to a computer system '
+    correctAnswerIndex: 1
+  - questionText: 'How many main groups can computer software be divided into, based
+      on their use and application? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. One
+    - 'B. Two '
+    - 'C. Three '
+    - D. Four
+    correctAnswerIndex: 2
+  - questionText: 'What are the three main groups of computer software? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Hardware, firmware, and middleware
+    - B. System software, application software, and programming languages
+    - 'C. Operating systems, compilers, and interpreters '
+    - 'D. Desktop software, web-based software, and mobile apps '
+    correctAnswerIndex: 1
+  - questionText: 'Which type of software is responsible for managing the computer
+      hardware and providing a platform for running applications?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. System software or operating systems (OS) '
+    - 'B. Application software '
+    - 'C. Programming languages '
+    - 'D. Firmware '
+    correctAnswerIndex: 0
+  - questionText: 'What is the primary purpose of application software? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To manage computer hardware resources '
+    - 'B. To provide a platform for running other software programs '
+    - 'C. To enable users to perform specific tasks or functions '
+    - 'D. To translate high-level programming languages into machine code '
+    correctAnswerIndex: 2
+  - questionText: 'Which type of software is commonly used by most computer users
+      for tasks such as word processing, web browsing, and email? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. System software '
+    - 'B. Programming languages '
+    - 'C. Application software '
+    - 'D. Middleware '
+    correctAnswerIndex: 2
+  - questionText: 'What is the role of programming languages in software development? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To provide a platform for running applications '
+    - 'B. To translate machine code into high-level human-readable code '
+    - 'C. To enable users to perform specific tasks or functions '
+    - 'D. To write instructions that direct the computer to perform tasks '
+    correctAnswerIndex: 3
+  - questionText: 'Which of the following best describes Microsoft Word? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A spreadsheet program used for data analysis '
+    - 'B. A graphics editing software for creating digital artwork '
+    - C. A full-featured word processing program for creating documents, flyers,
+      and publications
+    - 'D. A web browser for accessing internet content '
+    correctAnswerIndex: 2
+  - questionText: 'What is the primary function of Microsoft Excel? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Creating digital artwork '
+    - 'B. Writing and editing documents '
+    - 'C. Analyzing data and performing calculations '
+    - 'D. Accessing internet content '
+    correctAnswerIndex: 2
+  - questionText: 'What is the main purpose of Microsoft PowerPoint? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Editing images and graphics '
+    - 'B. Writing and editing documents '
+    - C. Creating and delivering presentations
+    - 'D. Analyzing data and performing calculations '
+    correctAnswerIndex: 2
+  - questionText: 'What is the primary function of Microsoft Publisher? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Analyzing data and performing calculations '
+    - 'B. Creating and delivering presentations '
+    - 'C. Writing and editing documents '
+    - D. Desktop publishing for creating publications, posters, flyers, and menus
+    correctAnswerIndex: 3
+  - questionText: 'What is the main purpose of Microsoft Access? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Creating digital artwork '
+    - 'B. Analyzing data and performing calculations '
+    - 'C. Writing and editing documents '
+    - 'D. Database management for capturing and analyzing data from computers or
+      networks '
+    correctAnswerIndex: 3
+  - questionText: 'What is the primary function of Microsoft Outlook? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Creating and delivering presentations '
+    - 'B. Analyzing data and performing calculations '
+    - 'C. Managing email, calendars, to-do lists, and contacts '
+    - 'D. Desktop publishing for creating publications '
+    correctAnswerIndex: 2
+  - questionText: 'What is the main purpose of Microsoft OneNote? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Managing email and calendars '
+    - 'B. Creating and delivering presentations '
+    - 'C. Analyzing data and performing calculations '
+    - 'D. Free-form note-taking to organize various types of data, including handwritten
+      notes, drawings, screen captures, and audio clips '
+    correctAnswerIndex: 3
+  - questionText: 'Which software application falls within the web browser category
+      and provides users with easy access to browse the internet? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Microsoft Word '
+    - 'B. Microsoft Excel '
+    - 'C. Google Chrome '
+    - 'D. Microsoft PowerPoint '
+    correctAnswerIndex: 2
+  - questionText: 'Which software application is another example of a web browser,
+      similar to Google Chrome, that allows users to browse the web with ease? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Microsoft Word '
+    - 'B. Microsoft Excel '
+    - 'C. Mozilla Firefox '
+    - 'D. Microsoft PowerPoint '
+    correctAnswerIndex: 2
+  - questionText: 'Which application allows users from various devices, including
+      Windows, Android, and iOS, to communicate online in real-time using a virtual
+      meeting platform? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Skype '
+    - 'B. Microsoft PowerPoint '
+    - 'C. Microsoft Excel '
+    - 'D. Microsoft Word '
+    correctAnswerIndex: 0
+  - questionText: 'What is the popular picture editing software known for a variety
+      of graphic design jobs?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Microsoft Excel '
+    - 'B. Adobe Photoshop '
+    - 'C. Microsoft PowerPoint '
+    - 'D. Microsoft Word '
+    correctAnswerIndex: 1
+  - questionText: 'Which application software allows users to produce or save data
+      as multimedia files and is classified as multimedia application software?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Skype '
+    - 'B. Google Chrome '
+    - 'C. Mozilla Firefox '
+    - 'D. Windows Media Player '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 9962903e130d0e445ac46ac187db33c6, type: 3}
+    answers:
+    - 'A. Microsoft Access '
+    - 'B. Microsoft Edge '
+    - 'C. Microsoft Word '
+    - 'D. Microsoft Excel '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 336515636c05f2145b6e5e24fd6af749, type: 3}
+    answers:
+    - 'A. Microsoft Excel '
+    - 'B. Microsoft Publisher '
+    - 'C. Microsoft Outlook '
+    - 'D. Microsoft Word '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 9ecd697a0527b964d886e68834d733c9, type: 3}
+    answers:
+    - 'A. Microsoft Publisher '
+    - 'B. Microsoft PowerPoint '
+    - 'C. Microsoft Access '
+    - 'D. Microsoft Word '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 943dfba353ae7da43b724f30b69d437d, type: 3}
+    answers:
+    - 'A. Microsoft Access '
+    - 'B. Microsoft Outlook '
+    - 'C. Microsoft PowerPoint '
+    - 'D. Microsoft Publisher '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 287db2c7ccbe9034996ade9aab739807, type: 3}
+    answers:
+    - 'A. Microsoft OneNote '
+    - 'B. Microsoft Word '
+    - 'C. Microsoft Access '
+    - 'D. Microsoft Outlook '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: e3ac5dd7c457fd2439c1b6805c488f99, type: 3}
+    answers:
+    - 'A. Microsoft Outlook '
+    - 'B. Microsoft Publisher '
+    - 'C. Microsoft Excel '
+    - 'D. Microsoft OneNote '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: ecce9eb1c8f71584b8b40fe798e853b6, type: 3}
+    answers:
+    - 'A. Microsoft Word '
+    - 'B. Microsoft OneNote '
+    - 'C. Microsoft OneDrive '
+    - 'D. Microsoft Outlook '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 5aa952c22da87444ebf0f10af074308e, type: 3}
+    answers:
+    - 'A. Google Meet '
+    - 'B. Google Maps '
+    - 'C. Google Earth '
+    - 'D. Google Chrome '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: dcadd94dcbc7f764e9122955dd7fd311, type: 3}
+    answers:
+    - 'A. Microsoft Word '
+    - 'B. Microsoft OneNote '
+    - 'C. Mozilla Firefox '
+    - 'D. Google Chrome '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 7c13c0011d27e6f4fb90d2050a09a787, type: 3}
+    answers:
+    - 'A. Skype '
+    - 'B. Mozilla Firefox '
+    - 'C. Google Chrome '
+    - 'D. Windows Media Player '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 8d8abd1ae2d41094da0271eee974e9ae, type: 3}
+    answers:
+    - 'A. Adobe After Effects '
+    - 'B. Adobe Photoshop '
+    - 'C. Microsoft Publisher '
+    - 'D. Microsoft PowerPoint '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 1020aa643f4cd77418e965d8eb1058ff, type: 3}
+    answers:
+    - 'A. Music '
+    - 'B. Windows Multimedia Player '
+    - C. Skype
+    - 'D. Windows Media Player '
+    correctAnswerIndex: 3
+  - questionText: 'Which operating system powers the majority of computers and mobile
+      devices and provides users with instant access to a wide range of application
+      programs?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. macOS '
+    - 'B. Linux '
+    - 'C. Microsoft Windows '
+    - 'D. Android '
+    correctAnswerIndex: 2
+  - questionText: 'Which operating system, despite trailing behind Windows in market
+      shares, remains highly relevant and widely used in the modern period?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. macOS '
+    - 'B. Android OS '
+    - 'C. Windows OS '
+    - 'D. Linux OS '
+    correctAnswerIndex: 0
+  - questionText: 'Which operating system is specifically designed to run Google
+      Chrome and is less well-known compared to Microsoft and Mac OS?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Linux OS '
+    - 'B. Chrome OS '
+    - 'C. macOS '
+    - 'D. Windows OS '
+    correctAnswerIndex: 1
+  - questionText: 'Which operating system, based on Linux, is free and open-source,
+      and provides users with access to a variety of application programs through
+      the Ubuntu Software Center?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Windows OS '
+    - B. macOS
+    - 'C. Chrome OS '
+    - D. Ubuntu
+    correctAnswerIndex: 3
+  - questionText: 'Which mobile operating system is the most popular and allows users
+      to run various mobile apps such as Facebook, Instagram, WhatsApp, and Google
+      Chrome?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. iOS '
+    - 'B. Windows Mobile '
+    - 'C. Android '
+    - 'D. BlackBerry OS '
+    correctAnswerIndex: 2
+  - questionText: 'Which mobile operating system is the second most popular and provides
+      users with access to unique mobile applications that are not available on Android? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Android '
+    - 'B. iOS '
+    - 'C. Windows Mobile '
+    - 'D. BlackBerry OS '
+    correctAnswerIndex: 1
+  - questionText: 'Which mobile operating system has a very small market share and
+      is approaching near extinction in the highly competitive field of mobile system
+      software?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. BlackBerry OS '
+    - 'B. Windows Mobile '
+    - 'C. iOS '
+    - 'D. Android '
+    correctAnswerIndex: 0
+  - questionText: 'Which gaming console has its own system software for each version,
+      with the PlayStation 4 running an operating system called Orbis OS?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Nintendo Switch '
+    - 'B. Xbox '
+    - C. PC
+    - 'D. PlayStation '
+    correctAnswerIndex: 3
+  - questionText: 'Which gaming console''s system software has been developed to
+      be more interoperable with Windows system software in recent versions?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. PlayStation '
+    - 'B. Nintendo Switch '
+    - 'C. Xbox '
+    - D. PC
+    correctAnswerIndex: 2
+  - questionText: 'Apart from their primary purpose of playing games, which gaming
+      console manufacturer equips all Nintendo gadgets with specially built system
+      software that expands their capabilities, including features such as talking
+      with other players across the world?  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. PC
+    - 'B. Xbox '
+    - 'C. Nintendo Switch '
+    - 'D. PlayStation '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b81c24c3f0b60a8479b550130ff4e920, type: 3}
+    answers:
+    - 'A. mac OS '
+    - 'B. Windows OS '
+    - 'C. iOS '
+    - D. Android OS
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 6535476860132fc4aba71500b80e2407, type: 3}
+    answers:
+    - 'A. Nintendo Switch '
+    - 'B. iOS '
+    - 'C. Ubuntu '
+    - D. mac OS
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 919da407e9a0db64886c3debf0a8140c, type: 3}
+    answers:
+    - 'A. Chrome OS '
+    - 'B. PlayStation '
+    - 'C. Blackberry '
+    - 'D. iOS '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 9658526b21c81a241b38e23cfc1be160, type: 3}
+    answers:
+    - 'A. Xbox '
+    - 'B. Android OS '
+    - 'C. Ubuntu '
+    - 'D. Windows OS '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: a813d94f0b376b84abf971b94f49fc23, type: 3}
+    answers:
+    - 'A. Chrome OS '
+    - 'B. Android OS '
+    - 'C. iOS '
+    - 'D. Nintendo '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: bee61e884acc222408eac5fd9b296ea4, type: 3}
+    answers:
+    - 'A. iOS '
+    - 'B. Xbox '
+    - 'C. Windows OS '
+    - 'D. Android OS '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b7f6ba9a9d8683e4ab5b351f44d8cb07, type: 3}
+    answers:
+    - 'A. Windows OS '
+    - 'B. Chrome OS '
+    - 'C. Blackberry  '
+    - 'D. iOS '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: b76f27b0dba779f428c5fe1fe8473585, type: 3}
+    answers:
+    - 'A. mac OS '
+    - 'B. Android OS '
+    - 'C. Ubuntu '
+    - 'D. PlayStation '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: d582ae7c2b333824481b28f05631c35e, type: 3}
+    answers:
+    - 'A. Xbox '
+    - 'B. Blackberry '
+    - 'C. Android OS '
+    - 'D. mac OS '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 7b99d52ff5c32d44e8adb9fac373ca4d, type: 3}
+    answers:
+    - 'A. mac OS '
+    - 'B. Nintendo '
+    - 'C. PlayStation '
+    - 'D. Windows OS '
+    correctAnswerIndex: 1
+  - questionText: What is the primary purpose of Programming Languages Software?
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Playing video games '
+    - 'B. Managing emails and calendars '
+    - 'C. Writing, testing, debugging, and developing software programs and applications '
+    - 'D. Creating digital artwork '
+    correctAnswerIndex: 2
+  - questionText: 'Which programming language is commonly considered vital for web
+      developers to learn, especially for back-end development, and is used by 78.1%
+      of all websites, particularly those powered by WordPress?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ruby '
+    - 'B. Python '
+    - 'C. JavaScript '
+    - 'D. PHP '
+    correctAnswerIndex: 3
+  - questionText: 'Which programming language is commonly used for building large-scale
+      corporate applications due to its well-known object-oriented programming model,
+      facilitating code reuse and maintenance?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Java '
+    - 'B. C++ '
+    - 'C. Python '
+    - 'D. Ruby '
+    correctAnswerIndex: 0
+  - questionText: 'Which programming language is commonly used to specify the functionality
+      and behavior of online applications, particularly for providing dynamic and
+      interactive experiences in web browsers?  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Python
+    - 'B. JavaScript '
+    - 'C. HTML '
+    - 'D. Java '
+    correctAnswerIndex: 1
+  - questionText: 'Which open-source programming language, known for its ease of
+      learning due to its syntax similar to English, is commonly used for web application
+      development, prototyping, and data analysis?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Java '
+    - 'B. JavaScript '
+    - 'C. Ruby '
+    - 'D. Python '
+    correctAnswerIndex: 2
+  - questionText: 'Which programming language is known for its versatility and adaptability,
+      allowing programmers to write both high-level and low-level code, with applications
+      ranging from system programming to game creation?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Python '
+    - 'B. Java '
+    - 'C. JavaScript '
+    - 'D. C++ '
+    correctAnswerIndex: 3
+  - questionText: 'Which programming language is object-oriented and known for its
+      enhanced stability, quick performance, clear class structure, and straightforward
+      syntax? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. C++ '
+    - 'B. Python '
+    - 'C. C# '
+    - 'D. Java '
+    correctAnswerIndex: 2
+  - questionText: 'Which programming language is popular for creating programs and
+      scripts to give computers instructions, enabling developers to automate file
+      operations, manage system processes, or control hardware components?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Python '
+    - 'B. Java '
+    - 'C. Ruby '
+    - D. C++
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: e696f2e4ab967094f8ed67a02dfc952b, type: 3}
+    answers:
+    - 'A. Ruby '
+    - 'B. Java '
+    - 'C. PHP '
+    - D. C
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 08f492e69ce39fe42a105e61fe99f6d1, type: 3}
+    answers:
+    - A. Python
+    - 'B. Java '
+    - 'C. C++ '
+    - 'D. JavaScript '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 75c605ef2d57286459d5985ec157bbe5, type: 3}
+    answers:
+    - 'A. Ruby '
+    - 'B. C# '
+    - 'C. Java '
+    - 'D. C++ '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 491830bfcf6ffbf48834d31127630c11, type: 3}
+    answers:
+    - 'A. Java '
+    - 'B. JavaScript '
+    - C. Python
+    - D. C#
+    correctAnswerIndex: 2
+  - questionText: 'What is freeware? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Software that is available for purchase at a low cost '
+    - 'B. Software that is only available for a limited trial period '
+    - 'C. Software that anyone can download from the Internet and use for free '
+    - 'D. Software that is exclusively available to a particular group of users '
+    correctAnswerIndex: 2
+  - questionText: 'What is shareware? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Software that is distributed for free on a trial basis and prompts the
+      user to purchase the full version after the trial period expires '
+    - 'B. Software that is available for purchase at a low cost '
+    - 'C. Software that anyone can download from the Internet and use for free '
+    - 'D. Software that is exclusively available to a particular group of users '
+    correctAnswerIndex: 0
+  - questionText: 'What are registry cleaners used for?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To install software and games on a computer '
+    - 'B. To optimize and speed up a computer by cleaning up or deleting invalid
+      registry entries '
+    - 'C. To protect a computer from malware and viruses '
+    - 'D. To organize files and folders on a computer''s hard drive '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of Content Control Software? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To optimize and speed up a computer '
+    - 'B. To protect a computer from malware and viruses '
+    - 'C. To control the content that can be accessed by a user on a computer, especially
+      restricting access over the Internet '
+    - 'D. To organize files and folders on a computer''s hard drive '
+    correctAnswerIndex: 2
+  - questionText: 'What is the primary function of Project Management Software?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To optimize and speed up a computer '
+    - 'B. To protect a computer from malware and viruses '
+    - 'C. To control the content that can be accessed by a user on a computer '
+    - 'D. To help multiple users work on a project simultaneously by scheduling events,
+      networking with other users, and allocating resources '
+    correctAnswerIndex: 0
+  - questionText: 'What is the primary purpose of Utility Software?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. To optimize and speed up a computer '
+    - 'B. To protect a computer from malware and viruses '
+    - 'C. To control the content that can be accessed by a user on a computer '
+    - 'D. To help manage the hardware and application software installed on a computer '
+    correctAnswerIndex: 3
+  - questionText: 'What is Open-Source Software?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Software for which the source code is available to all users, allowing
+      anyone to make changes and release their own versions '
+    - 'B. Software that anyone can download from the Internet and use for free '
+    - 'C. Software that is distributed for free on a trial basis '
+    - 'D. Software that is available for purchase at a low cost '
+    correctAnswerIndex: 0
+  - questionText: 'What are Web Browsers?  '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Programs that allow you to optimize and speed up a computer '
+    - 'B. Programs that protect a computer from malware and viruses '
+    - 'C. Programs that allow you to surf or browse web pages on the Internet '
+    - D. Programs that control the content that can be accessed by a user on a computer
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 04e6d9561e295584cb0a85f023a8e51e, type: 3}
+    answers:
+    - 'A. Microsoft Edge '
+    - 'B. Internet Explorer '
+    - 'C. Google Chrome '
+    - 'D. Opera '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: e2f5e154408f7a84f9bd30f6f1883bd1, type: 3}
+    answers:
+    - 'A. Google Chrome '
+    - 'B. Opera '
+    - 'C. Internet Explorer '
+    - 'D. Safari '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: cce45127d0465b742ae96eba4e057624, type: 3}
+    answers:
+    - 'A. Linux '
+    - 'B. Android '
+    - 'C. PHP '
+    - 'D. Ubuntu '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 95654ef4bcd55c744a7d09382b03695c, type: 3}
+    answers:
+    - 'A. Opera '
+    - 'B. Ubuntu '
+    - 'C. OpenOffice '
+    - 'D. uTorrent '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 9a43fe50c1e7a1f4a951ad04da00639b, type: 3}
+    answers:
+    - 'A. Microsoft PowerPoint '
+    - 'B. Microsoft Office Project Server '
+    - 'C. Microsoft Publisher '
+    - 'D. Microsoft Excel '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 43dd618c7568c5d4b81e3e21210b1dc2, type: 3}
+    answers:
+    - 'A. Kazaa '
+    - 'B. 24SevenOffice '
+    - 'C. Linux '
+    - 'D. HyperOffice '
+    correctAnswerIndex: 3
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 005a2e4dab438c34db6465508997801d, type: 3}
+    answers:
+    - 'A. 24SevenOffice '
+    - 'B. PlayStation '
+    - 'C. HyperOffice '
+    - 'D. Microsoft Word '
+    correctAnswerIndex: 0
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: dc41288eeae13b14eac1fa9ecd87be7f, type: 3}
+    answers:
+    - 'A. PGSurfer '
+    - 'B. TuneUp Utilities '
+    - 'C. K9 Web Protection '
+    - 'D. Eusing '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 37e906114664c0e49afbe114679fae94, type: 3}
+    answers:
+    - 'A. Opera '
+    - 'B. uTorrent '
+    - 'C. Winzip '
+    - 'D. Kazaa '
+    correctAnswerIndex: 1
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: 5b4d9f956666dfb4bb3b01e7abcf0779, type: 3}
+    answers:
+    - 'A. YouTube '
+    - 'B. BearShare '
+    - 'C. Yahoo Messenger '
+    - 'D. HyperOffice '
+    correctAnswerIndex: 2
+  - questionText: 
+    questionImage: {fileID: 21300000, guid: af6473b47c424ac408a7617a28f51aa3, type: 3}
+    answers:
+    - 'A. Google Chrome '
+    - 'B. Internet Explorer '
+    - 'C. Safari '
+    - 'D. Microsoft Edge '
+    correctAnswerIndex: 3
+  - questionText: 'What is data? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Processed information that has been interpreted and organized '
+    - 'B. Unprocessed facts or raw materials, such as text, photos, and numbers and
+      symbols '
+    - 'C. Programs that allow you to surf or browse web pages on the Internet '
+    - 'D. Software for managing hardware and application software installed on a
+      computer '
+    correctAnswerIndex: 1
+  - questionText: 'What is information? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Software for managing hardware and application software installed on a
+      computer '
+    - 'B. Programs that allow you to surf or browse web pages on the Internet '
+    - 'C. Processed information that has been interpreted and organized '
+    - 'D. Unprocessed facts or raw materials, such as text, photos, and numbers and
+      symbols '
+    correctAnswerIndex: 2
+  - questionText: 'What are the key differences between data and information? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Data is unprocessed, frequently disorganized, and without context, while
+      information is processed, honed, and organized to offer useful insights.
+    - 'B. Data is used for decision-making, while information is used for data analytics. '
+    - 'C. Data is processed, organized, and structured, while information is unprocessed
+      and without context. '
+    - 'D. Data is structured, while information is unstructured. '
+    correctAnswerIndex: 0
+  - questionText: 'What are the procedures? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Unprocessed facts or raw materials, such as text, photos, and numbers and
+      symbols '
+    - 'B. Processed information that has been interpreted and organized '
+    - 'C. Programs that allow you to surf or browse web pages on the Internet '
+    - 'D. A series of instructions, expressed in code, that tell a computer how to
+      carry out an operation, launch a program, make computations, etc. '
+    correctAnswerIndex: 3
+  - questionText: 'What are the three types of computer procedures? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hardware, Software, and External Procedures '
+    - 'B. System, Application, and Data Procedures '
+    - 'C. Hardware-Oriented, Software-Oriented, and Internal Procedures '
+    - 'D. Input, Processing, and Output Procedures '
+    correctAnswerIndex: 0
+  - questionText: 'What is the purpose of a Hardware-Oriented Procedure? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Organizes data and controls information flow '
+    - 'B. Provides instructions to the system''s hardware components and ensures
+      they function properly '
+    - 'C. Gives directions on how to open and utilize software applications '
+    - 'D. Manages the installation and uninstallation of software programs '
+    correctAnswerIndex: 1
+  - questionText: 'What is the purpose of a Software-Oriented Procedure? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Gives directions on how to open and utilize software applications '
+    - B. Manages the installation and uninstallation of software programs
+    - C. Organizes data and controls information flow
+    - D. Provides instructions to the system's hardware components and ensures they
+      function properly
+    correctAnswerIndex: 0
+  - questionText: 'What is the purpose of Internal Procedures? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Provides instructions to the system''s hardware components and ensures
+      they function properly '
+    - B. Gives directions on how to open and utilize software applications
+    - 'C. Organizes data and controls information flow '
+    - 'D. Manages the installation and uninstallation of software programs '
+    correctAnswerIndex: 2
+  - questionText: 'What is communication in the context of computing? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Organizing data and controlling information flow '
+    - 'B. Storing and retrieving data from memory '
+    - 'C. Processing data to obtain useful information '
+    - 'D. A generic term for connecting devices to each other to transfer data back
+      and forth '
+    correctAnswerIndex: 3
+  - questionText: 'What is the Internet? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A group of two or more computers connected together to share resources
+      and information '
+    - 'B. A worldwide collection of computer networks that links together millions
+      of computers used by businesses, government, education institutions, organizations,
+      and individuals '
+    - 'C. A term for connecting devices to transfer data back and forth '
+    - 'D. A type of communication device used for transferring data between computers '
+    correctAnswerIndex: 1
+  - questionText: 'What is the Internet Backbone? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A collection of high-speed data lines that connect major computer systems
+      located around the world '
+    - 'B. A term for connecting devices to transfer data back and forth '
+    - 'C. A type of communication device used for transferring data between computers '
+    - D. A company that has a permanent connection to the Internet Backbone
+    correctAnswerIndex: 0
+  - questionText: 'What is an Internet Service Provider (ISP)? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A company that provides internet access to individuals and companies '
+    - 'B. A collection of high-speed data lines that connect major computer systems
+      located around the world '
+    - C. A type of communication device used for transferring data between computers
+    - 'D. A company that has a permanent connection to the Internet Backbone '
+    correctAnswerIndex: 0
+  - questionText: 'What is Hypertext Transfer Protocol (HTTP)? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A collection of high-speed data lines that connect major computer systems
+      located around the world '
+    - 'B. A company that provides internet access to individuals and companies '
+    - 'C. A type of communication device used for transferring data between computers '
+    - 'D. A set of rules for exchanging text, graphics, sound, video, and other multimedia
+      files '
+    correctAnswerIndex: 3
+  - questionText: 'What is a Website? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A type of communication device used for transferring data between computers '
+    - 'B. A collection of high-speed data lines that connect major computer systems
+      located around the world '
+    - 'C. A set of rules for exchanging text, graphics, sound, video, and other multimedia
+      files '
+    - 'D. A collection of web pages created and maintained by an individual, company,
+      educational institution, or other organization '
+    correctAnswerIndex: 3
+  - questionText: 'What is a Web Browser? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. A collection of high-speed data lines that connect major computer systems
+      located around the world '
+    - 'B. A set of rules for exchanging text, graphics, sound, video, and other multimedia
+      files '
+    - 'C. A program that interprets and displays web pages, enabling users to view
+      and interact with them '
+    - 'D. A type of communication device used for transferring data between computers '
+    correctAnswerIndex: 2

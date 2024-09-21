@@ -362,3 +362,100 @@ MonoBehaviour:
     - 'C. Third Generation '
     - 'D. Fourth Generation '
     correctAnswerIndex: 1
+  - questionText: There are _ generations of computers.
+    questionImage: {fileID: 0}
+    answers:
+    - A. 2
+    - B. 3
+    - C. 4
+    - D. 5
+    correctAnswerIndex: 3
+  - questionText: 'In this generation, mainly the batch processing operating system
+      was used. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. First Generation
+    - B. Second Generation
+    - C. Third Generation
+    - D. Fourth Generation
+    correctAnswerIndex: 0
+  - questionText: 'In this generation, punch cards, paper tape, and magnetic tape
+      were used as input and output devices. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. First Generation
+    - B. Second Generation
+    - C. Third Generation
+    - D. Fourth Generation
+    correctAnswerIndex: 0
+  - questionText: 'This calculating machine could add and subtract two numbers directly
+      and multiply and divide by repetition. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Abacus '
+    - "B. Hollerith\u2019s Tabulator"
+    - C. Turing Machine
+    - D. Pascaline
+    correctAnswerIndex: 3
+  - questionText: 'This machine is fully automatic and commanded by a fixed instruction
+      program. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Pascaline '
+    - B. Difference Engine
+    - "C. Napier\u2019s Bones"
+    - "D. Hollerith\u2019s Tabulator"
+    correctAnswerIndex: 1
+  - questionText: 'She provided the first algorithm intended to be processed by Charles
+      Babbage''s early mechanical general-purpose computer, the Analytical Engine. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Margaret Hamilton '
+    - B. Grace Hopper
+    - C. Ada Lovelace
+    - D. Frances Allen
+    correctAnswerIndex: 2
+  - questionText: 'She suggested that a binary system should be used for storage
+      rather than a decimal system. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Ada Lovelace '
+    - B. Frances Allen
+    - C. Mary Allen Wilkes
+    - D. Carol Shaw
+    correctAnswerIndex: 0
+  - questionText: 'This was the first widely used electronic device which could amplify. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Integrated Circuit
+    - 'B. Vacuum Tube  '
+    - C. Transistor
+    - D. Microprocessor
+    correctAnswerIndex: 1
+  - questionText: 'This machine is designed to perform logical operation and could
+      read and write. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. Difference Engine
+    - B. Pascaline
+    - "C. Hollerith\u2019s Tabulator"
+    - 'D. Turing Machine '
+    correctAnswerIndex: 3
+  - questionText: 'Together with the collaboration of engineers from IBM, he constructed
+      a large automatic digital sequence-controlled computer. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. George Boole
+    - B. Alan Turing
+    - C. Howard Aiken
+    - D. John Napier
+    correctAnswerIndex: 2
+  - questionText: 'In this generation, remote processing, time-sharing, multiprogramming
+      operating systems were used. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. First Generation
+    - B. Second Generation
+    - C. Third Generation
+    - D. Fourth Generation
+    correctAnswerIndex: 2

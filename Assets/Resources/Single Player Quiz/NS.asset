@@ -413,3 +413,172 @@ MonoBehaviour:
     - C. 26
     - 'D. 27 '
     correctAnswerIndex: 1
+  - questionText: 'It is defined as the total number of digits available in the number
+      system. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Base '
+    - 'B. Decimal '
+    - 'C. Binary '
+    - 'D. Octal '
+    correctAnswerIndex: 0
+  - questionText: 'The number system that we use in our day-to-day life. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Octal '
+    - 'B. Binary '
+    - 'C. Decimal '
+    - 'D. Hexadecimal '
+    correctAnswerIndex: 2
+  - questionText: 'Decimal number system has base _. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 8
+    - B. 16
+    - C. 2
+    - D. 10
+    correctAnswerIndex: 3
+  - questionText: 'Decimal number system uses digits from _ to _. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 0 to 9 '
+    - 'B. 0 to 8 '
+    - 'C. 0 to7 '
+    - 'D. 0 to 6 '
+    correctAnswerIndex: 0
+  - questionText: 'Binary number system has base _. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 2
+    - B. 4
+    - C. 6
+    - D. 8
+    correctAnswerIndex: 0
+  - questionText: 'Binary number system uses _ and _ digits. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 0 and 1 '
+    - 'B. 1 and 2 '
+    - 'C. 0 and 3 '
+    - 'D. 0 and 4 '
+    correctAnswerIndex: 0
+  - questionText: 'Octal number system has base _.  '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 5
+    - B. 6
+    - C. 7
+    - D. 8
+    correctAnswerIndex: 3
+  - questionText: 'Octal number system uses digits from _ to _. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 0 to 6 '
+    - 'B. 0 to 7  '
+    - 'C. 0 to 8 '
+    - 'D. 0 to 9 '
+    correctAnswerIndex: 1
+  - questionText: 'Also called the base 2 number system. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hexadecimal Number System  '
+    - 'B. Octal Number System '
+    - 'C. Binary Number System '
+    - 'D. Decimal Number System '
+    correctAnswerIndex: 2
+  - questionText: 'Also called the base 8 number system. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hexadecimal Number System '
+    - 'B. Octal Number System '
+    - 'C. Binary Number System '
+    - 'D. Decimal Number System '
+    correctAnswerIndex: 1
+  - questionText: 'In converting Decimal to Binary, MSB stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Most Significant Bit '
+    - 'B. Most Significant Byte '
+    - 'C. Most Significant Base '
+    - 'D. Most Significant Binary '
+    correctAnswerIndex: 0
+  - questionText: 'In converting Decimal to Octal, LSD stands for? '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Least Significant Divisor '
+    - 'B. Least Significant Decimal '
+    - 'C. Least Significant Denominator '
+    - 'D. Least Significant Digit '
+    correctAnswerIndex: 3
+  - questionText: 'Hexadecimal number system has base _. '
+    questionImage: {fileID: 0}
+    answers:
+    - A. 14
+    - B. 15
+    - C. 16
+    - D. 17
+    correctAnswerIndex: 2
+  - questionText: 'Also called the base 16 number system. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. Hexadecimal Number System '
+    - 'B. Octal Number System '
+    - 'C. Binary Number System '
+    - 'D. Decimal Number System '
+    correctAnswerIndex: 0
+  - questionText: 'Hexadecimal number system uses _ digits and _ letters. '
+    questionImage: {fileID: 0}
+    answers:
+    - 'A. 8 digits and 8 letters '
+    - 'B. 9 digits and 7 letters '
+    - 'C. 10 digits and 6 letters '
+    - 'D. 12 digits and 4 letters '
+    correctAnswerIndex: 2
+  - questionText: 'In hexadecimal number system, 10 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. A
+    - B. B
+    - C. C
+    - D. D
+    correctAnswerIndex: 0
+  - questionText: 'In hexadecimal number system, 11 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. E
+    - B. D
+    - C. C
+    - D. B
+    correctAnswerIndex: 3
+  - questionText: 'In hexadecimal number system, 12 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. C
+    - B. D
+    - C. E
+    - D. F
+    correctAnswerIndex: 0
+  - questionText: 'In the hexadecimal number system, 13 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. A
+    - B. C
+    - C. B
+    - D. D
+    correctAnswerIndex: 3
+  - questionText: 'In the hexadecimal number system, 14 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. B
+    - B. F
+    - C. E
+    - D. A
+    correctAnswerIndex: 2
+  - questionText: 'In hexadecimal number system, 15 represents what letter? '
+    questionImage: {fileID: 0}
+    answers:
+    - A. F
+    - B. E
+    - C. D
+    - D. C
+    correctAnswerIndex: 0
