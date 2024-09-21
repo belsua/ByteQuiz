@@ -8,7 +8,6 @@ public class CreationManager : MonoBehaviour
     public TMP_InputField usernameField;
     public TMP_InputField ageField;
     public TMP_Dropdown genderDropdown;
-    public TMP_Dropdown sectionDropdown;
     public GameObject errorPanel;
     public FadeManager fadeManager;
 
@@ -74,17 +73,8 @@ public class CreationManager : MonoBehaviour
             return;
         }
 
-        // Validate dropdown selection (ensure it's a valid value)
-        if (sectionDropdown == null)
-        {
-            errorPanel.SetActive(true);
-            errorPanel.GetComponentInChildren<TMP_Text>().text = "Section dropdown is not initialized.";
-            Debug.Log("Error: Section dropdown is not initialized.");
-            return;
-        }
-
         // If all validations pass, create the player and transition to the new scene
-        SaveManager.instance.CreatePlayer(currentAvatarIndex, nameField.text, usernameField.text, age, genderDropdown.value.ToString(), sectionDropdown.value.ToString());
+        SaveManager.instance.CreatePlayer(currentAvatarIndex, nameField.text, usernameField.text, age, genderDropdown.value.ToString());
         fadeManager.FadeToScene("Crib");
     }
 }

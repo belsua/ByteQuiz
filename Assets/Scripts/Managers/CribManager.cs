@@ -9,8 +9,9 @@ public class CribManager : MonoBehaviour
 {
     [Header("User Interface")]
     public TextMeshProUGUI nameText;
-    public Image[] statBars;
-    public TMP_Text[] statTexts, statusTexts;
+    public Sprite[] lockSprites;
+    public Image[] statBars, lockImages;
+    public TMP_Text[] statTexts;
     [Space]
     public GameObject messagePanel;
     public AudioClip messageSound;
@@ -37,7 +38,7 @@ public class CribManager : MonoBehaviour
         GameObject saveManager = new("NewObject");
         saveManager.AddComponent<SaveManager>();
         SaveManager.player ??= SaveManager.LoadPlayer(0);
-        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male", "Debug Section");
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male");
 
 #endif
 
@@ -53,7 +54,7 @@ public class CribManager : MonoBehaviour
         debugPanel.SetActive(false);
         #endif
 
-        SaveManager.player.OnStatUnlocked += QuickShowMessage;
+        SaveManager.player.OnStatUnlocked += ShowMessage;
         messagePanel.SetActive(false);
 
         UpdatePlayerInterface();
@@ -65,23 +66,23 @@ public class CribManager : MonoBehaviour
         if (SaveManager.player.stats.isNumberSystemUnlocked)
         {
             foreach (Button button in numberSystemButtons) button.interactable = true;
-            statusTexts[0].transform.parent.gameObject.SetActive(false);
+            lockImages[0].sprite = lockSprites[0];
         }
         else
         {
             foreach (Button button in numberSystemButtons) button.interactable = false;
-            statusTexts[0].text = "Locked";
+            lockImages[0].sprite = lockSprites[1];
         }
         
         if (SaveManager.player.stats.isIntroProgrammingUnlocked)
         {
             foreach (Button button in introProgrammingButtons) button.interactable = true;
-            statusTexts[1].transform.parent.gameObject.SetActive(false);
+            lockImages[1].sprite = lockSprites[0];
         }
         else
         {
             foreach (Button button in introProgrammingButtons) button.interactable = false;
-            statusTexts[1].text = "Locked";
+            lockImages[1].sprite = lockSprites[1];
         }
         
         nameText.text = SaveManager.player.profile.name;

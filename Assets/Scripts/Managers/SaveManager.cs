@@ -46,9 +46,9 @@ public class SaveManager : MonoBehaviour
 
     #region Save System
 
-    public void CreatePlayer(int avatar, string name, string username, int age, string gender, string section)
+    public void CreatePlayer(int avatar, string name, string username, int age, string gender)
     {
-        player = new Player(avatar, name, username, age, gender, section);
+        player = new Player(avatar, name, username, age, gender);
         SavePlayer(player.profile.playerId);
         Debug.Log("Player created: " + player.profile.playerId);
     }

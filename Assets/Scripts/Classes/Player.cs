@@ -23,9 +23,9 @@ public class Player
 
     public event Action<string> OnStatUnlocked;
 
-    public Player(int avatar, string name, string username, int age, string gender, string section)
+    public Player(int avatar, string name, string username, int age, string gender)
     {
-        profile = new(avatar, name, username, age, gender, section);
+        profile = new(avatar, name, username, age, gender);
         stats = new Stats();
         activities = new();
     }
@@ -133,9 +133,8 @@ public class Profile
     public string username;
     public int age;
     public string gender;
-    public string section;
 
-    public Profile(int avatar, string name, string username, int age, string gender, string section)
+    public Profile(int avatar, string name, string username, int age, string gender)
     {
         playerId = Guid.NewGuid().ToString();
         this.avatar = avatar;
@@ -143,7 +142,6 @@ public class Profile
         this.username = username;
         this.age = age;
         this.gender = gender;
-        this.section = section;
     }
 }
 

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     public TMP_Text nameText;
-    public TMP_Text[] statTexts, statusTexts;
-    public Image[] statBars;
+    public Sprite[] lockSprites;
+    public Image[] statBars, lockImages;
+    public TMP_Text[] statTexts;
 
     void Start()
     {
@@ -15,11 +16,11 @@ public class Settings : MonoBehaviour
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.stats.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
-        else statusTexts[0].text = "Locked";
+        if (SaveManager.player.stats.isNumberSystemUnlocked) lockImages[0].sprite = lockSprites[0];
+        else lockImages[0].sprite = lockSprites[1];
 
-        if (SaveManager.player.stats.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
-        else statusTexts[1].text = "Locked";
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) lockImages[1].sprite = lockSprites[1];
+        else lockImages[1].sprite = lockSprites[1];
 
         nameText.text = SaveManager.player.profile.name;
 

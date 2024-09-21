@@ -20,9 +20,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_Text roomText, countdownText, playerCountText, hostText, roomStatusText, nameText;
     public TMP_Dropdown topicDropdown;
     [Space]
-    public RuntimeAnimatorController[] avatarAnimators;
-    public Image[] statBars;
-    public TMP_Text[] statTexts, statusTexts;
+    public Sprite[] lockSprites;
+    public Image[] statBars, lockImages;
+    public TMP_Text[] statTexts;
 
     [Header("Settings")]
     public string[] minigames;
@@ -43,7 +43,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         #if UNITY_EDITOR
         GameObject saveManager = new("NewObject");
         saveManager.AddComponent<SaveManager>();
-        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male", "Debug Section");
+        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male");
         #endif
     }
 
@@ -245,11 +245,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerInterface()
     {
-        if (SaveManager.player.stats.isNumberSystemUnlocked) statusTexts[0].transform.parent.gameObject.SetActive(false);
-        else statusTexts[0].text = "Locked";
+        if (SaveManager.player.stats.isNumberSystemUnlocked) lockImages[0].sprite = lockSprites[0];
+        else lockImages[0].sprite = lockSprites[1];
 
-        if (SaveManager.player.stats.isIntroProgrammingUnlocked) statusTexts[1].transform.parent.gameObject.SetActive(false);
-        else statusTexts[1].text = "Locked";
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) lockImages[1].sprite = lockSprites[1];
+        else lockImages[1].sprite = lockSprites[1];
 
         nameText.text = SaveManager.player.profile.name;
 
