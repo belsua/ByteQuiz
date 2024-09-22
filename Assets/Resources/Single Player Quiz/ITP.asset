@@ -342,16 +342,6 @@ MonoBehaviour:
     - 'C. continue '
     - D. ;
     correctAnswerIndex: 3
-  - questionText: 'What is the output of the following code?  #include <iostream> 
-      int main() {     int x = 5;     std::cout << "The value of x is: " << x <<
-      std::endl;     return 0; } '
-    questionImage: {fileID: 0}
-    answers:
-    - 'A. The value of x is: 5'
-    - 'B. The value of x is: 10 '
-    - C. 5
-    - 'D. x = 5 '
-    correctAnswerIndex: 0
   - questionText: 'Which of the following is NOT a valid C++ data type? '
     questionImage: {fileID: 0}
     answers:
@@ -411,16 +401,6 @@ MonoBehaviour:
     - 'C. Checks for equality. '
     - 'D. Calculates the square root. '
     correctAnswerIndex: 0
-  - questionText: 'What is the output of the following code snippet?  #include <iostream> 
-      int main() {     int x = 10;     int y = 5;     std::cout << "The sum of x
-      and y is: " << (x + y) << std::endl;     return 0; } '
-    questionImage: {fileID: 0}
-    answers:
-    - 'A. The sum of x and y is: 10 '
-    - 'B. The sum of x and y is: 15 '
-    - 'C. 15 '
-    - 'D. x + y = 15 '
-    correctAnswerIndex: 1
   - questionText: 'What is the purpose of the `if` statement in C++? '
     questionImage: {fileID: 0}
     answers:
