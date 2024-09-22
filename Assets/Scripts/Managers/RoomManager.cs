@@ -290,16 +290,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void HostCheck() 
     {
-        if (PhotonNetwork.IsMasterClient) 
-        {
-            startButton.interactable = true;
-            topicDropdown.interactable = true;
-        }
-        else 
-        {
-            startButton.interactable = false;
-            topicDropdown.interactable = false;
-        }
+        if (PhotonNetwork.IsMasterClient) topicDropdown.interactable = true;
+        else topicDropdown.interactable = false;
     }
 
     void PlayerCountCheck()
