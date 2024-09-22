@@ -88,3 +88,5 @@ Assets/Plugins.meta
 /Assets/Plugins
 ProjectSettings/GvhProjectSettings.xml
 ProjectSettings/AndroidResolverDependencies.xml
+/Assets/LeanTween
+Assets/Resources/BillingMode.json.meta
