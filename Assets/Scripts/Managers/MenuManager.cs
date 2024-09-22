@@ -22,14 +22,14 @@ public class MenuManager : MonoBehaviourPunCallbacks
         {
             ResetObjectPositions();
             PopulateSaveList();
-        }
 
-        #if DEBUG
-        debugButton.gameObject.SetActive(true);
-        isDebugEnabled = PlayerPrefs.GetInt("DebugMode", 0) == 1;
-        UpdateDebugButton();
-        debugButton.onClick.AddListener(ToggleDebug);
-        #endif
+            #if DEBUG
+            debugButton.gameObject.SetActive(true);
+            isDebugEnabled = PlayerPrefs.GetInt("DebugMode", 0) == 1;
+            UpdateDebugButton();
+            debugButton.onClick.AddListener(ToggleDebug);
+            #endif
+        }
     }
 
     private void Update()
