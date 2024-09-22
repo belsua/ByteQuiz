@@ -720,8 +720,7 @@ MonoBehaviour:
     answers:
     - 'A. Individuals with extensive experience in computer gaming '
     - 'B. People who own multiple computers at home '
-    - 'C. Individuals who have received formal education or training in the use of
-      computers '
+    - 'C. Individuals who received formal education or training in the use of computers '
     - 'D. Those who frequently browse the internet '
     correctAnswerIndex: 2
   - questionText: 'Which of the following is not an example of a computer professional? '
@@ -743,11 +742,9 @@ MonoBehaviour:
   - questionText: 'Who are computer users? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Individuals who have received formal education or training in computer
-      science '
+    - 'A. Individuals who received formal education or training in computer science '
     - 'B. People who own multiple computers at home  '
-    - 'C. Those who make use of the computer system in their day-to-day activities,
-      regardless of formal training  '
+    - 'C. Those who make use of the computer system regardless of formal training  '
     - 'D. System Analysts and Database Administrators  '
     correctAnswerIndex: 2
   - questionText: 'Which of the following is not an example of a computer user? '
@@ -770,8 +767,7 @@ MonoBehaviour:
     questionImage: {fileID: 0}
     answers:
     - 'A. The physical components of a computer system '
-    - 'B. The set of instructions and associated data that direct the computer to
-      perform tasks '
+    - B. Set of instructions that direct the computer to perform tasks
     - 'C. The hardware components that process data '
     - 'D. The external peripherals connected to a computer system '
     correctAnswerIndex: 1
@@ -804,10 +800,10 @@ MonoBehaviour:
   - questionText: 'What is the primary purpose of application software? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. To manage computer hardware resources '
-    - 'B. To provide a platform for running other software programs '
-    - 'C. To enable users to perform specific tasks or functions '
-    - 'D. To translate high-level programming languages into machine code '
+    - 'A. Manage computer hardware resources '
+    - 'B. Provide a platform for running other software programs '
+    - C. Enable users to perform specific tasks or functions
+    - 'D. Translate high-level programming languages into machine code '
     correctAnswerIndex: 2
   - questionText: 'Which type of software is commonly used by most computer users
       for tasks such as word processing, web browsing, and email? '
@@ -821,18 +817,17 @@ MonoBehaviour:
   - questionText: 'What is the role of programming languages in software development? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. To provide a platform for running applications '
-    - 'B. To translate machine code into high-level human-readable code '
-    - 'C. To enable users to perform specific tasks or functions '
-    - 'D. To write instructions that direct the computer to perform tasks '
+    - 'A. Provide a platform for running applications '
+    - 'B. Translate machine code into high-level human-readable code '
+    - 'C. Enable users to perform specific tasks or functions '
+    - 'D. Write instructions that direct the computer to perform tasks '
     correctAnswerIndex: 3
   - questionText: 'Which of the following best describes Microsoft Word? '
     questionImage: {fileID: 0}
     answers:
     - 'A. A spreadsheet program used for data analysis '
     - 'B. A graphics editing software for creating digital artwork '
-    - C. A full-featured word processing program for creating documents, flyers,
-      and publications
+    - C. A full-featured word processing program for creating documents
     - 'D. A web browser for accessing internet content '
     correctAnswerIndex: 2
   - questionText: 'What is the primary function of Microsoft Excel? '
@@ -865,8 +860,7 @@ MonoBehaviour:
     - 'A. Creating digital artwork '
     - 'B. Analyzing data and performing calculations '
     - 'C. Writing and editing documents '
-    - 'D. Database management for capturing and analyzing data from computers or
-      networks '
+    - D. Database management for capturing and analyzing data
     correctAnswerIndex: 3
   - questionText: 'What is the primary function of Microsoft Outlook? '
     questionImage: {fileID: 0}
@@ -882,8 +876,7 @@ MonoBehaviour:
     - 'A. Managing email and calendars '
     - 'B. Creating and delivering presentations '
     - 'C. Analyzing data and performing calculations '
-    - 'D. Free-form note-taking to organize various types of data, including handwritten
-      notes, drawings, screen captures, and audio clips '
+    - D. Free-form note-taking to organize various types of data
     correctAnswerIndex: 3
   - questionText: 'Which software application falls within the web browser category
       and provides users with easy access to browse the internet? '
@@ -1208,7 +1201,7 @@ MonoBehaviour:
     answers:
     - 'A. Playing video games '
     - 'B. Managing emails and calendars '
-    - 'C. Writing, testing, debugging, and developing software programs and applications '
+    - 'C. Write, test, debug, and develop software programs and applications '
     - 'D. Creating digital artwork '
     correctAnswerIndex: 2
   - questionText: 'Which programming language is commonly considered vital for web
@@ -1324,8 +1317,7 @@ MonoBehaviour:
   - questionText: 'What is shareware? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Software that is distributed for free on a trial basis and prompts the
-      user to purchase the full version after the trial period expires '
+    - A. Software that is distributed for free on a trial basis
     - 'B. Software that is available for purchase at a low cost '
     - 'C. Software that anyone can download from the Internet and use for free '
     - 'D. Software that is exclusively available to a particular group of users '
@@ -1334,8 +1326,7 @@ MonoBehaviour:
     questionImage: {fileID: 0}
     answers:
     - 'A. To install software and games on a computer '
-    - 'B. To optimize and speed up a computer by cleaning up or deleting invalid
-      registry entries '
+    - B. To optimize and speed up a computer by cleaning up
     - 'C. To protect a computer from malware and viruses '
     - 'D. To organize files and folders on a computer''s hard drive '
     correctAnswerIndex: 1
@@ -1344,8 +1335,7 @@ MonoBehaviour:
     answers:
     - 'A. To optimize and speed up a computer '
     - 'B. To protect a computer from malware and viruses '
-    - 'C. To control the content that can be accessed by a user on a computer, especially
-      restricting access over the Internet '
+    - C. To control the content that can be accessed by a user on a computer
     - 'D. To organize files and folders on a computer''s hard drive '
     correctAnswerIndex: 2
   - questionText: 'What is the primary function of Project Management Software?  '
@@ -1354,22 +1344,20 @@ MonoBehaviour:
     - 'A. To optimize and speed up a computer '
     - 'B. To protect a computer from malware and viruses '
     - 'C. To control the content that can be accessed by a user on a computer '
-    - 'D. To help multiple users work on a project simultaneously by scheduling events,
-      networking with other users, and allocating resources '
-    correctAnswerIndex: 0
+    - D. To help multiple users work on a project simultaneously by scheduling events
+    correctAnswerIndex: 3
   - questionText: 'What is the primary purpose of Utility Software?  '
     questionImage: {fileID: 0}
     answers:
     - 'A. To optimize and speed up a computer '
     - 'B. To protect a computer from malware and viruses '
     - 'C. To control the content that can be accessed by a user on a computer '
-    - 'D. To help manage the hardware and application software installed on a computer '
+    - D. To help manage the hardware and application software
     correctAnswerIndex: 3
   - questionText: 'What is Open-Source Software?  '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Software for which the source code is available to all users, allowing
-      anyone to make changes and release their own versions '
+    - A. Software for which the source code is available to all users
     - 'B. Software that anyone can download from the Internet and use for free '
     - 'C. Software that is distributed for free on a trial basis '
     - 'D. Software that is available for purchase at a low cost '
@@ -1474,41 +1462,33 @@ MonoBehaviour:
     questionImage: {fileID: 0}
     answers:
     - 'A. Processed information that has been interpreted and organized '
-    - 'B. Unprocessed facts or raw materials, such as text, photos, and numbers and
-      symbols '
+    - B. Unprocessed facts or raw materials
     - 'C. Programs that allow you to surf or browse web pages on the Internet '
-    - 'D. Software for managing hardware and application software installed on a
-      computer '
+    - D. Software for managing hardware and application software
     correctAnswerIndex: 1
   - questionText: 'What is information? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Software for managing hardware and application software installed on a
-      computer '
+    - A. Software for managing hardware and application software
     - 'B. Programs that allow you to surf or browse web pages on the Internet '
     - 'C. Processed information that has been interpreted and organized '
-    - 'D. Unprocessed facts or raw materials, such as text, photos, and numbers and
-      symbols '
+    - D. Unprocessed facts or raw materials
     correctAnswerIndex: 2
   - questionText: 'What are the key differences between data and information? '
     questionImage: {fileID: 0}
     answers:
-    - A. Data is unprocessed, frequently disorganized, and without context, while
-      information is processed, honed, and organized to offer useful insights.
+    - 'A. Data is unprocessed, while information is processed '
     - 'B. Data is used for decision-making, while information is used for data analytics. '
-    - 'C. Data is processed, organized, and structured, while information is unprocessed
-      and without context. '
+    - 'C. Data is processed, while information is unprocessed and without context. '
     - 'D. Data is structured, while information is unstructured. '
     correctAnswerIndex: 0
   - questionText: 'What are the procedures? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Unprocessed facts or raw materials, such as text, photos, and numbers and
-      symbols '
+    - A. Unprocessed facts or raw materials
     - 'B. Processed information that has been interpreted and organized '
     - 'C. Programs that allow you to surf or browse web pages on the Internet '
-    - 'D. A series of instructions, expressed in code, that tell a computer how to
-      carry out an operation, launch a program, make computations, etc. '
+    - D. A series of instructions that tell a computer how to carry out an operation
     correctAnswerIndex: 3
   - questionText: 'What are the three types of computer procedures? '
     questionImage: {fileID: 0}
@@ -1522,8 +1502,7 @@ MonoBehaviour:
     questionImage: {fileID: 0}
     answers:
     - 'A. Organizes data and controls information flow '
-    - 'B. Provides instructions to the system''s hardware components and ensures
-      they function properly '
+    - 'B. Provides instructions to the system''s hardware components '
     - 'C. Gives directions on how to open and utilize software applications '
     - 'D. Manages the installation and uninstallation of software programs '
     correctAnswerIndex: 1
@@ -1533,14 +1512,12 @@ MonoBehaviour:
     - 'A. Gives directions on how to open and utilize software applications '
     - B. Manages the installation and uninstallation of software programs
     - C. Organizes data and controls information flow
-    - D. Provides instructions to the system's hardware components and ensures they
-      function properly
+    - D. Provides instructions to the system's hardware components
     correctAnswerIndex: 0
   - questionText: 'What is the purpose of Internal Procedures? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. Provides instructions to the system''s hardware components and ensures
-      they function properly '
+    - A. Provides instructions to the system's hardware components
     - B. Gives directions on how to open and utilize software applications
     - 'C. Organizes data and controls information flow '
     - 'D. Manages the installation and uninstallation of software programs '
@@ -1551,25 +1528,22 @@ MonoBehaviour:
     - 'A. Organizing data and controlling information flow '
     - 'B. Storing and retrieving data from memory '
     - 'C. Processing data to obtain useful information '
-    - 'D. A generic term for connecting devices to each other to transfer data back
-      and forth '
+    - 'D. Term for connecting devices to each other to transfer data back and forth '
     correctAnswerIndex: 3
   - questionText: 'What is the Internet? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. A group of two or more computers connected together to share resources
-      and information '
+    - A. A group of two or more computers connected together
     - 'B. A worldwide collection of computer networks that links together millions
-      of computers used by businesses, government, education institutions, organizations,
-      and individuals '
+      of computers '
     - 'C. A term for connecting devices to transfer data back and forth '
     - 'D. A type of communication device used for transferring data between computers '
     correctAnswerIndex: 1
   - questionText: 'What is the Internet Backbone? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. A collection of high-speed data lines that connect major computer systems
-      located around the world '
+    - A. Collection of high-speed data lines that connect computer systems around
+      the world
     - 'B. A term for connecting devices to transfer data back and forth '
     - 'C. A type of communication device used for transferring data between computers '
     - D. A company that has a permanent connection to the Internet Backbone
@@ -1578,39 +1552,34 @@ MonoBehaviour:
     questionImage: {fileID: 0}
     answers:
     - 'A. A company that provides internet access to individuals and companies '
-    - 'B. A collection of high-speed data lines that connect major computer systems
-      located around the world '
+    - B. Collection of high-speed data lines that connect computer systems around
+      the world
     - C. A type of communication device used for transferring data between computers
     - 'D. A company that has a permanent connection to the Internet Backbone '
     correctAnswerIndex: 0
   - questionText: 'What is Hypertext Transfer Protocol (HTTP)? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. A collection of high-speed data lines that connect major computer systems
-      located around the world '
+    - A. Collection of high-speed data lines that connect computer systems around
+      the world
     - 'B. A company that provides internet access to individuals and companies '
     - 'C. A type of communication device used for transferring data between computers '
-    - 'D. A set of rules for exchanging text, graphics, sound, video, and other multimedia
-      files '
+    - 'D. A set of rules for exchanging text, graphics, and other multimedia files '
     correctAnswerIndex: 3
   - questionText: 'What is a Website? '
     questionImage: {fileID: 0}
     answers:
     - 'A. A type of communication device used for transferring data between computers '
-    - 'B. A collection of high-speed data lines that connect major computer systems
-      located around the world '
-    - 'C. A set of rules for exchanging text, graphics, sound, video, and other multimedia
-      files '
-    - 'D. A collection of web pages created and maintained by an individual, company,
-      educational institution, or other organization '
+    - B. Collection of high-speed data lines that connect major computer systems
+    - 'C. A set of rules for exchanging text, graphics, and other multimedia files '
+    - D. A collection of web pages created and maintained by an individual, company,
+      or other organization
     correctAnswerIndex: 3
   - questionText: 'What is a Web Browser? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. A collection of high-speed data lines that connect major computer systems
-      located around the world '
-    - 'B. A set of rules for exchanging text, graphics, sound, video, and other multimedia
-      files '
+    - A. A collection of high-speed data lines that connect major computer systems
+    - 'B. A set of rules for exchanging text, graphics, and other multimedia files '
     - 'C. A program that interprets and displays web pages, enabling users to view
       and interact with them '
     - 'D. A type of communication device used for transferring data between computers '

@@ -295,14 +295,10 @@ MonoBehaviour:
   - questionText: 'How is AI defined in the context of fifth-generation computers? '
     questionImage: {fileID: 0}
     answers:
-    - 'A. AI is an emerging branch of mathematics that aims to make computers think
-      like human beings. '
-    - 'B. AI is an emerging branch of computer science that aims to make computers
-      think like human beings. '
-    - 'C. AI is an emerging branch of physics that aims to make computers think like
-      human beings. '
-    - 'D. AI is an emerging branch of tree that aims to make computers think like
-      human beings. '
+    - 'A. Branch of mathematics aims to make computers think like human beings. '
+    - 'B. Branch of computer science aims to make computers think like human beings. '
+    - 'C. Branch of physics aims to make computers think like human beings. '
+    - 'D. Branch of tree that aims to make computers think like human beings. '
     correctAnswerIndex: 1
   - questionText: 
     questionImage: {fileID: 21300000, guid: 2a4037ef3fcb3a4479a271e0a0ff7883, type: 3}
