@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -355400800, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98d26199ad719a948a6100da970a3d1d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -107,9 +107,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -396283142, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 908e078c91c0a3b4cad84fad115dded5, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: -1888892761, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: b4e71791d658390418696d64af136960, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 234807729, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6c79710b05a3fd47b67165b679e8129, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -654,7 +654,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 836858855, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: abab5f1b6a5e7af4f9b9dbb28f4ea2e8, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -958,7 +958,6 @@ MonoBehaviour:
       username: 
       age: 0
       gender: 
-      section: 
     stats:
       needWelcome: 1
       isNumberSystemUnlocked: 0
@@ -968,11 +967,11 @@ MonoBehaviour:
       numberSystem: 0
       introProgramming: 0
   checkSprites:
-  - {fileID: -355400800, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
-  - {fileID: -396283142, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
-  - {fileID: 1203684852, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
-  - {fileID: 323864621, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
-  - {fileID: -1888892761, guid: b87d156c462b1f4438bd1bf63c24df6b, type: 3}
+  - {fileID: 21300000, guid: 98d26199ad719a948a6100da970a3d1d, type: 3}
+  - {fileID: 21300000, guid: 908e078c91c0a3b4cad84fad115dded5, type: 3}
+  - {fileID: 21300000, guid: 9807e497b12044148a6ee43899d24881, type: 3}
+  - {fileID: 21300000, guid: b8f808a3f81295e4b8b54e904dcf2ecd, type: 3}
+  - {fileID: 21300000, guid: b4e71791d658390418696d64af136960, type: 3}
   cloudButton: {fileID: 6641083937124813950}
 --- !u!114 &6319857215175829832
 MonoBehaviour:

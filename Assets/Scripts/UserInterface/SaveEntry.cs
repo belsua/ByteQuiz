@@ -46,7 +46,7 @@ public class SaveEntry : MonoBehaviour
         SaveManager.player = player;
         deletePanel.transform.position = new Vector3 (0, 0, 0);
         deletePanel.GetComponent<Canvas>().sortingOrder = 6;
-        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Are you sure you want to delete {player.profile.name}?";
+        deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Delete {player.profile.name}?";
     }
 
     public async void OnCloudButtonClick()
