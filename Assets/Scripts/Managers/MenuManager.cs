@@ -9,6 +9,10 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviourPunCallbacks
 {
     public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel;
+    public Button debugButton;
+    public Sprite[] debugSprites;
+
+    private bool isDebugEnabled;
 
     private void Start()
     {
@@ -17,11 +21,31 @@ public class MenuManager : MonoBehaviourPunCallbacks
             ResetObjectPositions();
             PopulateSaveList();
         }
+
+        #if DEBUG
+        debugButton.gameObject.SetActive(true);
+        isDebugEnabled = PlayerPrefs.GetInt("DebugMode", 0) == 1;
+        UpdateDebugButton();
+        debugButton.onClick.AddListener(ToggleDebug);
+        #endif
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape)) exitPanel.SetActive(true);
+    }
+
+    void ToggleDebug()
+    {
+        isDebugEnabled = !isDebugEnabled;
+        PlayerPrefs.SetInt("DebugMode", isDebugEnabled ? 1 : 0); // Save the state
+        PlayerPrefs.Save(); // Ensure changes are saved
+        UpdateDebugButton();
+    }
+
+    void UpdateDebugButton()
+    {
+        debugButton.image.sprite = debugSprites[isDebugEnabled ? 1 : 0];
     }
 
     void ResetObjectPositions()

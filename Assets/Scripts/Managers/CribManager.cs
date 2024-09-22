@@ -40,7 +40,7 @@ public class CribManager : MonoBehaviour
         SaveManager.player ??= SaveManager.LoadPlayer(0);
         if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male");
 
-#endif
+        #endif
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Controllers/{avatarAnimatorNames[SaveManager.player.profile.avatar]}");
         messageText = messagePanel.GetComponentInChildren<TMP_Text>();
@@ -48,10 +48,8 @@ public class CribManager : MonoBehaviour
 
     private void Start()
     {
-        #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        debugButton.gameObject.SetActive(true);
-        debugPanel.transform.position = debugPanel.transform.parent.position;
-        debugPanel.SetActive(false);
+        #if DEBUG
+        if (PlayerPrefs.GetInt("DebugMode", 0) == 1) debugButton.gameObject.SetActive(true);
         #endif
 
         SaveManager.player.OnStatUnlocked += ShowMessage;

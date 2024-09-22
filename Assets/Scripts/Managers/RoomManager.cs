@@ -12,7 +12,7 @@ public enum MinigameScenes
     TerritoryConquest,
 }
 
-public class RoomManager : MonoBehaviourPunCallbacks 
+public class RoomManager : MonoBehaviourPunCallbacks
 {
     [Header("UI")]
     public Button startButton;
@@ -30,10 +30,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public float minigameTime = 5f;
     public Vector2[] positionBounds = new Vector2[2];
 
-    #if UNITY_EDITOR
     [Header("Debug")]
     public MinigameScenes debugGame = MinigameScenes.TerritoryConquest;
-    #endif
+    public TMP_Dropdown debugTopicDropdown;
+    public Button debugButton;
 
     int seed;
     ExitGames.Client.Photon.Hashtable roomOptions = new();
@@ -41,9 +41,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         #if UNITY_EDITOR
-        GameObject saveManager = new("NewObject");
-        saveManager.AddComponent<SaveManager>();
-        if (SaveManager.player == null) saveManager.GetComponent<SaveManager>().CreatePlayer(3, "Debug guy", "Debug", 18, "Male");
+        GameObject newObject = new("SaveManager");
+        newObject.AddComponent<SaveManager>();
+        SaveManager.saveFolder ??= System.IO.Path.Combine(Application.persistentDataPath, "Saves");
+        SaveManager.player ??= SaveManager.LoadPlayer(0);
+
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.LocalPlayer.NickName = SaveManager.player.profile.name;
+            PhotonNetwork.OfflineMode = true;
+            PhotonNetwork.JoinOrCreateRoom("test", LobbyManager.roomOptions, Photon.Realtime.TypedLobby.Default);
+        }
+        #endif
+
+        #if DEBUG
+        if (PhotonNetwork.IsMasterClient && PlayerPrefs.GetInt("DebugMode", 0) == 1) debugButton.gameObject.SetActive(true);
         #endif
     }
 
@@ -58,13 +70,22 @@ public class RoomManager : MonoBehaviourPunCallbacks
         else 
         {
             topicDropdown.interactable = false;
+            startButton.interactable = false;
         }
 
         SpawnPlayers();
         UpdatePlayerInterface();
         UpdateRoomDetails();
-        roomDetails.SetActive(false);
-        startButton.interactable = false;
+
+        #if DEBUG
+        debugTopicDropdown.value = (int)debugGame;
+        debugTopicDropdown.onValueChanged.AddListener(OnDebugDropdownValueChanged);
+        #endif
+    }
+
+    private void OnDebugDropdownValueChanged(int arg0)
+    {
+        debugGame = (MinigameScenes)arg0;
     }
 
     #region Photon Callbacks
@@ -135,7 +156,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         int time = (int)minigameTime;
 
-        #if UNITY_EDITOR
+        #if DEBUG
         string selectedGame = debugGame.ToString();
         #else
         string selectedGame = minigames[seed];
@@ -186,17 +207,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
         hostText.gameObject.SetActive(true);
         roomStatusText.gameObject.SetActive(true);
         roomText.text = $"Code: {PhotonNetwork.CurrentRoom.Name}";
-        playerCountText.text = $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
+        playerCountText.text = $"Players: {PhotonNetwork.CurrentRoom.PlayerCount} / {PhotonNetwork.CurrentRoom.MaxPlayers}";
         hostText.text = $"Host: {PhotonNetwork.MasterClient.NickName}";
         roomStatusText.text = $"Status: {(PhotonNetwork.CurrentRoom.IsOpen ? "Open" : "Closed")}";
 
-        #if UNITY_EDITOR
-        if (SaveManager.player == null) PhotonNetwork.LocalPlayer.NickName = $"Player {PhotonNetwork.LocalPlayer.ActorNumber}";
-        else PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.profile.name}";
-        #else
         PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.profile.name}";
-        if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
-        #endif
+        //if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
     }
 
     [PunRPC]
@@ -288,9 +304,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void PlayerCountCheck()
     {
+        #if DEBUG 
+        if (PhotonNetwork.IsMasterClient && PlayerPrefs.GetInt("DebugMode", 0) == 1) startButton.interactable = true;
+        #else
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1)
             startButton.interactable = true;
         else startButton.interactable = false;
+        #endif
     }
 
     #endregion
