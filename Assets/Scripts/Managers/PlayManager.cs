@@ -18,6 +18,9 @@ public class PlayManager : MonoBehaviour
     public Image questionImage; //ADDED Add a reference to an Image component
     [Header("Game Loop")]
     public int score;
+    [Range(0, 49)]
+    [Tooltip("LIMIT QUIZ 0-49 = 50 questions")]
+    public int MaxQuestionsPerQuiz = 29;
     [Header("Components")]
     public CribManager cribManager;
     public Button[] answerButtons;
@@ -26,8 +29,7 @@ public class PlayManager : MonoBehaviour
 
     private int currentQuestionIndex;
     private int topicIndex;
-    private const int MaxQuestionsPerQuiz = 29; //LIMIT QUIZ 0-29 = 30 questions
-    Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
+    public Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
     private void Start()
     {

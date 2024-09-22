@@ -51,6 +51,7 @@ public class QuizChecker : MonoBehaviour
     {
         mainMenu.SetActive(false);
         quizUI.SetActive(true);
+        playManager.answeredQuestions.Clear();
         playManager.SelectTopic(topicIndex);
     }
 

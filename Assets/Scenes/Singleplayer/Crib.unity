@@ -24094,6 +24094,7 @@ MonoBehaviour:
   questionText: {fileID: 67860552}
   questionImage: {fileID: 67860546}
   score: 0
+  MaxQuestionsPerQuiz: 29
   cribManager: {fileID: 470470253}
   answerButtons:
   - {fileID: 67860561}
