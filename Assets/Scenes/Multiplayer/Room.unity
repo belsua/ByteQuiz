@@ -4896,6 +4896,7 @@ GameObject:
   - component: {fileID: 581324505}
   - component: {fileID: 581324507}
   - component: {fileID: 581324506}
+  - component: {fileID: 581324508}
   m_Layer: 5
   m_Name: RoomDetailsPanel
   m_TagString: Untagged
@@ -4961,6 +4962,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581324504}
   m_CullTransparentMesh: 1
+--- !u!114 &581324508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581324504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5fe9077329d0846823b36e8de6b9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
 --- !u!1 &587875177
 GameObject:
   m_ObjectHideFlags: 0
@@ -8637,8 +8651,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 625561053}
-        m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
+      - m_Target: {fileID: 581324508}
+        m_TargetAssemblyTypeName: SizeAnimate, Assembly-CSharp
         m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
@@ -11051,8 +11065,13 @@ MonoBehaviour:
   saveEntryPrefab: {fileID: 0}
   scrollContent: {fileID: 0}
   exitPanel: {fileID: 0}
+  audioSource: {fileID: 0}
+  mutedSprite: {fileID: 0}
+  unmutedSprite: {fileID: 0}
+  buttonImage: {fileID: 0}
   debugButton: {fileID: 0}
   debugSprites: []
+  isDebugEnabled: 0
 --- !u!1 &1365771271
 GameObject:
   m_ObjectHideFlags: 0
@@ -14638,8 +14657,13 @@ MonoBehaviour:
   saveEntryPrefab: {fileID: 0}
   scrollContent: {fileID: 0}
   exitPanel: {fileID: 0}
+  audioSource: {fileID: 0}
+  mutedSprite: {fileID: 0}
+  unmutedSprite: {fileID: 0}
+  buttonImage: {fileID: 0}
   debugButton: {fileID: 0}
   debugSprites: []
+  isDebugEnabled: 0
 --- !u!114 &2107098222
 MonoBehaviour:
   m_ObjectHideFlags: 0

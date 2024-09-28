@@ -39,8 +39,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        Debug.Log("OnRoomListUpdate: " + roomList.Count);
-        
         cachedRoomList.Clear();
         foreach (RoomInfo room in roomList)
         {
@@ -51,57 +49,66 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        if (createInput.text.Length < 3) errorPanel.SetActive(true);
-        else PhotonNetwork.JoinOrCreateRoom(createInput.text, roomOptions, TypedLobby.Default);
+        if (createInput.text.Length < 3)
+        {
+            errorPanel.GetComponent<SizeAnimate>().Open();
+        }
+        else
+        {
+            loadingCanvas.SetActive(true);
+            PhotonNetwork.JoinOrCreateRoom(createInput.text, roomOptions, TypedLobby.Default);
+        }
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         loadingCanvas.SetActive(false);
         errorText.text = message;
-        errorPanel.SetActive(true);
+        errorPanel.GetComponent<SizeAnimate>().Open();
     }
 
     public void JoinRoom()
     {
-        if (joinInput.text.Length < 3) errorPanel.SetActive(true);
-        else CheckRoomStatus(joinInput.text);
+        if (joinInput.text.Length < 3)
+        {
+            errorPanel.GetComponent<SizeAnimate>().Open();
+        }
+        else
+        {
+            loadingCanvas.SetActive(true);
+            CheckRoomStatus(joinInput.text);
+        }
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("OnJoinedRoom: " + PhotonNetwork.CurrentRoom.Name);
         PhotonNetwork.LoadLevel("Room");
-
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
+        loadingCanvas.SetActive(false);
         errorText.text = message;
-        errorPanel.SetActive(true);
+        errorPanel.GetComponent<SizeAnimate>().Open();
     }
 
     #endregion
 
     private void CheckRoomStatus(string targetRoomName)
     {
-        Debug.Log("Checking room status: " + targetRoomName);
-
         foreach (RoomInfo room in cachedRoomList)
         {
             if (room.Name == targetRoomName)
             {
                 if (room.IsOpen)
                 {
-                    Debug.Log($"Room {room.Name} is open. You can join.");
                     PhotonNetwork.JoinRoom(joinInput.text);
                 }
                 else
                 {
                     loadingCanvas.SetActive(false);
                     errorText.text = $"Room {targetRoomName} is currently playing.";
-                    errorPanel.SetActive(true);
-                    Debug.Log($"Room {room.Name} is closed.");
+                    errorPanel.GetComponent<SizeAnimate>().Open();
                 }
 
                 return;
@@ -110,7 +117,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         loadingCanvas.SetActive(false);
         errorText.text = $"Room {targetRoomName} does not exist.";
-        errorPanel.SetActive(true);
-        Debug.Log($"Room {targetRoomName} does not exist.");
+        errorPanel.GetComponent<SizeAnimate>().Open();
     }
 }

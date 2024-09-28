@@ -20,4 +20,10 @@ public class SizeAnimate : MonoBehaviour
     {
         transform.LeanScale(Vector2.zero, speed).setEaseOutCubic();
     }
+
+    public void Toggle()
+    {
+        if ((Vector2)transform.localScale == Vector2.zero) Open();
+        else Close();
+    }
 }

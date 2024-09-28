@@ -203,6 +203,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private void UpdateRoomDetails() 
     {
+        roomDetails.GetComponent<SizeAnimate>().Open();
+
         playerCountText.gameObject.SetActive(true);
         hostText.gameObject.SetActive(true);
         roomStatusText.gameObject.SetActive(true);
@@ -281,11 +283,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             statBars[i].fillAmount = playerStats[i];
             statTexts[i].text = ((int)(playerStats[i] * 10000)).ToString();
         }
-    }
-
-    public void Toggle()
-    {
-        if (roomDetails != null) roomDetails.SetActive(!roomDetails.activeSelf);
     }
 
     void HostCheck() 
