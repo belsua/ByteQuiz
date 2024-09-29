@@ -1,6 +1,8 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayManager;
 
 /// <summary>
 /// To increase player stats use IncreaseStat(string statName, float amount)
@@ -29,7 +31,6 @@ public class Player
         stats = new Stats();
         activities = new();
     }
-
     public void SaveActivity(bool isMultiplayer, string topic, string score, object questions, string minigame = null, string[] players = null)
     {
         string formattedTopic = topic switch
@@ -41,13 +42,16 @@ public class Player
             _ => topic,
         };
 
+        var serializedQuestions = JsonConvert.SerializeObject(questions);
+        var questionsCopy = JsonConvert.DeserializeObject<Dictionary<string, QuestionData>>(serializedQuestions);
+
         Dictionary<string, object> activity = new()
         {
             { "date-time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
             { "mode", isMultiplayer ? "Multiplayer" : "Singleplayer" },
             { "topic", formattedTopic },
             { "score", score },
-            { "questions", questions }
+            { "questions", questionsCopy }
         };
 
         if (isMultiplayer)
@@ -56,7 +60,10 @@ public class Player
             activity["minigame"] = minigame;
         }
 
-        activities.Add(Guid.NewGuid().ToString(), activity);
+        var serializedActivity = JsonConvert.SerializeObject(activity);
+        var activityCopy = JsonConvert.DeserializeObject<Dictionary<string, object>>(serializedActivity);
+
+        activities.Add(Guid.NewGuid().ToString(), activityCopy);
     }
 
     public void IncreaseStat(string statName, float amount)
