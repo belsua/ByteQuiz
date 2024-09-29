@@ -18,9 +18,8 @@ public class PlayManager : MonoBehaviour
     public Image questionImage; //ADDED Add a reference to an Image component
     [Header("Game Loop")]
     public int score;
-    [Range(0, 49)]
-    [Tooltip("LIMIT QUIZ 0-49 = 50 questions")]
-    public int MaxQuestionsPerQuiz = 29;
+    [Range(1, 50)]
+    public int MaxQuestions = 30;
     [Header("Components")]
     public CribManager cribManager;
     public Button[] answerButtons;
@@ -52,9 +51,9 @@ public class PlayManager : MonoBehaviour
         Shuffle(currentQuestions);
 
         //ADDED FOR QUIZ LIMIT
-        if (currentQuestions.Count > MaxQuestionsPerQuiz)
+        if (currentQuestions.Count > MaxQuestions)
         {
-            currentQuestions = currentQuestions.GetRange(0, MaxQuestionsPerQuiz);
+            currentQuestions = currentQuestions.GetRange(0, MaxQuestions);
         }
         //ADDED FOR QUIZ LIMIT
 
@@ -192,17 +191,18 @@ public class PlayManager : MonoBehaviour
     private void EndQuiz()
     {
         SaveManager.player.SaveActivity(
-            false, 
-            GetTopic(topicIndex), 
-            $"{score}/{MaxQuestionsPerQuiz + 1}",
+            false,
+            GetTopic(topicIndex),
+            $"{score}/{MaxQuestions}",
             answeredQuestions
-        ); 
+        );
 
         SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
         questionText.text = "Quiz Over! Your score: " + score;
         cribManager.UpdatePlayerInterface();
         cribManager.ShowMessage($"Your {GetTopic(topicIndex)} stat increased!");
         cribManager.MessageCloseCountdown();
+
 
         foreach (var button in answerButtons)
         {
