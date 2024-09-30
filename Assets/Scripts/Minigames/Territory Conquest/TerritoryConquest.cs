@@ -10,11 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class TerritoryConquest : Minigame
 {
-    public class QuestionData
-    {
-        public string question { get; set; }
-        public bool correct { get; set; }
-    }
+    public class QuestionData : BaseQuestionData { }
 
     [Header("Minigame Variables")]
     public TileClaim tileClaim;

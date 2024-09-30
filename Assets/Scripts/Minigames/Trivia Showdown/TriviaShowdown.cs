@@ -14,11 +14,7 @@ using UnityEngine.SceneManagement;
 
 public class TriviaShowdown : Minigame
 {
-    public class QuestionData
-    {
-        public string question { get; set; }
-        public bool correct { get; set; }
-    }
+    public class QuestionData : BaseQuestionData { }
 
     Dictionary<string, int> playerData = new(); // <player, score>
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>

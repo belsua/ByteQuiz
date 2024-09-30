@@ -5,11 +5,7 @@ using TMPro;
 
 public class PlayManager : MonoBehaviour
 {
-    public class QuestionData
-    {
-        public string question { get; set; }
-        public bool correct { get; set; }
-    }
+    public class QuestionData : BaseQuestionData { }
 
     [Header("Question Database")]
     public QuestionDatabase[] questionDatabases; // Array of question databases for each topic

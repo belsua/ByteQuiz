@@ -17,9 +17,8 @@ public class PlayerData
 
 public class Runner : Minigame 
 {
-    public class QuestionData
+    public class QuestionData : BaseQuestionData
     {
-        public string question { get; set; }
         public int attempts { get; set; }
     }
 

@@ -2,7 +2,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static PlayManager;
 
 /// <summary>
 /// To increase player stats use IncreaseStat(string statName, float amount)
@@ -43,7 +42,18 @@ public class Player
         };
 
         var serializedQuestions = JsonConvert.SerializeObject(questions);
-        var questionsCopy = JsonConvert.DeserializeObject<Dictionary<string, QuestionData>>(serializedQuestions);
+        Dictionary<string, BaseQuestionData> questionsCopy = new();
+
+        if (isMultiplayer && minigame == "Runner")
+        {
+            var runnerQuestions = JsonConvert.DeserializeObject<Dictionary<string, Runner.QuestionData>>(serializedQuestions);
+            foreach (var kvp in runnerQuestions) questionsCopy.Add(kvp.Key, kvp.Value);
+        }
+        else
+        {
+            var playManagerQuestions = JsonConvert.DeserializeObject<Dictionary<string, PlayManager.QuestionData>>(serializedQuestions);
+            foreach (var kvp in playManagerQuestions) questionsCopy.Add(kvp.Key, kvp.Value);
+        }
 
         Dictionary<string, object> activity = new()
         {
