@@ -21,6 +21,7 @@ public class PlayManager : MonoBehaviour
     [Range(1, 50)]
     public int MaxQuestions = 30;
     [Header("Components")]
+    public Settings settings;
     public CribManager cribManager;
     public Button[] answerButtons;
     public AudioClip correctClip;
@@ -199,7 +200,8 @@ public class PlayManager : MonoBehaviour
 
         SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
         questionText.text = "Quiz Over! Your score: " + score;
-        cribManager.UpdatePlayerInterface();
+        settings.UpdatePlayerInterface();
+        cribManager.UpdateButtons();
         cribManager.ShowMessage($"Your {GetTopic(topicIndex)} stat increased!");
         cribManager.MessageCloseCountdown();
 

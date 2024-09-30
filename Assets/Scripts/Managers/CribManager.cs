@@ -55,48 +55,17 @@ public class CribManager : MonoBehaviour
         SaveManager.player.OnStatUnlocked += ShowMessage;
         messagePanel.SetActive(false);
 
-        UpdatePlayerInterface();
+        UpdateButtons();
         backButton.onClick.AddListener(() => StopAllCoroutines());
     }
 
-    public void UpdatePlayerInterface()
+    public void UpdateButtons()
     {
-        if (SaveManager.player.stats.isNumberSystemUnlocked)
-        {
-            foreach (Button button in numberSystemButtons) button.interactable = true;
-            lockImages[0].sprite = lockSprites[0];
-        }
-        else
-        {
-            foreach (Button button in numberSystemButtons) button.interactable = false;
-            lockImages[0].sprite = lockSprites[1];
-        }
+        if (SaveManager.player.stats.isNumberSystemUnlocked) foreach (Button button in numberSystemButtons) button.interactable = true;
+        else foreach (Button button in numberSystemButtons) button.interactable = false;
         
-        if (SaveManager.player.stats.isIntroProgrammingUnlocked)
-        {
-            foreach (Button button in introProgrammingButtons) button.interactable = true;
-            lockImages[1].sprite = lockSprites[0];
-        }
-        else
-        {
-            foreach (Button button in introProgrammingButtons) button.interactable = false;
-            lockImages[1].sprite = lockSprites[1];
-        }
-        
-        nameText.text = SaveManager.player.profile.name;
-
-        float[] playerStats = {
-            SaveManager.player.stats.computerHistory,
-            SaveManager.player.stats.computerElements,
-            SaveManager.player.stats.numberSystem,
-            SaveManager.player.stats.introProgramming
-        };
-
-        for (int i = 0; i < playerStats.Length; i++)
-        {
-            statBars[i].fillAmount = playerStats[i];
-            statTexts[i].text = ((int)(playerStats[i] * 10000)).ToString();
-        }
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) foreach (Button button in introProgrammingButtons) button.interactable = true;
+        else foreach (Button button in introProgrammingButtons) button.interactable = false;
     }
 
     public void ShowMessage(string message)

@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour
         if (SaveManager.player.stats.isNumberSystemUnlocked) lockImages[0].sprite = lockSprites[0];
         else lockImages[0].sprite = lockSprites[1];
 
-        if (SaveManager.player.stats.isIntroProgrammingUnlocked) lockImages[1].sprite = lockSprites[1];
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) lockImages[1].sprite = lockSprites[0];
         else lockImages[1].sprite = lockSprites[1];
 
         nameText.text = SaveManager.player.profile.name;

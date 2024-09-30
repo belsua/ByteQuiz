@@ -2153,6 +2153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cribManager: {fileID: 470470253}
+  settings: {fileID: 190013239168148220}
 --- !u!1 &137742391
 GameObject:
   m_ObjectHideFlags: 0
@@ -24348,6 +24349,7 @@ MonoBehaviour:
   questionImage: {fileID: 67860546}
   score: 0
   MaxQuestions: 30
+  settings: {fileID: 190013239168148220}
   cribManager: {fileID: 470470253}
   answerButtons:
   - {fileID: 67860561}
@@ -33616,6 +33618,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &190013239168148220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8181778113767548633, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
+  m_PrefabInstance: {fileID: 190013239168148218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703198555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2daf00f193c3944ea6cb54149bb7930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &416957889755238402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34223,7 +34236,7 @@ Transform:
   m_GameObject: {fileID: 6353887116814965017}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000002481903, y: 0.0000000035455758, z: -9.517583}
+  m_LocalPosition: {x: 0.000000024819029, y: 0.0000000035455756, z: -9.517582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
