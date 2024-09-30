@@ -139,13 +139,17 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     protected void ReceiveSelectedTopic()
     {
+        ExitGames.Client.Photon.Hashtable roomProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+
         #if UNITY_EDITOR
-        topic = "EOCS";
+        if (roomProperties.ContainsKey("selectedTopic")) topic = (string)roomProperties["selectedTopic"];
+        else topic = "EOCS";
+
         questionData = LoadQuestionData(topic, seed, total);
         #else
-        if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("selectedTopic"))
+        if (roomProperties.ContainsKey("selectedTopic"))
         {
-            topic = (string)PhotonNetwork.LocalPlayer.CustomProperties["selectedTopic"];
+            topic = (string)roomProperties["selectedTopic"];
             questionData = LoadQuestionData(topic, seed, total);
         }
         else
