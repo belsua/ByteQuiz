@@ -4145,7 +4145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Topic:'
+  m_text: 'Minigame:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
@@ -5149,7 +5149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2451723070914909060, guid: 47c5005d36957824f8d2bd8c5e5bb40d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 424
+      value: 494.15
       objectReference: {fileID: 0}
     - target: {fileID: 2451723070914909060, guid: 47c5005d36957824f8d2bd8c5e5bb40d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5341,8 +5341,8 @@ MonoBehaviour:
   positionBounds:
   - {x: -5, y: -12}
   - {x: 2, y: -12}
-  debugGame: 2
-  debugTopicDropdown: {fileID: 709079545}
+  debugGame: 0
+  debugGameDropdown: {fileID: 709079545}
   debugButton: {fileID: 419035592}
 --- !u!4 &625561054
 Transform:
@@ -7489,7 +7489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859260560}
   m_Layer: 5
-  m_Name: Topic
+  m_Name: Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -31,9 +31,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Vector2[] positionBounds = new Vector2[2];
 
     [Header("Debug")]
-    public MinigameScenes debugGame = MinigameScenes.TerritoryConquest;
-    public TMP_Dropdown debugTopicDropdown;
+    public TMP_Dropdown debugGameDropdown;
     public Button debugButton;
+    MinigameScenes debugGame = MinigameScenes.Runner;
 
     int seed;
     ExitGames.Client.Photon.Hashtable roomOptions = new();
@@ -69,6 +69,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         else 
         {
+            photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
             topicDropdown.interactable = false;
             startButton.interactable = false;
         }
@@ -78,15 +79,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
         UpdateRoomDetails();
 
         #if DEBUG
-        debugTopicDropdown.value = (int)debugGame;
-        debugTopicDropdown.onValueChanged.AddListener(OnDebugDropdownValueChanged);
+        debugGameDropdown.value = (int)debugGame;
+        debugGameDropdown.onValueChanged.AddListener(OnDebugDropdownValueChanged);
         #endif
     }
 
-    private void OnDebugDropdownValueChanged(int arg0)
+    #region Debug
+
+    private void OnDebugDropdownValueChanged(int index)
     {
-        debugGame = (MinigameScenes)arg0;
+        photonView.RPC("UpdateDebugDropdownValue", RpcTarget.All, index);
     }
+
+    [PunRPC] public void UpdateDebugDropdownValue(int value) { debugGame = (MinigameScenes)value; }
+
+    #endregion
 
     #region Photon Callbacks
 
@@ -214,7 +221,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         roomStatusText.text = $"Status: {(PhotonNetwork.CurrentRoom.IsOpen ? "Open" : "Closed")}";
 
         PhotonNetwork.LocalPlayer.NickName = $"{SaveManager.player.profile.name}";
-        //if (!PhotonNetwork.IsMasterClient) photonView.RPC("RequestDropdownValue", RpcTarget.MasterClient);
     }
 
     [PunRPC]
@@ -234,7 +240,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         photonView.RPC("UpdateDropdownValue", RpcTarget.All, value);
     }
 
-    public void SetSelectedTopic() 
+    public void SetSelectedTopic()
     {
 
         string topic = topicDropdown.value switch
@@ -249,7 +255,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.InRoom) 
         {
             roomOptions["selectedTopic"] = topic;
-            PhotonNetwork.LocalPlayer.CustomProperties = roomOptions;
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomOptions);
         }
         else 
         {
