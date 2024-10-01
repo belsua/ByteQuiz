@@ -8,25 +8,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerData 
+public class PlayerData
 {
-    public int score { get; set; }
-    public bool isFinished { get; set; }
+    public string NickName { get; set; }
+    public int Score { get; set; }
+    public bool IsFinished { get; set; }
 }
-
 
 public class Runner : Minigame 
 {
-    public class QuestionData : BaseQuestionData
-    {
-        public int attempts { get; set; }
-    }
+    public class QuestionData : BaseQuestionData { public int attempts { get; set; } }
 
-    [SerializeField] TMP_Text scoreText, standingsText, scoreListText;
+    [SerializeField] TMP_Text scoreText, standingsText;
     [SerializeField] GameObject standingsPanel, scorePanel;
     [SerializeField] Transform teleportLocation;
+    [SerializeField] Settings settings;
 
-    Dictionary<string, PlayerData> playerData = new(); // <player name, player data>
+    private Dictionary<int, PlayerData> playerData = new Dictionary<int, PlayerData>();
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
     public GameObject currentObject;
@@ -53,20 +51,6 @@ public class Runner : Minigame
     private void UpdateUI() 
     {
         scoreText.text = $"Score: {score}";
-        scoreListText.text = string.Empty;
-        var sortedPlayerData = playerData.OrderByDescending(x => x.Value.score);
-
-        #if UNITY_EDITOR 
-        foreach (var entry in sortedPlayerData) 
-        {
-            scoreListText.text += $"{entry.Key}: {entry.Value.score}, {entry.Value.isFinished}\n";
-        }
-        #else
-        foreach (var entry in sortedPlayerData) 
-        {
-            scoreListText.text += $"{entry.Key}: {entry.Value.score}\n";
-        }
-        #endif
     }
 
     public void ChangeUI_RPC() 
@@ -76,7 +60,7 @@ public class Runner : Minigame
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer) 
     {
-        playerData.Remove(otherPlayer.NickName);
+        playerData.Remove(otherPlayer.ActorNumber);
         ChangeUI_RPC();
     }
 
@@ -85,7 +69,7 @@ public class Runner : Minigame
     public override void AnswerCorrect() 
     {
         AudioManager.PlaySound(correctClip);
-        score = Mathf.Clamp(score + 100, 0, 1000);
+        score += 100;
 
         if (questionData.questions[currentQuestionIndex].questionText == "") 
             answeredQuestions.Add(
@@ -107,7 +91,7 @@ public class Runner : Minigame
             );
 
         attempts = 0;
-        ChangeScoreList(playerName, score);
+        ChangeScoreList(PhotonNetwork.LocalPlayer.ActorNumber, score);
         ChangeUI_RPC();
         RemoveQuestion(currentQuestionIndex);
         Destroy(currentObject);
@@ -118,8 +102,8 @@ public class Runner : Minigame
     public override void AnswerWrong() 
     {
         AudioManager.PlaySound(wrongClip);
-        score = Mathf.Clamp(score - 20, 0, 1000);
-        ChangeScoreList(playerName, score);
+        score -= 20;
+        ChangeScoreList(PhotonNetwork.LocalPlayer.ActorNumber, score);
         attempts += 1;
         ChangeUI_RPC();
     }
@@ -134,12 +118,52 @@ public class Runner : Minigame
 
     #region Finish Line Functions
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
         AudioManager.PlaySound(finishClip);
+
+        var sortedPlayerData = playerData.OrderByDescending(x => x.Value.Score).ToList();
+
+        int place = 1;
+        int previousScore = int.MinValue;
+        int samePlaceCount = 0;
+
+        foreach (var entry in sortedPlayerData)
+        {
+            if (entry.Value.Score == previousScore)
+            {
+                samePlaceCount++;
+            }
+            else
+            {
+                place += samePlaceCount;
+                samePlaceCount = 1;
+                previousScore = entry.Value.Score;
+            }
+
+            if (entry.Key == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                int additionalScore = 0;
+
+                additionalScore = place switch
+                {
+                    1 => 100,
+                    2 => 75,
+                    3 => 50,
+                    _ => 25,
+                };
+
+                score += additionalScore;
+                ChangeScoreList(PhotonNetwork.LocalPlayer.ActorNumber, score);
+                break;
+            }
+        }
+
         other.transform.position = teleportLocation.position;
-        playerData[playerName].isFinished = true;
-        ChangeFinishPlayer(playerName);
+
+        playerData[PhotonNetwork.LocalPlayer.ActorNumber].IsFinished = true;
+
+        ChangeFinishPlayer(PhotonNetwork.LocalPlayer.ActorNumber);
         ChangeUI_RPC();
         CheckIfAllPlayersFinished();
     }
@@ -152,7 +176,7 @@ public class Runner : Minigame
 
     public void CheckIfAllPlayersFinished() 
     {
-        if (playerData.Values.All(x => x.isFinished)) StartCoroutine(EndGameCoroutine());
+        if (playerData.Values.All(x => x.IsFinished)) StartCoroutine(EndGameCoroutine());
     }
 
     IEnumerator EndGameCoroutine()
@@ -179,7 +203,7 @@ public class Runner : Minigame
         );
 
         standingsText.text = string.Empty;
-        foreach (var entry in playerData) standingsText.text += $"{entry.Key}: {entry.Value.score}\n";
+        foreach (var entry in playerData) standingsText.text += $"{entry.Value.NickName}: {entry.Value.Score}\n";
         AudioSource.Stop();
         quizPanel.SetActive(false);
         scorePanel.SetActive(false);
@@ -192,7 +216,8 @@ public class Runner : Minigame
         standingsPanel.SetActive(true);
         yield return new WaitForSeconds(time);
         standingsPanel.SetActive(false);
-        SaveManager.player.IncreaseStat(topic, score / 5000);
+        SaveManager.player.IncreaseStat(topic, 0.25f / CalculateTotalScore(answeredQuestions));
+        settings.UpdatePlayerInterface();
         NotifyIncrease();
     }
 
@@ -205,29 +230,36 @@ public class Runner : Minigame
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
 
         foreach (Photon.Realtime.Player player in players)
-            playerData.Add(player.NickName, new PlayerData { score = 0, isFinished = false });
+        {
+            playerData.Add(player.ActorNumber, new PlayerData
+            {
+                NickName = player.NickName,
+                Score = 0,
+                IsFinished = false
+            });
+        }
     }
 
     [PunRPC]
-    public void UpdateScoreList(string player, int score) 
+    public void UpdateScoreList(int actorNumber, int score)
     {
-        playerData[player].score = score;
+        playerData[actorNumber].Score = score;
     }
 
-    public void ChangeScoreList(string player, int score) 
+    public void ChangeScoreList(int actorNumber, int score) 
     {
-        photonView.RPC("UpdateScoreList", RpcTarget.All, player, score);
+        photonView.RPC("UpdateScoreList", RpcTarget.All, actorNumber, score);
     }
 
     [PunRPC]
-    public void UpdateFinishPlayer(string player)
+    public void UpdateFinishPlayer(int actorNumber)
     {
-        playerData[player].isFinished = true;
+        playerData[actorNumber].IsFinished = true;
     }
 
-    public void ChangeFinishPlayer(string player)
+    public void ChangeFinishPlayer(int actorNumber)
     {
-        photonView.RPC("UpdateFinishPlayer", RpcTarget.All, player);
+        photonView.RPC("UpdateFinishPlayer", RpcTarget.All, actorNumber);
     }
 
     [ContextMenu("Teleport Player")]
