@@ -4,6 +4,9 @@ using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
 using System.Text.RegularExpressions;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using System.Collections.Generic;
+using System.Linq;
 
 public enum MinigameScenes
 {
@@ -35,8 +38,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Button debugButton;
     MinigameScenes debugGame = MinigameScenes.Runner;
 
+    bool[] optionEnabled;
     int seed;
-    ExitGames.Client.Photon.Hashtable roomOptions = new();
+    Hashtable roomOptions = new();
 
     private void Awake()
     {
@@ -59,12 +63,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
         #endif
     }
 
-    private void Start() 
+    private void Start()
     {
+        topicDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
 
         if (PhotonNetwork.IsMasterClient) 
         {
-            topicDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
             PhotonNetwork.MasterClient.NickName = SaveManager.player.profile.name;
         }
         else 
@@ -84,6 +88,60 @@ public class RoomManager : MonoBehaviourPunCallbacks
         #endif
     }
 
+    private bool[] GetTopicDenominator()
+    {
+        List<bool> numberSystemUnlocked = new();
+        List<bool> introProgrammingUnlocked = new();
+
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.TryGetValue("IsNumberSystemUnlocked", out object numberSystemStatus))
+                numberSystemUnlocked.Add((bool)numberSystemStatus);
+            else
+                numberSystemUnlocked.Add(false);
+
+            if (player.CustomProperties.TryGetValue("IsIntroProgrammingUnlocked", out object introProgrammingStatus))
+                introProgrammingUnlocked.Add((bool)introProgrammingStatus);
+            else
+                introProgrammingUnlocked.Add(false);
+        }
+
+        bool isNumberSystemUnlocked = numberSystemUnlocked.All(unlocked => unlocked);
+        bool isIntroProgrammingUnlocked = introProgrammingUnlocked.All(unlocked => unlocked);
+
+        return new bool[] { true, true, isNumberSystemUnlocked, isIntroProgrammingUnlocked };
+    }
+
+    private void UpdateDropdownOptions()
+    {
+        optionEnabled = GetTopicDenominator();
+
+        Debug.Log(string.Join(", ", optionEnabled));
+        if (PhotonNetwork.IsMasterClient && (topicDropdown.value == 2 || topicDropdown.value == 3)) topicDropdown.value = GetFirstEnabledOption();
+
+        for (int i = 0; i < topicDropdown.options.Count; i++)
+        {
+            TMP_Dropdown.OptionData optionData = topicDropdown.options[i];
+            string optionText = optionData.text;
+
+            if (!optionEnabled[i])
+            {
+                if (!optionText.Contains("(Not All Unlocked)"))
+                {
+                    optionText += " (Not All Unlocked)";
+                }
+            }
+            else
+            {
+                optionText = optionText.Replace(" (Not All Unlocked)", string.Empty);
+            }
+
+            optionData.text = optionText;
+        }
+
+        topicDropdown.RefreshShownValue();
+    }
+
     #region Debug
 
     private void OnDebugDropdownValueChanged(int index)
@@ -99,20 +157,29 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer) 
     { 
+        UpdateDropdownOptions();
         UpdateRoomDetails();
         PlayerCountCheck();
 
     }
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
+        UpdateDropdownOptions();
         UpdateRoomDetails();
         PlayerCountCheck();
     }
 
     public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient) 
-    { 
+    {
+        UpdateDropdownOptions();
         HostCheck(); 
         PlayerCountCheck();
+    }
+
+    public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps)
+    {
+        Debug.Log($"Player {targetPlayer.NickName} changed props: {changedProps}");
+        UpdateDropdownOptions();
     }
 
     #endregion
@@ -206,6 +273,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         string[] avatarAnimatorNames = { "Adam", "Alex", "Bob", "Amelia" };
         object[] instantiationData = new object[] { avatarAnimatorNames[SaveManager.player.profile.avatar] };
         PhotonNetwork.Instantiate(playerPrefab.name, position, Quaternion.identity, 0, instantiationData);
+
+        Hashtable playerUnlockProperties = new()
+        {
+            { "IsNumberSystemUnlocked", SaveManager.player.stats.isNumberSystemUnlocked },
+            { "IsIntroProgrammingUnlocked", SaveManager.player.stats.isIntroProgrammingUnlocked }
+        };
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerUnlockProperties);
     }
 
     private void UpdateRoomDetails() 
@@ -232,12 +307,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void UpdateDropdownValue(int value) 
     {
-        topicDropdown.value = value;
+        if (!optionEnabled[value]) topicDropdown.value = GetFirstEnabledOption();
+        else topicDropdown.value = value;
     }
 
     void OnDropdownValueChanged(int value) 
     {
         photonView.RPC("UpdateDropdownValue", RpcTarget.All, value);
+    }
+
+    private int GetFirstEnabledOption()
+    {
+        for (int i = 0; i < optionEnabled.Length; i++) if (optionEnabled[i]) return i;
+        return 0;
     }
 
     public void SetSelectedTopic()
