@@ -196,7 +196,7 @@ public class TerritoryConquest : Minigame
         quizPanel.SetActive(false);
 
         // Notify increase
-        SaveManager.player.IncreaseStat(topic, score / 100f);
+        SaveManager.player.IncreaseStat(topic, score / 600f);
         NotifyIncrease();
     }
 
