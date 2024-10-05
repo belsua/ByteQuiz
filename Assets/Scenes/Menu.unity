@@ -6985,10 +6985,10 @@ MonoBehaviour:
   itemPrefab: {fileID: 8852221890760326872, guid: aee3c87041d2fbd478a9095ab9a3d547, type: 3}
   loadingObject: {fileID: 1800319831}
   noItemsText: {fileID: 1151968567}
-  btnComputerElements: {fileID: 576880486}
-  btnComputerHistory: {fileID: 1205393755}
-  btnIntroProgramming: {fileID: 1358733460}
-  btnNumberSystem: {fileID: 1655751349}
+  btnComputerHistory: {fileID: 576880486}
+  btnComputerElements: {fileID: 1205393755}
+  btnNumberSystem: {fileID: 1358733460}
+  btnIntroProgramming: {fileID: 1655751349}
   avatarSprites:
   - {fileID: 301214943, guid: 786b04bb3064d8748a003344f6981f0c, type: 3}
   - {fileID: 833646021, guid: 08d9dc3b8a8462b46b176543aa45b083, type: 3}

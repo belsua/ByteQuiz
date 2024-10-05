@@ -15,10 +15,10 @@ public class LeaderboardManager : MonoBehaviour
     public TextMeshProUGUI noItemsText;
 
     [Header("Topic Buttons")]
-    public Button btnComputerElements;
     public Button btnComputerHistory;
-    public Button btnIntroProgramming;
+    public Button btnComputerElements;
     public Button btnNumberSystem;
+    public Button btnIntroProgramming;
 
     [Header("Sprites")]
     public Sprite[] avatarSprites;
@@ -30,10 +30,10 @@ public class LeaderboardManager : MonoBehaviour
     void Start()
     {
         // Add listeners for the button clicks
-        btnComputerElements.onClick.AddListener(() => OnButtonClicked(btnComputerElements));
         btnComputerHistory.onClick.AddListener(() => OnButtonClicked(btnComputerHistory));
-        btnIntroProgramming.onClick.AddListener(() => OnButtonClicked(btnIntroProgramming));
+        btnComputerElements.onClick.AddListener(() => OnButtonClicked(btnComputerElements));
         btnNumberSystem.onClick.AddListener(() => OnButtonClicked(btnNumberSystem));
+        btnIntroProgramming.onClick.AddListener(() => OnButtonClicked(btnIntroProgramming));
 
         // Initialize the buttons to the inactive sprite
         ResetButtonSprites();
@@ -57,22 +57,10 @@ public class LeaderboardManager : MonoBehaviour
 
         // Here you would also trigger your specific data fetch (e.g., FetchData("computerElements"))
         // based on the button clicked. You can switch based on the clicked button:
-        if (clickedButton == btnComputerElements)
-        {
-            FetchData("computerElements");
-        }
-        else if (clickedButton == btnComputerHistory)
-        {
-            FetchData("computerHistory");
-        }
-        else if (clickedButton == btnIntroProgramming)
-        {
-            FetchData("introProgramming");
-        }
-        else if (clickedButton == btnNumberSystem)
-        {
-            FetchData("numberSystem");
-        }
+        if (clickedButton == btnComputerHistory) FetchData("computerHistory");
+        else if (clickedButton == btnComputerElements) FetchData("computerElements");
+        else if (clickedButton == btnNumberSystem) FetchData("numberSystem");
+        else if (clickedButton == btnIntroProgramming) FetchData("introProgramming");
     }
 
     // Method to reset all buttons to inactive sprite
