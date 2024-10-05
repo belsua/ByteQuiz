@@ -9,6 +9,11 @@ public class Settings : MonoBehaviour
     public Image[] statBars, lockImages;
     public TMP_Text[] statTexts;
 
+    private void OnEnable()
+    {
+        UpdatePlayerInterface();
+    }
+
     void Start()
     {
         UpdatePlayerInterface();
@@ -33,8 +38,8 @@ public class Settings : MonoBehaviour
 
         for (int i = 0; i < playerStats.Length; i++)
         {
-            statBars[i].fillAmount = playerStats[i];
-            statTexts[i].text = ((int)(playerStats[i] * 10000)).ToString();
+            statBars[i].fillAmount = playerStats[i] / 1000f;
+            statTexts[i].text = playerStats[i].ToString();
         }
     }
 

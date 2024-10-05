@@ -216,7 +216,7 @@ public class Runner : Minigame
         standingsPanel.SetActive(true);
         yield return new WaitForSeconds(time);
         standingsPanel.SetActive(false);
-        SaveManager.player.IncreaseStat(topic, 0.25f / CalculateTotalScore(answeredQuestions));
+        SaveManager.player.IncreaseStat(topic, CalculateTotalScore(answeredQuestions));
         settings.UpdatePlayerInterface();
         NotifyIncrease();
     }
@@ -280,7 +280,7 @@ public class Runner : Minigame
         return attempts switch
         {
             0 => 1.0f,// 0 attempts
-            1 => 0.57f,// 1 attempt
+            1 => 0.75f,// 1 attempt
             2 => 0.50f,// 2 attempts
             3 => 0.25f,// 3 attempts
             _ => 0.0f,// More than 3 attempts

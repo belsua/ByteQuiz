@@ -10,7 +10,7 @@ public class DebugManager : MonoBehaviour
         if (!SaveManager.player.stats.isIntroProgrammingUnlocked && topic == "ITP") cribManager.ShowMessage($"ITP is locked!");
         if (!SaveManager.player.stats.isNumberSystemUnlocked && topic == "NS") cribManager.ShowMessage($"NS is locked!");
 
-        SaveManager.player.IncreaseStat(topic, 0.10f);
+        SaveManager.player.IncreaseStat(topic, 100f);
         cribManager.UpdateButtons();
         settings.UpdatePlayerInterface();
     }
