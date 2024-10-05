@@ -154,7 +154,7 @@ public class Profile
     public Profile(int avatar, string name, string username, int age, string gender, string playerId)
     {
         if (playerId != null) this.playerId = playerId;
-        else playerId = Guid.NewGuid().ToString();
+        else this.playerId = Guid.NewGuid().ToString();
         this.avatar = avatar;
         this.name = name;
         this.username = username;
