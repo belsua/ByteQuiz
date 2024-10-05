@@ -1,143 +1,101 @@
-**Minigames Documentation**
-====================================================
+# Minigames Documentation
 
-**Abbreviations**
------------------
+---
 
-* `HOC` - History of Computing
-* `EOCS` - Elements of Computer Systems
-* `NS` - Number System
-* `ITP` - Introduction to Programming
+## Abbreviations
 
-**Commonly Shared Variables**
------------------------------
+| **Abbreviation** | **Full Form**                        |
+| ---------------- | ------------------------------------ |
+| **HOC**          | History of Computing                 |
+| **EOCS**         | Elements of Computer Systems         |
+| **NS**           | Number System                        |
+| **ITP**          | Introduction to Programming          |
 
-### correct
+---
 
-Aka "quiz points" or "score" for storing how many times the player answered correctly.
+## Commonly Shared Variables
 
-### score
+- **`correct`**: Stores how many times the player answered correctly.
+- **`score`**: Varies depending on the minigame's gameplay.
+- **`total`**: Total number of questions that will show, which varies depending on gameplay length.
+- **`topic points`**: The currently selected topic, which increases the player's stats (topic) at the end of the minigame.
 
-Aka "game points" minigame specific, varies depending to the minigame's gameplay.
+---
 
-### total
+## Minigames
 
-Total questions that will show, also minigame specific varies depending to gameplay length.
+### 1. Runner
 
-### topic points
+- **total**: Set to **10**.
 
-The currently selected topic which will increases the player stat (topic) at the end of the minigame.
+#### Gameplay Scoring
 
-**Runner**
-----------
+##### Logic
 
-### Values
+- **Correct Answer**: Increases `score` by **100** for answering correctly.
+- **Wrong Answer**: Decreases `score` by **20** for answering incorrectly.
 
-#### total
+##### Additional Points
 
-Currently set to 10.
+Awarded when reaching the finish line:
 
-### Scoring
--------------
+| **Position** | **Points** |
+| ------------ | ---------- |
+| 1st          | 100        |
+| 2nd          | 75         |
+| 3rd          | 50         |
+| 4th          | 25         |
 
-### Gameplay Scoring
+---
 
-#### Correct Answer
+#### Stat Scoring
 
-Increases `score` by 100 for answering correctly.
+##### Computation
 
-#### Wrong Answer
+| **Attempts**       | **Points Awarded** |
+| ------------------ | ------------------ |
+| 0 attempts         | 1 point            |
+| 1 attempt          | 0.75 points        |
+| 2 attempts         | 0.50 points        |
+| 3 attempts         | 0.25 points        |
+| More than 3 attempts | 0 points          |
 
-Decreases `score` by 20 for answering incorrectly.
+##### Note
 
-#### Additional Points
+- **Max Score**: The maximum score a player can gain is **10 topic points** (excluding additional points).
+- **Stat Increase**: At the end, the stat increase is based on the player's `topic points`.
 
-Gives additional points when reached the finish line:
+---
 
-* 100 points for 1st.
-* 75 points for 2nd.
-* 50 points for 3rd.
-* 25 points for 4th.
+### 2. Trivia Showdown
 
-### Stat Scoring
-----------------
+- **total**: Set to **15**.
 
-#### Computation
+#### Gameplay Scoring
 
-Computes the score per item depending on the answer attempt and will be totaled at the end of the minigame:
+- **Correct Answer**: Increases both `score` and `correct` by 1.
+- **Max Score**: The maximum score a player can gain is **15 quiz points**.
+- **Stat Increase**: At the end, stat increase is based on the player's `topic points`.
 
-* 0 attempts give 1 points.
-* 1 attempt gives 0.75 points.
-* 2 attempts give 0.50 points.
-* 3 attempts give 0.25 points.
-* More than 3 attempts give 0 points.
+---
 
-#### Max Score
+### 3. Territory Conquest
 
-Max score can a player can gain is `10 quiz points` or `0.025 topic points`.
+- **total**: Depends on how many tiles the player interacted with, computed at the end of the minigame.
+- **Correct Answer**: Increases `correct` by 1, then occupies the tile.
+- **Wrong Answer**: Only records the answer attempt.
+- **Tile Update**: If another player answers correctly, the player's score is decreased by 1, and the other player's score is increased by 1, updating the tile's ownership.
+- **Stat Increase**: At the end, computation for stat increase will base on the player's topic points.
 
-#### Stat Increase
+---
 
-At the end - computation for stat increase `(0.25 / quiz points)`.
+## Unlocking New Topics
 
-**Trivia Showdown**
--------------------
+| **Topic**   | **Requirement**                    |
+| ----------- | ---------------------------------- |
+| **NS**      | Requires `100 HOC topic points`    |
+| **ITP**     | Requires `150 EOCS topic points`   |
 
-### Variables
--------------
+- The score ceiling will depends on the `total` of each minigame.
+---
 
-#### total
-
-Currently set to 15.
-
-### Scoring
--------------
-
-#### Correct Answer
-
-Increases both `score` and `correct` by 1.
-
-#### Max Score
-
-Max score can a player can gain is `15 quiz points` or `0.025 topic points`.
-
-#### Stat Increase
-
-At the end - computation for stat increase `(quiz points / 600f)`.
-
-**Territory Conquest**
-----------------------
-
-### Values
-------------
-
-#### total
-
-Depends how many tiles the player interacted with, computes at the end of the minigame.
-
-### Scoring
--------------
-
-#### Correct Answer
-
-Increases `correct` by 1 then occupies the tile.
-
-#### Wrong Answer
-
-Only records the answer attempt.
-
-#### Tile Update
-
-When other player answers correctly the player occupied tile it decrease the player's score by 1 and other player's score by 1 and updates the tile.
-
-#### Stat Increase
-
-At the end - computation for stat increase `(correct / 600f)`.
-
-**Notes**
--------
-
-* To unlock NS, it needs `0.2 HOC topic points`.
-* To unlock ITP, it needs `0.3 EOCS topic points`.
-* Standard `topic points` ceiling is `0.025`.
-	+ If the player continuously gains `0.025 topic points` per minigame it will require 8 games to unlock NS and 12 games for ITP.
