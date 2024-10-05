@@ -218,6 +218,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
+    [ContextMenu("Reset Current Player")]
+    public void ResetPlayer()
+    {
+        player = new Player(player.profile.avatar, player.profile.name, player.profile.username, player.profile.age, player.profile.gender, player.profile.playerId);
+        SavePlayer(player.profile.playerId);
+    }
 
     #endregion
 
