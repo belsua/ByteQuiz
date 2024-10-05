@@ -221,7 +221,7 @@ public class TriviaShowdown : Minigame
         quizPanel.SetActive(false);
 
         // Notify Increase
-        SaveManager.player.IncreaseStat(topic, score / 600f);
+        SaveManager.player.IncreaseStat(topic, score);
         NotifyIncrease();
     }
 

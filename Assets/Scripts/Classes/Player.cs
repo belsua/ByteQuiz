@@ -24,9 +24,9 @@ public class Player
 
     public event Action<string> OnStatUnlocked;
 
-    public Player(int avatar, string name, string username, int age, string gender)
+    public Player(int avatar, string name, string username, int age, string gender, string playerId = null)
     {
-        profile = new(avatar, name, username, age, gender);
+        profile = new(avatar, name, username, age, gender, playerId);
         stats = new Stats();
         activities = new();
     }
@@ -117,7 +117,7 @@ public class Player
 
     public void CheckAndUnlockStats()
     {
-        if (stats.computerHistory >= 0.2f)
+        if (stats.computerHistory >= 100f)
         {
             if (!stats.isNumberSystemUnlocked)
             {
@@ -127,7 +127,7 @@ public class Player
             }
         }
 
-        if (stats.computerElements >= 0.3f)
+        if (stats.computerElements >= 150f)
         {
             if (!stats.isIntroProgrammingUnlocked)
             {
@@ -151,9 +151,10 @@ public class Profile
     public int age;
     public string gender;
 
-    public Profile(int avatar, string name, string username, int age, string gender)
+    public Profile(int avatar, string name, string username, int age, string gender, string playerId)
     {
-        playerId = Guid.NewGuid().ToString();
+        if (playerId != null) this.playerId = playerId;
+        else this.playerId = Guid.NewGuid().ToString();
         this.avatar = avatar;
         this.name = name;
         this.username = username;
@@ -168,8 +169,8 @@ public class Stats
     public bool needWelcome = true;
     public bool isNumberSystemUnlocked = false;
     public bool isIntroProgrammingUnlocked = false;
-    public float computerHistory;
-    public float computerElements;
-    public float numberSystem;
-    public float introProgramming;
+    public float computerHistory = 0f;
+    public float computerElements = 0f;
+    public float numberSystem = 0f;
+    public float introProgramming = 0f;
 }

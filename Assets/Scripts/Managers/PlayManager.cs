@@ -194,7 +194,7 @@ public class PlayManager : MonoBehaviour
             answeredQuestions
         );
 
-        SaveManager.player.IncreaseStat(GetTopic(topicIndex), score / 300f);
+        SaveManager.player.IncreaseStat(GetTopic(topicIndex), score);
         questionText.text = "Quiz Over! Your score: " + score;
         settings.UpdatePlayerInterface();
         cribManager.UpdateButtons();
