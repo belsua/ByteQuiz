@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayManager : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class PlayManager : MonoBehaviour
     [Header("Question Database")]
     public QuestionDatabase[] questionDatabases; // Array of question databases for each topic
     public List<PlayQuestion> currentQuestions;
-    public TextMeshProUGUI questionText;
+    public TextMeshProUGUI questionText, progressText;
     public Image questionImage; //ADDED Add a reference to an Image component
     [Header("Game Loop")]
-    public int score;
+    public int score = 0;
     [Range(1, 50)]
     public int MaxQuestions = 30;
     [Header("Components")]
@@ -23,8 +24,11 @@ public class PlayManager : MonoBehaviour
     public AudioClip correctClip;
     public AudioClip wrongClip;
 
-    private int currentQuestionIndex;
-    private int topicIndex;
+
+    private int currentQuestionIndex = 0;
+    private int topicIndex = 0;
+    private Color correctColor = new Color32(0, 145, 0, 255);
+    private Color wrongColor = new Color32(145, 0, 0, 255);
     public Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
     private void Start()
@@ -53,9 +57,6 @@ public class PlayManager : MonoBehaviour
             currentQuestions = currentQuestions.GetRange(0, MaxQuestions);
         }
         //ADDED FOR QUIZ LIMIT
-
-        currentQuestionIndex = 0;
-        score = 0;
         LoadQuestion();
     }
 
@@ -74,6 +75,8 @@ public class PlayManager : MonoBehaviour
     {
         if (currentQuestionIndex < currentQuestions.Count)
         {
+            progressText.text = $"{GetTopic(topicIndex)}: {currentQuestionIndex + 1} / {MaxQuestions}";
+
             PlayQuestion question = currentQuestions[currentQuestionIndex];
             // Debug.Log("Loading question: " + question.questionText);
             // Debug.Log($"Loading question: '{question.questionText}' with {question.answers.Length} answers.");
@@ -121,7 +124,7 @@ public class PlayManager : MonoBehaviour
 
         if (selectedAnswerIndex == question.correctAnswerIndex)
         {
-            cribManager.QuickShowMessage("Correct!");
+            cribManager.QuickShowMessage("Correct!", correctColor);
             AudioManager.PlaySound(correctClip);
             score++;
 
@@ -146,7 +149,7 @@ public class PlayManager : MonoBehaviour
         }
         else
         {
-            cribManager.QuickShowMessage("Wrong!");
+            cribManager.QuickShowMessage("Wrong!", wrongColor);
             AudioManager.PlaySound(wrongClip);
 
             if (currentQuestions[currentQuestionIndex].questionText == "")
