@@ -9,4 +9,9 @@ public class SceneChanger : MonoBehaviour
         if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
         SceneManager.LoadScene(index);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

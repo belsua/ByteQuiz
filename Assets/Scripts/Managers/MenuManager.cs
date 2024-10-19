@@ -87,36 +87,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region Scene Management
-
-    public void ChangeScene(int i) 
-    {
-        StartCoroutine(DelaySceneChange(i));
-    }
-
-    IEnumerator DelaySceneChange(int i)
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(i);
-    }
-
-    public void Quit()
-    {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        StartCoroutine(DelayQuit());
-        #endif
-    }
-
-    IEnumerator DelayQuit()
-    {
-        yield return new WaitForSeconds(1f);
-        Application.Quit();
-    }
-
-    #endregion
-
     #region Photon Callbacks
 
     public void LeaveRoom()
