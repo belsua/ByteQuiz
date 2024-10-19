@@ -14,7 +14,7 @@ public class PlayManager : MonoBehaviour
     public TextMeshProUGUI questionText, progressText;
     public Image questionImage; //ADDED Add a reference to an Image component
     [Header("Game Loop")]
-    public int score = 0;
+    public int score;
     [Range(1, 50)]
     public int MaxQuestions = 30;
     [Header("Components")]
@@ -25,8 +25,8 @@ public class PlayManager : MonoBehaviour
     public AudioClip wrongClip;
 
 
-    private int currentQuestionIndex = 0;
-    private int topicIndex = 0;
+    private int currentQuestionIndex;
+    private int topicIndex;
     private Color correctColor = new Color32(0, 145, 0, 255);
     private Color wrongColor = new Color32(145, 0, 0, 255);
     public Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
@@ -57,6 +57,8 @@ public class PlayManager : MonoBehaviour
             currentQuestions = currentQuestions.GetRange(0, MaxQuestions);
         }
         //ADDED FOR QUIZ LIMIT
+        currentQuestionIndex = 0;
+        score = 0;
         LoadQuestion();
     }
 
@@ -76,6 +78,7 @@ public class PlayManager : MonoBehaviour
         if (currentQuestionIndex < currentQuestions.Count)
         {
             progressText.text = $"{GetTopic(topicIndex)}: {currentQuestionIndex + 1} / {MaxQuestions}";
+            foreach (var button in answerButtons) button.gameObject.SetActive(false);
 
             PlayQuestion question = currentQuestions[currentQuestionIndex];
             // Debug.Log("Loading question: " + question.questionText);
