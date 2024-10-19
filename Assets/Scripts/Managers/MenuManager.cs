@@ -119,12 +119,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     #region Photon Callbacks
 
-    public void DisconnectServer(int i)
-    {
-        if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
-        StartCoroutine(DelaySceneChange(i));
-    }
-
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom(false);
