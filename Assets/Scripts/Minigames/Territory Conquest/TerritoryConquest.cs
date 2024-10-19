@@ -16,7 +16,7 @@ public class TerritoryConquest : Minigame
     public TileClaim tileClaim;
     public Vector2[] spawnPoints = new Vector2[4];
     public TMP_Text timeText, markText, scoreText;
-    public int timer = 60;
+    public int timer = 300; // in seconds
 
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
     Dictionary<string, int> playerData = new(); // <player, score>
