@@ -47,7 +47,10 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
     [SerializeField] [Range(1, 10)] int messageDelay = 3;
     [SerializeField] protected int total = 10;
     [SerializeField] protected int playerSpriteOrder = 1;
-    
+    [SerializeField] protected Color correctColor = new Color32(0, 145, 0, 255);
+    [SerializeField] protected Color wrongColor = new Color32(145, 0, 0, 255);
+
+
     [Header("Objects")]
     [SerializeField] protected GameObject[] options;
 
@@ -300,6 +303,8 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
     #endregion
 
+    #region Message Functions
+
     protected void NotifyIncrease()
     {
         string formattedTopic = topic switch
@@ -328,6 +333,7 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         while (messageQueue.Count > 0)
         {
             string message = messageQueue.Dequeue();
+            messageText.color = Color.black;
             messagePanel.GetComponentInChildren<TMP_Text>().text = message;
             AudioManager.PlaySound(messageClip);
             messagePanel.SetActive(true);
@@ -337,6 +343,23 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
 
         isCoroutineRunning = false;
     }
+
+    public void QuickShowMessage(string message, Color color)
+    {
+        StopAllCoroutines();
+        StartCoroutine(QuickShowMessageCoroutine(message, color));
+    }
+
+    IEnumerator QuickShowMessageCoroutine(string message, Color color)
+    {
+        messageText.color = color;
+        messageText.text = message;
+        messagePanel.SetActive(true);
+        yield return new WaitForSeconds(messageDelay);
+        messagePanel.SetActive(false);
+    }
+
+    #endregion
 
     protected IEnumerator LoadLobby(int time)
     {
