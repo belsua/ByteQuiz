@@ -19,6 +19,11 @@ public class CribManager : MonoBehaviour
     [Space]
     public Button[] numberSystemButtons;
     public Button[] introProgrammingButtons;
+    public GameObject[] NSBookshelves, ITPBookshelves;
+    public GameObject NSComputer, ITPComputer;
+    public GameObject NSBookhelvesExclamation, ITPBookshelvesExclamation;
+    public GameObject NSComputerExclamation, ITPComputerExclamation;
+    
     [Header("Debug")]
     public Button debugButton;
     public GameObject debugPanel;
@@ -55,17 +60,45 @@ public class CribManager : MonoBehaviour
         SaveManager.player.OnStatUnlocked += ShowMessage;
         messagePanel.SetActive(false);
 
-        UpdateButtons();
+        UpdateUnlockedObjects();
         backButton.onClick.AddListener(() => StopAllCoroutines());
     }
 
-    public void UpdateButtons()
+    public void UpdateUnlockedObjects()
     {
-        if (SaveManager.player.stats.isNumberSystemUnlocked) foreach (Button button in numberSystemButtons) button.interactable = true;
-        else foreach (Button button in numberSystemButtons) button.interactable = false;
-        
-        if (SaveManager.player.stats.isIntroProgrammingUnlocked) foreach (Button button in introProgrammingButtons) button.interactable = true;
-        else foreach (Button button in introProgrammingButtons) button.interactable = false;
+        if (SaveManager.player.stats.isNumberSystemUnlocked) 
+        { 
+            foreach (Button button in numberSystemButtons) button.interactable = true;
+            foreach (GameObject bookshelf in NSBookshelves) bookshelf.GetComponent<SpriteRenderer>().color = Color.white;
+            NSComputer.GetComponent<SpriteRenderer>().color = Color.white;
+            NSComputerExclamation.SetActive(true);
+            NSBookhelvesExclamation.SetActive(true);
+        }
+        else 
+        { 
+            foreach (Button button in numberSystemButtons) button.interactable = false; 
+            foreach (GameObject bookshelf in NSBookshelves) bookshelf.GetComponent<SpriteRenderer>().color = Color.gray;
+            NSComputer.GetComponent<SpriteRenderer>().color = Color.gray;
+            NSComputerExclamation.SetActive(false);
+            NSBookhelvesExclamation.SetActive(false);
+        }
+
+        if (SaveManager.player.stats.isIntroProgrammingUnlocked) 
+        { 
+            foreach (Button button in introProgrammingButtons) button.interactable = true;
+            foreach (GameObject bookshelf in ITPBookshelves) bookshelf.GetComponent<SpriteRenderer>().color = Color.white;
+            ITPComputer.GetComponent<SpriteRenderer>().color = Color.white;
+            ITPComputerExclamation.SetActive(true);
+            ITPBookshelvesExclamation.SetActive(true);
+        }
+        else  
+        { 
+            foreach (Button button in introProgrammingButtons) button.interactable = false; 
+            foreach (GameObject bookshelf in ITPBookshelves) bookshelf.GetComponent<SpriteRenderer>().color = Color.gray;
+            ITPComputer.GetComponent<SpriteRenderer>().color = Color.gray;
+            ITPComputerExclamation.SetActive(false);
+            ITPBookshelvesExclamation.SetActive(false);
+        }
     }
 
     public void ShowMessage(string message)

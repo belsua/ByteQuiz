@@ -11,7 +11,7 @@ public class DebugManager : MonoBehaviour
         if (!SaveManager.player.stats.isNumberSystemUnlocked && topic == "NS") cribManager.ShowMessage($"NS is locked!");
 
         SaveManager.player.IncreaseStat(topic, 100f);
-        cribManager.UpdateButtons();
+        cribManager.UpdateUnlockedObjects();
         settings.UpdatePlayerInterface();
     }
 }
