@@ -317,25 +317,36 @@ public abstract class Minigame : MonoBehaviourPunCallbacks, IMinigame
         };
 
         ShowMessage($"Your {formattedTopic} stat is increased!");
+        StartCoroutine(LoadLobby(time: returnTime)); // Return to lobby after the return time has passed
     }
 
     public void ShowMessage(string message)
     {
-        messageQueue.Enqueue(message);
-        if (!isCoroutineRunning) StartCoroutine(ShowMessageCoroutine());
-        StartCoroutine(LoadLobby(time: returnTime));
+        messageQueue.Enqueue(message); // Add message to queue
+        if (!isCoroutineRunning) StartCoroutine(ShowMessageCoroutine()); // Start coroutine if not running already (only one coroutine at a time) 
     }
 
-    IEnumerator ShowMessageCoroutine()
+    public void ShowMessage(string message, AudioClip clip)
+    {
+        messageQueue.Enqueue(message);
+        if (!isCoroutineRunning) StartCoroutine(ShowMessageCoroutine(clip));
+    }
+    
+
+    IEnumerator ShowMessageCoroutine(AudioClip clip = null)
     {
         isCoroutineRunning = true;
 
+        // Show message in message panel and play sound for each message in queue
         while (messageQueue.Count > 0)
         {
             string message = messageQueue.Dequeue();
             messageText.color = Color.black;
             messagePanel.GetComponentInChildren<TMP_Text>().text = message;
-            AudioManager.PlaySound(messageClip);
+
+            if (clip != null) AudioManager.PlaySound(clip);
+            else AudioManager.PlaySound(messageClip);
+
             messagePanel.SetActive(true);
             yield return new WaitForSeconds(messageDelay);
             messagePanel.SetActive(false);
