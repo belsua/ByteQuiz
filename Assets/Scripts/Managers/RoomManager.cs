@@ -66,6 +66,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         topicDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
+        roomDetails.GetComponent<SizeAnimate>().Open();
 
         if (PhotonNetwork.IsMasterClient) 
         {
@@ -79,8 +80,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         SpawnPlayers();
-        UpdatePlayerInterface();
-        UpdateRoomDetails();
+        UpdatePlayerInterface(); // Update player stats on the settings panel
+        UpdateRoomDetails(); // Update room details on the room details panel
 
         #if DEBUG
         debugGameDropdown.value = (int)debugGame;
@@ -193,8 +194,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
             startButton.interactable = false;
             topicDropdown.interactable = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
-            int num = Random.Range(0, minigames.Length);
-            photonView.RPC("SetSeedRPC", RpcTarget.All, num);
+            int num = Random.Range(0, minigames.Length); // The host generates a number from the minigames array
+            photonView.RPC("SetSeedRPC", RpcTarget.All, num); // The host sends the number to all clients to use for the minigame selection
             photonView.RPC("StartCountdown", RpcTarget.All);
         }
     }
@@ -285,8 +286,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private void UpdateRoomDetails() 
     {
-        roomDetails.GetComponent<SizeAnimate>().Open();
-
         playerCountText.gameObject.SetActive(true);
         hostText.gameObject.SetActive(true);
         roomStatusText.gameObject.SetActive(true);
