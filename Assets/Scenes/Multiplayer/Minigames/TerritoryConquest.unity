@@ -1392,6 +1392,8 @@ MonoBehaviour:
   messageDelay: 3
   total: 60
   playerSpriteOrder: 2
+  correctColor: {r: 0, g: 0.5686275, b: 0, a: 1}
+  wrongColor: {r: 0.5686275, g: 0, b: 0, a: 1}
   options:
   - {fileID: 969572558}
   - {fileID: 969572557}
