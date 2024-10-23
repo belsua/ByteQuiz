@@ -11,13 +11,22 @@ public class SaveEntry : MonoBehaviour
     public Player player;
     public Sprite[] checkSprites;
     public Button cloudButton;
-    GameObject deletePanel;
+    GameObject deletePanel, loadingPanel, errorPanel;
+    CanvasGroup loadingCanvasGroup;
+    SpriteRenderer loadingSpriteRenderer;
+    MenuManager menuManager;
     FadeManager fadeManager;
+
 
     private void Awake()
     {
+        menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
         deletePanel = GameObject.Find("DeletePanel");
         fadeManager = GetComponent<FadeManager>();
+        loadingPanel = menuManager.loadingPanel;
+        errorPanel = menuManager.errorPanel;
+        loadingCanvasGroup = menuManager.loadingCanvasGroup;
+        loadingSpriteRenderer = menuManager.loadingSpriteRenderer;
     }
 
     public virtual void SetCharacterData(Player player)
@@ -51,49 +60,110 @@ public class SaveEntry : MonoBehaviour
 
     public async void OnCloudButtonClick()
     {
-        await CloudSave();
+        if (!IsConnectedToInternet())
+        {
+            errorPanel.SetActive(true);
+            errorPanel.GetComponentInChildren<TMP_Text>().text = "Please check your internet connection and try again.";
+            return;
+        }
+
+        try
+        {
+            ShowLoadingPanel();
+            bool success = await CloudSave();
+
+            if (!success)
+            {
+                errorPanel.SetActive(true);
+                errorPanel.GetComponentInChildren<TMP_Text>().text = "Cloud save failed. Please try again.";
+                return;
+            }
+            else 
+            {
+                await Task.Delay(1000);
+            }
+        }
+        catch
+        {
+            errorPanel.SetActive(true);
+            errorPanel.GetComponentInChildren<TMP_Text>().text = $"An error occurred. Please try again.";
+        }
+        finally
+        {
+            HideLoadingPanel();
+        }
+
     }
 
-    public async Task CloudSave()
+    public bool IsConnectedToInternet()
+    {
+        return Application.internetReachability != NetworkReachability.NotReachable;
+    }
+
+    public async Task<bool> CloudSave()
     {
         Button[] allButtons = FindObjectsOfType<Button>();
 
-        if (cloudButton.spriteState.pressedSprite == checkSprites[1]) // unchecked
+        try
         {
-            PlayerPrefs.SetString("CloudPlayerId", player.profile.playerId);
-            await SaveManager.instance.SavePlayerToFirebase(player);
-
-            SpriteState spriteState = new()
+            if (cloudButton.spriteState.pressedSprite == checkSprites[1]) // unchecked
             {
-                highlightedSprite = null,
-                pressedSprite = checkSprites[3],
-                selectedSprite = null,
-                disabledSprite = checkSprites[4]
-            };
+                PlayerPrefs.SetString("CloudPlayerId", player.profile.playerId);
+                await SaveManager.instance.SavePlayerToFirebase(player);
 
-            cloudButton.GetComponent<Image>().sprite = checkSprites[2];
-            cloudButton.spriteState = spriteState;
+                SpriteState spriteState = new()
+                {
+                    highlightedSprite = null,
+                    pressedSprite = checkSprites[3],
+                    selectedSprite = null,
+                    disabledSprite = checkSprites[4]
+                };
 
-            foreach (Button btn in allButtons)
-                if (btn.gameObject.name == "CloudButton" && btn.gameObject != cloudButton.gameObject) btn.interactable = false;
-        } 
-        else // checked
+                cloudButton.GetComponent<Image>().sprite = checkSprites[2];
+                cloudButton.spriteState = spriteState;
+
+                foreach (Button btn in allButtons)
+                    if (btn.gameObject.name == "CloudButton" && btn.gameObject != cloudButton.gameObject) btn.interactable = false;
+            }
+            else // checked
+            {
+                await SaveManager.instance.DeletePlayerFromFirebase(player);
+                PlayerPrefs.DeleteKey("CloudPlayerId");
+
+                SpriteState spriteState = new()
+                {
+                    highlightedSprite = null,
+                    pressedSprite = checkSprites[1],
+                    selectedSprite = null,
+                    disabledSprite = checkSprites[4]
+                };
+
+                cloudButton.GetComponent<Image>().sprite = checkSprites[0];
+                cloudButton.spriteState = spriteState;
+
+                foreach (Button btn in allButtons) btn.interactable = true;
+            }
+
+            return true;
+        }
+        catch (System.Exception e)
         {
-            await SaveManager.instance.DeletePlayerFromFirebase(player);
-            PlayerPrefs.DeleteKey("CloudPlayerId");
-
-            SpriteState spriteState = new()
-            {
-                highlightedSprite = null,
-                pressedSprite = checkSprites[1],
-                selectedSprite = null,
-                disabledSprite = checkSprites[4]
-            };
-
-            cloudButton.GetComponent<Image>().sprite = checkSprites[0];
-            cloudButton.spriteState = spriteState;
-
-            foreach (Button btn in allButtons) btn.interactable = true;
+            Debug.LogException(e);
+            return false;
         }
     }
+
+    private void ShowLoadingPanel()
+    {
+        loadingPanel.SetActive(true);
+        LeanTween.alphaCanvas(loadingCanvasGroup, 1, 0).setEase(LeanTweenType.easeInOutQuad);
+        LeanTween.color(loadingSpriteRenderer.gameObject, Color.white, 0).setEase(LeanTweenType.easeInOutQuad);
+    }
+
+    public void HideLoadingPanel()
+    {
+        LeanTween.alphaCanvas(loadingCanvasGroup, 0, 1).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => loadingPanel.SetActive(false));
+        LeanTween.color(loadingSpriteRenderer.gameObject, new Color(1, 1, 1, 0), 1).setEase(LeanTweenType.easeInOutQuad);
+    }
+
 }
