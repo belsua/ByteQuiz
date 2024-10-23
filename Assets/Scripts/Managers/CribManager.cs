@@ -103,7 +103,7 @@ public class CribManager : MonoBehaviour
 
     public void ShowMessage(string message)
     {
-        StopCoroutine(QuickShowMessageCoroutine(""));
+        StopCoroutine(QuickShowMessageCoroutine("", Color.black));
         messageQueue.Enqueue(message);
         if (!isCoroutineRunning)  StartCoroutine(ShowMessageCoroutine());
     }
@@ -114,6 +114,7 @@ public class CribManager : MonoBehaviour
         {
             isCoroutineRunning = true;
             string message = messageQueue.Dequeue();
+            messageText.color = Color.black;
             messageText.text = message;
             AudioManager.PlaySound(messageSound);
             messagePanel.SetActive(true);
@@ -123,14 +124,16 @@ public class CribManager : MonoBehaviour
         }
     }
 
-    public void QuickShowMessage(string message)
+    // For single player quiz
+    public void QuickShowMessage(string message, Color color)
     {
         StopAllCoroutines();
-        StartCoroutine(QuickShowMessageCoroutine(message));
+        StartCoroutine(QuickShowMessageCoroutine(message, color));
     }
 
-    IEnumerator QuickShowMessageCoroutine(string message)
+    IEnumerator QuickShowMessageCoroutine(string message, Color color)
     {
+        messageText.color = color;
         messageText.text = message;
         messagePanel.SetActive(true);
         yield return new WaitForSeconds(messageDelay);
