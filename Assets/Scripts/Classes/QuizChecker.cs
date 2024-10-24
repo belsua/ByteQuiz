@@ -44,7 +44,11 @@ public class QuizChecker : MonoBehaviour
 
     private void CheckActivation()
     {
-        if (collided) OpenQuizUI(topicIndex);
+        if (collided)
+        { 
+            AudioManager.PlaySound(Resources.Load<AudioClip>("Audio/Sound/computer-beep"));
+            OpenQuizUI(topicIndex); 
+        }
     }
 
     private void OpenQuizUI(int topicIndex)

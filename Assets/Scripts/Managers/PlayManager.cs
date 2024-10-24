@@ -203,7 +203,7 @@ public class PlayManager : MonoBehaviour
         SaveManager.player.IncreaseStat(GetTopic(topicIndex), score);
         questionText.text = "Quiz Over! Your score: " + score;
         settings.UpdatePlayerInterface();
-        cribManager.UpdateButtons();
+        cribManager.UpdateUnlockedObjects();
         cribManager.ShowMessage($"Your {GetTopic(topicIndex)} stat increased!");
         cribManager.MessageCloseCountdown();
 
