@@ -13,12 +13,13 @@ public class SizeAnimate : MonoBehaviour
 
     public void Open()
     {
+        if (gameObject.activeSelf == false) gameObject.SetActive(true);
         transform.LeanScale(Vector2.one, speed).setEaseOutCubic();
     }
 
     public void Close()
     {
-        transform.LeanScale(Vector2.zero, speed).setEaseOutCubic();
+        transform.LeanScale(Vector2.zero, speed).setEaseOutCubic().setOnComplete(() => gameObject.SetActive(false));
     }
 
     public void Toggle()

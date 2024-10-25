@@ -11,9 +11,7 @@ public class SaveEntry : MonoBehaviour
     public Player player;
     public Sprite[] checkSprites;
     public Button cloudButton;
-    GameObject deletePanel, loadingPanel, errorPanel;
-    CanvasGroup loadingCanvasGroup;
-    SpriteRenderer loadingSpriteRenderer;
+    GameObject deletePanel, errorPanel;
     MenuManager menuManager;
     FadeManager fadeManager;
 
@@ -21,12 +19,9 @@ public class SaveEntry : MonoBehaviour
     private void Awake()
     {
         menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
-        deletePanel = GameObject.Find("DeletePanel");
+        deletePanel = menuManager.deletePanel;
         fadeManager = GetComponent<FadeManager>();
-        loadingPanel = menuManager.loadingPanel;
         errorPanel = menuManager.errorPanel;
-        loadingCanvasGroup = menuManager.loadingCanvasGroup;
-        loadingSpriteRenderer = menuManager.loadingSpriteRenderer;
     }
 
     public virtual void SetCharacterData(Player player)
@@ -53,8 +48,9 @@ public class SaveEntry : MonoBehaviour
         Debug.Log($"Delete Button Clicked with {player.profile.playerId}");
         SaveManager.selectedEntry = gameObject;
         SaveManager.player = player;
+
+        deletePanel.SetActive(true);
         deletePanel.transform.position = new Vector3 (0, 0, 0);
-        deletePanel.GetComponent<Canvas>().sortingOrder = 6;
         deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Delete {player.profile.name}?";
     }
 
@@ -69,13 +65,12 @@ public class SaveEntry : MonoBehaviour
 
         try
         {
-            ShowLoadingPanel();
+            menuManager.ShowLoadingPanel();
             bool success = await CloudSave();
 
             if (!success)
             {
-                errorPanel.SetActive(true);
-                errorPanel.GetComponentInChildren<TMP_Text>().text = "Cloud save failed. Please try again.";
+                menuManager.ShowErrorPanel("Failed to save. Please try again.");
                 return;
             }
             else 
@@ -85,12 +80,11 @@ public class SaveEntry : MonoBehaviour
         }
         catch
         {
-            errorPanel.SetActive(true);
-            errorPanel.GetComponentInChildren<TMP_Text>().text = $"An error occurred. Please try again.";
+            menuManager.ShowErrorPanel("An error occurred. Please try again.");
         }
         finally
         {
-            HideLoadingPanel();
+            menuManager.HideLoadingPanel();
         }
 
     }
@@ -152,18 +146,4 @@ public class SaveEntry : MonoBehaviour
             return false;
         }
     }
-
-    private void ShowLoadingPanel()
-    {
-        loadingPanel.SetActive(true);
-        LeanTween.alphaCanvas(loadingCanvasGroup, 1, 0).setEase(LeanTweenType.easeInOutQuad);
-        LeanTween.color(loadingSpriteRenderer.gameObject, Color.white, 0).setEase(LeanTweenType.easeInOutQuad);
-    }
-
-    public void HideLoadingPanel()
-    {
-        LeanTween.alphaCanvas(loadingCanvasGroup, 0, 1).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => loadingPanel.SetActive(false));
-        LeanTween.color(loadingSpriteRenderer.gameObject, new Color(1, 1, 1, 0), 1).setEase(LeanTweenType.easeInOutQuad);
-    }
-
 }
