@@ -10999,7 +10999,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1325772943}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: LeaveRoom
         m_Mode: 1
         m_Arguments:
@@ -11057,20 +11057,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325772938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca6dbddbef42854793d1f615297d5e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cf00e21609983943866907ea5334d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  saveEntryPrefab: {fileID: 0}
-  scrollContent: {fileID: 0}
-  exitPanel: {fileID: 0}
-  audioSource: {fileID: 0}
-  mutedSprite: {fileID: 0}
-  unmutedSprite: {fileID: 0}
-  buttonImage: {fileID: 0}
-  debugButton: {fileID: 0}
-  debugSprites: []
-  isDebugEnabled: 0
 --- !u!1 &1365771271
 GameObject:
   m_ObjectHideFlags: 0

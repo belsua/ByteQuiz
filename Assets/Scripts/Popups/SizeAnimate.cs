@@ -8,6 +8,7 @@ public class SizeAnimate : MonoBehaviour
 
     void Awake()
     {
+        if (gameObject.activeSelf == false) gameObject.SetActive(true);
         transform.localScale = Vector2.zero;
     }
 
@@ -18,7 +19,7 @@ public class SizeAnimate : MonoBehaviour
 
     public void Close()
     {
-        transform.LeanScale(Vector2.zero, speed).setEaseOutCubic();
+        transform.LeanScale(Vector2.zero, speed).setEaseOutCubic().setOnComplete(() => gameObject.SetActive(false));
     }
 
     public void Toggle()
