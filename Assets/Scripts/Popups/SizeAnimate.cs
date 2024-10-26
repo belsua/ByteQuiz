@@ -14,6 +14,7 @@ public class SizeAnimate : MonoBehaviour
 
     public void Open()
     {
+        if (gameObject.activeSelf == false) gameObject.SetActive(true);
         transform.LeanScale(Vector2.one, speed).setEaseOutCubic();
     }
 
