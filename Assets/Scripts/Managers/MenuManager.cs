@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
-    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel;
+    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, loadingPanel, errorPanel;
+    public CanvasGroup loadingCanvasGroup;
+    public SpriteRenderer loadingSpriteRenderer;
 
     [Header("Audio Settings")]
     public AudioSource audioSource;
@@ -43,6 +45,9 @@ public class MenuManager : MonoBehaviourPunCallbacks
             bool isMuted = PlayerPrefs.GetInt(MuteKey, 0) == 1;
             SetAudioState(isMuted);
         }
+
+        loadingCanvasGroup.alpha = 0;
+        loadingSpriteRenderer.color = new Color(255, 255, 255, 0);
     }
 
     private void Update()
