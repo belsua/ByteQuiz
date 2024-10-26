@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,8 +20,8 @@ public class Interactable : MonoBehaviour
             interactButton.interactable = true;
 
         // Save the collided object in the variable
-        runner.currentObject = gameObject;
-        Debug.Log($"Collided with: {gameObject.name}");
+            TeleportLocation.collidedObject = gameObject;
+            Debug.Log($"Collided with: {gameObject.name}");
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -27,7 +27,6 @@ public class Runner : Minigame
     private Dictionary<int, PlayerData> playerData = new Dictionary<int, PlayerData>();
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
-    public GameObject currentObject;
     int attempts = 0;
 
     protected override void Awake()
@@ -94,7 +93,7 @@ public class Runner : Minigame
         ChangeScoreList(PhotonNetwork.LocalPlayer.ActorNumber, score);
         ChangeUI_RPC();
         RemoveQuestion(currentQuestionIndex);
-        Destroy(currentObject);
+        Destroy(TeleportLocation.collidedObject);
         GenerateQuestions();
         ToggleQuiz(false);
     }
@@ -204,8 +203,10 @@ public class Runner : Minigame
 
         standingsText.text = string.Empty;
 
+        var sortedPlayerData = playerData.OrderByDescending(x => x.Value.Score).ToList();
+
         int rank = 1;
-        foreach (var entry in playerData)
+        foreach (var entry in sortedPlayerData)
         {
             standingsText.text += $"{GetOrdinal(rank)}. {entry.Value.NickName} = {entry.Value.Score} pts\n";
             rank++;
