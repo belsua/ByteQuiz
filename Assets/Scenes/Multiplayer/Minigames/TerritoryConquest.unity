@@ -508,8 +508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -490, y: -109}
-  m_SizeDelta: {x: 565.55, y: 150}
+  m_AnchoredPosition: {x: -458.71, y: -109}
+  m_SizeDelta: {x: 628.12, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895079740
 MonoBehaviour:
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time left: 60'
+  m_text: 'Time left: 600'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
@@ -1352,17 +1352,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 6
   m_TargetDisplay: 0
---- !u!114 &1446241905 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7275915061149380927, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
-  m_PrefabInstance: {fileID: 2129831063}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca6dbddbef42854793d1f615297d5e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1452049443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1406,7 @@ MonoBehaviour:
   timeText: {fileID: 895079740}
   markText: {fileID: 1636723530}
   scoreText: {fileID: 1516545124}
-  timer: 60
+  timer: 300
 --- !u!4 &1452049445
 Transform:
   m_ObjectHideFlags: 0
@@ -1691,8 +1680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 550, y: -109}
-  m_SizeDelta: {x: 414, y: 150}
+  m_AnchoredPosition: {x: 536.76, y: -109}
+  m_SizeDelta: {x: 440.47, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516545124
 MonoBehaviour:
@@ -1714,7 +1703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tile: 10'
+  m_text: 'Score: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
@@ -1969,7 +1958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -109}
+  m_AnchoredPosition: {x: 81.5, y: -109}
   m_SizeDelta: {x: 523, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636723530
@@ -5107,7 +5096,7 @@ PrefabInstance:
     - target: {fileID: 6797814244601911243, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1446241905}
+      objectReference: {fileID: 0}
     - target: {fileID: 6797814244601911243, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisconnectServer

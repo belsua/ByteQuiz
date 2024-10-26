@@ -39,12 +39,12 @@ public class TerritoryConquest : Minigame
     public override void StartMinigame()
     {
         AudioSource.Play();
-
         score = 0;
+        scoreText.text = $"Score: {score}";
+
         ReceiveSelectedTopic();
         GenerateQuestions();
         StartCoroutine(StartTimerCoroutine());
-
         InitializePlayerData();
     }
 
