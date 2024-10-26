@@ -89,28 +89,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region Photon Callbacks
-
-    public void LeaveRoom()
+    void ResetObjectPositions()
     {
-        PhotonNetwork.LeaveRoom(false);
+        foreach (Transform child in canvas.transform)
+            if (child.gameObject.name != "MenuPanel" && child.gameObject.name != "DeletePanel")
+                child.gameObject.SetActive(false);
     }
-
-    public override void OnLeftRoom()
-    {
-        StopAllCoroutines();
-        PhotonNetwork.RemoveCallbackTarget(this);
-        PhotonNetwork.LoadLevel(2);
-    }
-
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        Debug.Log("Disconnected from Photon. Cause: " + cause.ToString());
-    }
-
-    #endregion
-
-    #region Context Menu Functions
 
     [ContextMenu("Populate Save List")]
     public void PopulateSaveList()

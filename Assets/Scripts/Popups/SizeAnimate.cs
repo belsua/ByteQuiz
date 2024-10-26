@@ -8,6 +8,7 @@ public class SizeAnimate : MonoBehaviour
 
     void Awake()
     {
+        if (gameObject.activeSelf == false) gameObject.SetActive(true);
         transform.localScale = Vector2.zero;
     }
 

@@ -38,7 +38,11 @@ public class BookshelfChecker : MonoBehaviour
 
     private void CheckActivation()
     {
-        if (collided) target.SetActive(true);
+        if (collided) 
+        {
+            AudioManager.PlaySound(Resources.Load<AudioClip>("Audio/Sound/pulling-book-from-bookshelf"));
+            target.SetActive(true); 
+        }
         // else target.SetActive(false);
         Debug.Log("Activated");
     }
