@@ -92,27 +92,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region Photon Callbacks
-
-    public void LeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom(false);
-    }
-
-    public override void OnLeftRoom()
-    {
-        StopAllCoroutines();
-        PhotonNetwork.RemoveCallbackTarget(this);
-        PhotonNetwork.LoadLevel(2);
-    }
-
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        Debug.Log("Disconnected from Photon. Cause: " + cause.ToString());
-    }
-
-    #endregion
-
     void ResetObjectPositions()
     {
         foreach (Transform child in canvas.transform)

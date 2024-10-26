@@ -18,12 +18,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        lobbyCanvas.SetActive(false);
-
-        if (!PhotonNetwork.IsConnected) PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            loadingCanvas.SetActive(true);
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            loadingCanvas.SetActive(false);
+            lobbyCanvas.GetComponentInChildren<SizeAnimate>().Open();
+        }
 
     }
-
+    
     #region Photon Callbacks
 
     public override void OnConnectedToMaster()
@@ -34,7 +41,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         loadingCanvas.SetActive(false);
-        lobbyCanvas.SetActive(true);
+        lobbyCanvas.GetComponentInChildren<SizeAnimate>().Open();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
