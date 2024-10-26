@@ -4,6 +4,7 @@ using UnityEngine;
 public class CreationManager : MonoBehaviour
 {
     [Header("UI")]
+    public GameObject creationPanel;
     public TMP_InputField nameField;
     public TMP_InputField usernameField;
     public TMP_InputField ageField;
@@ -75,6 +76,6 @@ public class CreationManager : MonoBehaviour
 
         // If all validations pass, create the player and transition to the new scene
         SaveManager.instance.CreatePlayer(currentAvatarIndex, nameField.text, usernameField.text, age, genderDropdown.value.ToString());
-        fadeManager.FadeToScene("Crib");
+        creationPanel.GetComponent<SizeAnimate>().Close(() => fadeManager.FadeToScene("Crib"));
     }
 }

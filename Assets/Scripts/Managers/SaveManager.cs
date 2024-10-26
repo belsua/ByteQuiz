@@ -100,50 +100,80 @@ public class SaveManager : MonoBehaviour
         await DeleteSave();
     }
 
-    public async Task DeleteSave()
+    public async Task<bool> DeleteSave()
     {
-        if (PlayerPrefs.GetString("CloudPlayerId") == player.profile.playerId) DeleteAllPrefs();
+        // Check if the current player matches the saved player ID
+        if (player == null || player.profile == null)
+        {
+            Debug.LogError("Player or player profile is null.");
+            return false;
+        }
+
+        if (PlayerPrefs.GetString("CloudPlayerId") == player.profile.playerId)
+        {
+            DeleteAllPrefs();
+            return true; // Early return after deleting all PlayerPrefs
+        }
 
         string filePath = Path.Combine(saveFolder, $"{player.profile.playerId}.json");
 
-        // Attempt to delete the local file with proper error handling
         try
         {
-            if (File.Exists(filePath))
+            bool fileDeleted = DeleteLocalFile(filePath);
+            if (fileDeleted)
             {
-                File.Delete(filePath);
-                Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from local storage.");
+                Debug.Log($"Player {player.profile.name} with ID {player.profile.playerId} deleted from local storage.");
             }
-            else
+
+            // Delete the player from Firebase
+            try
             {
-                Debug.LogWarning($"Player file at {filePath} not found, nothing to delete locally.");
+                await DeletePlayerFromClassroomFirebase(player.profile.playerId);
+                Debug.Log($"Player {player.profile.name} successfully deleted from classroom Firebase.");
+
+                await DeletePlayerFromFirebase(player);
+                Debug.Log($"Player {player.profile.name} successfully deleted from Firebase.");
             }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Failed to delete player {player.profile.name} from Firebase: {ex.Message}");
+                return false;
+            }
+
+            return true; // Successfully deleted
         }
         catch (IOException ex)
         {
-            Debug.LogError($"Error deleting local player file: {ex.Message}");
+            Debug.LogError($"Error deleting local player file for ID {player.profile.playerId}: {ex.Message}");
+            return false;
         }
-
-        // Destroy the UI element or game object associated with the entry
-        if (selectedEntry != null)
+        finally
         {
-            Destroy(selectedEntry);
-            Debug.Log("Selected entry destroyed.");
+            // Destroy the UI element or game object associated with the entry
+            if (selectedEntry != null)
+            {
+                Destroy(selectedEntry);
+                Debug.Log("Selected entry destroyed.");
+            }
+            else
+            {
+                Debug.LogWarning("No selected entry found to destroy.");
+            }
+        }
+    }
+
+    // Local file deletion method
+    private bool DeleteLocalFile(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+            return true;
         }
         else
         {
-            Debug.LogWarning("No selected entry found to destroy.");
-        }
-
-        // Delete the player from Firebase
-        try
-        {
-            await DeletePlayerFromFirebase(player);  // Await to ensure it completes
-            Debug.Log("Player successfully deleted from Firebase.");
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError($"Failed to delete player from Firebase: {ex.Message}");
+            Debug.LogWarning($"Player file at {filePath} not found, nothing to delete locally.");
+            return false;
         }
     }
 
@@ -161,6 +191,25 @@ public class SaveManager : MonoBehaviour
             await database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
 
             Debug.Log("Player data saved successfully.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to save player data: {ex.Message}");
+        }
+    }
+
+    public async Task SavePlayerToClassroomFirebase(string classroomID, Player player)
+    {
+        try
+        {
+            string json = JsonConvert.SerializeObject(player);
+
+            await database.Child("classrooms").Child(classroomID).Child("players").Child(player.profile.playerId).SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted) Debug.Log("Player added to classroom successfully.");
+                else Debug.LogError("Failed to add player to classroom: " + task.Exception);
+            });
+
         }
         catch (System.Exception ex)
         {
@@ -209,6 +258,22 @@ public class SaveManager : MonoBehaviour
         {
             // Handle errors
             Debug.LogError($"Failed to delete player {player.profile.name} with id {player.profile.playerId} from Firebase. Error: {ex.Message}");
+        }
+    }
+
+    public async Task DeletePlayerFromClassroomFirebase(string classroomID)
+    {
+        try
+        {
+            await database.Child("classrooms").Child(classroomID).Child("players").Child(PlayerPrefs.GetString("CloudPlayerId")).RemoveValueAsync().ContinueWith(task =>
+            {
+                if (task.IsCompleted) Debug.Log("Player deleted from classroom successfully.");
+                else Debug.LogError("Failed to delete player from classroom: " + task.Exception);
+            });
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to delete player from classroom: {ex.Message}");
         }
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Backdrop
   - Audio
   - Wall
+  - Save
   layers:
   - Default
   - TransparentFX

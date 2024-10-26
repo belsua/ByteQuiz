@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class SaveEntry : MonoBehaviour
 {
@@ -11,10 +13,10 @@ public class SaveEntry : MonoBehaviour
     public Player player;
     public Sprite[] checkSprites;
     public Button cloudButton;
-    GameObject deletePanel, errorPanel;
+    GameObject deletePanel, errorPanel, savePanel;
     MenuManager menuManager;
     FadeManager fadeManager;
-
+    ClassroomManager classroomManager;
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class SaveEntry : MonoBehaviour
         deletePanel = menuManager.deletePanel;
         fadeManager = GetComponent<FadeManager>();
         errorPanel = menuManager.errorPanel;
+        savePanel = GameObject.Find("SavePanel");
+        classroomManager = GameObject.Find("ClassroomManager").GetComponent<ClassroomManager>();
     }
 
     public virtual void SetCharacterData(Player player)
@@ -39,8 +43,8 @@ public class SaveEntry : MonoBehaviour
     private IEnumerator TriggerButtonClick()
     {
         yield return new WaitForSeconds(1);
-        if (SaveManager.multiplayer) SceneManager.LoadScene(2);
-        else fadeManager.FadeToScene("Crib");
+        if (SaveManager.multiplayer) savePanel.GetComponent<SizeAnimate>().Close(() => SceneManager.LoadScene(2));
+        else savePanel.GetComponent<SizeAnimate>().Close(() => fadeManager.FadeToScene("Crib"));
     }
 
     public void OnDeleteButtonClick() 
@@ -50,7 +54,7 @@ public class SaveEntry : MonoBehaviour
         SaveManager.player = player;
 
         deletePanel.SetActive(true);
-        deletePanel.transform.position = new Vector3 (0, 0, 0);
+        deletePanel.transform.position = new Vector3(0, 0, 0);
         deletePanel.GetComponentInChildren<TextMeshProUGUI>().text = $"Delete {player.profile.name}?";
     }
 
@@ -84,6 +88,8 @@ public class SaveEntry : MonoBehaviour
         }
         finally
         {
+            classroomManager.UpdateClassroomInterface();
+            menuManager.PopulateSaveList();
             menuManager.HideLoadingPanel();
         }
 
@@ -102,8 +108,10 @@ public class SaveEntry : MonoBehaviour
         {
             if (cloudButton.spriteState.pressedSprite == checkSprites[1]) // unchecked
             {
+                if (PlayerPrefs.HasKey("ClassroomID")) await SaveManager.instance.SavePlayerToClassroomFirebase(PlayerPrefs.GetString("ClassroomID"), player);
+                else await SaveManager.instance.SavePlayerToFirebase(player);
+
                 PlayerPrefs.SetString("CloudPlayerId", player.profile.playerId);
-                await SaveManager.instance.SavePlayerToFirebase(player);
 
                 SpriteState spriteState = new()
                 {
@@ -116,12 +124,14 @@ public class SaveEntry : MonoBehaviour
                 cloudButton.GetComponent<Image>().sprite = checkSprites[2];
                 cloudButton.spriteState = spriteState;
 
-                foreach (Button btn in allButtons)
-                    if (btn.gameObject.name == "CloudButton" && btn.gameObject != cloudButton.gameObject) btn.interactable = false;
-            }
+                    foreach (Button btn in allButtons)
+                        if (btn.gameObject.name == "CloudButton" && btn.gameObject != cloudButton.gameObject) btn.interactable = false;
+                }
             else // checked
             {
-                await SaveManager.instance.DeletePlayerFromFirebase(player);
+                if (PlayerPrefs.HasKey("ClassroomID")) await SaveManager.instance.DeletePlayerFromClassroomFirebase(PlayerPrefs.GetString("ClassroomID"));
+                else await SaveManager.instance.DeletePlayerFromFirebase(player);
+
                 PlayerPrefs.DeleteKey("CloudPlayerId");
 
                 SpriteState spriteState = new()
@@ -135,8 +145,8 @@ public class SaveEntry : MonoBehaviour
                 cloudButton.GetComponent<Image>().sprite = checkSprites[0];
                 cloudButton.spriteState = spriteState;
 
-                foreach (Button btn in allButtons) btn.interactable = true;
-            }
+                    foreach (Button btn in allButtons) btn.interactable = true;
+                }
 
             return true;
         }

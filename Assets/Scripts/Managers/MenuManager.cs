@@ -9,7 +9,7 @@ using TMPro;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
-    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, deletePanel, loadingPanel, errorPanel;
+    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, deletePanel, loadingPanel, errorPanel, classroomPanel;
     public CanvasGroup loadingCanvasGroup;
     public SpriteRenderer loadingSpriteRenderer;
 
@@ -89,13 +89,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    void ResetObjectPositions()
-    {
-        foreach (Transform child in canvas.transform)
-            if (child.gameObject.name != "MenuPanel" && child.gameObject.name != "DeletePanel")
-                child.gameObject.SetActive(false);
-    }
-
     [ContextMenu("Populate Save List")]
     public void PopulateSaveList()
     {
@@ -107,6 +100,9 @@ public class MenuManager : MonoBehaviourPunCallbacks
             GameObject entry = Instantiate(saveEntryPrefab, scrollContent.transform);
             SaveEntry saveEntry = entry.GetComponent<SaveEntry>();
             saveEntry.SetCharacterData(player);
+
+            if (classroomPanel.activeInHierarchy) entry.GetComponent<Button>().interactable = false; // disable save button in classroom panel>
+            else entry.GetComponent<Button>().interactable = true;
 
             Button cloudButton = entry.transform.Find("Right/CloudButton").GetComponent<Button>();
 
@@ -137,8 +133,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    #endregion
 
     #region Loading Panel Functions
 

@@ -23,6 +23,11 @@ public class SizeAnimate : MonoBehaviour
         transform.LeanScale(Vector2.zero, speed).setEaseOutCubic().setOnComplete(() => gameObject.SetActive(false));
     }
 
+    public void Close(System.Action onComplete = null)
+    {
+        transform.LeanScale(Vector2.zero, speed).setEaseOutCubic().setOnComplete(onComplete is not null ? onComplete : () => gameObject.SetActive(false));
+    }
+
     public void Toggle()
     {
         if ((Vector2)transform.localScale == Vector2.zero) Open();
