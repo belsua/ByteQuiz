@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &118756553 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7275915061149380927, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
-  m_PrefabInstance: {fileID: 1244710945}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca6dbddbef42854793d1f615297d5e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &146883043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1609,8 @@ MonoBehaviour:
   messageDelay: 3
   total: 15
   playerSpriteOrder: 1
+  correctColor: {r: 0, g: 0.5686275, b: 0, a: 1}
+  wrongColor: {r: 0.5686275, g: 0, b: 0, a: 1}
   options:
   - {fileID: 415163514}
   - {fileID: 1357841307}
@@ -2385,11 +2376,11 @@ PrefabInstance:
     - target: {fileID: 6797814244601911243, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 118756553}
+      objectReference: {fileID: 0}
     - target: {fileID: 6797814244601911243, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 118756553}
+      objectReference: {fileID: 0}
     - target: {fileID: 6797814244601911243, guid: 52713b165e6c7e848b61ee6ae0dd0d66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayOneShot
@@ -4258,7 +4249,7 @@ GameObject:
   - component: {fileID: 1660710080}
   - component: {fileID: 1660710079}
   m_Layer: 5
-  m_Name: MarkText
+  m_Name: ProgressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4303,7 +4294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Correct!
+  m_text: 'EOCS: 15 / 15'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}
   m_sharedMaterial: {fileID: 8308349632333967231, guid: ee2c3088e11ab284a9d4c0a42c8e2231, type: 2}

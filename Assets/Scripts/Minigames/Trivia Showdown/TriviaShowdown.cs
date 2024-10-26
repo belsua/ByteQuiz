@@ -1,14 +1,11 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using TMPro;
 using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
-using Newtonsoft.Json;
-using System.IO;
 using System.Text.RegularExpressions;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
@@ -21,7 +18,7 @@ public class TriviaShowdown : Minigame
 
     [Range(1, 30)]
     [SerializeField] int timer = 20;
-    TMP_Text timerText, placeText, markText;
+    TMP_Text timerText, placeText;
 
     protected override void Awake()
     {
@@ -31,9 +28,6 @@ public class TriviaShowdown : Minigame
 
         placeText = GameObject.Find("PlaceText").GetComponent<TMP_Text>();
         placeText.text = string.Empty;
-
-        markText = GameObject.Find("MarkText").GetComponent<TMP_Text>();
-        markText.text = string.Empty;
     }
 
     protected override void Start()
@@ -74,6 +68,9 @@ public class TriviaShowdown : Minigame
 
     IEnumerator ShowQuestionCoroutine()
     {
+        if (GameObject.Find("ProgressText").TryGetComponent<TMP_Text>(out var progressText))
+            progressText.text = $"{topic}: {total - currentQuestionIndex} / {total}";
+
         // Continue quiz if still has questions left, else end game
         if (questionData.questions.Length == 0)
         {
@@ -82,7 +79,6 @@ public class TriviaShowdown : Minigame
             if (PhotonNetwork.IsMasterClient) StartCoroutine(EndGameCoroutine());
             yield break;
         }
-
         float time = timer;
         while (time >= 0)
         {
@@ -93,7 +89,6 @@ public class TriviaShowdown : Minigame
         }
 
         // Update game data
-        //Answers selectedAnswer;
         if (EventSystem.current.currentSelectedGameObject == null)
         {
             foreach (GameObject option in options)
@@ -124,20 +119,22 @@ public class TriviaShowdown : Minigame
         correct++;
         score = Mathf.Clamp(score + 1, 0, int.MaxValue);
 
-        if (questionData.questions[currentQuestionIndex].questionText == "") 
+        if (questionData.questions[currentQuestionIndex].questionText == "")
             answeredQuestions.Add(
-                $"Question {currentQuestionIndex + 1}", 
-                new QuestionData { 
-                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}", 
-                    correct = true 
+                $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
+                    correct = true
                 }
             );
-        else 
+        else
             answeredQuestions.Add(
-            $"Question {currentQuestionIndex + 1}", 
-                new QuestionData { 
-                    question = questionData.questions[currentQuestionIndex].questionText, 
-                    correct = true 
+            $"Question {currentQuestionIndex + 1}",
+                new QuestionData
+                {
+                    question = questionData.questions[currentQuestionIndex].questionText,
+                    correct = true
                 }
             );
 
@@ -146,8 +143,9 @@ public class TriviaShowdown : Minigame
         // Handle UI update
         AudioManager.PlaySound(correctClip);
         ChangeUI_RPC();
-        markText.text = "Correct!";
-        StartCoroutine(ClearMarkText());
+        QuickShowMessage("Correct!", correctColor);
+        //progressText.text = "Correct!";
+        //StartCoroutine(ClearMarkText());
     }
 
     public override void AnswerWrong()
@@ -175,8 +173,9 @@ public class TriviaShowdown : Minigame
         // Handle UI update
         AudioManager.PlaySound(wrongClip);
         ChangeUI_RPC();
-        markText.text = "Wrong!";
-        StartCoroutine(ClearMarkText());
+        QuickShowMessage("Wrong!", wrongColor);
+        //progressText.text = "Wrong!";
+        //StartCoroutine(ClearMarkText());
     }
 
     IEnumerator EndGameCoroutine()
@@ -243,12 +242,6 @@ public class TriviaShowdown : Minigame
     #endregion
 
     #region User Interface 
-
-    IEnumerator ClearMarkText()
-    {
-        yield return new WaitForSeconds(2.5f);
-        markText.text = string.Empty;
-    }
 
     public void ChangeUI_RPC()
     {

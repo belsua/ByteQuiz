@@ -2797,6 +2797,7 @@ GameObject:
   - component: {fileID: 489749378}
   - component: {fileID: 489749377}
   - component: {fileID: 489749376}
+  - component: {fileID: 489749379}
   m_Layer: 5
   m_Name: Yes Button
   m_TagString: Untagged
@@ -2868,8 +2869,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605688161}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 489749379}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -2918,6 +2919,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489749374}
   m_CullTransparentMesh: 1
+--- !u!114 &489749379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489749374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf00e21609983943866907ea5334d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &499366122
 GameObject:
   m_ObjectHideFlags: 0
