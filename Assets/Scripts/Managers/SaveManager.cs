@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 using Firebase.Database;
 using System.Collections;
 using System.Threading.Tasks;
+using Firebase;
+using Firebase.Auth;
+using Firebase.Extensions;
 
 /// <summary>
 /// Stores the player data at `public static Player player`
@@ -25,6 +28,8 @@ public class SaveManager : MonoBehaviour
     public static string filePath;
     public static string saveFolder;
     public DatabaseReference database;
+    public FirebaseAuth auth;
+    FirebaseUser user;
 
     public static bool multiplayer = false;
 
@@ -35,11 +40,40 @@ public class SaveManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        database = FirebaseDatabase.DefaultInstance.RootReference;
         saveFolder = Path.Combine(Application.persistentDataPath, "Saves");
 
         transform.SetParent(null, false);
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            if (task.Result == DependencyStatus.Available)
+            {
+                auth = FirebaseAuth.DefaultInstance;
+
+                auth.SignInAnonymouslyAsync().ContinueWith(task =>
+                    {
+                        if (task.IsCompleted && !task.IsFaulted)
+                        {
+                            user = task.Result.User;
+                            database = FirebaseDatabase.DefaultInstance.RootReference;
+                            Debug.Log($"User signed in successfully: {user.DisplayName} ({user.UserId})");
+                        }
+                        else
+                        {
+                            Debug.LogError(task.Exception);
+                        }
+                    }
+                );
+            }
+            else
+            {
+                Debug.LogError(task.Exception);
+            }
+        });
     }
 
     #endregion
