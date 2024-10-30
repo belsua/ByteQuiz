@@ -16,12 +16,13 @@ public class Interactable : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        PhotonView photonView = collision.gameObject.GetComponent<PhotonView>();  
+        if (collision.gameObject.CompareTag("Player") && photonView.IsMine)
+        {
             interactButton.interactable = true;
-
-        // Save the collided object in the variable
             TeleportLocation.collidedObject = gameObject;
-            Debug.Log($"Collided with: {gameObject.name}");
+            Debug.Log($"{photonView.Owner.NickName} ({photonView.ViewID}) collided with: {gameObject.name}");
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

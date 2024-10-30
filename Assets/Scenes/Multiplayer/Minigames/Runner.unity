@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 75136547}
   - component: {fileID: 75136548}
   m_Layer: 0
-  m_Name: Alex
+  m_Name: Obstacle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10109,7 +10109,7 @@ GameObject:
   - component: {fileID: 553017937}
   - component: {fileID: 553017938}
   m_Layer: 0
-  m_Name: Amelia (8)
+  m_Name: Obstacle 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14294,7 +14294,7 @@ GameObject:
   - component: {fileID: 732730698}
   - component: {fileID: 732730699}
   m_Layer: 0
-  m_Name: Alex (8)
+  m_Name: Obstacle 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14482,7 +14482,7 @@ GameObject:
   - component: {fileID: 734013155}
   - component: {fileID: 734013160}
   m_Layer: 0
-  m_Name: Bob (5)
+  m_Name: Obstacle 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31832,7 +31832,7 @@ GameObject:
   - component: {fileID: 1005833061}
   - component: {fileID: 1005833062}
   m_Layer: 0
-  m_Name: Alex (4)
+  m_Name: Obstacle 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35095,7 +35095,7 @@ GameObject:
   - component: {fileID: 1156428903}
   - component: {fileID: 1156428904}
   m_Layer: 0
-  m_Name: Amelia
+  m_Name: Obstacle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37887,7 +37887,7 @@ GameObject:
   - component: {fileID: 1335731852}
   - component: {fileID: 1335731853}
   m_Layer: 0
-  m_Name: Bob
+  m_Name: Obstacle 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42226,7 +42226,7 @@ GameObject:
   - component: {fileID: 1677732411}
   - component: {fileID: 1677732412}
   m_Layer: 0
-  m_Name: Amelia (4)
+  m_Name: Obstacle 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44500,7 +44500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806603911}
   m_Layer: 0
-  m_Name: Characters
+  m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44520,15 +44520,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 75136542}
-  - {fileID: 1005833056}
-  - {fileID: 732730693}
-  - {fileID: 1826426405}
   - {fileID: 1156428898}
-  - {fileID: 1677732406}
-  - {fileID: 553017932}
   - {fileID: 1335731846}
+  - {fileID: 1005833056}
+  - {fileID: 1677732406}
   - {fileID: 2036450231}
+  - {fileID: 732730693}
+  - {fileID: 553017932}
   - {fileID: 734013154}
+  - {fileID: 1826426405}
   m_Father: {fileID: 1909408218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814351618
@@ -44936,7 +44936,7 @@ GameObject:
   - component: {fileID: 1826426410}
   - component: {fileID: 1826426411}
   m_Layer: 0
-  m_Name: Alex (12)
+  m_Name: Obstacle 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54790,7 +54790,7 @@ GameObject:
   - component: {fileID: 2036450237}
   - component: {fileID: 2036450238}
   m_Layer: 0
-  m_Name: Bob (4)
+  m_Name: Obstacle 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
