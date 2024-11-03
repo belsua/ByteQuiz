@@ -11,11 +11,9 @@ public class PopupsAnimation : MonoBehaviour
     [SerializeField] LeanTweenType easeType;
 
     public PlayerController playerController; // Reference to the PlayerController script
-    private bool isButtonOffScreen = false; // To track the button state
 
     private float screenWidth; // Variable to store the screen width
     private float movementOffset; // The calculated offset for moving buttons
-    private bool collided = false;
 
     void Start()
     {
@@ -30,7 +28,6 @@ public class PopupsAnimation : MonoBehaviour
         {
             MoveIn();
             Debug.Log("Entered");
-            collided = true;
         }
     }
 
@@ -41,7 +38,6 @@ public class PopupsAnimation : MonoBehaviour
         {
             MoveOut();
             Debug.Log("Out");
-            collided = false;
         }
     }
 
