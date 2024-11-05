@@ -27,7 +27,6 @@ public class Runner : Minigame
     private Dictionary<int, PlayerData> playerData = new Dictionary<int, PlayerData>();
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
 
-    public GameObject currentObject;
     int attempts = 0;
 
     protected override void Awake()
@@ -94,7 +93,7 @@ public class Runner : Minigame
         ChangeScoreList(PhotonNetwork.LocalPlayer.ActorNumber, score);
         ChangeUI_RPC();
         RemoveQuestion(currentQuestionIndex);
-        Destroy(currentObject);
+        Destroy(TeleportLocation.collidedObject);
         GenerateQuestions();
         ToggleQuiz(false);
     }
@@ -120,7 +119,7 @@ public class Runner : Minigame
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AudioManager.PlaySound(finishClip);
+        ShowMessage("Great Work!", finishClip);
 
         var sortedPlayerData = playerData.OrderByDescending(x => x.Value.Score).ToList();
 
@@ -203,12 +202,32 @@ public class Runner : Minigame
         );
 
         standingsText.text = string.Empty;
-        foreach (var entry in playerData) standingsText.text += $"{entry.Value.NickName}: {entry.Value.Score}\n";
+
+        var sortedPlayerData = playerData.OrderByDescending(x => x.Value.Score).ToList();
+
+        int rank = 1;
+        foreach (var entry in sortedPlayerData)
+        {
+            standingsText.text += $"{GetOrdinal(rank)}. {entry.Value.NickName} = {entry.Value.Score} pts\n";
+            rank++;
+        }
+
         AudioSource.Stop();
         quizPanel.SetActive(false);
         scorePanel.SetActive(false);
         AudioManager.PlaySound(roundClip);
         StartCoroutine(UpdateScores(time: 5));
+    }
+
+    private string GetOrdinal(int i)
+    {
+        return i switch
+        {
+            1 => "1st",
+            2 => "2nd",
+            3 => "3rd",
+            _ => $"{i + 1}th",
+        };
     }
 
     IEnumerator UpdateScores(int time)
