@@ -3,20 +3,25 @@ using UnityEngine;
 using Firebase.Database;
 using Firebase.Extensions;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 public class ClassroomManager : MonoBehaviour
 {
     [Header("Game Object References")]
     public TMP_InputField classroomIDInput;
-    public TMP_Text classroomIDText, teacherNameText, playersText, statusText;
+    public TMP_Text classroomIDText, classroomNameText;
     public Button joinClassroomButton, leaveClassroomButton;
     public MenuManager menuManager;
     public Button backButton;
+    public Color inactiveColor, activeColor;
+    public Button detailTabButton, classroomTabButton;
+    public GameObject detailUIContent, classmateUIContent;
+    public GameObject playerItem;
+    public GameObject infoPanel;
+    private int selectedTab = 0;
 
+    [Header("Save System")]
     public GameObject savePanel;
     public SaveEntry saveEntry;
 
@@ -25,6 +30,25 @@ public class ClassroomManager : MonoBehaviour
     private void Awake()
     {
         database = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    private void Start()
+    {
+        LoadDetailsUI();
+    }
+
+    private void OnEnable()
+    {
+        detailTabButton.onClick.AddListener(OnDetailTabButtonClick);
+        classroomTabButton.onClick.AddListener(OnClassroomTabButtonClick);
+        SaveManager.instance.onClassroomChanged.AddListener(HandleClassroomChanged);
+    }
+
+    private void OnDisable()
+    {
+        detailTabButton.onClick.RemoveListener(OnDetailTabButtonClick);
+        classroomTabButton.onClick.RemoveListener(OnClassroomTabButtonClick);
+        SaveManager.instance.onClassroomChanged.RemoveListener(HandleClassroomChanged);
     }
 
     #region Classroom System
@@ -42,10 +66,13 @@ public class ClassroomManager : MonoBehaviour
         if (!string.IsNullOrEmpty(classroomID)) RemovePlayerFromClassroom(classroomID);
         else menuManager.ShowErrorPanel("You are not in a classroom.");
         classroomIDInput.text = string.Empty;
+        infoPanel.SetActive(true);
     }
 
     private async void AddPlayerToClassroom(string classroomID)
     {
+        // Clear the classroom ID input field before adding the player
+        classroomIDInput.text = string.Empty;
         PlayerPrefs.DeleteKey("CloudPlayerId");
         menuManager.PopulateSaveList();
         menuManager.ShowLoadingPanel();
@@ -116,31 +143,42 @@ public class ClassroomManager : MonoBehaviour
                     await GetClassroomInfo();
                 }
 
-                //menuManager.PopulateSaveList();
                 menuManager.HideLoadingPanel();
+                foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
+                detailUIContent.SetActive(false);
+
             }
         });
     }
 
     public async void UpdateClassroomInterface()
     {
-        // Check if the player is not connected to the internet e
-        if (Application.internetReachability.Equals(NetworkReachability.NotReachable)) menuManager.ShowErrorPanel("Player is not connected to the internet.");
-        else await GetClassroomInfo();
+        // Check if the player is not connected to the internet
+        if (Application.internetReachability.Equals(NetworkReachability.NotReachable))
+        {
+            classroomIDInput.interactable = false;
+            joinClassroomButton.interactable = false;
+            leaveClassroomButton.interactable = false;
+            infoPanel.SetActive(true);
+            infoPanel.GetComponentInChildren<TMP_Text>().text = "You are not currently connected to the internet\nPlease try again later";
+        }
+        else
+        {
+            await GetClassroomInfo();
+        }
     }
 
     [ContextMenu("Get Classroom Info")]
     private async Task GetClassroomInfo()
     {
         string classroomID = PlayerPrefs.GetString("ClassroomID", null);
-        Debug.Log($"Classroom ID: {classroomID}");
+        Dictionary<string, string> players = new();
+
 
         if (string.IsNullOrEmpty(classroomID))
         {
-            UpdateUI("Classroom ID: None", "Teacher: None", "Players: None", "Status: Not joined");
+            Debug.Log("No classroom ID found.");
             EnableUIForJoining();
-            //Debug.Log("Classroom ID is null, returning.");
-            //return;
         }
         else
         {
@@ -157,100 +195,41 @@ public class ClassroomManager : MonoBehaviour
             else if (snapshot.HasChild("name") && snapshot.HasChild("teacherID"))
             {
                 string nameValue = snapshot.Child("name").GetValue(true).ToString();
-                string teacherName = snapshot.Child("teacherID").GetValue(true).ToString();
-                UpdateUI($"Classroom ID: {classroomID}", $"Teacher: {teacherName}", "Players: None", "Status: Joined");
 
                 // Handle players text
                 if (snapshot.HasChild("players"))
                 {
-                    StringBuilder playersList = new StringBuilder("Players: ");
                     foreach (DataSnapshot playerSnapshot in snapshot.Child("players").Children)
                     {
                         if (playerSnapshot.HasChild("profile") && playerSnapshot.Child("profile").HasChild("name"))
                         {
-                            string playerName = playerSnapshot.Child("profile/name").GetValue(true).ToString();
-                            playersList.Append(playerName + ", ");
+                            players.Add(playerSnapshot.Key, playerSnapshot.Child("profile").Child("name").GetValue(true).ToString());
                         }
                     }
-                    if (playersList.Length > 10)
-                    {
-                        playersList.Length -= 2;
-                    }
-                    playersText.text = playersList.ToString();
                 }
                 else
                 {
-                    playersText.text = "Players: None";
+                    Debug.Log("Players: None");
                 }
+
+                UpdateUI(classroomID, nameValue, players);
             }
         }    
     }
 
-    //if (classroomID == null)
-    //{
-    //    UpdateUI("Classroom ID: None", "Teacher: None", "Players: None", "Status: Not joined");
-    //    EnableUIForJoining();
-    //    Debug.Log("Classroom ID is null, returning.");
-    //    return;
-    //}
-    //else
-    //{
-    //    DisableUIForJoining();
-
-    //    try
-    //    {
-    //        DataSnapshot snapshot = await database.Child("classrooms").Child(classroomID).GetValueAsync();
-
-    //        if (!snapshot.Exists)
-    //        {
-    //            menuManager.ShowErrorPanel($"Classroom does not exist: {classroomID}");
-    //            Debug.Log($"Classroom does not exist: {classroomID}, returning.");
-    //            return;
-    //        }
-    //        else if (snapshot.HasChild("name") && snapshot.HasChild("teacherID"))
-    //        {
-    //            string nameValue = snapshot.Child("name").GetValue(true).ToString();
-    //            string teacherName = snapshot.Child("teacherID").GetValue(true).ToString();
-    //            UpdateUI($"Classroom ID: {classroomID}", $"Teacher: {teacherName}", "Players: None", "Status: Joined");
-
-    //            // Handle players text
-    //            if (snapshot.HasChild("players"))
-    //            {
-    //                StringBuilder playersList = new StringBuilder("Players: ");
-    //                foreach (DataSnapshot playerSnapshot in snapshot.Child("players").Children)
-    //                {
-    //                    if (playerSnapshot.HasChild("profile") && playerSnapshot.Child("profile").HasChild("name"))
-    //                    {
-    //                        string playerName = playerSnapshot.Child("profile/name").GetValue(true).ToString();
-    //                        playersList.Append(playerName + ", ");
-    //                    }
-    //                }
-    //                if (playersList.Length > 10)
-    //                {
-    //                    playersList.Length -= 2;
-    //                }
-    //                playersText.text = playersList.ToString();
-    //            }
-    //            else
-    //            {
-    //                playersText.text = "Players: None";
-    //            }
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.LogError($"Failed to get classroom data: {ex.Message}");
-    //    }
-    //}
-
-
     // Helper method to update UI text fields
-    private void UpdateUI(string classroomIDText, string teacherNameText, string playersText, string statusText)
+    private void UpdateUI(string classroomID, string classroomName, Dictionary<string, string> players)
     {
-        this.classroomIDText.text = classroomIDText;
-        this.teacherNameText.text = teacherNameText;
-        this.playersText.text = playersText;
-        this.statusText.text = statusText;
+        classroomIDText.text = classroomID;
+        classroomNameText.text = classroomName;
+
+        foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
+        foreach (KeyValuePair<string, string> player in players)
+        {
+            GameObject playerItemPrefab = Instantiate(playerItem, classmateUIContent.transform);
+            playerItemPrefab.transform.Find("LabelText (TMP)").GetComponent<TMP_Text>().text = "Classmate Name";
+            playerItemPrefab.transform.Find("Text (TMP)").GetComponent<TMP_Text>().text = player.Value;
+        }
     }
 
     private void EnableUIForJoining()
@@ -271,4 +250,75 @@ public class ClassroomManager : MonoBehaviour
 
     #endregion
 
+    #region Tab Functions
+
+    public void OnDetailTabButtonClick()
+    {
+        selectedTab = 0;
+        UpdateTabColor();
+        LoadDetailsUI();
+    }
+
+    public void OnClassroomTabButtonClick()
+    {
+        selectedTab = 1;
+        UpdateTabColor();
+        LoadClassroomUI();
+    }
+
+    private void UpdateTabColor()
+    {
+        if (selectedTab == 0)
+        {
+            detailTabButton.GetComponent<Image>().color = activeColor;
+            classroomTabButton.GetComponent<Image>().color = inactiveColor;
+        }
+        else
+        {
+            classroomTabButton.GetComponent<Image>().color = activeColor;
+            detailTabButton.GetComponent<Image>().color = inactiveColor;
+        }
+    }
+
+    private void LoadDetailsUI()
+    {
+        Debug.Log("Loading details UI");
+
+        classmateUIContent.SetActive(false);
+        detailUIContent.SetActive(true);
+        ShowClassroomDetails();
+    }
+
+    private void ShowClassroomDetails()
+    {
+        string classroomID = PlayerPrefs.GetString("ClassroomID", null);
+        if (string.IsNullOrEmpty(classroomID))
+        {
+            foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(false);
+            if (infoPanel != null) infoPanel.SetActive(true);
+        }
+        else
+        {
+            foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(true);
+            if (infoPanel != null) infoPanel.SetActive(false);
+        }
+    }
+
+    private void LoadClassroomUI()
+    {
+        Debug.Log("Loading classroom UI");
+
+        detailUIContent.SetActive(false);
+        classmateUIContent.SetActive(true);
+    }
+
+    private void HandleClassroomChanged()
+    {
+        Debug.Log("Classroom changed");
+
+        if (infoPanel != null) infoPanel.SetActive(false);
+        ShowClassroomDetails();
+        savePanel.GetComponent<SizeAnimate>().Close();
+    }
+    #endregion
 }
