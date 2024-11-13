@@ -11,11 +11,9 @@ public class SubjectPopups : MonoBehaviour
     [SerializeField] LeanTweenType easeType;
 
     public PlayerController playerController; // Reference to the PlayerController script
-    private bool isButtonOffScreen = false; // To track the button state
 
     private float screenWidth; // Variable to store the screen width
     private float movementOffset; // The calculated offset for moving buttons
-    private bool collided = false;
 
     // Enum for subject types
     public enum Subject { NumberSystem, IntroProgramming };
@@ -35,7 +33,6 @@ public class SubjectPopups : MonoBehaviour
             if (ShouldAnimate())
             {
                 MoveIn();
-                collided = true;
             }
         }
     }
@@ -48,7 +45,6 @@ public class SubjectPopups : MonoBehaviour
             if (ShouldAnimate())
             {
                 MoveOut();
-                collided = false;
             }
         }
     }
