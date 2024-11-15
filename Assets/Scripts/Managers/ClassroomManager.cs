@@ -188,8 +188,15 @@ public class ClassroomManager : MonoBehaviour
 
             if (!snapshot.Exists)
             {
-                menuManager.ShowErrorPanel($"Classroom does not exist: {classroomID}");
                 Debug.Log($"Classroom does not exist: {classroomID}, returning.");
+                menuManager.ShowErrorPanel($"Hey! Something happen to your classroom. Ask your teacher for help.");
+
+                // Reset classroom ID in PlayerPrefs and enable UI for joining a classroom
+                // And update classroom details
+                PlayerPrefs.DeleteKey("ClassroomID");
+                EnableUIForJoining();
+                UpdateClassroomDetails();
+
                 return;
             }
             else if (snapshot.HasChild("name") && snapshot.HasChild("teacherID"))
@@ -286,15 +293,16 @@ public class ClassroomManager : MonoBehaviour
 
         classmateUIContent.SetActive(false);
         detailUIContent.SetActive(true);
-        ShowClassroomDetails();
+        UpdateClassroomDetails();
     }
 
-    private void ShowClassroomDetails()
+    private void UpdateClassroomDetails()
     {
         string classroomID = PlayerPrefs.GetString("ClassroomID", null);
         if (string.IsNullOrEmpty(classroomID))
         {
             foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(false);
+            foreach (Transform child in classmateUIContent.transform) child.gameObject.SetActive(false);
             if (infoPanel != null) infoPanel.SetActive(true);
         }
         else
@@ -317,7 +325,7 @@ public class ClassroomManager : MonoBehaviour
         Debug.Log("Classroom changed");
 
         if (infoPanel != null) infoPanel.SetActive(false);
-        ShowClassroomDetails();
+        UpdateClassroomDetails();
         savePanel.GetComponent<SizeAnimate>().Close();
     }
     #endregion
