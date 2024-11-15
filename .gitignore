@@ -71,22 +71,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# Plastic VCS file and directory
-.plastic/
-ignore.conf
-/Assets/Editor Default Resources
-Assets/Editor Default Resources.meta
-/Assets/ExternalDependencyManager
-Assets/Firebase.meta
-Assets/ExternalDependencyManager.meta
-Assets/Firebase/Editor.meta
-/Assets/Firebase
-Assets/GeneratedLocalRepo.meta
-/Assets/GeneratedLocalRepo
-Assets/Plugins.meta
-/Assets/Plugins
-ProjectSettings/GvhProjectSettings.xml
-ProjectSettings/AndroidResolverDependencies.xml
-/Assets/LeanTween
-Assets/Resources/BillingMode.json.meta
