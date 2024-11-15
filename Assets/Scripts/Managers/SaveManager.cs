@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// Stores the player data at `public static Player player`
@@ -33,6 +35,10 @@ public class SaveManager : MonoBehaviour
 
     public static bool multiplayer = false;
 
+    public UnityEvent onClassroomChanged = new();
+    private Queue<Action> mainThreadActions = new();
+    private readonly object queueLock = new();
+
     #region Unity Methods
 
     private void Awake()
@@ -44,6 +50,16 @@ public class SaveManager : MonoBehaviour
 
         transform.SetParent(null, false);
         DontDestroyOnLoad(gameObject);
+    }
+    private void Update()
+    {
+        lock (queueLock)
+        {
+            while (mainThreadActions.Count > 0)
+            {
+                mainThreadActions.Dequeue()?.Invoke();
+            }
+        }
     }
 
     private void Start()
@@ -241,15 +257,11 @@ public class SaveManager : MonoBehaviour
         try
         {
             string json = JsonConvert.SerializeObject(player);
+            await database.Child("classrooms").Child(classroomID).Child("players").Child(player.profile.playerId).SetRawJsonValueAsync(json);
 
-            await database.Child("classrooms").Child(classroomID).Child("players").Child(player.profile.playerId).SetRawJsonValueAsync(json).ContinueWith(task =>
-            {
-                if (task.IsCompleted) Debug.Log("Player added to classroom successfully.");
-                else Debug.LogError("Failed to add player to classroom: " + task.Exception);
-            });
-
+            lock (queueLock) mainThreadActions.Enqueue(() => onClassroomChanged?.Invoke());
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             Debug.LogError($"Failed to save player data: {ex.Message}");
         }
