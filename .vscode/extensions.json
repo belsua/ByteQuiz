@@ -1,5 +1,11 @@
 {
-    "recommendations": [
-      "visualstudiotoolsforunity.vstuc"
+  "recommendations": [
+      "visualstudiotoolsforunity.vstuc",
+      "ms-dotnettools.vscode-dotnet-runtime",
+      "ms-dotnettools.csdevkit",
+      "ms-dotnettools.csharp",
+      "kleber-swf.unity-code-snippets",
+      "streetsidesoftware.code-spell-checker",
+      "aivancarlostuquero.theme-mang-inasal",
     ]
 }
