@@ -125,7 +125,11 @@ public class SaveManager : MonoBehaviour
         string json = JsonConvert.SerializeObject(player, settings);
         File.WriteAllText(filePath, json);
         Debug.Log($"Player data saved to {filePath}");
-        if (PlayerPrefs.GetString("CloudPlayerId") == playerId) await SavePlayerToFirebase(player);
+
+        // Save to Firebase database if classroom ID is set in PlayerPrefs
+        // Else, save to Firebase database if the current player matches the saved player ID
+        if (PlayerPrefs.HasKey("ClassroomID")) await SavePlayerToClassroomFirebase(PlayerPrefs.GetString("ClassroomID"), player);
+        else if (PlayerPrefs.GetString("CloudPlayerId") == playerId) await SavePlayerToFirebase(player);
         else Debug.Log("Player is not selected to save to cloud.");
     }
 
