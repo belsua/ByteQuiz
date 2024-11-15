@@ -21,6 +21,7 @@ public class TerritoryConquest : Minigame
     Dictionary<string, QuestionData> answeredQuestions = new(); // <question number, question data>
     Dictionary<string, int> playerData = new(); // <player, score>
     internal int playerIndex;
+    private int roundNumber = 0; // For keeping the answeredQuestions keys unique from resetting the questions
 
     #region Game Loop
 
@@ -76,10 +77,12 @@ public class TerritoryConquest : Minigame
         correct++;
         tileClaim.ClaimTile();
 
+        string uniqueKey = $"Question {currentQuestionIndex + 1}_{roundNumber}";
+
         // check if question is an image
         if (questionData.questions[currentQuestionIndex].questionText == "")
             answeredQuestions.Add(
-                $"Question {currentQuestionIndex + 1}",
+                uniqueKey,
                 new QuestionData
                 {
                     question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
@@ -88,7 +91,7 @@ public class TerritoryConquest : Minigame
             );
         else
             answeredQuestions.Add(
-                $"Question {currentQuestionIndex + 1}",
+                uniqueKey,
                 new QuestionData
                 {
                     question = questionData.questions[currentQuestionIndex].questionText,
@@ -106,15 +109,28 @@ public class TerritoryConquest : Minigame
         quizPanel.SetActive(false);
 
         RemoveQuestion(currentQuestionIndex);
+
+        // Reset the questions if there are no more questions
+        if (questionData.questions.Length == 0)
+        {
+            Debug.Log("No more questions. Resetting questions...");
+            roundNumber++;
+            questionData = LoadQuestionData(topic, seed, total);
+        }
+
+        Debug.Log($"{topic} question count: {questionData.questions.Length}");
+
         GenerateQuestions();
     }
 
     public override void AnswerWrong()
     {
+        string uniqueKey = $"Question {currentQuestionIndex + 1}_{roundNumber}";
+
         // check if question is an image
         if (questionData.questions[currentQuestionIndex].questionText == "")
             answeredQuestions.Add(
-                $"Question {currentQuestionIndex + 1}",
+                uniqueKey,
                 new QuestionData
                 {
                     question = $"An image of {questionData.questions[currentQuestionIndex].questionImage.name}",
@@ -123,7 +139,7 @@ public class TerritoryConquest : Minigame
             );
         else
             answeredQuestions.Add(
-                $"Question {currentQuestionIndex + 1}",
+                uniqueKey,
                 new QuestionData
                 {
                     question = questionData.questions[currentQuestionIndex].questionText,
@@ -139,6 +155,17 @@ public class TerritoryConquest : Minigame
         quizPanel.SetActive(false);
 
         RemoveQuestion(currentQuestionIndex);
+
+        // Reset the questions if there are no more questions
+        if (questionData.questions.Length == 0)
+        {
+            Debug.Log("No more questions. Resetting questions...");
+            roundNumber++;
+            questionData = LoadQuestionData(topic, seed, total);
+        }
+
+        Debug.Log($"{topic} question count: {questionData.questions.Length}");
+
         GenerateQuestions();
     }
     IEnumerator ClearMarkText()

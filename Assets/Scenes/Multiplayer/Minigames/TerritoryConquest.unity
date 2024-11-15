@@ -1403,8 +1403,8 @@ MonoBehaviour:
   spawnPoints:
   - {x: -6.5, y: 1.5}
   - {x: 6.5, y: -3.5}
-  - {x: -6.5, y: 3.5}
-  - {x: 6.5, y: -1.5}
+  - {x: -6.5, y: -3.5}
+  - {x: 6.5, y: 1.5}
   timeText: {fileID: 895079740}
   markText: {fileID: 1636723530}
   scoreText: {fileID: 1516545124}

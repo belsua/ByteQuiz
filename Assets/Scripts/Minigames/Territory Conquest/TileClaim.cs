@@ -48,5 +48,6 @@ public class TileClaim : MonoBehaviourPun
 
         territoryConquest.score = count;
         territoryConquest.scoreText.text = $"Score: {count}";
+        territoryConquest.ChangeScoreList(PhotonNetwork.LocalPlayer.NickName, count);
     }
 }
