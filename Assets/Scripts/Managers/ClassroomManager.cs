@@ -66,7 +66,6 @@ public class ClassroomManager : MonoBehaviour
         if (!string.IsNullOrEmpty(classroomID)) RemovePlayerFromClassroom(classroomID);
         else menuManager.ShowErrorPanel("You are not in a classroom.");
         classroomIDInput.text = string.Empty;
-        infoPanel.SetActive(true);
     }
 
     private async void AddPlayerToClassroom(string classroomID)
@@ -144,8 +143,9 @@ public class ClassroomManager : MonoBehaviour
                 }
 
                 menuManager.HideLoadingPanel();
+                infoPanel.SetActive(true);
+                foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(false);
                 foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
-                detailUIContent.SetActive(false);
 
             }
         });
@@ -230,6 +230,7 @@ public class ClassroomManager : MonoBehaviour
         classroomIDText.text = classroomID;
         classroomNameText.text = classroomName;
 
+        foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(true);
         foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
         foreach (KeyValuePair<string, string> player in players)
         {
