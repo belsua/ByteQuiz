@@ -26,6 +26,7 @@ public class ClassroomManager : MonoBehaviour
     public SaveEntry saveEntry;
 
     private DatabaseReference database;
+    private Dictionary<string, string> players = new();
 
     private void Awake()
     {
@@ -93,6 +94,7 @@ public class ClassroomManager : MonoBehaviour
                 else
                 {
                     PlayerPrefs.SetString("ClassroomID", classroomID);
+                    UpdateClassroomInterface();
 
                     savePanel.GetComponentInChildren<TMP_Text>().text = "Press cloud button";
                     savePanel.GetComponent<SizeAnimate>().Open();
@@ -109,7 +111,6 @@ public class ClassroomManager : MonoBehaviour
                 }
             }
 
-            UpdateClassroomInterface();
             menuManager.HideLoadingPanel();
         });
     } 
@@ -144,6 +145,7 @@ public class ClassroomManager : MonoBehaviour
 
                 menuManager.HideLoadingPanel();
                 infoPanel.SetActive(true);
+                infoPanel.GetComponentInChildren<TMP_Text>().text = "You are currently not joined in a classroom\r\nAsk your instructor for Classroom Code";
                 foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(false);
                 foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
 
@@ -172,8 +174,6 @@ public class ClassroomManager : MonoBehaviour
     private async Task GetClassroomInfo()
     {
         string classroomID = PlayerPrefs.GetString("ClassroomID", null);
-        Dictionary<string, string> players = new();
-
 
         if (string.IsNullOrEmpty(classroomID))
         {
@@ -206,17 +206,22 @@ public class ClassroomManager : MonoBehaviour
                 // Handle players text
                 if (snapshot.HasChild("players"))
                 {
+                    infoPanel.SetActive(false);
+
                     foreach (DataSnapshot playerSnapshot in snapshot.Child("players").Children)
                     {
                         if (playerSnapshot.HasChild("profile") && playerSnapshot.Child("profile").HasChild("name"))
                         {
-                            players.Add(playerSnapshot.Key, playerSnapshot.Child("profile").Child("name").GetValue(true).ToString());
+                            if (!players.ContainsKey(playerSnapshot.Key))
+                            {
+                                players.Add(playerSnapshot.Key, playerSnapshot.Child("profile").Child("name").GetValue(true).ToString());
+                            }
                         }
                     }
                 }
                 else
                 {
-                    Debug.Log("Players: None");
+                    players.Clear();
                 }
 
                 UpdateUI(classroomID, nameValue, players);
@@ -227,8 +232,10 @@ public class ClassroomManager : MonoBehaviour
     // Helper method to update UI text fields
     private void UpdateUI(string classroomID, string classroomName, Dictionary<string, string> players)
     {
+        infoPanel.SetActive(false);
         classroomIDText.text = classroomID;
         classroomNameText.text = classroomName;
+        CheckPlayerCount();
 
         foreach (Transform child in detailUIContent.transform) child.gameObject.SetActive(true);
         foreach (Transform child in classmateUIContent.transform) Destroy(child.gameObject);
@@ -290,8 +297,6 @@ public class ClassroomManager : MonoBehaviour
 
     private void LoadDetailsUI()
     {
-        Debug.Log("Loading details UI");
-
         classmateUIContent.SetActive(false);
         detailUIContent.SetActive(true);
         UpdateClassroomDetails();
@@ -315,19 +320,42 @@ public class ClassroomManager : MonoBehaviour
 
     private void LoadClassroomUI()
     {
-        Debug.Log("Loading classroom UI");
-
         detailUIContent.SetActive(false);
         classmateUIContent.SetActive(true);
+
+        // Check if player is in classroom 
+        if (PlayerPrefs.GetString("ClassroomID", null) == null)
+        {
+            infoPanel.SetActive(true);
+            infoPanel.GetComponentInChildren<TMP_Text>().text = "You are currently not joined in a classroom\r\nAsk your teacher for Classroom Code";
+        }
+        else
+        {
+            CheckPlayerCount();
+        }
+
+    }
+
+    private void CheckPlayerCount()
+    {
+        if (players.Count > 0)
+        {
+            infoPanel.SetActive(false);
+            UpdateClassroomDetails();
+        }
+        else if (players.Count == 0 && classmateUIContent.activeInHierarchy && !string.IsNullOrEmpty(PlayerPrefs.GetString("ClassroomID")))
+        {
+            infoPanel.SetActive(true);
+            infoPanel.GetComponentInChildren<TMP_Text>().text = "No players in classroom.";
+        }
     }
 
     private void HandleClassroomChanged()
     {
-        Debug.Log("Classroom changed");
-
         if (infoPanel != null) infoPanel.SetActive(false);
         UpdateClassroomDetails();
         if (menuManager.classroomPanel.activeSelf) savePanel.GetComponent<SizeAnimate>().Close();
     }
+
     #endregion
 }
