@@ -327,7 +327,7 @@ public class ClassroomManager : MonoBehaviour
 
         if (infoPanel != null) infoPanel.SetActive(false);
         UpdateClassroomDetails();
-        savePanel.GetComponent<SizeAnimate>().Close();
+        if (menuManager.classroomPanel.activeSelf) savePanel.GetComponent<SizeAnimate>().Close();
     }
     #endregion
 }
