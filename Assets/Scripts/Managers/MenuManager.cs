@@ -9,7 +9,7 @@ using TMPro;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
-    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, deletePanel, loadingPanel, errorPanel, classroomPanel;
+    public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, deletePanel, loadingPanel, errorPanel, classroomPanel, loginPanel, menuButtons;
     public CanvasGroup loadingCanvasGroup;
     public SpriteRenderer loadingSpriteRenderer;
 
@@ -44,6 +44,17 @@ public class MenuManager : MonoBehaviourPunCallbacks
             // audio
             bool isMuted = PlayerPrefs.GetInt(MuteKey, 0) == 1;
             SetAudioState(isMuted);
+
+            if (PlayerPrefs.GetString("LoginMethod") == string.Empty)
+            {
+                menuButtons.SetActive(false);
+                loginPanel.SetActive(true);
+            }
+            else 
+            {
+                menuButtons.SetActive(true);
+                loginPanel.SetActive(false);
+            }
         }
     }
 

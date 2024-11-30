@@ -2,12 +2,8 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
-using Firebase.Database;
 using System.Collections;
 using System.Threading.Tasks;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Extensions;
 using UnityEngine.Events;
 using System;
 
@@ -29,12 +25,10 @@ public class SaveManager : MonoBehaviour
     public static Player player;
     public static string filePath;
     public static string saveFolder;
-    public DatabaseReference database;
-    public FirebaseAuth auth;
-    FirebaseUser user;
 
     public static bool multiplayer = false;
 
+    public FirebaseManager firebaseManager;
     public UnityEvent onClassroomChanged = new();
     private Queue<Action> mainThreadActions = new();
     private readonly object queueLock = new();
@@ -60,36 +54,6 @@ public class SaveManager : MonoBehaviour
                 mainThreadActions.Dequeue()?.Invoke();
             }
         }
-    }
-
-    private void Start()
-    {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        {
-            if (task.Result == DependencyStatus.Available)
-            {
-                auth = FirebaseAuth.DefaultInstance;
-
-                auth.SignInAnonymouslyAsync().ContinueWith(task =>
-                    {
-                        if (task.IsCompleted && !task.IsFaulted)
-                        {
-                            user = task.Result.User;
-                            database = FirebaseDatabase.DefaultInstance.RootReference;
-                            Debug.Log($"User signed in successfully: {user.DisplayName} ({user.UserId})");
-                        }
-                        else
-                        {
-                            Debug.LogError(task.Exception);
-                        }
-                    }
-                );
-            }
-            else
-            {
-                Debug.LogError(task.Exception);
-            }
-        });
     }
 
     #endregion
@@ -142,8 +106,8 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(filePath, json);
         Debug.Log($"Player data saved to {filePath}");
 
-        // Save to Firebase database if classroom ID is set in PlayerPrefs
-        // Else, save to Firebase database if the current player matches the saved player ID
+        // Save to Firebase firebaseManager.database if classroom ID is set in PlayerPrefs
+        // Else, save to Firebase firebaseManager.database if the current player matches the saved player ID
         if (PlayerPrefs.HasKey("ClassroomID")) await SavePlayerToClassroomFirebase(PlayerPrefs.GetString("ClassroomID"), player);
         else if (PlayerPrefs.GetString("CloudPlayerId") == playerId) await SavePlayerToFirebase(player);
         else Debug.Log("Player is not selected to save to cloud.");
@@ -242,7 +206,7 @@ public class SaveManager : MonoBehaviour
             string json = JsonConvert.SerializeObject(player);
 
             // Save to Firebase
-            await database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
+            await firebaseManager.database.Child("users").Child(player.profile.playerId).SetRawJsonValueAsync(json);
 
             Debug.Log("Player data saved successfully.");
         }
@@ -257,7 +221,7 @@ public class SaveManager : MonoBehaviour
         try
         {
             string json = JsonConvert.SerializeObject(player);
-            await database.Child("classrooms").Child(classroomID).Child("players").Child(player.profile.playerId).SetRawJsonValueAsync(json);
+            await firebaseManager.database.Child("classrooms").Child(classroomID).Child("players").Child(player.profile.playerId).SetRawJsonValueAsync(json);
 
             lock (queueLock) mainThreadActions.Enqueue(() => onClassroomChanged?.Invoke());
         }
@@ -276,11 +240,11 @@ public class SaveManager : MonoBehaviour
     IEnumerator LoadPlayerFromFirebaseCoroutine()
     {
 
-        var data = database.Child("users").Child(player.profile.playerId).GetValueAsync();
+        var data = firebaseManager.database.Child("users").Child(player.profile.playerId).GetValueAsync();
         yield return new WaitUntil(predicate: () => data.IsCompleted);
         Debug.Log(data.Result.GetRawJsonValue());
 
-        DataSnapshot snapshot = data.Result;
+        Firebase.Database.DataSnapshot snapshot = data.Result;
         string json = snapshot.GetRawJsonValue();
 
         if (json != null) player = JsonConvert.DeserializeObject<Player>(json);
@@ -299,7 +263,7 @@ public class SaveManager : MonoBehaviour
         try
         {
             // Try to delete the player data
-            await database.Child("users").Child(player.profile.playerId).RemoveValueAsync();
+            await firebaseManager.database.Child("users").Child(player.profile.playerId).RemoveValueAsync();
 
             // Log success
             Debug.Log($"Player {player.profile.name} with id {player.profile.playerId} deleted from Firebase successfully.");
@@ -315,7 +279,7 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
-            await database.Child("classrooms").Child(classroomID).Child("players").Child(PlayerPrefs.GetString("CloudPlayerId")).RemoveValueAsync().ContinueWith(task =>
+            await firebaseManager.database.Child("classrooms").Child(classroomID).Child("players").Child(PlayerPrefs.GetString("CloudPlayerId")).RemoveValueAsync().ContinueWith(task =>
             {
                 if (task.IsCompleted) Debug.Log("Player deleted from classroom successfully.");
                 else Debug.LogError("Failed to delete player from classroom: " + task.Exception);

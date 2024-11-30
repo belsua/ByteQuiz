@@ -9,6 +9,7 @@ using TMPro;
 public class LeaderboardManager : MonoBehaviour
 {
     [Header("Game Object References")]
+    public FirebaseManager firebaseManager;
     public GameObject contentParent;
     public GameObject itemPrefab;
     public GameObject loadingObject;
@@ -78,7 +79,7 @@ public class LeaderboardManager : MonoBehaviour
         loadingObject.SetActive(true); // Show loading indicator
         ClearContent();
 
-        SaveManager.instance.database.Child("users").GetValueAsync().ContinueWithOnMainThread(task =>
+        firebaseManager.database.Child("users").GetValueAsync().ContinueWithOnMainThread(task =>
         {
             try
             {
