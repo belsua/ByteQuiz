@@ -6,10 +6,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
     public GameObject canvas, saveEntryPrefab, scrollContent, exitPanel, deletePanel, loadingPanel, errorPanel, classroomPanel, loginPanel, menuButtons;
+    public GameObject messagePanel;
+    public Button[] onlineButtons;
     public CanvasGroup loadingCanvasGroup;
     public SpriteRenderer loadingSpriteRenderer;
 
@@ -54,6 +57,11 @@ public class MenuManager : MonoBehaviourPunCallbacks
             {
                 menuButtons.SetActive(true);
                 loginPanel.SetActive(false);
+            }
+
+            if (PlayerPrefs.GetString("LoginMethod") == "Local")
+            {
+                foreach (Button button in onlineButtons) button.interactable = false;
             }
         }
     }
@@ -167,4 +175,34 @@ public class MenuManager : MonoBehaviourPunCallbacks
         errorPanel.SetActive(true);
         errorPanel.GetComponentInChildren<TMP_Text>().text = message;
     }
+
+    #region Login Panel Functions
+
+    public void ShowMessagePanel(int mode)
+    {
+        messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.RemoveAllListeners();
+        messagePanel.GetComponent<SizeAnimate>().Open();
+
+        // 0 = play locally, 1 = sign in
+        switch (mode)
+        {
+            case 0:
+                messagePanel.GetComponentInChildren<TMP_Text>().text = "Playing locally will deactivate access to online features. Would you like to continue?";
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => FirebaseManager.instance.PlayLocally());
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => loginPanel.SetActive(false));
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => menuButtons.SetActive(true));
+                foreach (Button button in onlineButtons) button.interactable = false;
+                break;
+            case 1:
+                messagePanel.GetComponentInChildren<TMP_Text>().text = "By logging in, you can access cloud features through the classroom functionality. Would you like to proceed?";
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => FirebaseManager.instance.SignInAnonymously());
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => loginPanel.SetActive(false));
+                messagePanel.transform.Find("Dialog/ContinueButton").GetComponent<Button>().onClick.AddListener(() => menuButtons.SetActive(true));
+                break;
+            default:
+                break;
+        }
+    }
+
+    #endregion
 }

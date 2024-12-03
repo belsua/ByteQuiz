@@ -28,6 +28,11 @@ public class SaveEntry : MonoBehaviour
         classroomManager = GameObject.Find("ClassroomManager").GetComponent<ClassroomManager>();
     }
 
+    private void Start()
+    {
+        if (PlayerPrefs.GetString("LoginMethod") == "Local") cloudButton.interactable = false;
+    }
+
     public virtual void SetCharacterData(Player player)
     {
         this.player = player;
